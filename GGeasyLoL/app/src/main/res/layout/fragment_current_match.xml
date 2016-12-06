@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MacBilgisiFragment"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:text="Current Match"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="normal|bold" />
+
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="@color/secondary_text"
+        android:layout_margin="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_marginLeft="20dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp"
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-smallcaps"
+            android:layout_weight="1"
+            android:text="Summoner Name" />
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/imageButton2"
+            android:background="@drawable/add_sumonner"
+            android:layout_marginRight="10dp" />
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:paddingLeft="15dp"
+        android:hint="summoner name" />
+
+    <TextView
+        android:text="Region"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_marginLeft="20dp"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@color/primary_text"
+        android:fontFamily="sans-serif-smallcaps" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:text="Get Data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:background="@color/colorAccent"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="18sp"
+        android:textColor="@color/cast_expanded_controller_progress_text_color"
+        android:textAllCaps="false"
+        android:layout_margin="10dp" />
+
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="@color/secondary_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview" />
+
+</LinearLayout>

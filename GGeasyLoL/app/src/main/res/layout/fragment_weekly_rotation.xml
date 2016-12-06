@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.ChampionFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="Weekly Rotation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView21"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorAccent" />
+
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="@color/secondary_text"
+        android:layout_margin="10dp" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/grid_view"
+        android:numColumns="3" />
+</LinearLayout>
+

@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.antika.berk.ggeasylol.fragment.CurrentMatchOpenFragment"
+    android:orientation="vertical"
+    android:id="@+id/frg_crn_mtc_open">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="4ntica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView16"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorAccent"
+        android:layout_margin="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="GameMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView22"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView23"
+            android:layout_weight="1"
+            android:textStyle="normal|bold"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:text="GameType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView24"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+
+    <TextView
+        android:text="00:00"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView25"
+        android:textAlignment="textEnd"
+        android:textStyle="normal|bold" />
+
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="@color/secondary_text"
+        android:layout_margin="10dp" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/participants_lv" />
+
+</LinearLayout>
