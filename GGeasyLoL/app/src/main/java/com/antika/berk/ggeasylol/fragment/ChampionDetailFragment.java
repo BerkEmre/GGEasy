@@ -5,9 +5,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -53,8 +55,18 @@ public class ChampionDetailFragment extends Fragment {
         stat=(Button)view.findViewById(R.id.btn_stat);
         name.setText(co.getChampionTitle());
         Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+co.getChampionKey()+"_0.jpg").into(logo);
-
         new getData().execute();
+        skin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SkinFragment cmof = new SkinFragment();
+                cmof.setChampionObject(co);
+                ChampionDetailFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof, "")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return view;
     }
     private class getData extends AsyncTask<String,String,String> {
