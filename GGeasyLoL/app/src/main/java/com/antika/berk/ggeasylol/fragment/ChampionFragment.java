@@ -51,13 +51,12 @@ public class ChampionFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ChampionObject data= champions.get(position);
 
-                ChampionDetailFragment cmf = new ChampionDetailFragment();
-                cmf.setChampionObject(data);
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.beginTransaction().replace(
-                        R.id.content_main_page,
-                        cmf,
-                        cmf.getTag()).commit();
+                ChampionDetailFragment cmof = new ChampionDetailFragment();
+                cmof.setChampionObject(data);
+                ChampionFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof, "")
+                        .addToBackStack(null)
+                        .commit();
             }
         });
         return view;
