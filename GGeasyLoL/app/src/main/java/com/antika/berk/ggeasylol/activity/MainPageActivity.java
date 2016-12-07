@@ -1,15 +1,18 @@
 package com.antika.berk.ggeasylol.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.multidex.MultiDex;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -26,7 +29,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,11 +43,9 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(
                 R.id.content_main_page,
-                cmf,
-                cmf.getTag()).commit();
+                cmf,"0").commit();
         navigationView.setCheckedItem(R.id.nav_camera);
     }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -66,29 +66,25 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
-                    cmf,
-                    cmf.getTag()).commit();
+                    cmf,"0").commit();
         } else if (id == R.id.nav_gallery) {
             SumonnerFragment cmf = new SumonnerFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
-                    cmf,
-                    cmf.getTag()).commit();
+                    cmf,"0").commit();
         } else if (id == R.id.nav_slideshow) {
             ChampionFragment cmf = new ChampionFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
-                    cmf,
-                    cmf.getTag()).commit();
+                    cmf,"0").commit();
         } else if (id == R.id.nav_manage) {
             ComingSoonFragment cmf = new ComingSoonFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
-                    cmf,
-                    cmf.getTag()).commit();
+                    cmf,"0").commit();
         } else if (id == R.id.nav_share)  {
             Intent i = new Intent(Intent.ACTION_SEND);
             i.setType("text/plain");
@@ -98,7 +94,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             i.putExtra(Intent.EXTRA_TEXT, sAux);
             startActivity(Intent.createChooser(i, "Share"));
         } else if (id == R.id.nav_send)   {
-            final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+            final String appPackageName = getPackageName();
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
             } catch (android.content.ActivityNotFoundException anfe) {
@@ -109,8 +105,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
-                    cmf,
-                    cmf.getTag()).commit();
+                    cmf,"0").commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
