@@ -32,7 +32,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RiotApiHelper {
-    String apiKey = "yourApiKey";
+    public String apiKey = "yourApiKey";
     //Get summoner object with summoner name
     public SummonerObject getSumonner(String summonerName, String region) {
         SummonerObject sumonner;
