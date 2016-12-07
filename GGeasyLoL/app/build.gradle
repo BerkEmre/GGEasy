@@ -10,7 +10,7 @@ android {
         targetSdkVersion 24
         multiDexEnabled true
         versionCode 2
-        versionName "1.2"
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true

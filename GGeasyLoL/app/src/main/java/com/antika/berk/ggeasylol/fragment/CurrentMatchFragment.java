@@ -2,17 +2,14 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -103,21 +100,6 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
 
         setSumonnersonListview();
 
-        view.setFocusableInTouchMode(true);
-        view.requestFocus();
-        view.setOnKeyListener( new View.OnKeyListener()
-        {
-            @Override
-            public boolean onKey( View v, int keyCode, KeyEvent event )
-            {
-                if( keyCode == KeyEvent.KEYCODE_BACK )
-                {
-                    getActivity().finish();
-                }
-                return false;
-            }
-        } );
-
         return view;
     }
 
@@ -199,11 +181,6 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
                         .replace(R.id.content_main_page, cmof, "")
                         .addToBackStack(null)
                         .commit();
-
-                View view1 = getActivity().getCurrentFocus();
-                if (view1 != null) {
-                    InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);}
             }
             else
             {

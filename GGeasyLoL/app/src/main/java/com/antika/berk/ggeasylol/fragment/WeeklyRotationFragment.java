@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,21 +30,6 @@ public class WeeklyRotationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_weekly_rotation, container, false);
         gridView=(GridView) view.findViewById(R.id.grid_view);
         new getData().execute();
-
-        view.setFocusableInTouchMode(true);
-        view.requestFocus();
-        view.setOnKeyListener( new View.OnKeyListener()
-        {
-            @Override
-            public boolean onKey( View v, int keyCode, KeyEvent event )
-            {
-                if( keyCode == KeyEvent.KEYCODE_BACK )
-                {
-                    getActivity().finish();
-                }
-                return false;
-            }
-        } );
         return view;
     }
     private class getData extends AsyncTask<String, String, String >
