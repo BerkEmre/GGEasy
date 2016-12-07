@@ -2,14 +2,17 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.SearchView;
@@ -43,6 +46,20 @@ public class ChampionFragment extends Fragment {
 
         new getData().execute("EUW");
 
+        gv_champions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ChampionObject data= champions.get(position);
+
+                ChampionDetailFragment cmf = new ChampionDetailFragment();
+                cmf.setChampionObject(data);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,
+                        cmf.getTag()).commit();
+            }
+        });
         return view;
     }
 
