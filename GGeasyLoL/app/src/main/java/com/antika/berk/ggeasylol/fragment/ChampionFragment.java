@@ -2,6 +2,7 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,14 +10,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionsAdapter;
@@ -30,6 +34,7 @@ import java.util.Locale;
 public class ChampionFragment extends Fragment {
     GridView gv_champions;
     EditText et_arama;
+    ChampionsAdapter adapter;
 
     List<ChampionObject> champions;
 
@@ -49,16 +54,36 @@ public class ChampionFragment extends Fragment {
         gv_champions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ChampionObject data= champions.get(position);
+                ChampionObject data= adapter.getItem(position);
 
                 ChampionDetailFragment cmof = new ChampionDetailFragment();
                 cmof.setChampionObject(data);
                 ChampionFragment.this.getFragmentManager().beginTransaction()
-                        .replace(R.id.content_main_page, cmof, "")
+                        .replace(R.id.content_main_page, cmof)
                         .addToBackStack(null)
                         .commit();
+
+                View view1 = getActivity().getCurrentFocus();
+                if (view1 != null) {
+                    InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);}
             }
         });
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener( new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey( View v, int keyCode, KeyEvent event )
+            {
+                if( keyCode == KeyEvent.KEYCODE_BACK )
+                {
+                    getActivity().finish();
+                }
+                return false;
+            }
+        } );
         return view;
     }
 
@@ -78,40 +103,46 @@ public class ChampionFragment extends Fragment {
             RiotApiHelper raHelper = new RiotApiHelper();
 
             champions = raHelper.getChampionStaticData();
-
-            for (int i = 0; i < champions.size(); i++) {
-                if (dbHelper.getChampion(champions.get(i).getChampionID()) == null)
-                    dbHelper.insertChampion(raHelper.getStaticChampion(Integer.parseInt(champions.get(i).getChampionID()), values[0]));
+            try{
+                for (int i = 0; i < champions.size(); i++) {
+                    if (dbHelper.getChampion(champions.get(i).getChampionID()) == null)
+                        dbHelper.insertChampion(raHelper.getStaticChampion(Integer.parseInt(champions.get(i).getChampionID()), values[0]));
+                }
+            }catch (Exception e){
+                return null;
             }
-            return null;
+            return "0";
         }
 
         @Override
         protected void onPostExecute(String results)
         {
-            final ChampionsAdapter adapter = new ChampionsAdapter(getActivity(), champions);
-            gv_champions.setAdapter(adapter);
-            et_arama.addTextChangedListener(new TextWatcher() {
+            if(results != null){
+                adapter = new ChampionsAdapter(getActivity(), champions);
+                gv_champions.setAdapter(adapter);
+                et_arama.addTextChangedListener(new TextWatcher() {
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    System.out.println("Text ["+s+"]");
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        System.out.println("Text ["+s+"]");
 
-                    adapter.getFilter().filter(s.toString());
-                }
+                        adapter.getFilter().filter(s.toString());
+                    }
 
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count,
-                                              int after) {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count,
+                                                  int after) {
 
-                }
+                    }
 
-                @Override
-                public void afterTextChanged(Editable s) {
-                }
-            });
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                    }
+                });
+            }
+            else
+                Toast.makeText(getActivity(), "Make a Mistake Please Try Again", Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
     }
-
 }

@@ -1,6 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -100,6 +102,8 @@ public class AddSumonnerFragment extends DialogFragment
         return view;
     }
 
+
+
     private class checkUser extends AsyncTask<String, String, String> {
 
         String userData;
@@ -144,6 +148,10 @@ public class AddSumonnerFragment extends DialogFragment
                 dismiss();
             else
                 Toast.makeText(getContext(), "Check Sumonner Name or Region", Toast.LENGTH_LONG).show();
+            View view = getActivity().getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
         }
     }
 
