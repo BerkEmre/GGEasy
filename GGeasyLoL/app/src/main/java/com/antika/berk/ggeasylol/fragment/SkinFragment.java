@@ -1,6 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -48,8 +49,16 @@ public class SkinFragment extends Fragment {
         return view;
     }
 
+
     private class getData extends AsyncTask<String,String,String> {
         List<ChampionSkinObject> skins=new ArrayList<ChampionSkinObject>();
+        ProgressDialog progress;
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(getActivity(), "Please Wait...",
+                    "LOADING", true);
+        }
 
         @Override
         protected String doInBackground(String... strings) {
@@ -75,6 +84,7 @@ public class SkinFragment extends Fragment {
         protected void onPostExecute(String s) {
             ChampionSkinAdapter adapter=new ChampionSkinAdapter(getActivity(),skins);
             gridview.setAdapter(adapter);
+            progress.dismiss();
 
 
         }

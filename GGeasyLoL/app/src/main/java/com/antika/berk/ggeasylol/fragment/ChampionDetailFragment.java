@@ -1,6 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -67,11 +68,28 @@ public class ChampionDetailFragment extends Fragment {
                         .commit();
             }
         });
+        stat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StatFragment cmof = new StatFragment();
+                cmof.setChampionObject(co);
+                ChampionDetailFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof, "")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return view;
     }
     private class getData extends AsyncTask<String,String,String> {
     RiotApiHelper apiHelper=new RiotApiHelper();
+        ProgressDialog progress;
 
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(getActivity(), "Please Wait...",
+                    "LOADING", true);
+        }
         @Override
         protected String doInBackground(String... strings) {
             try {
@@ -91,6 +109,7 @@ public class ChampionDetailFragment extends Fragment {
         protected void onPostExecute(String s) {
             String k=s.replace("<br>", "");
             hikayeView.setText("\t"+k);
+            progress.dismiss();
 
 
         }
