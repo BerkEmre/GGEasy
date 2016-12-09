@@ -54,6 +54,7 @@ public class ChampionDetailFragment extends Fragment {
         name=(TextView)view.findViewById(R.id.textView7);
         skin=(Button)view.findViewById(R.id.btn_skin) ;
         stat=(Button)view.findViewById(R.id.btn_stat);
+        skill=(Button)view.findViewById(R.id.btn_skill);
         name.setText(co.getChampionTitle());
         Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+co.getChampionKey()+"_0.jpg").into(logo);
         new getData().execute();
@@ -61,6 +62,17 @@ public class ChampionDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 SkinFragment cmof = new SkinFragment();
+                cmof.setChampionObject(co);
+                ChampionDetailFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof, "")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        skill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SkillFragment cmof = new SkillFragment();
                 cmof.setChampionObject(co);
                 ChampionDetailFragment.this.getFragmentManager().beginTransaction()
                         .replace(R.id.content_main_page, cmof, "")
