@@ -49,7 +49,7 @@ public class ChampionFragment extends Fragment {
         gv_champions = (GridView) view.findViewById(R.id.grid_view);
         et_arama     = (EditText) view.findViewById(R.id.editText3);
 
-        new getData().execute("EUW");
+        new getData().execute("TR");
 
         gv_champions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

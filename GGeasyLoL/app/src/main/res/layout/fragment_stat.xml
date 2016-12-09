@@ -23,14 +23,15 @@
             android:textStyle="normal|bold"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif-smallcaps" />
 
         <View
             android:layout_height="2dp"
             android:background="#c0c0c0"
-            android:layout_marginTop="2dp"
             android:layout_weight="1"
-            android:layout_width="fill_parent" />
+            android:layout_width="fill_parent"
+            android:layout_margin="10dp" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -262,7 +263,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/kazo"
-                    android:layout_marginLeft="5dp">
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

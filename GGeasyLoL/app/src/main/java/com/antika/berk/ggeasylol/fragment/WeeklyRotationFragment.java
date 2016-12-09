@@ -2,6 +2,7 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.antika.berk.ggeasylol.R;
@@ -24,7 +27,7 @@ import java.util.List;
 public class WeeklyRotationFragment extends Fragment {
     GridView gridView;
     List<ChampionObject> championObjects=new ArrayList<ChampionObject>();
-
+    ChampionsAdapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,6 +49,19 @@ public class WeeklyRotationFragment extends Fragment {
                 return false;
             }
         } );
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ChampionObject data= adapter.getItem(position);
+
+                ChampionDetailFragment cmof = new ChampionDetailFragment();
+                cmof.setChampionObject(data);
+                WeeklyRotationFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return view;
     }
     private class getData extends AsyncTask<String, String, String >
@@ -77,7 +93,7 @@ public class WeeklyRotationFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            ChampionsAdapter adapter = new ChampionsAdapter(getActivity(), championObjects);
+            adapter = new ChampionsAdapter(getActivity(), championObjects);
             gridView.setAdapter(adapter);
             progress.dismiss();
 

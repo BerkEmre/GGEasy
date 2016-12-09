@@ -3,8 +3,7 @@
     android:id="@+id/activity_skin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.antika.berk.ggeasylol.activity.MainPageActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,13 +19,14 @@
             android:textAlignment="center"
             android:textStyle="normal|bold"
             android:textSize="30sp"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif-smallcaps" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="2dp"
             android:background="#c0c0c0"
-            android:layout_marginTop="2dp" />
+            android:layout_margin="10dp" />
 
         <GridView
             android:id="@+id/gridview"
