@@ -30,9 +30,9 @@ import java.util.List;
 
 public class StatFragment extends Fragment {
     private ChampionObject co;
-    TextView name,armor,armorperlevel,attackdamage,attackdamageperlevel,attackrange,attackspeedoffset,attackspeedperlevel,
-            crit,critperlevel,hp,hpperlevel,hpregen,hpregenperlevel,movespeed,mp,mpperlevel,mpregen,mpregenperlevel,
-            spellblock,spellblockperlevel;
+    TextView name,armor,attackdamage,attackrange,attackspeedoffset,attackspeedperlevel,
+            crit,critperlevel,hp,hpregen,movespeed,mp,mpregen,
+            spellblock;
     ProgressBar attack_p,defense_p,magic_p,difficulty_p;
     public void setChampionObject(ChampionObject co) {
         this.co = co;
@@ -41,25 +41,15 @@ public class StatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_stat, container, false);
         armor=(TextView)view.findViewById(R.id.armor) ;
-        armorperlevel=(TextView)view.findViewById(R.id.armorperlevel) ;
         attackdamage=(TextView)view.findViewById(R.id.attackdamage) ;
-        attackdamageperlevel=(TextView)view.findViewById(R.id.attackdamageperlevel) ;
         attackrange=(TextView)view.findViewById(R.id.attackrange) ;
-        attackspeedoffset=(TextView)view.findViewById(R.id.attackspeedoffset) ;
-        attackspeedperlevel=(TextView)view.findViewById(R.id.attackspeedperlevel) ;
-        crit=(TextView)view.findViewById(R.id.crit) ;
-        critperlevel=(TextView)view.findViewById(R.id.critperlevel) ;
         hp=(TextView)view.findViewById(R.id.hp) ;
-        hpperlevel=(TextView)view.findViewById(R.id.hpperlevel) ;
         hpregen=(TextView)view.findViewById(R.id.hpregen) ;
-        hpregenperlevel=(TextView)view.findViewById(R.id.hpregenperlevel) ;
         movespeed=(TextView)view.findViewById(R.id.movespeed) ;
         mp=(TextView)view.findViewById(R.id.mp) ;
-        mpperlevel=(TextView)view.findViewById(R.id.mpperlevel) ;
         mpregen=(TextView)view.findViewById(R.id.mpregen) ;
-        mpregenperlevel=(TextView)view.findViewById(R.id.mpregenperlevel) ;
         spellblock=(TextView)view.findViewById(R.id.spellblock) ;
-        spellblockperlevel=(TextView)view.findViewById(R.id.spellblockperlevel) ;
+
         name=(TextView)view.findViewById(R.id.champion) ;
         name.setText(co.getChampionName());
         attack_p=(ProgressBar)view.findViewById(R.id.attack_progress);
@@ -114,26 +104,15 @@ public class StatFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            armor.setText(""+stat.get(0).getArmor());
-            armorperlevel.setText("+ "+stat.get(0).getArmorperlevel());
-            attackdamage.setText(""+stat.get(0).getAttackdamage());
-            attackdamageperlevel.setText("+ "+stat.get(0).getAttackdamageperlevel());
+            armor.setText(""+stat.get(0).getArmor()+"(+"+stat.get(0).getArmorperlevel()+"/Level)");
+            attackdamage.setText(""+stat.get(0).getAttackdamage()+"(+"+stat.get(0).getAttackdamageperlevel()+"/Level)");
             attackrange.setText(""+stat.get(0).getAttackrange());
-            attackspeedoffset.setText(""+stat.get(0).getAttackspeedoffset());
-            attackspeedperlevel.setText("+% "+stat.get(0).getAttackspeedperlevel());
-            crit.setText(""+stat.get(0).getCrit());
-            critperlevel.setText("+ "+stat.get(0).getCritperlevel());
-            hp.setText(""+stat.get(0).getHp());
-            hpperlevel.setText("+ "+stat.get(0).getHpperlevel());
-            hpregen.setText(""+stat.get(0).getHpregen());
-            hpregenperlevel.setText("+ "+stat.get(0).getHpregenperlevel());
+            hp.setText("+ "+stat.get(0).getHp()+"(+"+stat.get(0).getHpperlevel()+"/Level)");
+            hpregen.setText(""+stat.get(0).getHpregen()+"(+"+stat.get(0).getHpregenperlevel()+"/Level)");
             movespeed.setText(""+stat.get(0).getMovespeed());
-            mp.setText(""+stat.get(0).getMp());
-            mpperlevel.setText("+ "+stat.get(0).getMpperlevel());
-            mpregen.setText(""+stat.get(0).getMpregen());
-            mpregenperlevel.setText("+ "+stat.get(0).getMpregenperlevel());
-            spellblock.setText("+ "+stat.get(0).getSpellblockperlevel());
-            spellblockperlevel.setText(""+stat.get(0).getSpellblock());
+            mp.setText(""+stat.get(0).getMp()+"(+"+stat.get(0).getMpregenperlevel()+"/Level)");
+            mpregen.setText(""+stat.get(0).getMpregen()+"(+"+stat.get(0).getMpregenperlevel()+"/Level)");
+            spellblock.setText(""+stat.get(0).getSpellblock()+"(+"+stat.get(0).getSpellblockperlevel()+"/Level)");
             attack_p.setProgress(stat.get(0).getAttack());
             defense_p.setProgress(stat.get(0).getDefense());
             magic_p.setProgress(stat.get(0).getMagic());

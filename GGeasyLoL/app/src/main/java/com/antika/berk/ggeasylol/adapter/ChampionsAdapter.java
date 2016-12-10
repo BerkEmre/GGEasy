@@ -63,7 +63,7 @@ public class ChampionsAdapter extends BaseAdapter implements Filterable {
 
         ChampionObject champion = mKisiListesi.get(position);
 
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.22.1/img/champion/" + champion.getChampionKey() + ".png").into(iv_champion_image);
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.getChampionKey() + ".png").into(iv_champion_image);
         tv_champion_name.setText(champion.getChampionName());
 
         return satirView;
