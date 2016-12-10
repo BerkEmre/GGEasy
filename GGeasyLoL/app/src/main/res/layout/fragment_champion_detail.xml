@@ -4,7 +4,10 @@
     android:id="@+id/activity_hikayeler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp">
 
     <TextView
         android:text="TextView"
@@ -47,27 +50,30 @@
             android:layout_marginLeft="5dp">
 
             <Button
-                android:text="STAT"
+                android:text="STATS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_stat"
-                android:background="@color/colorAccent" />
+                android:background="@color/colorAccent"
+                android:textColor="@color/cast_expanded_controller_text_color" />
 
             <Button
-                android:text="SKILL"
+                android:text="SKILLS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_skill"
                 android:background="@color/colorAccent"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:textColor="@color/cast_expanded_controller_text_color" />
 
             <Button
-                android:text="SKIN"
+                android:text="SKINS"
                 android:layout_width="match_parent"
                 android:id="@+id/btn_skin"
                 android:layout_height="wrap_content"
                 android:background="@color/colorAccent"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:textColor="@color/cast_expanded_controller_text_color" />
 
         </LinearLayout>
 

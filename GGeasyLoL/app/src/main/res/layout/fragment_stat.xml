@@ -12,7 +12,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
         <TextView
             android:text="TextView"
@@ -20,18 +22,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/champion"
             android:layout_weight="1"
-            android:textStyle="normal|bold"
-            android:textAlignment="center"
+            android:fontFamily="sans-serif-smallcaps"
             android:textSize="30sp"
-            android:textColor="@color/colorAccent"
-            android:fontFamily="sans-serif-smallcaps" />
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorAccent" />
 
         <View
             android:layout_height="2dp"
             android:background="#c0c0c0"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
-            android:layout_width="fill_parent"
-            android:layout_margin="10dp" />
+            android:layout_width="fill_parent" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -43,11 +45,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -65,16 +63,7 @@
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
                         android:text="Zırh:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t2"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Zırh:" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -85,16 +74,7 @@
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
                         android:text="Saldırı:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t4"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Saldırı:" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -105,46 +85,7 @@
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
                         android:text="Saldırı Mesafesi:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t6"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Saldırı Hızı:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t7"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Saldırı Hızı:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t8"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Kritik:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t9"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Kritik:" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -155,16 +96,7 @@
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
                         android:text="Can Değeri:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t11"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Can:" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -175,16 +107,7 @@
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
                         android:text="Can Yenileme:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t13"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Can Yenileme:" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -205,16 +128,7 @@
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
                         android:text="Mana Değeri:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t16"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Mana:" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -225,16 +139,7 @@
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
                         android:text="Mana Yenileme:" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t18"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Mana Yenileme:" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -246,16 +151,6 @@
                         android:textColor="@android:color/background_dark"
                         android:text="Büyü Direnci:" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/t20"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="Seviye Başına Büyü Direnci:" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -279,29 +174,7 @@
                         android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/armorperlevel"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/attackdamage"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/attackdamageperlevel"
                         android:layout_weight="1"
                         android:textStyle="bold"
                         android:textSize="18sp"
@@ -323,50 +196,6 @@
                         android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/attackspeedoffset"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/attackspeedperlevel"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/crit"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/critperlevel"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/hp"
                         android:layout_weight="1"
                         android:textStyle="bold"
@@ -378,29 +207,7 @@
                         android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/hpperlevel"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/hpregen"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/hpregenperlevel"
                         android:layout_weight="1"
                         android:textStyle="bold"
                         android:textSize="18sp"
@@ -433,40 +240,7 @@
                         android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mpperlevel"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/mpregen"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/mpregenperlevel"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spellblockperlevel"
                         android:layout_weight="1"
                         android:textStyle="bold"
                         android:textSize="18sp"
@@ -492,7 +266,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp">
 
             <TextView
                 android:text="Saldırı"
@@ -513,7 +289,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
                 android:max="10"
-                android:indeterminate="false" />
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/saldiriproggres" />
 
             <TextView
                 android:text="Savunma Gücü"
@@ -534,7 +311,8 @@
                 android:layout_marginTop="3dp"
                 android:background="@android:color/transparent"
                 android:max="10"
-                android:indeterminate="false" />
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/savunmaproggres" />
 
             <TextView
                 android:text="Yetenek Gücü"
@@ -556,7 +334,8 @@
                 android:layout_marginTop="3dp"
                 android:background="@android:color/transparent"
                 android:max="10"
-                android:indeterminate="false" />
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/yetenekproggres" />
 
             <TextView
                 android:text="Zorluk"
@@ -579,7 +358,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:background="@android:color/transparent"
-                android:max="10" />
+                android:max="10"
+                android:progressDrawable="@drawable/zorlukproggres" />
         </LinearLayout>
     </LinearLayout>
 
