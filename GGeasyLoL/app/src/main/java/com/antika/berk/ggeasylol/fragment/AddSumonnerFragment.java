@@ -20,7 +20,12 @@ import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.Sumonner;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,11 +37,11 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class AddSumonnerFragment extends DialogFragment
 {
-    String apiKey = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
-    String nick1;
+    SummonerObject so;
 
     EditText et_sumonner_name;
     Spinner sp_region;
@@ -87,13 +92,7 @@ public class AddSumonnerFragment extends DialogFragment
             @Override
             public void onClick(View view) {
                 if(et_sumonner_name.getText().length() > 0)
-                {
-                    nick1 = et_sumonner_name.getText().toString();
-                    String nick2 = nick1.replaceAll("\\s+","");
-                    nick2 = nick2.toLowerCase();
-
-                    new checkUser().execute(nick2,sp_region.getSelectedItem().toString());
-                }
+                    new checkUser().execute(et_sumonner_name.getText().toString(), sp_region.getSelectedItem().toString());
                 else
                     Toast.makeText(getContext(), "Insert Sumonner Name", Toast.LENGTH_LONG).show();
             }
@@ -105,8 +104,6 @@ public class AddSumonnerFragment extends DialogFragment
 
 
     private class checkUser extends AsyncTask<String, String, String> {
-
-        String userData;
         ProgressDialog progress;
 
         @Override
@@ -118,23 +115,16 @@ public class AddSumonnerFragment extends DialogFragment
         @Override
         protected String doInBackground(String... values)
         {
-            JSONObject userSON1, userSON2;
             try
             {
+                RiotApiHelper riotApiHelper = new RiotApiHelper();
                 DBHelper dbHelper = new DBHelper(getContext());
 
-                userData = readURL("https://" + values[1] + ".api.pvp.net/api/lol/tr/v1.4" +
-                        "/summoner/by-name/" + values[0] + "?api_key=" + apiKey);
+                so = riotApiHelper.getSumonner(values[0], values[1]);
 
-                Log.d("ASYNTASK","VERİÇEKTİ");
-                userSON1 = new JSONObject(userData);
-                userSON2 = userSON1.getJSONObject(values[0]);
-                Log.d("ASYNTASK","JSONYAZDI");
+                if(dbHelper.getSumonner(Integer.toString(so.getId())) == null)
+                    dbHelper.insertSumonner(new Sumonner(Integer.toString(so.getId()), so.getName(), values[1], Integer.toString(so.getIcon())));
 
-                if(dbHelper.getSumonner(Integer.toString(userSON2.getInt("id"))) == null)
-                    dbHelper.insertSumonner(new Sumonner(Integer.toString(userSON2.getInt("id")), userSON2.getString("name"), values[1], Integer.toString(userSON2.getInt("profileIconId"))));
-
-                Log.d("ASYNTASK","VERİTABANIKAYDETTI");
                 return "1";
             }
             catch (Exception e){Log.d("ASYNTASK",e.toString()); return "0";}
@@ -153,19 +143,5 @@ public class AddSumonnerFragment extends DialogFragment
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
         }
-    }
-
-    private String readURL(String link) throws IOException, JSONException {
-        URL u = new URL(link);
-        URLConnection conn = u.openConnection();
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(
-                        conn.getInputStream()));
-        StringBuffer buffer = new StringBuffer();
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
-            buffer.append(inputLine);
-        in.close();
-        return buffer.toString();
     }
 }

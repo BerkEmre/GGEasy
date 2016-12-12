@@ -14,12 +14,18 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ParticipantsAdapter;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.util.List;
+import java.util.Random;
 
 public class CurrentMatchOpenFragment extends Fragment {
     List<ParticipantListObject> participantsItems;
     CurrentGameObject cgo;
     String summonerName;
+    private InterstitialAd gecisReklam;
 
     TextView tv_name, tv_gameMode, tv_gameType, tv_Time;
     ListView lv_participants;
@@ -36,6 +42,26 @@ public class CurrentMatchOpenFragment extends Fragment {
         tv_name.setText(summonerName);
         tv_gameMode.setText(cgo.getGameMode());
         tv_gameType.setText(cgo.getGameType());
+
+        gecisReklam = new InterstitialAd(getActivity());
+
+        gecisReklam.setAdUnitId("ca-app-pub-3539552494760504/2165243670");
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("D8592250ED9C011634C41C2295225021")
+                .build();
+        gecisReklam.loadAd(adRequest);
+
+        final int random = new Random().nextInt(5);
+        //if(random == 1 && gecisReklam.isLoaded())
+        gecisReklam.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                if(random == 1)
+                gecisReklam.show();
+            }
+        });
 
         int sec, min;
 
