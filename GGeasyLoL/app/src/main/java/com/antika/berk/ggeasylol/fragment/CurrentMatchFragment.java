@@ -163,6 +163,9 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
                 try {lo = leagues.get(0);}catch (Exception e){lo = new LeagueObject("","","","",0,0,0,false,false,false,false,"",0,0,0);}
 
                 List<RankedStatObject> stats = raHelper.getRankedStat(so.getId(), strings[1]);
+                if(stats == null)
+                    stats = new ArrayList<RankedStatObject>();
+                stats.add(new RankedStatObject(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0));
                 RankedStatObject rso = new RankedStatObject(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
                 for (int j = 0; j < stats.size(); j++){
                     if(stats.get(j).getChampionID() == part.getChampionId())
