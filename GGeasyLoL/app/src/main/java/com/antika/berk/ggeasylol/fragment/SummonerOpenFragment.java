@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionMasterAdapter;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
@@ -61,7 +62,7 @@ public class SummonerOpenFragment extends Fragment {
         tv_summonerName.setText(so.getName());
         tv_summonerLvl.setText(so.getLvl() + " LV");
 
-        Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/" + so.getIcon() + ".png").transform(new CircleTransform()).into(iv_summonerIcon);
+        Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" + so.getIcon() + ".png").transform(new CircleTransform()).into(iv_summonerIcon);
 
         LeagueObject lo;
         try{lo = leagues.get(0);}

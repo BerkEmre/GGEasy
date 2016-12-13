@@ -1,9 +1,11 @@
 package com.antika.berk.ggeasylol.fragment;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +17,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.adapter.LotteryAdapter;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.object.LotteryObject;
-import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.Sumonner;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -36,12 +36,14 @@ import java.util.List;
 
 import it.sephiroth.android.library.picasso.Picasso;
 
-public class LottaryFragment extends Fragment {
+public class LottaryFragment extends Fragment implements DialogInterface.OnDismissListener {
     ImageView iv_image;
     TextView tv_name, tv_odul, tv_date, tv_person, tv_katildiniz;
     Button btn_join;
     ListView lv_persons;
     ProgressBar pb_wait;
+
+    boolean show = false;
 
     private InterstitialAd gecisReklam;
 
@@ -50,6 +52,18 @@ public class LottaryFragment extends Fragment {
     SumonnersAdapter adapter;
 
     public void setLottery(LotteryObject lo){this.lo = lo;}
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(show){
+        FragmentManager fm = getFragmentManager();
+        JoinLotteryFragment asf = new JoinLotteryFragment();
+        asf.setFragment(LottaryFragment.this);
+        asf.setLottery(lo);
+        asf.show(fm, "Add Sumonner");
+        show = false;}
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -89,6 +103,7 @@ public class LottaryFragment extends Fragment {
             @Override
             public void onAdClosed() {
                 super.onAdClosed();
+                show = true;
             }
         });
 
@@ -127,6 +142,10 @@ public class LottaryFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        new getData().execute(lo.getID());
+    }
 
 
     private class getData extends AsyncTask<String, String, String> {

@@ -1,7 +1,5 @@
 package com.antika.berk.ggeasylol.fragment;
 
-
-import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,15 +21,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+import com.antika.berk.ggeasylol.object.LotteryObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
-import com.antika.berk.ggeasylol.object.Sumonner;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,11 +41,15 @@ public class JoinLotteryFragment extends DialogFragment {
     Button bt_add;
 
     private Fragment f;
+    LotteryObject lo;
 
     public JoinLotteryFragment() {}
     public void setFragment(Fragment f)
     {
         this.f = f;
+    }
+    public void setLottery(LotteryObject lo){
+        this.lo = lo;
     }
 
     @Override
@@ -105,11 +108,26 @@ public class JoinLotteryFragment extends DialogFragment {
             try
             {
                 RiotApiHelper riotApiHelper = new RiotApiHelper();
-                DBHelper dbHelper = new DBHelper(getContext());
 
                 so = riotApiHelper.getSumonner(values[0], values[1]);
 
-                
+                if(so == null)
+                    return "0";
+
+                String link = "http://berkemrealtan.com/GGEasy/join_lottary.php?userID=" + so.getId() +
+                        "&lotteryID=" + lo.getID() + "&userName=" + so.getName() +
+                        "&userIcon=" + so.getIcon() + "&userRegion=" + values[1];
+
+                URL u = null;
+                String new_link = link.replace(" ", "");
+                u = new URL(new_link);
+                URLConnection conn = u.openConnection();
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuffer buffer = new StringBuffer();
+                String inputLine;
+                while ((inputLine = in.readLine()) != null)
+                    buffer.append(inputLine);
+                in.close();
 
                 return "1";
             }
@@ -129,32 +147,6 @@ public class JoinLotteryFragment extends DialogFragment {
             if (view != null) {
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
-        }
-    }
-    private String readURL(String link) {
-        URL u = null;
-        try {
-            String new_link = link.replace(" ", "");
-            u = new URL(new_link);
-            URLConnection conn = u.openConnection();
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-            StringBuffer buffer = new StringBuffer();
-
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                buffer.append(inputLine);
-
-            in.close();
-
-            return buffer.toString();
-        }
-        catch (Exception e) {
-            Log.e("Hata",
-                    "İnternet sorunu" +
-                            "\n" + e.toString());
-            return null;
         }
     }
 

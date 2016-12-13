@@ -33,6 +33,7 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
+    public String version = "6.24.1";
     //Get summoner object with summoner name
     public SummonerObject getSumonner(String summonerName, String region) {
         SummonerObject sumonner;
@@ -602,6 +603,17 @@ public class RiotApiHelper {
             Log.e("HATA",e.toString());
         }
         return null;
+    }
+    //get version
+    public String getVersion(String region){
+        String data = readURL("https://global.api.pvp.net/api/lol/static-data/tr/v1.2/versions?api_key=" + apiKey);
+        try {
+            JSONArray array = new JSONArray(data);
+            return array.getString(0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "6.24.1";
+        }
     }
 
     private String regionToPlatform(String region) {
