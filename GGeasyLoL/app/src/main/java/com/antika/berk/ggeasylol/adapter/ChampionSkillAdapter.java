@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ChampionSkillObject;
 
@@ -58,9 +59,9 @@ public class ChampionSkillAdapter extends BaseAdapter {
         skillDescription.setText("\t"+skill.getDescription());
         skillName.setText(skill.getSkillName());
         if(position<=3)
-            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/"+skill.getImage()).into(skillLogo);
+            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/spell/"+skill.getImage()).into(skillLogo);
         if(position==4)
-            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.24.1/img/passive/"+skill.getImage()).into(skillLogo);
+            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/passive/"+skill.getImage()).into(skillLogo);
 
 
         return satirView;

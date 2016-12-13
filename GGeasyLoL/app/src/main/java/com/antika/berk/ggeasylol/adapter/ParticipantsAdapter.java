@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
@@ -97,9 +98,9 @@ public class ParticipantsAdapter extends BaseAdapter {
         SpellObject spl1 = dbHelper.getSpell(Integer.toString(kisi.getSpell1()));
         SpellObject spl2 = dbHelper.getSpell(Integer.toString(kisi.getSpell2()));
 
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.22.1/img/champion/" + cmp.getChampionKey() + ".png").into(imageView);
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.22.1/img/spell/" + spl1.getSpellKey() + ".png").into(spell1);
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.22.1/img/spell/" + spl2.getSpellKey() + ".png").into(spell2);
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" + cmp.getChampionKey() + ".png").into(imageView);
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/spell/" + spl1.getSpellKey() + ".png").into(spell1);
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/spell/" + spl2.getSpellKey() + ".png").into(spell2);
 
         switch (kisi.getLeague())
         {

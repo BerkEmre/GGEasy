@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.Sumonner;
 
 import java.util.List;
@@ -58,7 +59,7 @@ public class SumonnersAdapter extends BaseAdapter {
 
         tv_sumonner_name.setText(kisi.getSumonnerName());
         tv_region.setText(kisi.getSumonnerKey());
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.22.1/img/profileicon/" + kisi.getSumonnerIcon() + ".png").into(iv_sumonner_icon);
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" + kisi.getSumonnerIcon() + ".png").into(iv_sumonner_icon);
 
         return satirView;
     }

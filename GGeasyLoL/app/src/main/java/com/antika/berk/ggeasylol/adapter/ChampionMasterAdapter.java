@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 
@@ -64,7 +65,7 @@ public class ChampionMasterAdapter extends BaseAdapter {
 
         ChampionMasterObject champion = mKisiListesi.get(position);
 
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.22.1/img/champion/" +
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" +
                 dbHelper.getChampion(Integer.toString(champion.getChampionId())).getChampionKey() +
                 ".png").into(iv_champion_image);
         tv_champion_name.setText(dbHelper.getChampion(Integer.toString(champion.getChampionId())).getChampionName());

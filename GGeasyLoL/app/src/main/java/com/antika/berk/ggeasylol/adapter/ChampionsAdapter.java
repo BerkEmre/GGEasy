@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 
@@ -63,7 +64,7 @@ public class ChampionsAdapter extends BaseAdapter implements Filterable {
 
         ChampionObject champion = mKisiListesi.get(position);
 
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.getChampionKey() + ".png").into(iv_champion_image);
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" + champion.getChampionKey() + ".png").into(iv_champion_image);
         tv_champion_name.setText(champion.getChampionName());
 
         return satirView;
