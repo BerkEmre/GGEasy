@@ -6,14 +6,14 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="Weekly Rotation"
+        android:text="HAFTALIK ROTASYON"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView21"
         android:textAlignment="center"
         android:textStyle="normal|bold"
         android:textSize="30sp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif-condensed"
         android:layout_margin="10dp"
         android:textColor="@color/colorAccent" />
 

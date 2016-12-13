@@ -84,7 +84,7 @@ public class JoinLotteryFragment extends DialogFragment {
                 if(et_sumonner_name.getText().length() > 0)
                     new checkUser().execute(et_sumonner_name.getText().toString(), sp_region.getSelectedItem().toString());
                 else
-                    Toast.makeText(getContext(), "Insert Sumonner Name", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Sihirdar Adı Giriniz.", Toast.LENGTH_LONG).show();
             }
         });
         return view;
@@ -124,7 +124,7 @@ public class JoinLotteryFragment extends DialogFragment {
             if(results.equals("1"))
                 dismiss();
             else
-                Toast.makeText(getContext(), "Sihirdar Adı veya Bölgesi Hatalı...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Sihirdar Adı veya Bölgesi Hatalı.", Toast.LENGTH_LONG).show();
             View view = getActivity().getCurrentFocus();
             if (view != null) {
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

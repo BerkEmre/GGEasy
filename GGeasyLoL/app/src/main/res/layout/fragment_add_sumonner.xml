@@ -8,11 +8,11 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:text="Summoner Name"
+        android:text="Sihirdar Adı"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif-condensed"
         android:textColor="@color/primary_text"
         android:textSize="18sp"
         android:textStyle="normal|bold"
@@ -25,17 +25,17 @@
         android:ems="10"
         android:id="@+id/editText"
         android:layout_margin="10dp"
-        android:hint="summoner name" />
+        android:hint="Sihirdar Adı" />
 
     <TextView
-        android:text="Region"
+        android:text="Bölge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"
         android:textStyle="normal|bold"
         android:textSize="18sp"
         android:textColor="@color/primary_text"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif-condensed"
         android:layout_marginLeft="20dp" />
 
     <Spinner
@@ -45,14 +45,14 @@
         android:layout_margin="10dp" />
 
     <Button
-        android:text="Save Sumonner"
+        android:text="Sihirdarı Kaydet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
         android:background="@color/colorAccent"
         android:textColor="@color/cast_expanded_controller_progress_text_color"
         android:textStyle="normal|bold"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="18sp"
         android:textAllCaps="false"
         android:layout_margin="10dp" />
