@@ -83,7 +83,7 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
                 if(et_username.getText().length() > 0)
                     new GetData().execute(et_username.getText().toString(), sp_server.getSelectedItem().toString());
                 else
-                    Toast.makeText(getContext(), "Insert Username", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Sihirdar Adı Girin.", Toast.LENGTH_LONG).show();
             }
         });
 

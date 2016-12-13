@@ -78,7 +78,7 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
                 if(et_username.getText().length() > 0)
                     new getData().execute(et_username.getText().toString(),sp_server.getSelectedItem().toString());
                 else
-                    Toast.makeText(getContext(), "Insert Username", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Shirdar Adı Giriniz", Toast.LENGTH_LONG).show();
             }
         });
 

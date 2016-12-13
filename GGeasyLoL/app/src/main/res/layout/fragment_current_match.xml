@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:text="Current Match"
+        android:text="GÜNCEL MAÇ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
@@ -17,7 +17,7 @@
         android:textSize="30sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:layout_margin="10dp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif-condensed"
         android:textStyle="normal|bold" />
 
     <View
@@ -41,9 +41,9 @@
             android:textColor="@color/primary_text"
             android:layout_marginTop="10dp"
             android:textAllCaps="false"
-            android:fontFamily="sans-serif-smallcaps"
+            android:fontFamily="sans-serif-condensed"
             android:layout_weight="1"
-            android:text="Summoner Name" />
+            android:text="Sihirdar Adı" />
 
         <ImageButton
             android:layout_width="48dp"
@@ -62,10 +62,10 @@
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:paddingLeft="15dp"
-        android:hint="summoner name" />
+        android:hint="Sihirdar Adı" />
 
     <TextView
-        android:text="Region"
+        android:text="Bölge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
@@ -73,7 +73,7 @@
         android:textStyle="normal|bold"
         android:textSize="18sp"
         android:textColor="@color/primary_text"
-        android:fontFamily="sans-serif-smallcaps" />
+        android:fontFamily="sans-serif-condensed" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -82,17 +82,17 @@
         android:layout_margin="10dp" />
 
     <Button
-        android:text="Get Data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:background="@color/colorAccent"
         android:textStyle="normal|bold"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="18sp"
         android:textColor="@color/cast_expanded_controller_progress_text_color"
         android:textAllCaps="false"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:text="Verileri Al" />
 
     <View
         android:layout_height="2dp"

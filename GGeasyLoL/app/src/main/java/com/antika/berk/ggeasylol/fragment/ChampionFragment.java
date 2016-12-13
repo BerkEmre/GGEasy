@@ -141,7 +141,7 @@ public class ChampionFragment extends Fragment {
                 });
             }
             else
-                Toast.makeText(getActivity(), "Make a Mistake Please Try Again", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Hata Yaptınız.Lütfen Tekrar Deneyin.", Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
     }
