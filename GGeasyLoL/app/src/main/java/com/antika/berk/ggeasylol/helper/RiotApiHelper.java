@@ -27,6 +27,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -41,7 +43,7 @@ public class RiotApiHelper {
         JSONObject sumonnerObject;
 
         String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.4/" +
-                    "summoner/by-name/" + summonerName + "?api_key=" + apiKey);
+                    "summoner/by-name/" + convertToUTF8(summonerName) + "?api_key=" + apiKey);
 
         try{sumonnerObject = new JSONObject(JSONString);
             Iterator<?> keys = sumonnerObject.keys();
@@ -638,9 +640,9 @@ public class RiotApiHelper {
         URL u = null;
         try {
             String new_link = link.replace(" ", "");
+            Log.e("URL", new_link);
             u = new URL(new_link);
             URLConnection conn = u.openConnection();
-
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
             StringBuffer buffer = new StringBuffer();
@@ -659,5 +661,9 @@ public class RiotApiHelper {
                         "\n" + e.toString());
             return null;
         }
+    }
+    private String convertToUTF8(String s) {
+        Charset.forName("UTF-8").encode(s);
+        return s;
     }
 }

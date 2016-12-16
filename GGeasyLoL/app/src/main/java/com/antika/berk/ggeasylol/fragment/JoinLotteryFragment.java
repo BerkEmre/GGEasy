@@ -26,6 +26,8 @@ import com.antika.berk.ggeasylol.object.LotteryObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -120,6 +122,7 @@ public class JoinLotteryFragment extends DialogFragment {
 
                 URL u = null;
                 String new_link = link.replace(" ", "");
+
                 u = new URL(new_link);
                 URLConnection conn = u.openConnection();
                 BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));

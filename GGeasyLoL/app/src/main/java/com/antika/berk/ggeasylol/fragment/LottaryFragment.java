@@ -152,6 +152,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
     @Override
     public void onDismiss(DialogInterface dialog) {
         new getData().execute(lo.getID());
+        btn_join.setVisibility(View.GONE);
     }
 
 
