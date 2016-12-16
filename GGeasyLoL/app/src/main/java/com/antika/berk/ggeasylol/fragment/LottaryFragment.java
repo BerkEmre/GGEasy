@@ -23,6 +23,15 @@ import com.antika.berk.ggeasylol.object.Sumonner;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.vungle.mediation.VungleAdapter;
+import com.vungle.mediation.VungleExtrasBuilder;
+import com.vungle.mediation.VungleInterstitialAdapter;
+import com.vungle.publisher.AdConfig;
+import com.vungle.publisher.EventListener;
+import com.vungle.publisher.Orientation;
+import com.vungle.publisher.VunglePub;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -79,11 +88,9 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         lv_persons    = (ListView   ) view.findViewById(R.id.list_view   );
         pb_wait       = (ProgressBar) view.findViewById(R.id.progressBar2);
 
-        btn_join.setVisibility(View.GONE);
-
         gecisReklam = new InterstitialAd(getActivity());
 
-        gecisReklam.setAdUnitId("ca-app-pub-3539552494760504/1524285270");
+        gecisReklam.setAdUnitId("ca-app-pub-3539552494760504/2165243670");
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("D8592250ED9C011634C41C2295225021")
@@ -94,10 +101,8 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
-                if(lo.getStatus().equals("0")) {
-                    btn_join.setVisibility(View.VISIBLE);
-                    pb_wait.setVisibility(View.GONE);
-                }
+                btn_join.setVisibility(View.VISIBLE);
+                pb_wait.setVisibility(View.GONE);
             }
 
             @Override
@@ -106,6 +111,8 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
                 show = true;
             }
         });
+
+        btn_join.setVisibility(View.GONE);
 
         Picasso.with(getContext()).load("http://berkemrealtan.com/GGEasy/img/" + lo.getImg()).into(iv_image);
         tv_name.setText(lo.getName());

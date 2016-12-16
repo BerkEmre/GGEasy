@@ -95,7 +95,8 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
         lw_matchdata.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                new getData().execute(countries.get(position).getSumonnerName(),sp_server.getSelectedItem().toString());
+                try{new getData().execute(countries.get(position).getSumonnerName(),sp_server.getSelectedItem().toString());}
+                catch (Exception e){Toast.makeText(getContext(), "Tekrar Deneyiniz...", Toast.LENGTH_LONG).show();}
             }
         });
 

@@ -106,8 +106,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView41"
                     android:layout_centerVertical="true"
-                    android:layout_alignLeft="@+id/linearLayout"
-                    android:layout_alignStart="@+id/linearLayout"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="sans-serif-condensed"
                     android:textColor="@color/colorAccent" />

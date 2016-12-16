@@ -9,8 +9,8 @@ android {
         minSdkVersion 15
         targetSdkVersion 24
         multiDexEnabled true
-        versionCode 5
-        versionName "1.4"
+        versionCode 6
+        versionName "1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
@@ -28,6 +28,14 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile fileTree(dir: 'libs', include: ['*.jar'])  // Vungle SDK
+    compile(name:'VungleAdapter', 'ext':'aar')  // Vungle Adapter for AdMob
+    repositories {
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
