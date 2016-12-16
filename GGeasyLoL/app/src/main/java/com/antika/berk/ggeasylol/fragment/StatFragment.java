@@ -71,8 +71,8 @@ public class StatFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Please Wait...",
-                    "LOADING", true);
+            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...",
+                    "YÜKLENİYOR", true);
         }
 
         @Override
