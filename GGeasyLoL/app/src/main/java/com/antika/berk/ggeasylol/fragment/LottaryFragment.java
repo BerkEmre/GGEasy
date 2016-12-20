@@ -20,18 +20,16 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.object.LotteryObject;
 import com.antika.berk.ggeasylol.object.Sumonner;
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.vungle.mediation.VungleAdapter;
-import com.vungle.mediation.VungleExtrasBuilder;
-import com.vungle.mediation.VungleInterstitialAdapter;
-import com.vungle.publisher.AdConfig;
-import com.vungle.publisher.EventListener;
-import com.vungle.publisher.Orientation;
-import com.vungle.publisher.VunglePub;
+import com.jirbo.adcolony.AdColonyAdapter;
+import com.jirbo.adcolony.AdColonyBundleBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -54,7 +52,8 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
     boolean show = false;
 
-    private InterstitialAd gecisReklam;
+    //private InterstitialAd gecisReklam;
+    private RewardedVideoAd videoAd;
 
     LotteryObject lo;
     List<Sumonner> summoners = new ArrayList<Sumonner>();
@@ -76,7 +75,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_lottary, container, false);
+        final View view = inflater.inflate(R.layout.fragment_lottary, container, false);
 
         iv_image      = (ImageView  ) view.findViewById(R.id.imageView5  );
         tv_name       = (TextView   ) view.findViewById(R.id.textView13  );
@@ -88,12 +87,62 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         lv_persons    = (ListView   ) view.findViewById(R.id.list_view   );
         pb_wait       = (ProgressBar) view.findViewById(R.id.progressBar2);
 
-        gecisReklam = new InterstitialAd(getActivity());
-
-        gecisReklam.setAdUnitId("ca-app-pub-3539552494760504/2165243670");
+        videoAd = MobileAds.getRewardedVideoAdInstance(getActivity());
+        Bundle extras = new Bundle();
+        extras.putBoolean( "_noRefresh", true );
+        AdColonyBundleBuilder.setZoneId("vz4b35fd5a978c4b009b");
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("D8592250ED9C011634C41C2295225021")
+                .addNetworkExtrasBundle(AdColonyAdapter.class, AdColonyBundleBuilder.build())
+                .build();
+        videoAd.loadAd("ca-app-pub-3539552494760504/1524285270", adRequest);
+
+        videoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+            @Override
+            public void onRewardedVideoAdLoaded() {
+                if(lo.getStatus().equals("0")) {
+                    btn_join.setVisibility(View.VISIBLE);
+                    pb_wait.setVisibility(View.GONE);
+                    show = true;
+                }
+            }
+
+            @Override
+            public void onRewardedVideoAdOpened() {
+
+            }
+
+            @Override
+            public void onRewardedVideoStarted() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdClosed() {
+
+            }
+
+            @Override
+            public void onRewarded(RewardItem rewardItem) {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdLeftApplication() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdFailedToLoad(int i) {
+
+            }
+        });
+
+        /*gecisReklam = new InterstitialAd(getActivity());
+
+        gecisReklam.setAdUnitId("ca-app-pub-3539552494760504/1524285270");
+        AdRequest adRequest = new AdRequest.Builder()
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                //.addTestDevice("D8592250ED9C011634C41C2295225021")
                 .build();
         gecisReklam.loadAd(adRequest);
 
@@ -101,8 +150,10 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
-                btn_join.setVisibility(View.VISIBLE);
-                pb_wait.setVisibility(View.GONE);
+                if(lo.getStatus().equals("0")) {
+                    btn_join.setVisibility(View.VISIBLE);
+                    pb_wait.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -110,7 +161,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
                 super.onAdClosed();
                 show = true;
             }
-        });
+        });*/
 
         btn_join.setVisibility(View.GONE);
 
@@ -130,7 +181,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         else{
             btn_join.setVisibility(View.GONE);
             pb_wait.setVisibility(View.GONE);
-            tv_person.setText("Kazanan : " + lo.getWinnderID());
+            tv_person.setText("Kazananlar Facebook'ta");
         }
 
 
@@ -138,8 +189,8 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(gecisReklam.isLoaded()){
-                    gecisReklam.show();
+                if(videoAd.isLoaded()){
+                    videoAd.show();
                 }
             }
         });

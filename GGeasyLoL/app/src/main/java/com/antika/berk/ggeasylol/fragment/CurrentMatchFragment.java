@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
+import com.antika.berk.ggeasylol.object.SummaryStat;
 import com.antika.berk.ggeasylol.object.Sumonner;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.R;
@@ -162,7 +163,8 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
                 LeagueObject lo;
                 try {lo = leagues.get(0);}catch (Exception e){lo = new LeagueObject("","","","",0,0,0,false,false,false,false,"",0,0,0);}
 
-                List<RankedStatObject> stats = raHelper.getRankedStat(so.getId(), strings[1]);
+
+                List<RankedStatObject> stats = raHelper.getRankedStat(part.getSummonerId(), strings[1]);
                 if(stats == null)
                     stats = new ArrayList<RankedStatObject>();
                 stats.add(new RankedStatObject(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0));
