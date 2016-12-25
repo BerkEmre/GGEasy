@@ -6,34 +6,43 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/current_icon"
-            android:title="Güncel Maç" />
+            android:title="@string/current_match" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/sumonners_icon"
-            android:title="Sihirdar" />
+            android:title="@string/summoner" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/champions_icon"
-            android:title="Şampiyonlar" />
-        <item android:title="Haftalık Rotasyon"
+            android:title="@string/champions" />
+        <item android:title="@string/weekly_rotation"
             android:id="@+id/nav_rotation"
             android:icon="@drawable/rotation_icon" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/lottery_icon"
-            android:title="Çekiliş" />
+            android:title="@string/lotteries" />
     </group>
 
-    <item android:title="İletişim">
+    <item android:title="@string/comunicate">
         <menu>
+            <item android:title="Facebook"
+                android:id="@+id/facebook"
+                android:icon="@drawable/facebook_logo" />
+            <item android:title="Instagram"
+                android:id="@+id/instagram"
+                android:icon="@drawable/instagram_logo" />
+            <item android:title="Twitch"
+                android:id="@+id/twitch"
+                android:icon="@drawable/twitch_logo" />
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Paylaş" />
+                android:title="@string/share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/rate_icon"
-                android:title="Değerlendir" />
+                android:title="@string/rate" />
         </menu>
     </item>
 

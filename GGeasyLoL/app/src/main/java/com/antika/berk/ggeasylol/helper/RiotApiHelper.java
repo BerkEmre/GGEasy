@@ -1,8 +1,10 @@
 package com.antika.berk.ggeasylol.helper;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.antika.berk.ggeasylol.Other.ChampionMaster;
+import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
@@ -560,9 +562,9 @@ public class RiotApiHelper {
         return null;
     }
     //get static champion data
-    public List<ChampionObject> getChampionStaticData(){
+    public List<ChampionObject> getChampionStaticData(Context context){
         List<ChampionObject> champions = new ArrayList<ChampionObject>();
-        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/tr/v1.2/champion?api_key=" + apiKey);
+        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + context.getString(R.string.language) + "/v1.2/champion?api_key=" + apiKey);
 
         JSONObject obje1, obje2, obje3;
 
@@ -586,7 +588,7 @@ public class RiotApiHelper {
     //get champion freeToPlay
     public List<Integer> getChampionFreeToPlay(String region){
         List<Integer> chapions=new ArrayList<Integer>();
-        String JSONString= readURL("https://tr.api.pvp.net/api/lol/tr/v1.2/champion?api_key="+apiKey);
+        String JSONString= readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.2/champion?api_key="+apiKey);
         JSONObject obj1,obj2;
         JSONArray array1;
         try {
@@ -608,7 +610,7 @@ public class RiotApiHelper {
     }
     //get version
     public String getVersion(String region){
-        String data = readURL("https://global.api.pvp.net/api/lol/static-data/tr/v1.2/versions?api_key=" + apiKey);
+        String data = readURL("https://global.api.pvp.net/api/lol/static-data/" + region + "/v1.2/versions?api_key=" + apiKey);
         try {
             JSONArray array = new JSONArray(data);
             return array.getString(0);

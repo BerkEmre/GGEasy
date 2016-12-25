@@ -78,7 +78,7 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
                 if(et_username.getText().length() > 0)
                     new getData().execute(et_username.getText().toString(),sp_server.getSelectedItem().toString());
                 else
-                    Toast.makeText(getContext(), "Shirdar Adı Giriniz", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getString(R.string.set_summoner_name), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -96,7 +96,7 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try{new getData().execute(countries.get(position).getSumonnerName(),sp_server.getSelectedItem().toString());}
-                catch (Exception e){Toast.makeText(getContext(), "Tekrar Deneyiniz...", Toast.LENGTH_LONG).show();}
+                catch (Exception e){Toast.makeText(getContext(), getString(R.string.try_again), Toast.LENGTH_LONG).show();}
             }
         });
 
@@ -137,8 +137,8 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Please Wait...",
-                    "LOADING", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
         }
 
         @Override
@@ -148,7 +148,7 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
             RiotApiHelper raHelper = new RiotApiHelper();
 
             so        = raHelper.getSumonner(values[0], values[1]);
-            if(so == null){ return "Check Sumonner Name or Region";}
+            if(so == null){ return getString(R.string.check_summoner_name_or_region);}
             leagues   = raHelper.getSummonerLeague(so.getId(), values[1]);
             masteries = raHelper.getChampionMasteries(so.getId(), values[1]);
 

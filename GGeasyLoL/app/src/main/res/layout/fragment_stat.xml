@@ -62,7 +62,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Zırh:" />
+                        android:text="@string/armor" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Saldırı:" />
+                        android:text="@string/attack" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Saldırı Mesafesi:" />
+                        android:text="@string/atack_range" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Can Değeri:" />
+                        android:text="@string/health" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Can Yenileme:" />
+                        android:text="@string/health_regen" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -117,7 +117,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Hareket Hızı:" />
+                        android:text="@string/movement_speed" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Mana Değeri:" />
+                        android:text="@string/mana" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Mana Yenileme:" />
+                        android:text="@string/mana_regen" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -149,7 +149,7 @@
                         android:textSize="18sp"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/background_dark"
-                        android:text="Büyü Direnci:" />
+                        android:text="@string/magic_resistance" />
 
                 </LinearLayout>
 
@@ -271,7 +271,7 @@
             android:layout_marginRight="3dp">
 
             <TextView
-                android:text="Saldırı"
+                android:text="@string/attack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/attack"
@@ -293,7 +293,7 @@
                 android:progressDrawable="@drawable/saldiriproggres" />
 
             <TextView
-                android:text="Savunma Gücü"
+                android:text="@string/defence"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/defense"
@@ -315,7 +315,7 @@
                 android:progressDrawable="@drawable/savunmaproggres" />
 
             <TextView
-                android:text="Yetenek Gücü"
+                android:text="@string/magic_power"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/magic"
@@ -338,7 +338,7 @@
                 android:progressDrawable="@drawable/yetenekproggres" />
 
             <TextView
-                android:text="Zorluk"
+                android:text="@string/difficulty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/difficulty"

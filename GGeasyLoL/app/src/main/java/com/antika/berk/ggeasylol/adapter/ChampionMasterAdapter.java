@@ -70,7 +70,7 @@ public class ChampionMasterAdapter extends BaseAdapter {
                 ".png").into(iv_champion_image);
         tv_champion_name.setText(dbHelper.getChampion(Integer.toString(champion.getChampionId())).getChampionName());
         tv_champion_lvl.setText(Integer.toString(champion.getChampionLevel()) + " LVL");
-        tv_champion_point.setText(Integer.toString(champion.getChampionPoints()) + " POINT");
+        tv_champion_point.setText(Integer.toString(champion.getChampionPoints()) + " " + context.getString(R.string.point));
 
         return satirView;
     }

@@ -87,8 +87,8 @@ public class LotteriesFragment extends Fragment {
         ProgressDialog progress;
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...",
-                    "YÜKLENİYOR", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
             lotteries.clear();
         }
         @Override

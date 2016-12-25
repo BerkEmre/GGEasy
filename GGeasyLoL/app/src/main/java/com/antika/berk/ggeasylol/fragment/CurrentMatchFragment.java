@@ -84,7 +84,7 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
                 if(et_username.getText().length() > 0)
                     new GetData().execute(et_username.getText().toString(), sp_server.getSelectedItem().toString());
                 else
-                    Toast.makeText(getContext(), "Sihirdar Adı Girin.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getString(R.string.set_summoner_name), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -144,17 +144,17 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
         ProgressDialog progress;
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...", "YÜKLENİYOR", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait), getString(R.string.loading), true);
         }
 
         @Override
         protected String doInBackground(String... strings) {
             SummonerObject so;
             so = raHelper.getSumonner(strings[0], strings[1]);
-            if (so == null){return "Check Summoner Name or Region";}
+            if (so == null){return getString(R.string.check_summoner_name_or_region);}
             summonerName = so.getName();
             cgo = raHelper.getCurrentMatch(so.getId(), strings[1]);
-            if (cgo == null){return "Summoner isnt Playing Game";}
+            if (cgo == null){return getString(R.string.summoner_isnt_play_game);}
             participantsItems.clear();
             for (int i = 0; i < cgo.getParticipants().size(); i++){
                 ParticipantObject part = cgo.getParticipants().get(i);

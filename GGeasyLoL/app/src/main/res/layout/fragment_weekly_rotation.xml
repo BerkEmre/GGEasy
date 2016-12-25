@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="HAFTALIK ROTASYON"
+        android:text="@string/weekly_rotation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView21"

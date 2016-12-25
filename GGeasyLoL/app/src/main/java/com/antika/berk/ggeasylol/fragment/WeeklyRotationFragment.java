@@ -70,18 +70,18 @@ public class WeeklyRotationFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...",
-                    "YÜKLENİYOR", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
         }
         @Override
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper=new RiotApiHelper();
             DBHelper dbHelper=new DBHelper(getContext());
 
-            List<Integer>freeToPlay=riotApiHelper.getChampionFreeToPlay("TR");
+            List<Integer>freeToPlay=riotApiHelper.getChampionFreeToPlay(getString(R.string.language));
             for(int i=0;i<freeToPlay.size();i++){
                 if (dbHelper.getChampion(freeToPlay.get(i).toString()) == null)
-                    dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString()), "TR"));
+                    dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString()), getString(R.string.language)));
 
                 championObjects.add(dbHelper.getChampion(freeToPlay.get(i).toString()));
 

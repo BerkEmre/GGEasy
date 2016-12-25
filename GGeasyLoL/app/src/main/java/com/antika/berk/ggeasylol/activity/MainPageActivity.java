@@ -107,6 +107,21 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
+        } else if (id==R.id.facebook) {
+            String url = "https://www.facebook.com/GGEasyTR/";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else if (id==R.id.twitch) {
+            String url = "https://www.twitch.tv/ggeasy_tr";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else if (id==R.id.instagram) {
+            String url = "https://www.instagram.com/ggeasytr/";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

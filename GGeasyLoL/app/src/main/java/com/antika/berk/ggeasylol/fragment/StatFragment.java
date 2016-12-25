@@ -71,8 +71,8 @@ public class StatFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...",
-                    "YÜKLENİYOR", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
         }
 
         @Override
@@ -80,7 +80,7 @@ public class StatFragment extends Fragment {
             RiotApiHelper apiKey=new RiotApiHelper();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/tr/v1.2/champion/"+co.getChampionID()+"?champData=info,stats&api_key="+apiKey.apiKey);
+                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?champData=info,stats&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1=new JSONObject(gelenData);
                 //stats içine girdim

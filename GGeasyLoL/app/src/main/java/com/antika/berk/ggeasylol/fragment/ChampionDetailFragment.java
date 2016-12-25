@@ -99,14 +99,14 @@ public class ChampionDetailFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...",
-                    "YÜKLENİYOR", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
         }
         @Override
         protected String doInBackground(String... strings) {
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/tr/v1.2/champion/"+co.getChampionID()+"?champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
+                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1;
                 obj1=new JSONObject(gelenData);
@@ -119,7 +119,7 @@ public class ChampionDetailFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            String k=s.replace("<br>", "");
+            String k=s.replace("<br>", "\n");
             hikayeView.setText("\t"+k);
             progress.dismiss();
 

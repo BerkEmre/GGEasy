@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">GGeasyLoL</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main_page">MainPageActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="sotec_media">berkemrealtan.com</string>
+    <string name="summoner_name">Sihirdar Adı</string>
+    <string name="region">Bölge</string>
+    <string name="save_summoner">Sihirdarı Kaydet</string>
+    <string name="champions">Şampiyonlar</string>
+    <string name="search">Arama...</string>
+    <string name="stats">Statlar</string>
+    <string name="skils">Skiller</string>
+    <string name="skins">Skinler</string>
+    <string name="current_match">Canlı Maç</string>
+    <string name="get_data">Verileri Al</string>
+    <string name="join_lottery">Çekilişe Katıl</string>
+    <string name="lotteries">Çekilişler</string>
+    <string name="armor">Zırh:</string>
+    <string name="attack">Saldırı:</string>
+    <string name="atack_range">Saldırı Mesafesi:</string>
+    <string name="health">Can:</string>
+    <string name="health_regen">Can Yenileme:</string>
+    <string name="movement_speed">Hareket Hızı:</string>
+    <string name="mana">Mana:</string>
+    <string name="mana_regen">Mana Yenileme:</string>
+    <string name="magic_resistance">Büyü Direnci:</string>
+    <string name="defence">Savunma:</string>
+    <string name="magic_power">Yetenek Gücü:</string>
+    <string name="difficulty">Zorluk:</string>
+    <string name="summoner">Sihirdar</string>
+    <string name="weekly_rotation">Haftalık Rotasyon</string>
+    <string name="language">TR</string>
+    <string name="point">Puan</string>
+    <string name="classic">Klasik</string>
+    <string name="continues">Devam Ediyor...</string>
+    <string name="drawing">Çekiliş Yapılıyor...</string>
+    <string name="its_over">Bitti</string>
+    <string name="set_summoner_name">Sihirdar Adı Giriniz</string>
+    <string name="please_wait">Lütfen Bekleyin...</string>
+    <string name="loading">Yükleniyor</string>
+    <string name="check_summoner_name_or_region">Sihirdar Adı veya Bölge Hatalı</string>
+    <string name="ops_make_mistake">Bir Hata Oluştu</string>
+    <string name="summoner_isnt_play_game">Sihirdar Oyunda Değil</string>
+    <string name="end_date">"Bitiş Tarihi : "</string>
+    <string name="winners_on_facebook">Kazananlar Facebook\'ta</string>
+    <string name="try_again">Tekrar Deneyin</string>
+    <string name="rate">Değerlendir</string>
+    <string name="share">Paylaş</string>
+    <string name="comunicate">İletişim</string>
+</resources>

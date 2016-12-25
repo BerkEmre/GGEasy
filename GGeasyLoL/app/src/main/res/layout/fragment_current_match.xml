@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:text="GÜNCEL MAÇ"
+        android:text="@string/current_match"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
@@ -43,7 +43,7 @@
             android:textAllCaps="false"
             android:fontFamily="sans-serif-condensed"
             android:layout_weight="1"
-            android:text="Sihirdar Adı" />
+            android:text="@string/summoner_name" />
 
         <ImageButton
             android:layout_width="48dp"
@@ -62,10 +62,10 @@
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:paddingLeft="15dp"
-        android:hint="Sihirdar Adı" />
+        android:hint="@string/summoner_name" />
 
     <TextView
-        android:text="Bölge"
+        android:text="@string/region"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
@@ -92,7 +92,7 @@
         android:textColor="@color/cast_expanded_controller_progress_text_color"
         android:textAllCaps="false"
         android:layout_margin="10dp"
-        android:text="Verileri Al" />
+        android:text="@string/get_data" />
 
     <View
         android:layout_height="2dp"

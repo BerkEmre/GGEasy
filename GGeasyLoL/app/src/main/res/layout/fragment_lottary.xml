@@ -28,7 +28,7 @@
         android:layout_height="50dp">
 
         <Button
-            android:text="Çekilişe Katıl"
+            android:text="@string/join_lottery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button4"

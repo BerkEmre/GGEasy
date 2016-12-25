@@ -50,7 +50,7 @@
             android:layout_marginLeft="5dp">
 
             <Button
-                android:text="statlar"
+                android:text="@string/stats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_stat"
@@ -58,7 +58,7 @@
                 android:textColor="@color/cast_expanded_controller_text_color" />
 
             <Button
-                android:text="skiller"
+                android:text="@string/skils"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_skill"
@@ -67,7 +67,7 @@
                 android:textColor="@color/cast_expanded_controller_text_color" />
 
             <Button
-                android:text="skinler"
+                android:text="@string/skins"
                 android:layout_width="match_parent"
                 android:id="@+id/btn_skin"
                 android:layout_height="wrap_content"

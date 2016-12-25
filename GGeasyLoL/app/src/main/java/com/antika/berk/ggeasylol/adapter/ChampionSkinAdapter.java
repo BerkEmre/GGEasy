@@ -56,7 +56,7 @@ public class ChampionSkinAdapter extends BaseAdapter {
         ChampionSkinObject champ = championList.get(position);
         championName.setText(champ.getSkinName());
         if(champ.getSkinName().equals("default"))
-            championName.setText("Klasik");
+            championName.setText(context.getString(R.string.classic));
         Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+champ.getKey()+"_"+champ.getNum()+".jpg").into(championlogo);
         return satirView;
     }

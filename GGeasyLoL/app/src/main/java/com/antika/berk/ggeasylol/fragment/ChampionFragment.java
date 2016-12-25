@@ -92,8 +92,8 @@ public class ChampionFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...",
-                    "YÜKLENİYOR", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
         }
 
         @Override
@@ -102,7 +102,7 @@ public class ChampionFragment extends Fragment {
             DBHelper dbHelper = new DBHelper(getActivity());
             RiotApiHelper raHelper = new RiotApiHelper();
 
-            champions = raHelper.getChampionStaticData();
+            champions = raHelper.getChampionStaticData(getContext());
             try{
                 for (int i = 0; i < champions.size(); i++) {
                     if (dbHelper.getChampion(champions.get(i).getChampionID()) == null)
@@ -141,7 +141,7 @@ public class ChampionFragment extends Fragment {
                 });
             }
             else
-                Toast.makeText(getActivity(), "Hata Yaptınız.Lütfen Tekrar Deneyin.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), getString(R.string.ops_make_mistake), Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
     }

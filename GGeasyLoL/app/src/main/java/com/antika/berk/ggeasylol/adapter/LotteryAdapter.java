@@ -75,11 +75,11 @@ public class LotteryAdapter extends BaseAdapter implements Filterable {
         tv_odul.setText(lottery.getOdul());
 
         if(lottery.getStatus().equals("0"))
-            tv_pers.setText("Devam Ediyor...");
+            tv_pers.setText(context.getString(R.string.continues));
         else if(lottery.getStatus().equals("1"))
-            tv_pers.setText("Çekiliş Yapılıyor");
+            tv_pers.setText(context.getString(R.string.drawing));
         else
-            tv_pers.setText("Bitti");
+            tv_pers.setText(context.getString(R.string.its_over));
 
         return satirView;
     }

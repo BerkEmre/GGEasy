@@ -2,6 +2,8 @@ package com.antika.berk.ggeasylol.fragment;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,15 +17,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.object.LotteryObject;
 import com.antika.berk.ggeasylol.object.Sumonner;
-import com.google.ads.mediation.admob.AdMobAdapter;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
@@ -52,26 +52,13 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
     boolean show = false;
 
-    //private InterstitialAd gecisReklam;
-    private RewardedVideoAd videoAd;
+    private RewardedVideoAd videoAd;//adcolony
 
     LotteryObject lo;
     List<Sumonner> summoners = new ArrayList<Sumonner>();
     SumonnersAdapter adapter;
 
     public void setLottery(LotteryObject lo){this.lo = lo;}
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if(show){
-        FragmentManager fm = getFragmentManager();
-        JoinLotteryFragment asf = new JoinLotteryFragment();
-        asf.setFragment(LottaryFragment.this);
-        asf.setLottery(lo);
-        asf.show(fm, "Add Sumonner");
-        show = false;}
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,6 +74,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         lv_persons    = (ListView   ) view.findViewById(R.id.list_view   );
         pb_wait       = (ProgressBar) view.findViewById(R.id.progressBar2);
 
+        //**************adcolony********************************************************************
         videoAd = MobileAds.getRewardedVideoAdInstance(getActivity());
         Bundle extras = new Bundle();
         extras.putBoolean( "_noRefresh", true );
@@ -105,83 +93,50 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
                     show = true;
                 }
             }
-
             @Override
-            public void onRewardedVideoAdOpened() {
-
-            }
-
+            public void onRewardedVideoAdOpened() { }
             @Override
-            public void onRewardedVideoStarted() {
-
-            }
-
+            public void onRewardedVideoStarted() { }
             @Override
-            public void onRewardedVideoAdClosed() {
-
-            }
-
+            public void onRewardedVideoAdClosed() { }
             @Override
-            public void onRewarded(RewardItem rewardItem) {
-
-            }
-
+            public void onRewarded(RewardItem rewardItem) { }
             @Override
-            public void onRewardedVideoAdLeftApplication() {
-
-            }
-
+            public void onRewardedVideoAdLeftApplication() { }
             @Override
-            public void onRewardedVideoAdFailedToLoad(int i) {
-
-            }
+            public void onRewardedVideoAdFailedToLoad(int i) { }
         });
-
-        /*gecisReklam = new InterstitialAd(getActivity());
-
-        gecisReklam.setAdUnitId("ca-app-pub-3539552494760504/1524285270");
-        AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                //.addTestDevice("D8592250ED9C011634C41C2295225021")
-                .build();
-        gecisReklam.loadAd(adRequest);
-
-        gecisReklam.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                if(lo.getStatus().equals("0")) {
-                    btn_join.setVisibility(View.VISIBLE);
-                    pb_wait.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-                show = true;
-            }
-        });*/
+        //******************************************************************************************
 
         btn_join.setVisibility(View.GONE);
 
         Picasso.with(getContext()).load("http://berkemrealtan.com/GGEasy/img/" + lo.getImg()).into(iv_image);
         tv_name.setText(lo.getName());
         tv_odul.setText(lo.getOdul());
-        tv_date.setText("End Date : " + lo.getEnd_date());
+        tv_date.setText(getString(R.string.end_date) + lo.getEnd_date());
 
         if(lo.getStatus().equals("0")){
-            tv_person.setText("Devam Ediyor...");
+            tv_person.setText(getString(R.string.continues));
         }
         else if(lo.getStatus().equals("1")){
             btn_join.setVisibility(View.GONE);
             pb_wait.setVisibility(View.GONE);
-            tv_person.setText("Çekiliş Yapılıyor...");
+            tv_person.setText(getString(R.string.drawing));
         }
         else{
             btn_join.setVisibility(View.GONE);
             pb_wait.setVisibility(View.GONE);
-            tv_person.setText("Kazananlar Facebook'ta");
+            tv_person.setText(getString(R.string.winners_on_facebook));
+
+            tv_person.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String url = "https://www.facebook.com/GGEasyTR/";
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }
+            });
         }
 
 
@@ -190,7 +145,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
             @Override
             public void onClick(View v) {
                 if(videoAd.isLoaded()){
-                    videoAd.show();
+                    videoAd.show();//adcolony
                 }
             }
         });
@@ -211,8 +166,8 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         ProgressDialog progress;
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), "Lütfen Bekleyin...",
-                    "YÜKLENİYOR", true);
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
             summoners.clear();
         }
         @Override
