@@ -17,19 +17,23 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.adcolony.sdk.AdColony;
+import com.adcolony.sdk.AdColonyAdOptions;
+import com.adcolony.sdk.AdColonyAppOptions;
+import com.adcolony.sdk.AdColonyInterstitial;
+import com.adcolony.sdk.AdColonyInterstitialListener;
+import com.adcolony.sdk.AdColonyReward;
+import com.adcolony.sdk.AdColonyRewardListener;
+import com.adcolony.sdk.AdColonyUserMetadata;
+import com.adcolony.sdk.AdColonyZone;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.object.LotteryObject;
 import com.antika.berk.ggeasylol.object.Sumonner;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.jirbo.adcolony.AdColonyAdapter;
-import com.jirbo.adcolony.AdColonyBundleBuilder;
+import com.google.android.gms.ads.InterstitialAd;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -44,6 +48,16 @@ import java.util.List;
 import it.sephiroth.android.library.picasso.Picasso;
 
 public class LottaryFragment extends Fragment implements DialogInterface.OnDismissListener {
+    //*******************************************ADCOLONY*******************************************
+    final private String APP_ID = "app185a7e71e1714831a49ec7";
+    final private String ZONE_ID = "vz1fd5a8b2bf6841a0a4b826";
+    final private String TAG = "AdColonyDemo";
+
+    private AdColonyInterstitial ad;
+    private AdColonyInterstitialListener listener;
+    private AdColonyAdOptions ad_options;
+    //**********************************************************************************************
+
     ImageView iv_image;
     TextView tv_name, tv_odul, tv_date, tv_person, tv_katildiniz;
     Button btn_join;
@@ -52,13 +66,24 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
     boolean show = false;
 
-    private RewardedVideoAd videoAd;//adcolony
-
     LotteryObject lo;
     List<Sumonner> summoners = new ArrayList<Sumonner>();
     SumonnersAdapter adapter;
 
     public void setLottery(LotteryObject lo){this.lo = lo;}
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(show){
+            FragmentManager fm = getFragmentManager();
+            JoinLotteryFragment asf = new JoinLotteryFragment();
+            asf.setFragment(LottaryFragment.this);
+            asf.setLottery(lo);
+            asf.show(fm, "Add Sumonner");
+            show = false;
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,39 +99,55 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         lv_persons    = (ListView   ) view.findViewById(R.id.list_view   );
         pb_wait       = (ProgressBar) view.findViewById(R.id.progressBar2);
 
-        //**************adcolony********************************************************************
-        videoAd = MobileAds.getRewardedVideoAdInstance(getActivity());
-        Bundle extras = new Bundle();
-        extras.putBoolean( "_noRefresh", true );
-        AdColonyBundleBuilder.setZoneId("vz4b35fd5a978c4b009b");
-        AdRequest adRequest = new AdRequest.Builder()
-                .addNetworkExtrasBundle(AdColonyAdapter.class, AdColonyBundleBuilder.build())
-                .build();
-        videoAd.loadAd("ca-app-pub-3539552494760504/1524285270", adRequest);
+        //ADCOLONY
+        AdColonyAppOptions app_options = new AdColonyAppOptions()
+                .setUserID( "unique_user_id" );
 
-        videoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+        AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
+
+        ad_options = new AdColonyAdOptions().enableConfirmationDialog(true).enableResultsDialog(true);
+
+        AdColony.setRewardListener( new AdColonyRewardListener()
+        {
             @Override
-            public void onRewardedVideoAdLoaded() {
-                if(lo.getStatus().equals("0")) {
-                    btn_join.setVisibility(View.VISIBLE);
-                    pb_wait.setVisibility(View.GONE);
-                    show = true;
-                }
+            public void onReward( AdColonyReward reward )
+            {
+                Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
+            }
+        } );
+
+        listener = new AdColonyInterstitialListener()
+        {
+            @Override
+            public void onRequestFilled( AdColonyInterstitial ad )
+            {
+                LottaryFragment.this.ad = ad;
+                btn_join.setVisibility(View.VISIBLE);
+                pb_wait.setVisibility(View.GONE);
+                Log.d( TAG, "onRequestFilled" );
             }
             @Override
-            public void onRewardedVideoAdOpened() { }
+            public void onRequestNotFilled( AdColonyZone zone )
+            {
+                pb_wait.setVisibility(View.GONE);
+                Log.d( TAG, "onRequestNotFilled");
+            }
             @Override
-            public void onRewardedVideoStarted() { }
+            public void onOpened( AdColonyInterstitial ad )
+            {
+                btn_join.setVisibility(View.GONE);
+                pb_wait.setVisibility(View.VISIBLE);
+                Log.d( TAG, "onOpened" );
+            }
             @Override
-            public void onRewardedVideoAdClosed() { }
-            @Override
-            public void onRewarded(RewardItem rewardItem) { }
-            @Override
-            public void onRewardedVideoAdLeftApplication() { }
-            @Override
-            public void onRewardedVideoAdFailedToLoad(int i) { }
-        });
-        //******************************************************************************************
+            public void onExpiring( AdColonyInterstitial ad )
+            {
+                btn_join.setVisibility(View.GONE);
+                pb_wait.setVisibility(View.VISIBLE);
+                AdColony.requestInterstitial( ZONE_ID, this, ad_options );
+                Log.d( TAG, "onExpiring" );
+            }
+        };
 
         btn_join.setVisibility(View.GONE);
 
@@ -131,22 +172,26 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
             tv_person.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String url = "https://www.facebook.com/GGEasyTR/";
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(url));
-                    startActivity(i);
+                    Intent intent;
+                    try {
+                        getContext().getPackageManager()
+                                .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
+                        intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("fb://page/225183367912890")); //Trys to make intent with FB's URI
+                    } catch (Exception e) {
+                        intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://www.facebook.com/GGEasyTR/")); //catches and opens a url to the desired page
+                    }
+                    startActivity(intent);
                 }
             });
         }
 
-
-
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(videoAd.isLoaded()){
-                    videoAd.show();//adcolony
-                }
+                ad.show();
+                show = true;
             }
         });
 

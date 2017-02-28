@@ -1,5 +1,6 @@
 package com.antika.berk.ggeasylol.activity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -108,20 +109,32 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     R.id.content_main_page,
                     cmf,"0").commit();
         } else if (id==R.id.facebook) {
-            String url = "https://www.facebook.com/GGEasyTR/";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
+            Intent intent;
+            try {
+                getApplicationContext().getPackageManager()
+                        .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
+                intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("fb://page/225183367912890")); //Trys to make intent with FB's URI
+            } catch (Exception e) {
+                intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.facebook.com/GGEasyTR/")); //catches and opens a url to the desired page
+            }
+            startActivity(intent);
         } else if (id==R.id.twitch) {
             String url = "https://www.twitch.tv/ggeasy_tr";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(url));
             startActivity(i);
         } else if (id==R.id.instagram) {
-            String url = "https://www.instagram.com/ggeasytr/";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
+            Uri uri = Uri.parse("https://www.instagram.com/_u/ggeasytr/");
+            Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+            likeIng.setPackage("com.instagram.android");
+            try {
+                startActivity(likeIng);
+            } catch (ActivityNotFoundException e) {
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.instagram.com/ggeasytr/")));
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
