@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.multidex.MultiDex;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,6 +23,7 @@ import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 import com.antika.berk.ggeasylol.fragment.ComingSoonFragment;
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
+import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
 import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
 
@@ -69,8 +71,15 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
+
         } else if (id == R.id.nav_gallery) {
             SumonnerFragment cmf = new SumonnerFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+        }else if (id == R.id.nav_profile) {
+            ProfilFragment cmf = new ProfilFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
