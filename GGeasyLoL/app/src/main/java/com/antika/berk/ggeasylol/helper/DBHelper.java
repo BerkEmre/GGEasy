@@ -18,9 +18,10 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String TABLE_CHAMPIONS = "champions";
     private static final String TABLE_SPELL     = "spell";
     private static final String TABLE_SUMONNER  = "sumonner";
+    private static final String TABLE_MATCH     = "matchID";
 
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, 13);
+        super(context, DATABASE_NAME, null, 21);
     }
 
     @Override
@@ -53,6 +54,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 "sumonner_icon     TEXT" +
                 ")";
         db.execSQL(sql);
+
+        sql = "CREATE TABLE " + TABLE_MATCH +
+                "(" +
+                "id INTEGER PRIMARY KEY," +
+                "match_id          TEXT," +
+                "gorev             TEXT" +
+                ")";
+        db.execSQL(sql);
     }
 
     @Override
@@ -60,6 +69,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAMPIONS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SPELL);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUMONNER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MATCH);
         onCreate(db);
     }
 
@@ -182,5 +192,31 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         return sumonners;
+    }
+
+    public void insertMatch (String id, String gorev) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("DELETE FROM " + TABLE_MATCH + " WHERE gorev = '" + gorev + "'");
+
+        ContentValues values = new ContentValues();
+        values.put("match_id",id);
+        values.put("gorev",gorev);
+        db.insert(TABLE_MATCH, null, values);
+        db.close();
+    }
+
+    public String getMatch(String gorev) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.query(TABLE_MATCH, new String[]{
+                "id", "match_id", "gorev"
+        },null, null, null, null, null);
+        String match_id = "";
+        while (cursor.moveToNext()) {
+            if(gorev.equals(cursor.getString(2)))
+                match_id=cursor.getString(1);
+        }
+        return match_id;
     }
 }

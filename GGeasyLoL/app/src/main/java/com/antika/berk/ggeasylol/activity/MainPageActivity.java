@@ -23,7 +23,11 @@ import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 import com.antika.berk.ggeasylol.fragment.ComingSoonFragment;
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
+<<<<<<< HEAD
 import com.antika.berk.ggeasylol.fragment.ProfilFragment;
+=======
+import com.antika.berk.ggeasylol.fragment.MissionFragment;
+>>>>>>> origin/master
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
 import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
 
@@ -78,8 +82,13 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
+<<<<<<< HEAD
         }else if (id == R.id.nav_profile) {
             ProfilFragment cmf = new ProfilFragment();
+=======
+        } else if (id == R.id.nav_mission) {
+            MissionFragment cmf = new MissionFragment();
+>>>>>>> origin/master
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
