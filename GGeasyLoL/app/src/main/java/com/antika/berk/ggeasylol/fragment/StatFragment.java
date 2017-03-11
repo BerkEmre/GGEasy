@@ -30,8 +30,7 @@ import java.util.List;
 
 public class StatFragment extends Fragment {
     private ChampionObject co;
-    TextView name,armor,attackdamage,attackrange,attackspeedoffset,attackspeedperlevel,
-            crit,critperlevel,hp,hpregen,movespeed,mp,mpregen,
+    TextView name,armor,attackdamage,attackrange,hp,hpregen,movespeed,mp,mpregen,
             spellblock;
     ProgressBar attack_p,defense_p,magic_p,difficulty_p;
     public void setChampionObject(ChampionObject co) {

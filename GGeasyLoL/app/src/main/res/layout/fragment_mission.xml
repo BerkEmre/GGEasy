@@ -1,0 +1,2062 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.MissionFragment"
+    android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="Mission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView46"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="5dp"
+        android:layout_margin="10dp" />
+
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="@color/secondary_text"
+        android:layout_margin="10dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/gorevResim1"
+                    android:layout_weight="1"
+                    android:background="@drawable/penta"
+                    android:layout_height="100dp"
+                    android:layout_width="200dp"
+                    android:layout_marginRight="2dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:text="Penta Kill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/gorevName1"
+                            android:layout_weight="1"
+                            android:textSize="20sp"
+                            android:textColor="@android:color/holo_red_dark"
+                            android:textStyle="normal|bold" />
+
+                        <TextView
+                            android:text="(2500 puan)"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/puan1"
+                            android:layout_weight="1"
+                            android:textSize="16sp"
+                            android:textStyle="normal|bold"
+                            android:textColor="@color/cast_intro_overlay_background_color"
+                            android:textAlignment="textEnd" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="Dereceli maçta 5 te 5 atarak görevi tamamla."
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevAciklama1"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:textColor="@color/cast_expanded_controller_background_color"
+                        android:textStyle="normal|bold" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button1"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button1"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button1"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent"
+                    android:onClick="onClickListener" />
+
+
+            </LinearLayout>
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/gorevResim2"
+                    android:layout_weight="1"
+                    android:layout_height="100dp"
+                    android:layout_width="200dp"
+                    android:background="@drawable/quadra"
+                    android:layout_marginRight="2dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:text="Quadra Kill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/gorevName2"
+                            android:layout_weight="1"
+                            android:textSize="20sp"
+                            android:textColor="@android:color/holo_red_dark"
+                            android:textStyle="normal|bold" />
+
+                        <TextView
+                            android:text="(1300 puan)"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/puan2"
+                            android:layout_weight="1"
+                            android:textSize="16sp"
+                            android:textStyle="normal|bold"
+                            android:textColor="@color/cast_intro_overlay_background_color"
+                            android:textAlignment="textEnd" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="Dereceli maçta 4 te 4 atarak görevi tamamla."
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevAciklama2"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:textColor="@color/cast_expanded_controller_background_color"
+                        android:textStyle="normal|bold" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button2"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button2"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button2"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+            <View
+            android:layout_height="2dp"
+            android:layout_width="fill_parent"
+            android:background="@color/secondary_text"
+            android:layout_margin="10dp" />
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim3"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/triple"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Triple Kill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName3"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(500 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan3"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 3 te 3 atarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama3"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button3"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button3"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button3"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim4"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/doub"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Double Kill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName4"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(150 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan4"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 2 de 2 atarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama4"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button4"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button4"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button4"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim5"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/kill"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+10 Kill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName5"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(600 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan5"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 10 ve daha fazla kill alarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama5"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button5"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button5"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button5"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim6"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/killa"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+20 Kill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName6"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(1200 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan6"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 20 ve daha fazla kill alarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama6"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button6"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button6"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button6"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim7"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/killb"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+30 Kill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName7"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(2000 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan7"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 30 ve daha fazla kill alarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama7"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button7"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button7"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button7"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim8"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/asist"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+10 Asist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName8"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(200 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan8"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 10 ve daha fazla asist yaparak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama8"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button8"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button8"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button8"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim9"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/asista"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+20 Asist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName9"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(500 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan9"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 20 ve daha fazla asist yaparak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama9"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button9"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button9"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button9"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim10"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/asistb"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+30 Asist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName10"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(1200 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan10"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 30 ve daha fazla asist yaparak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama10"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button10"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button10"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button10"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim11"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/kule1"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+2 Kule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName11"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(400 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan11"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 2 ve daha fazla kule yıkarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama11"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button11"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button11"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button11"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim12"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/kule2"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+4 Kule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName12"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(1100 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan12"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 4 ve daha fazla kule yıkarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama12"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button12"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button12"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button12"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim13"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/kule3"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+6 Kule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName13"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(2000 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan13"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 6 ve daha fazla kule yıkarak görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama13"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button13"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button13"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button13"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim14"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/minion10"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+100 Minyon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName14"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(200 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan14"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 100 ve daha fazla minyon keserek görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama14"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button14"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button14"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button14"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim15"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/minion20"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+150 Minyon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName15"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(350 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan15"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 150 ve daha fazla minyon keserek görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama15"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button15"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button15"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button15"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim16"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/minion30"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="+200 Minyon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName16"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(600 puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan16"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Dereceli maçta 200 ve daha fazla minyon keserek görevi tamamla."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama16"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button16"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button16"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAl_button16"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/secondary_text"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gorevResim17"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:background="@drawable/rapor"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Maç Sonu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gorevName17"
+                        android:layout_weight="1"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="normal|bold" />
+
+                    <TextView
+                        android:text="(Değişken puan)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/puan17"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"
+                        android:textColor="@color/cast_intro_overlay_background_color"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <TextView
+                    android:text="Maç sonu kill +15, ölüm -10, asist +5, zafer +100, bozgun -50, minyon 0.5, kule +20, tarafsız minyon +1.5, double kill +50, triple kill +150, quadra kill +300, penta kill +750, 1 altın +0.05, 1 hasar +0.001 puandır."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevAciklama17"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <Button
+                    android:text="SORGULA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sorgula_button17"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="İPTAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gorevIptal_button17"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:text="GÖREVİ AL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/fastScrollTextColor"
+                    android:background="@color/accent"
+                    android:id="@+id/gorevAl_button17" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

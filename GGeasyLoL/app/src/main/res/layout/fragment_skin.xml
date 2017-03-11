@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_skin"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,12 +19,13 @@
             android:textStyle="normal|bold"
             android:textSize="30sp"
             android:textColor="@color/colorAccent"
-            android:fontFamily="sans-serif-smallcaps" />
+            android:fontFamily="sans-serif-condensed"
+            android:layout_margin="10dp" />
 
         <View
-            android:layout_width="fill_parent"
             android:layout_height="2dp"
-            android:background="#c0c0c0"
+            android:layout_width="fill_parent"
+            android:background="@color/secondary_text"
             android:layout_margin="10dp" />
 
         <GridView

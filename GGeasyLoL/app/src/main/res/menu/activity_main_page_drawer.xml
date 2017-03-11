@@ -11,6 +11,9 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/sumonners_icon"
             android:title="@string/summoner" />
+        <item android:title="Mission"
+            android:id="@+id/nav_mission"
+            android:icon="@drawable/mission" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/champions_icon"

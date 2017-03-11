@@ -22,18 +22,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/champion"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
+            android:fontFamily="sans-serif-condensed"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textStyle="normal|bold"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:layout_margin="10dp" />
 
         <View
             android:layout_height="2dp"
-            android:background="#c0c0c0"
-            android:layout_marginTop="2dp"
-            android:layout_weight="1"
-            android:layout_width="fill_parent" />
+            android:layout_width="fill_parent"
+            android:background="@color/secondary_text"
+            android:layout_margin="10dp" />
 
         <ScrollView
             android:layout_width="match_parent"
