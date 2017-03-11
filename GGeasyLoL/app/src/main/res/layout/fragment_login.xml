@@ -1,12 +1,93 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.antika.berk.ggeasylol.LoginFragment">
+    tools:context="com.antika.berk.ggeasylol.fragment.LoginFragment"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/icon"
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_marginTop="75dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/summoner_name"
+            android:textColor="@android:color/black"
+            android:hint="Summoner Name"
+            android:textColorHint="@color/common_google_signin_btn_text_light_default"
+            android:background="@android:color/white"
+            android:textSize="22sp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editText7"
+            android:background="@android:color/white"
+            android:layout_margin="10dp"
+            android:textSize="22sp"
+            android:padding="5dp"
+            android:hint="Password"
+            android:textColorHint="@color/common_google_signin_btn_text_light_default" />
+
+        <Button
+            android:text="Log in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button6"
+            android:layout_margin="7dp"
+            android:background="?attr/colorAccent"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:text="Forget Password?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/forget"
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:textAllCaps="false"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Sign Up for GGEasy-LOL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/signUp"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:textSize="22sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
