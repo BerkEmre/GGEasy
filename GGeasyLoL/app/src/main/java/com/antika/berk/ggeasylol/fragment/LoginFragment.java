@@ -3,18 +3,27 @@ package com.antika.berk.ggeasylol.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginFragment extends Fragment {
     TextView forget, signup;
+    EditText summonerName,summonerPass;
+    Spinner region;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,7 +37,26 @@ public class LoginFragment extends Fragment {
         SpannableString content1 = new SpannableString("Sign Up for GGEasy-LOL");
         content1.setSpan(new UnderlineSpan(), 0, content1.length(), 0);
         signup.setText(content1);
+        region=(Spinner)view.findViewById(R.id.region_spinner);
+        List<String> categories = new ArrayList<String>();
+        categories.add("TR"  );categories.add("EUNE");categories.add("EUW" );categories.add("JP"  );
+        categories.add("KR"  );categories.add("LAN" );categories.add("LAS" );categories.add("NA"  );
+        categories.add("OCE" );categories.add("RU"  );categories.add("BR"  );categories.add("PBE" );
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, categories);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        region.setAdapter(dataAdapter);
 
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignupFragment cmof = new SignupFragment();
+                LoginFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof, "")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         return view;
     }

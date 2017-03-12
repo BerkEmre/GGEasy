@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.SignupFragment"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:padding="5dp"
+                android:background="@android:color/white"
+                android:textSize="18sp"
+                android:hint="Summoner Name"
+                android:layout_margin="10dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText9"
+                android:padding="5dp"
+                android:background="@android:color/white"
+                android:textSize="18sp"
+                android:hint="E-mail"
+                android:layout_margin="10dp" />
+            <TextView
+                android:text="*Select Your Region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView45"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:textStyle="normal|bold" />
+
+
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:id="@+id/region_spin"
+                android:layout_height="40dp"
+                android:background="@android:color/white"
+                android:layout_margin="10dp"
+                android:padding="5dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/editText8"
+                android:padding="5dp"
+                android:background="@android:color/white"
+                android:textSize="18sp"
+                android:hint="Password"
+                android:layout_margin="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/editText6"
+                android:padding="5dp"
+                android:background="@android:color/white"
+                android:textSize="18sp"
+                android:hint="Re-enter Password"
+                android:layout_margin="10dp" />
+
+            <TextView
+                android:text="*Please create a rune page which named like this in your account and check it! "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView47"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:layout_margin="10dp"
+                android:textStyle="normal|bold"
+                android:padding="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/key_text"
+                    android:layout_weight="1"
+                    android:textSize="22sp"
+                    android:layout_width="200dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="123456789"
+                    android:textAlignment="center"
+                    android:textStyle="normal|bold"
+                    android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView11"
+                    android:layout_weight="1"
+                    android:layout_width="50dp" />
+
+                <Button
+                    android:text="Check"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/check_btn"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/white"
+                    android:background="@color/colorAccent" />
+            </LinearLayout>
+
+            <Button
+                android:text="Register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button7"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:background="@color/colorAccent"
+                android:textStyle="normal|bold"
+                android:layout_margin="10dp"
+                android:padding="5dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
