@@ -1,15 +1,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context="com.antika.berk.ggeasylol.fragment.ForgetFragment"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:layout_marginTop="150dp">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <EditText
+    <TextView
+        android:text="Forget Password?"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView44"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textStyle="normal|bold"
+        android:textSize="24sp"
+        android:textColor="@android:color/white" />
+
+    <EditText
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/editText9"
@@ -18,10 +29,11 @@
         android:textSize="18sp"
         android:hint="E-mail"
         android:inputType="textEmailSubject"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:layout_width="250dp" />
 
     <Button
         android:text="Send Mail"

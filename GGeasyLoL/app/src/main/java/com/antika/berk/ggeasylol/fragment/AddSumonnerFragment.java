@@ -88,8 +88,6 @@ public class AddSumonnerFragment extends DialogFragment
         return view;
     }
 
-
-
     private class checkUser extends AsyncTask<String, String, String> {
         ProgressDialog progress;
 

@@ -2,6 +2,7 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.antika.berk.ggeasylol.R;
 
-public class ForgetFragment extends Fragment {
+public class ForgetFragment extends DialogFragment {
 
 
 

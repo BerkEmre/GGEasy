@@ -100,17 +100,16 @@ public class RiotApiHelper {
 
         try {
             master = new JSONObject(JSONString);
-            master = master.getJSONObject(Integer.toString(summonerID));
+            master = master.getJSONObject(""+summonerID);
 
             masterArray = master.getJSONArray("pages");
             for (int i = 0; i < masterArray.length(); i++){
                 masters = masterArray.getJSONObject(i);
-
-                masteries.clear();
+                /*masteries.clear();
                 mastersArray = masters.getJSONArray("masteries");
                 for (int j = 0; j < mastersArray.length(); j++){
                     masteries.add(new MasterObject(mastersArray.getJSONObject(j).getInt("id"), mastersArray.getJSONObject(j).getInt("rank")));
-                }
+                }*/
                 masteriesPages.add(new MasteriesPageObject(masteries, masters.getInt("id"), masters.getString("name")));
             }
             return masteriesPages;
@@ -638,7 +637,7 @@ public class RiotApiHelper {
         }
         return null;
     }
-    private String readURL(String link) {
+    public String readURL(String link) {
         URL u = null;
         try {
             String new_link = link.replace(" ", "");
