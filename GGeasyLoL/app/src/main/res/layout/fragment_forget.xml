@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.ForgetFragment"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editText9"
+        android:padding="5dp"
+        android:background="@android:color/white"
+        android:textSize="18sp"
+        android:hint="E-mail"
+        android:inputType="textEmailSubject"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp" />
+
+    <Button
+        android:text="Send Mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"
+        android:textStyle="normal|bold"
+        android:layout_margin="10dp"
+        android:padding="5dp" />
+</LinearLayout>

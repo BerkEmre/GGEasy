@@ -34,14 +34,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/editText9"
                 android:padding="5dp"
                 android:background="@android:color/white"
                 android:textSize="18sp"
                 android:hint="E-mail"
-                android:layout_margin="10dp" />
+                android:layout_margin="10dp"
+                android:inputType="textEmailSubject" />
             <TextView
                 android:text="*Select Your Region"
                 android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                 android:id="@+id/textView45"
                 android:layout_margin="10dp"
                 android:padding="5dp"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@android:color/white"
                 android:textStyle="normal|bold" />
 
@@ -88,11 +88,11 @@
                 android:layout_margin="10dp" />
 
             <TextView
-                android:text="*Please create a rune page which named like this in your account and check it! "
+                android:text="*Please create a rune page which named like this in your account and click REGISTER! "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView47"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@android:color/white"
                 android:layout_margin="10dp"
                 android:textStyle="normal|bold"
@@ -117,20 +117,6 @@
                     android:textStyle="normal|bold"
                     android:textColor="@android:color/white" />
 
-                <ImageView
-                    android:layout_height="50dp"
-                    android:id="@+id/imageView11"
-                    android:layout_weight="1"
-                    android:layout_width="50dp" />
-
-                <Button
-                    android:text="Check"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/check_btn"
-                    android:layout_weight="1"
-                    android:textColor="@android:color/white"
-                    android:background="@color/colorAccent" />
             </LinearLayout>
 
             <Button

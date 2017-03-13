@@ -58,6 +58,18 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ForgetFragment cmof = new ForgetFragment();
+                LoginFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof, "")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
         return view;
     }
 
