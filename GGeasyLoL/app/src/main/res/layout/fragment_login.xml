@@ -8,9 +8,9 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
             app:srcCompat="@drawable/icon"
@@ -22,11 +22,11 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:inputType="textPersonName"
+            android:inputType="textEmailSubject"
             android:ems="10"
             android:id="@+id/summoner_name"
             android:textColor="@android:color/black"
-            android:hint="Summoner Name"
+            android:hint="E-Mail"
             android:background="@android:color/white"
             android:textSize="18sp"
             android:layout_height="wrap_content"
@@ -44,25 +44,6 @@
             android:textSize="18sp"
             android:padding="5dp"
             android:hint="Password" />
-
-        <TextView
-            android:text="*Select Your Region"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView45"
-            android:layout_margin="10dp"
-            android:padding="5dp"
-            android:textSize="14sp"
-            android:textColor="@android:color/white"
-            android:textStyle="normal|bold" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:id="@+id/region_spinner"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:padding="5dp"
-            android:background="@android:color/white" />
 
         <Button
             android:text="Log in"
@@ -91,7 +72,7 @@
             android:textSize="16sp" />
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -106,7 +87,20 @@
                 android:textSize="22sp"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
+                android:textStyle="normal|bold"
+                android:gravity="bottom" />
+
+            <TextView
+                android:text="Giriş Yapmadan Devam Et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/devam"
+                android:textAlignment="center"
+                android:textColor="@color/divider"
+                android:layout_weight="1"
+                android:textSize="18sp"
                 android:textStyle="normal|bold" />
+
         </LinearLayout>
 
     </LinearLayout>

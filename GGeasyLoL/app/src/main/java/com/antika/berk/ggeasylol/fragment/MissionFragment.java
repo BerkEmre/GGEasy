@@ -23,6 +23,7 @@ import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ChampionStatObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
 import com.antika.berk.ggeasylol.object.SummonerIDsObject;
+import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,6 +40,7 @@ import java.util.List;
 public class MissionFragment extends Fragment {
     Mission m;
     int match_id;
+    DBHelper dbHelper;
 
     Button grvAl1,grvAl2,grvAl3,grvAl4,grvAl5,grvAl6,grvAl7,grvAl8,grvAl9,grvAl10,grvAl11,grvAl12,grvAl13,grvAl14,grvAl15,grvAl16,
             grvAl17;
@@ -110,7 +112,17 @@ public class MissionFragment extends Fragment {
         grvSorgu16=(Button)view.findViewById(R.id.sorgula_button16);
         grvSorgu17=(Button)view.findViewById(R.id.sorgula_button17);
 
-        final DBHelper dbHelper = new DBHelper(view.getContext());
+        dbHelper = new DBHelper(view.getContext());
+
+        UserObject uo = dbHelper.getUser();
+        if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){
+            LoginFragment cmf = new LoginFragment();
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+        }
+
         if(dbHelper.getMatch("Gorev1").equals("")){
 
         }else{
@@ -927,11 +939,8 @@ public class MissionFragment extends Fragment {
         protected String doInBackground(String... strings) {
 
             try {
-
-                String gelenSummonerID=getJsonFromServer("https://tr.api.pvp.net/api/lol/tr/v1.4/summoner/by-name/SOLOTURK%20SF%20260?api_key="+apiHelper.apiKey);
-                JSONObject summonerID=new JSONObject(gelenSummonerID);
-                JSONObject summonerID2=summonerID.getJSONObject("soloturksf260");
-                int summoner_id=summonerID2.getInt("id");
+                UserObject uo = dbHelper.getUser();
+                String summoner_id=uo.getSummonerID();
                 String gelenMatchID=getJsonFromServer("https://tr.api.pvp.net/api/lol/tr/v2.2/matchlist/by-summoner/"+summoner_id+"?beginIndex=0&endIndex=1&api_key="+apiHelper.apiKey);
                 JSONObject matchID=new JSONObject(gelenMatchID);
                 JSONArray matchID2=matchID.getJSONArray("matches");
@@ -966,7 +975,7 @@ public class MissionFragment extends Fragment {
                     JSONObject idObj1=idarray.getJSONObject(i);
                     JSONObject idObj2=idObj1.getJSONObject("player");
                     ids.add(new SummonerIDsObject(idObj2.getInt("summonerId")));
-                    if(summoner_id==ids.get(i).getId()){
+                    if(summoner_id.equals(ids.get(i).getId())){
                         y=i;
                         break;
                     }

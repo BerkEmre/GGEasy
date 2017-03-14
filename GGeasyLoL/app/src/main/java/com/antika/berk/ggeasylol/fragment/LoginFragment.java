@@ -1,6 +1,8 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,28 +17,38 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+import com.antika.berk.ggeasylol.object.MasteriesPageObject;
+import com.antika.berk.ggeasylol.object.SummonerObject;
+import com.antika.berk.ggeasylol.object.UserObject;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LoginFragment extends Fragment {
-    TextView forget, signup;
-    EditText summonerName,summonerPass;
-    Spinner region;
+    TextView forget, signup, devam;
+    EditText email,sifre;
     Button login_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+        DBHelper dbHelper = new DBHelper(getContext());
 
-        forget       =  (TextView) view.findViewById(R.id.forget);
-        signup       =  (TextView) view.findViewById(R.id.signUp);
-        summonerName =  (EditText) view.findViewById(R.id.summoner_name);
-        summonerPass =  (EditText) view.findViewById(R.id.summoner_pass);
-        login_btn    =  (Button)   view.findViewById(R.id.login_btn);
-        region       =  (Spinner)  view.findViewById(R.id.region_spinner);
+        forget    =  (TextView) view.findViewById(R.id.forget);
+        signup    =  (TextView) view.findViewById(R.id.signUp);
+        devam     =  (TextView) view.findViewById(R.id.devam);
+        email     =  (EditText) view.findViewById(R.id.summoner_name);
+        sifre     =  (EditText) view.findViewById(R.id.summoner_pass);
+        login_btn =  (Button)   view.findViewById(R.id.login_btn);
 
         SpannableString content = new SpannableString("Forget Password?");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -45,15 +57,6 @@ public class LoginFragment extends Fragment {
         SpannableString content1 = new SpannableString("Sign Up for GGEasy-LOL");
         content1.setSpan(new UnderlineSpan(), 0, content1.length(), 0);
         signup.setText(content1);
-
-
-        List<String> categories = new ArrayList<String>();
-        categories.add("TR"  );categories.add("EUNE");categories.add("EUW" );categories.add("JP"  );
-        categories.add("KR"  );categories.add("LAN" );categories.add("LAS" );categories.add("NA"  );
-        categories.add("OCE" );categories.add("RU"  );categories.add("BR"  );categories.add("PBE" );
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, categories);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        region.setAdapter(dataAdapter);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,14 +72,90 @@ public class LoginFragment extends Fragment {
         forget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 FragmentManager fm = getFragmentManager();
                 ForgetFragment asf = new ForgetFragment();
                 asf.show(fm, "");
             }
         });
 
+        devam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CurrentMatchFragment cmf = new CurrentMatchFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+            }
+        });
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(email.getText().length() > 0 && sifre.getText().length() > 0){
+                    new getData().execute(email.getText().toString(), sifre.getText().toString());
+                }
+            }
+        });
+
+        UserObject uo = dbHelper.getUser();
+        if(uo == null || uo.getEmail().equals("")){}else{
+           new getData().execute(uo.getEmail(), uo.getSifre());
+        }
+
         return view;
     }
 
+    private class getData extends AsyncTask<String,String,String> {
+        ProgressDialog progress;
+        String _email = "";
+        String _sifre = "";
+        String _region = "";
+        String _summonerID = "";
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
+                    getString(R.string.loading), true);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            RiotApiHelper riotApiHelper = new RiotApiHelper();
+
+            String cevap = riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
+            if(cevap.equals("EMail veya Şifre Hatalı"))
+                return "Bir Hata Oluştu!";
+            else{
+                try {
+                    JSONArray array = new JSONArray(cevap);
+                    JSONObject object = array.getJSONObject(0);
+
+                    _email = params[0];
+                    _sifre = params[1];
+                    _region = object.getString("Region");
+                    _summonerID = object.getString("SihirdarID");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return "Hoşgeldiniz!";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
+            if(s.equals("Hoşgeldiniz!")){
+                DBHelper dbHelper = new DBHelper(getContext());
+                dbHelper.insertUser(_email, _sifre, _region, _summonerID);
+
+                ProfilFragment cmf = new ProfilFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+            }
+            progress.dismiss();
+        }
+    }
 }

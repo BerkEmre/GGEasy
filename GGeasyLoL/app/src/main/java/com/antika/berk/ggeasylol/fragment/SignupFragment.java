@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.MasteriesPageObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
@@ -87,6 +89,7 @@ public class SignupFragment extends Fragment {
 
     private class getData extends AsyncTask<String,String,String>{
         ProgressDialog progress;
+        String summonerID = "";
 
         @Override
         protected void onPreExecute() {
@@ -102,6 +105,7 @@ public class SignupFragment extends Fragment {
             if(so == null){
                 return "Sihirdar Adı veya Bölgesi Hatalı!";
             }
+            summonerID = so.getId() + "";
             List<MasteriesPageObject> mpos = riotApiHelper.getSummonerMasteries(so.getId(),params[1]);
 
             for(int i = 0; i < mpos.size(); i++){
@@ -114,8 +118,10 @@ public class SignupFragment extends Fragment {
                             String cevap = riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/add_user.php?SihirdarAdi="+so.getName()+"&SihirdarID="+so.getId()+"&Mail="+params[2]+"&Region="+params[1]+"&Sifre="+params[3]);
                             if(cevap.equals("Kayıt Başarılı"))
                                 return "Kayıt Başarılı";
+                            else if(cevap.equals("Bu Mail Adresi Kullanılmaktadır"))
+                                return "Bu Mail Adresi Kullanılmaktadır";
                             else
-                                return "Bir Hata Oluştu";
+                                return "Hata Sihirdar Bilgileri Eksik";
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -124,14 +130,22 @@ public class SignupFragment extends Fragment {
                     return "Bir Hata Oluştu";
                 }
             }
-
             return gelen_rune+" Adında Kabiliyet Sayfası Oluşturun!";
         }
 
         @Override
         protected void onPostExecute(String s) {
             Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+            if(s.equals("Kayıt Başarılı")){
+                DBHelper dbHelper = new DBHelper(context);
+                dbHelper.insertUser(email.getText().toString(), pass.getText().toString(), region.getSelectedItem().toString(), summonerID);
 
+                LoginFragment cmf = new LoginFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+            }
             progress.dismiss();
         }
     }

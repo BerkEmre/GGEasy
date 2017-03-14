@@ -12,8 +12,11 @@ import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionSkinObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
+import com.antika.berk.ggeasylol.object.SummonerObject;
+import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -25,9 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public  class Mission {
-
     Context c;
-
 
     public  Mission(Context c){
         this.c=c;
@@ -43,7 +44,7 @@ public  class Mission {
             if (x>0) {
                 Toast.makeText(c, "Tebrikler... "+2500+" Puan Kazandınız.", Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev1");//gorevi siler
-                PuanGonder(2500);
+                PuanGonder("1", 2500);
                 return true;
             }
             else
@@ -59,7 +60,7 @@ public  class Mission {
             if(x>0){
                 Toast.makeText(c,"Tebrikler... "+1300+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev2");//gorevi siler
-                PuanGonder(1300);
+                PuanGonder("2", 1300);
                 return true;
                 }
             else
@@ -76,7 +77,7 @@ public  class Mission {
             if(x>0){
                 Toast.makeText(c,"Tebrikler... "+500+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev3");//gorevi siler
-                PuanGonder(500);
+                PuanGonder("3", 500);
                 return true;
             }
             else
@@ -93,7 +94,7 @@ public  class Mission {
             if(x>0){
                 Toast.makeText(c,"Tebrikler... "+150+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev4");//gorevi siler
-                PuanGonder(150);
+                PuanGonder("4", 150);
                 return true;
             }
             else
@@ -108,8 +109,8 @@ public  class Mission {
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev5"))){
             if(x>=10){
-                Toast.makeText(c,"Tebrikler... "+600+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
-                PuanGonder(600);
+                Toast.makeText(c,"Tebrikler... "+600+" Puan KazandınıSihirdarIDz.",Toast.LENGTH_LONG).show();
+                PuanGonder("5", 600);
                 return true;
             }
             else
@@ -126,7 +127,7 @@ public  class Mission {
             if(x>=20){
                 Toast.makeText(c,"Tebrikler... "+1200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev6");//gorevi siler
-                PuanGonder(1200);
+                PuanGonder("6", 1200);
                 return true;
             }
             else
@@ -143,7 +144,7 @@ public  class Mission {
             if(x>=30){
                 Toast.makeText(c,"Tebrikler... "+2000+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev7");//gorevi siler
-                PuanGonder(2000);
+                PuanGonder("7", 2000);
                 return true;
             }
             else
@@ -159,7 +160,7 @@ public  class Mission {
             if(x>=10){
                 Toast.makeText(c,"Tebrikler... "+200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev8");//gorevi siler
-                PuanGonder(200);
+                PuanGonder("8", 200);
                 return true;
             }
             else
@@ -175,7 +176,7 @@ public  class Mission {
             if(x>=20){
                 Toast.makeText(c,"Tebrikler... "+500+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev9");//gorevi siler
-                PuanGonder(500);
+                PuanGonder("9", 500);
                 return true;
             }
             else
@@ -191,7 +192,7 @@ public  class Mission {
             if(x>=30){
                 Toast.makeText(c,"Tebrikler... "+1200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev10");//gorevi siler
-                PuanGonder(1200);
+                PuanGonder("10", 1200);
                 return true;
             }
             else
@@ -207,7 +208,7 @@ public  class Mission {
             if(x>=2){
                 Toast.makeText(c,"Tebrikler... "+400+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev11");//gorevi siler
-                PuanGonder(400);
+                PuanGonder("11", 400);
                 return true;
             }
             else
@@ -223,7 +224,7 @@ public  class Mission {
             if(x>=4){
                 Toast.makeText(c,"Tebrikler... "+1100+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev12");//gorevi siler
-                PuanGonder(1100);
+                PuanGonder("12", 1100);
                 return true;
             }
             else
@@ -239,7 +240,7 @@ public  class Mission {
             if(x>=6){
                 Toast.makeText(c,"Tebrikler... "+2000+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev13");//gorevi siler
-                PuanGonder(2000);
+                PuanGonder("13", 2000);
                 return true;
             }
             else
@@ -255,7 +256,7 @@ public  class Mission {
             if(x>=100){
                 Toast.makeText(c,"Tebrikler... "+200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev14");//gorevi siler
-                PuanGonder(200);
+                PuanGonder("14", 200);
                 return true;
             }
             else
@@ -271,7 +272,7 @@ public  class Mission {
             if(x>=150){
                 Toast.makeText(c,"Tebrikler... "+350+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev15");//gorevi siler
-                PuanGonder(350);
+                PuanGonder("15", 350);
                 return true;
             }
             else
@@ -287,7 +288,7 @@ public  class Mission {
             if(x>=200){
                 Toast.makeText(c,"Tebrikler... "+600+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev16");//gorevi siler
-                PuanGonder(600);
+                PuanGonder("16", 600);
                 return true;
             }
             else
@@ -305,14 +306,14 @@ public  class Mission {
             if(x4) {
                 Toast.makeText(c, "Tebrikler... "+(x1*15+x2*(-10)+x3*5+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+" Puan Kazandınız.", Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev17");//gorevi siler
-                PuanGonder(x1*15+x2*(-10)+x3*5+100+x5*0.5+x6*20+x7*2.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
+                PuanGonder("17", x1*15+x2*(-10)+x3*5+100+x5*0.5+x6*20+x7*2.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
                 return true;
             }
 
             else if (!x4){
                 Toast.makeText(c, "Tebrikler... "+(x1*15+x2*(-10)+x3*5-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+" Puan Kazandınız.", Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev17");//gorevi siler
-                PuanGonder(x1*15+x2*(-10)+x3*5-50+x5*0.5+x6*20+x7*2.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
+                PuanGonder("17", x1*15+x2*(-10)+x3*5-50+x5*0.5+x6*20+x7*2.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
                 return true;
             }
         }
@@ -321,8 +322,37 @@ public  class Mission {
         return false;
     }
 
-    public void PuanGonder(double puan){
+    public void PuanGonder(String gorev, double puan){
+        DBHelper dbHelper = new DBHelper(c);
+        UserObject uo = dbHelper.getUser();
+        new getData().execute(uo.getEmail(), gorev, Double.toString(puan));
+    }
 
+    private class getData extends AsyncTask<String,String,String> {
+        ProgressDialog progress;
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(c, c.getString(R.string.please_wait),
+                    c.getString(R.string.loading), true);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            RiotApiHelper riotApiHelper = new RiotApiHelper();
+
+            String cevap = riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/add_puan.php?Mail=" + params[0] + "&Gorev=" + params[1] + "&Puan=" + params[2]);
+            if(cevap.equals("EMail veya Şifre Hatalı"))
+                return "Bir Hata Oluştu!";
+            else{
+                return "Puan Eklendi!";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            progress.dismiss();
+        }
     }
 }
 
