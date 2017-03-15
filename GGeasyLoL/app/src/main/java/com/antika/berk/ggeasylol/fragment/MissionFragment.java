@@ -964,7 +964,7 @@ public class MissionFragment extends Fragment {
                 if(strings[0].equals("-16"))m.GorevAl(match_id, "Gorev16");
                 if(strings[0].equals("-17"))m.GorevAl(match_id, "Gorev17");
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://tr.api.pvp.net/api/lol/tr/v2.2/match/"+match_id+"?api_key="+apiHelper.apiKey);
+                String gelenData=getJsonFromServer("https://"+uo.getRegion()+".api.pvp.net/api/lol/"+uo.getRegion()+"/v2.2/match/"+match_id+"?api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1=new JSONObject(gelenData);
                 //stats içine girdim
