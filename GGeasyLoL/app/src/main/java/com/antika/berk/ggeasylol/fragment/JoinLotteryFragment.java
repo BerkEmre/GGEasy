@@ -116,7 +116,7 @@ public class JoinLotteryFragment extends DialogFragment {
                 if(so == null)
                     return "0";
 
-                String link = "http://berkemrealtan.com/GGEasy/join_lottary.php?userID=" + so.getId() +
+                String link = "http://ggeasylol.com/api/join_lottary.php?userID=" + so.getId() +
                         "&lotteryID=" + lo.getID() + "&userName=" + so.getName() +
                         "&userIcon=" + so.getIcon() + "&userRegion=" + values[1];
 

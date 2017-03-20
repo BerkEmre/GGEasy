@@ -10,15 +10,15 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:text="Forget Password?"
+        android:id="@+id/textView44"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView44"
-        android:textAlignment="center"
         android:layout_marginTop="15dp"
-        android:textStyle="normal|bold"
+        android:text="@string/forget_password"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
-        android:textColor="@android:color/white" />
+        android:textStyle="normal|bold" />
 
     <EditText
         android:layout_height="wrap_content"
@@ -36,15 +36,15 @@
         android:layout_width="250dp" />
 
     <Button
-        android:text="Send Mail"
+        android:id="@+id/button7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button7"
-        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:padding="5dp"
+        android:text="@string/send_mail"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:background="@color/colorAccent"
-        android:textStyle="normal|bold"
-        android:layout_margin="10dp"
-        android:padding="5dp" />
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
 </LinearLayout>

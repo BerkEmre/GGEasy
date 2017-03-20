@@ -42,32 +42,32 @@ public  class Mission {
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev1"))){
             if (x>0) {
-                Toast.makeText(c, "Tebrikler... "+2500+" Puan Kazandınız.", Toast.LENGTH_LONG).show();
+                Toast.makeText(c, c.getString(R.string.congratulations)+3000+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev1");//gorevi siler
-                PuanGonder("1", 2500);
+                PuanGonder("1", 3000);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev2(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev2"))){
             if(x>0){
-                Toast.makeText(c,"Tebrikler... "+1300+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+1500+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev2");//gorevi siler
-                PuanGonder("2", 1300);
+                PuanGonder("2", 1500);
                 return true;
                 }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
 
     }
@@ -75,16 +75,16 @@ public  class Mission {
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev3"))){
             if(x>0){
-                Toast.makeText(c,"Tebrikler... "+500+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+750+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev3");//gorevi siler
-                PuanGonder("3", 500);
+                PuanGonder("3", 750);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
 
     }
@@ -92,16 +92,16 @@ public  class Mission {
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev4"))){
             if(x>0){
-                Toast.makeText(c,"Tebrikler... "+150+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+300+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev4");//gorevi siler
-                PuanGonder("4", 150);
+                PuanGonder("4", 300);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
 
     }
@@ -109,15 +109,15 @@ public  class Mission {
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev5"))){
             if(x>=10){
-                Toast.makeText(c,"Tebrikler... "+600+" Puan KazandınıSihirdarIDz.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+600+" Puan KazandınıSihirdarIDz.",Toast.LENGTH_LONG).show();
                 PuanGonder("5", 600);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
 
     }
@@ -125,16 +125,16 @@ public  class Mission {
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev6"))){
             if(x>=20){
-                Toast.makeText(c,"Tebrikler... "+1200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+1200+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev6");//gorevi siler
                 PuanGonder("6", 1200);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
 
     }
@@ -142,160 +142,160 @@ public  class Mission {
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev7"))){
             if(x>=30){
-                Toast.makeText(c,"Tebrikler... "+2000+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+2000+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev7");//gorevi siler
                 PuanGonder("7", 2000);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev8(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev8"))){
             if(x>=10){
-                Toast.makeText(c,"Tebrikler... "+200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+350+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev8");//gorevi siler
-                PuanGonder("8", 200);
+                PuanGonder("8", 350);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
             return false;
     }
     public  boolean Gorev9(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev9"))){
             if(x>=20){
-                Toast.makeText(c,"Tebrikler... "+500+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+750+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev9");//gorevi siler
-                PuanGonder("9", 500);
+                PuanGonder("9", 750);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev10(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev10"))){
             if(x>=30){
-                Toast.makeText(c,"Tebrikler... "+1200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+1500+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev10");//gorevi siler
-                PuanGonder("10", 1200);
+                PuanGonder("10", 1500);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev11(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev11"))){
             if(x>=2){
-                Toast.makeText(c,"Tebrikler... "+400+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+400+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev11");//gorevi siler
                 PuanGonder("11", 400);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev12(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev12"))){
             if(x>=4){
-                Toast.makeText(c,"Tebrikler... "+1100+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+1100+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev12");//gorevi siler
                 PuanGonder("12", 1100);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev13(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev13"))){
             if(x>=6){
-                Toast.makeText(c,"Tebrikler... "+2000+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+2000+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev13");//gorevi siler
                 PuanGonder("13", 2000);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev14(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev14"))){
             if(x>=100){
-                Toast.makeText(c,"Tebrikler... "+200+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+200+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev14");//gorevi siler
                 PuanGonder("14", 200);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev15(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev15"))){
             if(x>=150){
-                Toast.makeText(c,"Tebrikler... "+350+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+350+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev15");//gorevi siler
                 PuanGonder("15", 350);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev16(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev16"))){
             if(x>=200){
-                Toast.makeText(c,"Tebrikler... "+600+" Puan Kazandınız.",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.congratulations)+600+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev16");//gorevi siler
                 PuanGonder("16", 600);
                 return true;
             }
             else
-                Toast.makeText(c,"Görev Tamamlanamadı!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
     public  boolean Gorev17(String matchId,int x1,int x2,int x3,boolean x4,int x5,int x6,int x7,int x8,int x9,int x10,int x11,int x12,
@@ -304,21 +304,21 @@ public  class Mission {
         if(!matchId.equals(dbHelper.getMatch("Gorev17"))){
 
             if(x4) {
-                Toast.makeText(c, "Tebrikler... "+(x1*15+x2*(-10)+x3*5+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+" Puan Kazandınız.", Toast.LENGTH_LONG).show();
+                Toast.makeText(c, c.getString(R.string.congratulations)+(x1*10+x2*(-10)+x3*6+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev17");//gorevi siler
-                PuanGonder("17", x1*15+x2*(-10)+x3*5+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
+                PuanGonder("17", x1*10+x2*(-10)+x3*6+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
                 return true;
             }
 
             else if (!x4){
-                Toast.makeText(c, "Tebrikler... "+(x1*15+x2*(-10)+x3*5-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+" Puan Kazandınız.", Toast.LENGTH_LONG).show();
+                Toast.makeText(c, c.getString(R.string.congratulations)+(x1*10+x2*(-10)+x3*6-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev17");//gorevi siler
-                PuanGonder("17", x1*15+x2*(-10)+x3*5-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
+                PuanGonder("17", x1*10+x2*(-10)+x3*6-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
                 return true;
             }
         }
         else
-            Toast.makeText(c,"Yeni Maç Algılanmadı!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
 
@@ -341,7 +341,7 @@ public  class Mission {
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
 
-            String cevap = riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/add_puan.php?Mail=" + params[0] + "&Gorev=" + params[1] + "&Puan=" + params[2]);
+            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/add_puan.php?Mail=" + params[0] + "&Gorev=" + params[1] + "&Puan=" + params[2]);
             if(cevap.equals("EMail veya Şifre Hatalı"))
                 return "Bir Hata Oluştu!";
             else{

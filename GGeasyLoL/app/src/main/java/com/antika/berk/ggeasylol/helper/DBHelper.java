@@ -23,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String TABLE_USER      = "user";
 
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, 22);
+        super(context, DATABASE_NAME, null, 26);
     }
 
     @Override
@@ -231,6 +231,24 @@ public class DBHelper extends SQLiteOpenHelper {
                 match_id=cursor.getString(1);
         }
         return match_id;
+    }
+
+
+    public boolean getMatchs() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.query(TABLE_MATCH, new String[]{
+                "id", "match_id", "gorev"
+        },null, null, null, null, null);
+        int match = 0;
+        while (cursor.moveToNext()) {
+            if(cursor.getString(1).length() > 0)
+                match++;
+        }
+        if(match < 3)
+            return true;
+        else
+            return false;
     }
 
     public void insertUser (String email, String sifre, String region, String summonerID) {

@@ -151,7 +151,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
         btn_join.setVisibility(View.GONE);
 
-        Picasso.with(getContext()).load("http://berkemrealtan.com/GGEasy/img/" + lo.getImg()).into(iv_image);
+        Picasso.with(getContext()).load("http://ggeasylol.com/api/img/" + lo.getImg()).into(iv_image);
         tv_name.setText(lo.getName());
         tv_odul.setText(lo.getOdul());
         tv_date.setText(getString(R.string.end_date) + lo.getEnd_date());
@@ -218,7 +218,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         @Override
         protected String doInBackground(String... values)
         {
-            String data = readURL("http://berkemrealtan.com/GGEasy/get_lottery_joins.php?id=" + values[0]);
+            String data = readURL("http://ggeasylol.com/api/get_lottery_joins.php?id=" + values[0]);
 
             try{
                 JSONArray array1 = new JSONArray(data);

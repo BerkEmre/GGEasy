@@ -92,7 +92,7 @@ public class ProfilFragment extends Fragment {
 
 
 
-            String cevap = riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
+            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
             if(cevap.length()>0){
                 try {
                     JSONArray array = new JSONArray(cevap);
@@ -113,7 +113,7 @@ public class ProfilFragment extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                return "Hoşgeldiniz!";
+                return getContext().getString(R.string.hosgeldiniz);
             }
             else
                 return "HATA";
@@ -127,7 +127,7 @@ public class ProfilFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            if(s.equals("Hoşgeldiniz!")){
+            if(s.equals(getContext().getString(R.string.hosgeldiniz))){
                 tv_summonerName.setText(_summonerName);
                 tv_puan.setText(" x "+String.format("%.2f",Double.parseDouble(_puan)));
                 tv_lig.setText(_lig);

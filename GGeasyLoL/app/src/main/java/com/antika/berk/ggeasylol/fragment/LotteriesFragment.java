@@ -94,7 +94,7 @@ public class LotteriesFragment extends Fragment {
         @Override
         protected String doInBackground(String... values)
         {
-            String data = readURL("http://berkemrealtan.com/GGEasy/get_lotteries.php");
+            String data = readURL("http://ggeasylol.com/api/get_lotteries.php");
             Log.e("DATA", data);
             try{
                 JSONArray array1 = new JSONArray(data);

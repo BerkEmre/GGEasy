@@ -26,9 +26,11 @@ import com.antika.berk.ggeasylol.fragment.LoginFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
 import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.fragment.MissionFragment;
+import com.antika.berk.ggeasylol.fragment.RankFragment;
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
 import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
 import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.object.RankedStatObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -101,7 +103,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     cmf,"0").commit();
         }
         else if (id == R.id.nav_siralama) {
-            ComingSoonFragment cmf = new ComingSoonFragment();
+            RankFragment cmf = new RankFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,

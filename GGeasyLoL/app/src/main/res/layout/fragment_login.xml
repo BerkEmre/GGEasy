@@ -13,92 +13,94 @@
         android:orientation="vertical">
 
         <ImageView
-            app:srcCompat="@drawable/icon"
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
-            android:layout_marginBottom="10dp"
             android:layout_height="150dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/icon" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:inputType="textEmailSubject"
-            android:ems="10"
             android:id="@+id/summoner_name"
-            android:textColor="@android:color/black"
-            android:hint="E-Mail"
-            android:background="@android:color/white"
-            android:textSize="18sp"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:layout_margin="10dp" />
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/summoner_pass"
-            android:background="@android:color/white"
             android:layout_margin="10dp"
-            android:textSize="18sp"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:hint="E-Mail"
+            android:inputType="textEmailSubject"
             android:padding="5dp"
-            android:hint="Password" />
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/summoner_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            android:textSize="18sp" />
 
         <Button
-            android:text="Log in"
+            android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/login_btn"
-            android:background="?attr/colorAccent"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textColor="@android:color/white"
-            android:padding="5dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp" />
+            android:background="?attr/colorAccent"
+            android:padding="5dp"
+            android:text="@string/log_in"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
 
         <TextView
-            android:text="Forget Password?"
+            android:id="@+id/forget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/forget"
-            android:textAlignment="center"
-            android:textStyle="normal|bold"
-            android:textAllCaps="false"
             android:layout_marginTop="20dp"
+            android:text="@string/forget_password"
+            android:textAlignment="center"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="normal|bold" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
-                android:text="Sign Up for GGEasy-LOL"
+                android:id="@+id/signUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/signUp"
-                android:layout_weight="1"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="10dp"
-                android:textSize="22sp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="@string/sing_up_gg_easy"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textStyle="normal|bold"
-                android:gravity="bottom" />
+                android:textSize="22sp"
+                android:textStyle="normal|bold" />
 
             <TextView
-                android:text="Giriş Yapmadan Devam Et"
+                android:id="@+id/devam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/devam"
-                android:textAlignment="center"
-                android:textColor="@color/divider"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:textSize="18sp"
+                android:text="@string/giris_yapmadan"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/divider"
+                android:textSize="20sp"
                 android:textStyle="normal|bold" />
 
         </LinearLayout>

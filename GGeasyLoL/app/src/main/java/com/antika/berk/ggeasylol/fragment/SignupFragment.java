@@ -80,9 +80,9 @@ public class SignupFragment extends Fragment {
                     if(repass.getText().toString().equals(pass.getText().toString()))
                         new getData().execute(summoner.getText().toString(), region.getSelectedItem().toString(), email.getText().toString(), pass.getText().toString());
                     else
-                        Toast.makeText(view.getContext(), "Şifreler Uyuşmuyor", Toast.LENGTH_LONG).show();
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.passwords_not_same), Toast.LENGTH_LONG).show();
                 }else
-                    Toast.makeText(view.getContext(), "Tüm Alanları Doldurunuz", Toast.LENGTH_LONG).show();
+                    Toast.makeText(view.getContext(), getContext().getString(R.string.fill_in_all), Toast.LENGTH_LONG).show();
             }
         });
         return view;
@@ -104,7 +104,7 @@ public class SignupFragment extends Fragment {
 
             SummonerObject so = riotApiHelper.getSumonner(params[0], params[1]);
             if(so == null){
-                return "Sihirdar Adı veya Bölgesi Hatalı!";
+                return getContext().getString(R.string.check_summoner_name_or_region);
             }
             summonerID = so.getId() + "";
             List<MasteriesPageObject> mpos = riotApiHelper.getSummonerMasteries(so.getId(),params[1]);
@@ -112,32 +112,31 @@ public class SignupFragment extends Fragment {
             for(int i = 0; i < mpos.size(); i++){
                 if(mpos.get(i).getName().toLowerCase().equals(gelen_rune.toLowerCase())) {
                     try {
-                        JSONArray array1 = new JSONArray(riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/get_user.php?ID=" + so.getId() + "&Region=" + params[1]));
+                        JSONArray array1 = new JSONArray(riotApiHelper.readURL("http://ggeasylol.com/api/get_user.php?ID=" + so.getId() + "&Region=" + params[1]));
                         if(array1.length()>0)
-                            return "Bu Sihirdar Adı Daha Önce Kayıt Edilmiştir.";
+                            return getContext().getString(R.string.registred);
                         else{
-                            String cevap = riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/add_user.php?SihirdarAdi="+so.getName()+"&SihirdarID="+so.getId()+"&Mail="+params[2]+"&Region="+params[1]+"&Sifre="+params[3]);
+                            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/add_user.php?SihirdarAdi="+so.getName()+"&SihirdarID="+so.getId()+"&Mail="+params[2]+"&Region="+params[1]+"&Sifre="+params[3]);
                             if(cevap.equals("Kayıt Başarılı"))
-                                return "Kayıt Başarılı";
+                                return getContext().getString(R.string.registration);
                             else if(cevap.equals("Bu Mail Adresi Kullanılmaktadır"))
-                                return "Bu Mail Adresi Kullanılmaktadır";
+                                return getContext().getString(R.string.used_before);
                             else
-                                return "Hata Sihirdar Bilgileri Eksik";
+                                return  getContext().getString(R.string.check_summoner_name_or_region);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-                    return "Bir Hata Oluştu";
+                    return getContext().getString(R.string.check_summoner_name_or_region);
                 }
             }
-            return gelen_rune+" Adında Kabiliyet Sayfası Oluşturun!";
+            return getContext().getString(R.string.create_page_mistake) + " '" + gelen_rune + "'";
         }
 
         @Override
         protected void onPostExecute(String s) {
             Toast.makeText(context, s, Toast.LENGTH_LONG).show();
-            if(s.equals("Kayıt Başarılı")){
+            if(s.equals(getContext().getString(R.string.registration))){
                 DBHelper dbHelper = new DBHelper(context);
                 dbHelper.insertUser(email.getText().toString(), pass.getText().toString(), region.getSelectedItem().toString(), summonerID);
 

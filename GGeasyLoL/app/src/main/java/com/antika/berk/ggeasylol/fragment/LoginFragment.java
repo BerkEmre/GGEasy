@@ -50,13 +50,17 @@ public class LoginFragment extends Fragment {
         sifre     =  (EditText) view.findViewById(R.id.summoner_pass);
         login_btn =  (Button)   view.findViewById(R.id.login_btn);
 
-        SpannableString content = new SpannableString("Forget Password?");
+        SpannableString content = new SpannableString(view.getContext().getString(R.string.forget_password));
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         forget.setText(content);
 
-        SpannableString content1 = new SpannableString("Sign Up for GGEasy-LOL");
+        SpannableString content1 = new SpannableString(view.getContext().getString(R.string.sing_up_gg_easy));
         content1.setSpan(new UnderlineSpan(), 0, content1.length(), 0);
         signup.setText(content1);
+
+        SpannableString content2 = new SpannableString(view.getContext().getString(R.string.giris_yapmadan));
+        content2.setSpan(new UnderlineSpan(), 0, content2.length(), 0);
+        devam.setText(content2);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,9 +127,9 @@ public class LoginFragment extends Fragment {
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
 
-            String cevap = riotApiHelper.readURL("http://berkemrealtan.com/GGEasy/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
+            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
             if(cevap.equals("EMail veya Şifre Hatalı"))
-                return "Bir Hata Oluştu!";
+                return getContext().getString(R.string.email_veya_sifre_hatali);
             else{
                 try {
                     JSONArray array = new JSONArray(cevap);
@@ -135,19 +139,20 @@ public class LoginFragment extends Fragment {
                     _sifre = params[1];
                     _region = object.getString("Region");
                     _summonerID = object.getString("SihirdarID");
+                    return getContext().getString(R.string.hosgeldiniz);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    return getContext().getString(R.string.email_veya_sifre_hatali);
                 }
-                return "Hoşgeldiniz!";
             }
         }
 
         @Override
         protected void onPostExecute(String s) {
             Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
-            if(s.equals("Hoşgeldiniz!")){
+            if(s.equals(getContext().getString(R.string.hosgeldiniz))){
                 DBHelper dbHelper = new DBHelper(getContext());
-                dbHelper.insertUser(_email, _sifre, _region, _summonerID);
+                dbHelper.insertUser(_email.replace(" ",""), _sifre, _region, _summonerID);
 
                 ProfilFragment cmf = new ProfilFragment();
                 FragmentManager fm = getActivity().getSupportFragmentManager();

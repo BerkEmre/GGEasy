@@ -6,7 +6,7 @@
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/account"
-            android:title="Profile" />
+            android:title="@string/profile" />
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/current_icon"
@@ -15,13 +15,14 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/sumonners_icon"
             android:title="@string/summoner" />
-        <item android:title="Mission"
+        <item
             android:id="@+id/nav_mission"
-            android:icon="@drawable/mission" />
+            android:icon="@drawable/mission"
+            android:title="@string/missions" />
         <item
             android:id="@+id/nav_siralama"
             android:icon="@drawable/rank"
-            android:title="Rank" />
+            android:title="@string/rank" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/champions_icon"

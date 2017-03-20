@@ -21,16 +21,16 @@
             android:layout_marginTop="15dp">
 
             <EditText
+                android:id="@+id/summonerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/summonerName"
-                android:padding="5dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/white"
-                android:textSize="18sp"
-                android:hint="Summoner Name"
-                android:layout_margin="10dp" />
+                android:ems="10"
+                android:hint="@string/summoner_name"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textSize="18sp" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,15 +42,16 @@
                 android:hint="E-mail"
                 android:layout_margin="10dp"
                 android:inputType="textEmailSubject" />
+
             <TextView
-                android:text="*Select Your Region"
+                android:id="@+id/textView45"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView45"
                 android:layout_margin="10dp"
                 android:padding="5dp"
-                android:textSize="14sp"
+                android:text="@string/region"
                 android:textColor="@android:color/white"
+                android:textSize="14sp"
                 android:textStyle="normal|bold" />
 
 
@@ -64,39 +65,39 @@
                 android:padding="5dp" />
 
             <EditText
+                android:id="@+id/pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:ems="10"
-                android:id="@+id/pass"
-                android:padding="5dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/white"
-                android:textSize="18sp"
-                android:hint="Password"
-                android:layout_margin="10dp" />
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/repass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:ems="10"
-                android:id="@+id/repass"
-                android:padding="5dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/white"
-                android:textSize="18sp"
-                android:hint="Re-enter Password"
-                android:layout_margin="10dp" />
+                android:ems="10"
+                android:hint="@string/re_password"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textSize="18sp" />
 
             <TextView
-                android:text="*Please create a rune page which named like this in your account and click REGISTER! "
+                android:id="@+id/textView47"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView47"
-                android:textSize="14sp"
-                android:textColor="@android:color/white"
                 android:layout_margin="10dp"
-                android:textStyle="normal|bold"
-                android:padding="5dp" />
+                android:padding="5dp"
+                android:text="@string/create_page"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -120,17 +121,17 @@
             </LinearLayout>
 
             <Button
-                android:text="Register"
+                android:id="@+id/registerBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/registerBtn"
-                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:background="@color/colorAccent"
+                android:padding="5dp"
+                android:text="@string/register"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                android:background="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:layout_margin="10dp"
-                android:padding="5dp" />
+                android:textSize="18sp"
+                android:textStyle="normal|bold" />
         </LinearLayout>
     </LinearLayout>
 
