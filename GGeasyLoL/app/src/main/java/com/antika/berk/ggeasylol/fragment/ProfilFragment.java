@@ -2,6 +2,10 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,10 +34,11 @@ import org.json.JSONObject;
 import java.util.List;
 
 import it.sephiroth.android.library.picasso.Picasso;
+import it.sephiroth.android.library.picasso.Transformation;
 
 
 public class ProfilFragment extends Fragment {
-    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_minion, tv_asist;
+    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist;
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
     UserObject uo;
@@ -50,11 +55,10 @@ public class ProfilFragment extends Fragment {
         tv_lig          = (TextView) view.findViewById(R.id.textView62);
         tv_lig_adi      = (TextView) view.findViewById(R.id.textView63);
         tv_kill         = (TextView) view.findViewById(R.id.textView64);
-        tv_minion = (TextView) view.findViewById(R.id.textView65);
         tv_asist        = (TextView) view.findViewById(R.id.textView66);
         iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
         iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
-        iv_back           = (ImageView) view.findViewById(R.id.champion_logo);
+        iv_back             = (ImageView) view.findViewById(R.id.champion_logo);
 
         uo = dbHelper.getUser();
         if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){
@@ -72,10 +76,8 @@ public class ProfilFragment extends Fragment {
 
     private class getData extends AsyncTask<String,String,String> {
         ProgressDialog progress;
-        String _email = "";
-        String _sifre = "";
 
-        String _summonerName, _puan, _lig, _ligAdi, _kill, _minion, _asist,_tier,_champion,_profilIcon;
+        String _summonerName, _puan, _lig, _ligAdi, _kill, _asist,_tier,_champion,_profilIcon;
 
         @Override
         protected void onPreExecute() {
@@ -97,16 +99,14 @@ public class ProfilFragment extends Fragment {
                     JSONObject object = array.getJSONObject(0);
                     _summonerName=object.getString("SihirdarAdi");
                     _puan=object.getString("Puan");
-                    List<SummaryStat> ss=riotApiHelper.getSummaryStat(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                     SummonerObject so=riotApiHelper.getSumonner(_summonerName,uo.getRegion());
                     _profilIcon=""+so.getIcon();
-                    _kill=""+ss.get(10).getTotalChampionKills();
-                    _asist=""+ss.get(10).getTotalAssists();
-                    _minion=""+(ss.get(10).getTotalMinionKills()+ss.get(10).getTotalNeutralMinionsKilled()+ss.get(10).getTotalTurretsKilled());
                     List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                     _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
                     _ligAdi=lo.get(0).getName();
                     _tier=lo.get(0).getTier();
+                    _kill=""+lo.get(0).getWins();
+                    _asist=""+lo.get(0).getLosses();
                     List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                     ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion());
                     _champion=co.getChampionKey();
@@ -129,14 +129,13 @@ public class ProfilFragment extends Fragment {
         protected void onPostExecute(String s) {
             if(s.equals("Hoşgeldiniz!")){
                 tv_summonerName.setText(_summonerName);
-                tv_puan.setText(_puan);
+                tv_puan.setText(" x "+String.format("%.2f",Double.parseDouble(_puan)));
                 tv_lig.setText(_lig);
                 tv_lig_adi.setText(_ligAdi);
                 tv_kill.setText(_kill);
-                tv_minion.setText(_minion);
                 tv_asist.setText(_asist);
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
-                Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" + _profilIcon + ".png").into(iv_profil);
+                Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" + _profilIcon + ".png").transform(new CircleTransform()).into(iv_profil);
 
                 switch (_tier)
                 {
@@ -153,6 +152,40 @@ public class ProfilFragment extends Fragment {
             }else
                 Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
             progress.dismiss();
+        }
+    }
+    public class CircleTransform implements Transformation {
+        @Override
+        public Bitmap transform(Bitmap source) {
+            int size = Math.min(source.getWidth(), source.getHeight());
+
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
+
+            Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
+            if (squaredBitmap != source) {
+                source.recycle();
+            }
+
+            Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
+
+            Canvas canvas = new Canvas(bitmap);
+            Paint paint = new Paint();
+            BitmapShader shader = new BitmapShader(squaredBitmap,
+                    BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
+            paint.setShader(shader);
+            paint.setAntiAlias(true);
+
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+
+            squaredBitmap.recycle();
+            return bitmap;
+        }
+
+        @Override
+        public String key() {
+            return "circle";
         }
     }
 }

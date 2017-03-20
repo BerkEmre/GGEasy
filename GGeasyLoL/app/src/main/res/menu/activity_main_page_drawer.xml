@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:title="Profile"
-            android:id="@+id/nav_profile" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/account"
+            android:title="Profile" />
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/current_icon"
@@ -16,6 +18,10 @@
         <item android:title="Mission"
             android:id="@+id/nav_mission"
             android:icon="@drawable/mission" />
+        <item
+            android:id="@+id/nav_siralama"
+            android:icon="@drawable/rank"
+            android:title="Rank" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/champions_icon"

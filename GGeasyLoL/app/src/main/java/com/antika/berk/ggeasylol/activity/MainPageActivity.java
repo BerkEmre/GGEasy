@@ -28,6 +28,8 @@ import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.fragment.MissionFragment;
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
 import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
+import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.object.UserObject;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @Override
@@ -45,12 +47,26 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        LoginFragment cmf = new LoginFragment();
-        FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction().replace(
-                R.id.content_main_page,
-                cmf,"0").commit();
-        navigationView.setCheckedItem(R.id.nav_camera);
+        DBHelper dbHelper = new DBHelper(getApplicationContext());
+        UserObject userObject = dbHelper.getUser();
+        if(userObject == null || userObject.getEmail().equals("")){
+            LoginFragment cmf = new LoginFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+            navigationView.setCheckedItem(R.id.nav_profile);
+        }else{
+            ProfilFragment cmf = new ProfilFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+            navigationView.setCheckedItem(R.id.nav_profile);
+        }
+
+
+
     }
     @Override
     public void onBackPressed() {
@@ -67,6 +83,9 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+
+
+
         if (id == R.id.nav_camera) {
             CurrentMatchFragment cmf = new CurrentMatchFragment();
             FragmentManager fm = getSupportFragmentManager();
@@ -76,6 +95,13 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
         } else if (id == R.id.nav_gallery) {
             SumonnerFragment cmf = new SumonnerFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+        }
+        else if (id == R.id.nav_siralama) {
+            ComingSoonFragment cmf = new ComingSoonFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,

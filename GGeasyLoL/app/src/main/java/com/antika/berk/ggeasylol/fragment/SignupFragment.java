@@ -52,6 +52,7 @@ public class SignupFragment extends Fragment {
 
         context = view.getContext();
 
+
         List<String> categories = new ArrayList<String>();
         categories.add("TR"  );categories.add("EUNE");categories.add("EUW" );categories.add("JP"  );
         categories.add("KR"  );categories.add("LAN" );categories.add("LAS" );categories.add("NA"  );
@@ -149,5 +150,6 @@ public class SignupFragment extends Fragment {
             progress.dismiss();
         }
     }
+
 
 }

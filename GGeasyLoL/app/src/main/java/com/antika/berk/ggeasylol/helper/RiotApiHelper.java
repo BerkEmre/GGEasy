@@ -378,23 +378,26 @@ public class RiotApiHelper {
                         totalAssists, totalTurretsKilled;
 
                 obje2 = array1.getJSONObject(i);
+                if(obje2.getString("playerStatSummaryType").equalsIgnoreCase("RankedSolo5x5")){
+                    try {losses = obje2.getInt("losses");}catch (Exception e){losses = 0;}
+                    try {win = obje2.getInt("wins");}catch (Exception e){win = 0;}
+                    try {totalNeutralMinionsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalNeutralMinionsKilled");}
+                    catch (Exception e){totalNeutralMinionsKilled = 0;}
+                    try {totalMinionKills = obje2.getJSONObject("aggregatedStats").getInt("totalMinionKills");}
+                    catch (Exception e){totalMinionKills = 0;}
+                    try {totalChampionKills = obje2.getJSONObject("aggregatedStats").getInt("totalChampionKills");}
+                    catch (Exception e){totalChampionKills = 0;}
+                    try {totalAssists = obje2.getJSONObject("aggregatedStats").getInt("totalAssists");}
+                    catch (Exception e){totalAssists = 0;}
+                    try {totalTurretsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalTurretsKilled");}
+                    catch (Exception e){totalTurretsKilled = 0;}
 
-                try {losses = obje2.getInt("losses");}catch (Exception e){losses = 0;}
-                try {win = obje2.getInt("wins");}catch (Exception e){win = 0;}
-                try {totalNeutralMinionsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalNeutralMinionsKilled");}
-                catch (Exception e){totalNeutralMinionsKilled = 0;}
-                try {totalMinionKills = obje2.getJSONObject("aggregatedStats").getInt("totalMinionKills");}
-                catch (Exception e){totalMinionKills = 0;}
-                try {totalChampionKills = obje2.getJSONObject("aggregatedStats").getInt("totalChampionKills");}
-                catch (Exception e){totalChampionKills = 0;}
-                try {totalAssists = obje2.getJSONObject("aggregatedStats").getInt("totalAssists");}
-                catch (Exception e){totalAssists = 0;}
-                try {totalTurretsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalTurretsKilled");}
-                catch (Exception e){totalTurretsKilled = 0;}
+                    stats.add(new SummaryStat(obje2.getString("playerStatSummaryType"), losses, win,
+                            totalNeutralMinionsKilled, totalMinionKills, totalChampionKills,
+                            totalAssists, totalTurretsKilled));
+                }
 
-                stats.add(new SummaryStat(obje2.getString("playerStatSummaryType"), losses, win,
-                        totalNeutralMinionsKilled, totalMinionKills, totalChampionKills,
-                        totalAssists, totalTurretsKilled));
+
             }
             return stats;
         }catch (Exception e){Log.e("Hata", e.toString());}
@@ -637,6 +640,7 @@ public class RiotApiHelper {
         }
         return null;
     }
+
     public String readURL(String link) {
         URL u = null;
         try {
