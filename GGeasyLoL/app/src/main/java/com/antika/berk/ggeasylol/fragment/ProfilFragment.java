@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,7 @@ public class ProfilFragment extends Fragment {
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
     UserObject uo;
-    SummonerObject so;
+    Button op;
 
 
     @Override
@@ -58,7 +59,8 @@ public class ProfilFragment extends Fragment {
         tv_asist        = (TextView) view.findViewById(R.id.textView66);
         iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
         iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
-        iv_back             = (ImageView) view.findViewById(R.id.champion_logo);
+        iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
+        op              = (Button)view.findViewById(R.id.op_btn);
 
         uo = dbHelper.getUser();
         if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){
@@ -70,6 +72,14 @@ public class ProfilFragment extends Fragment {
         }else{
             new getData().execute(uo.getEmail(),uo.getSifre());
         }
+        op.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                OptionsFragment asf = new OptionsFragment();
+                asf.show(fm, "");
+            }
+        });
 
         return view;
     }
@@ -77,7 +87,7 @@ public class ProfilFragment extends Fragment {
     private class getData extends AsyncTask<String,String,String> {
         ProgressDialog progress;
 
-        String _summonerName, _puan, _lig, _ligAdi, _kill, _asist,_tier,_champion,_profilIcon;
+        String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="",_profilIcon ="";
 
         @Override
         protected void onPreExecute() {
@@ -101,15 +111,17 @@ public class ProfilFragment extends Fragment {
                     _puan=object.getString("Puan");
                     SummonerObject so=riotApiHelper.getSumonner(_summonerName,uo.getRegion());
                     _profilIcon=""+so.getIcon();
-                    List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
-                    _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
-                    _ligAdi=lo.get(0).getName();
-                    _tier=lo.get(0).getTier();
-                    _kill=""+lo.get(0).getWins();
-                    _asist=""+lo.get(0).getLosses();
-                    List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
-                    ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion());
-                    _champion=co.getChampionKey();
+                    try{
+                        List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                        List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion());
+                        _champion=co.getChampionKey();
+                        _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
+                        _ligAdi=lo.get(0).getName();
+                        _tier=lo.get(0).getTier();
+                        _kill=""+lo.get(0).getWins();
+                        _asist=""+lo.get(0).getLosses();
+                    }catch(Exception e) {return getContext().getString(R.string.hosgeldiniz);}
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -117,11 +129,6 @@ public class ProfilFragment extends Fragment {
             }
             else
                 return "HATA";
-
-
-
-
-
             }
 
 

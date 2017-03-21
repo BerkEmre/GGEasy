@@ -63,7 +63,7 @@
     <string name="hosgeldiniz">Hoş Geldiniz</string>
     <string name="send_mail">Mail Gönder</string>
     <string name="re_password">Şifre Tekrar</string>
-    <string name="create_page">*Lütfen aşaağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve KAYDOL\'un!</string>
+    <string name="create_page">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve KAYIT OL\'un!</string>
     <string name="register">Kayıt Ol</string>
     <string name="passwords_not_same">Şifreler Uyuşmuyor</string>
     <string name="fill_in_all">Tüm Alanları Doldurunuz</string>
@@ -120,4 +120,16 @@
     <string name="earned">" Puan Kazandınız."</string>
     <string name="mission_failed">\"Görev Tamamlanamadı!\"</string>
     <string name="not_detected">Yeni Maç Algılanmadı!</string>
+    <string name="change_mail">Email Değiştir</string>
+    <string name="change_pass">Şifre Değiştir</string>
+    <string name="log_out">Çıkış</string>
+    <string name="send_mail_bug">Hatalar İçin Mail At</string>
+    <string name="changed_mail">Email Adresiniz Değişmiştir.</string>
+    <string name="current_password">Mevcut Şifre</string>
+    <string name="new_password">Yeni Şifre</string>
+    <string name="new_password_re">Yeni Şifre, Tekrar</string>
+    <string name="new_email">Yeni E-Mail</string>
+    <string name="explanation">En az 20 karakter.</string>
+    <string name="subject">Konu</string>
+    <string name="error_mission">Görev Alabilmek İçin 30 Lv olmalısınız.</string>
 </resources>

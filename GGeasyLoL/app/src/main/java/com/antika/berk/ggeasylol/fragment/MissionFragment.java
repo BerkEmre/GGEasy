@@ -41,7 +41,7 @@ public class MissionFragment extends Fragment {
     Mission m;
     int match_id;
     DBHelper dbHelper;
-    TextView textpuan,textcan;
+    TextView textpuan;
 
     Button grvAl1,grvAl2,grvAl3,grvAl4,grvAl5,grvAl6,grvAl7,grvAl8,grvAl9,grvAl10,grvAl11,grvAl12,grvAl13,grvAl14,grvAl15,grvAl16,
             grvAl17;
@@ -124,825 +124,862 @@ public class MissionFragment extends Fragment {
                     R.id.content_main_page,
                     cmf,"0").commit();
         }
+        else {
 
-        if(dbHelper.getMatch("Gorev1").equals("")){
 
-        }else{
-            grvSorgu1.setVisibility(View.VISIBLE);
-            grvIptal1.setVisibility(View.VISIBLE);
-            grvAl1.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev2").equals("")){
+            if (dbHelper.getMatch("Gorev1").equals("")) {
 
-        }else{
-            grvSorgu2.setVisibility(View.VISIBLE);
-            grvIptal2.setVisibility(View.VISIBLE);
-            grvAl2.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev3").equals("")){
+            } else {
+                grvSorgu1.setVisibility(View.VISIBLE);
+                grvIptal1.setVisibility(View.VISIBLE);
+                grvAl1.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev2").equals("")) {
 
-        }else{
-            grvSorgu3.setVisibility(View.VISIBLE);
-            grvIptal3.setVisibility(View.VISIBLE);
-            grvAl3.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev4").equals("")){
+            } else {
+                grvSorgu2.setVisibility(View.VISIBLE);
+                grvIptal2.setVisibility(View.VISIBLE);
+                grvAl2.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev3").equals("")) {
 
-        }else{
-            grvSorgu4.setVisibility(View.VISIBLE);
-            grvIptal4.setVisibility(View.VISIBLE);
-            grvAl4.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev5").equals("")){
+            } else {
+                grvSorgu3.setVisibility(View.VISIBLE);
+                grvIptal3.setVisibility(View.VISIBLE);
+                grvAl3.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev4").equals("")) {
 
-        }else{
-            grvSorgu5.setVisibility(View.VISIBLE);
-            grvIptal5.setVisibility(View.VISIBLE);
-            grvAl5.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev6").equals("")){
+            } else {
+                grvSorgu4.setVisibility(View.VISIBLE);
+                grvIptal4.setVisibility(View.VISIBLE);
+                grvAl4.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev5").equals("")) {
 
-        }else{
-            grvSorgu6.setVisibility(View.VISIBLE);
-            grvIptal6.setVisibility(View.VISIBLE);
-            grvAl6.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev7").equals("")){
+            } else {
+                grvSorgu5.setVisibility(View.VISIBLE);
+                grvIptal5.setVisibility(View.VISIBLE);
+                grvAl5.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev6").equals("")) {
 
-        }else{
-            grvSorgu7.setVisibility(View.VISIBLE);
-            grvIptal7.setVisibility(View.VISIBLE);
-            grvAl7.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev8").equals("")){
+            } else {
+                grvSorgu6.setVisibility(View.VISIBLE);
+                grvIptal6.setVisibility(View.VISIBLE);
+                grvAl6.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev7").equals("")) {
 
-        }else{
-            grvSorgu8.setVisibility(View.VISIBLE);
-            grvIptal8.setVisibility(View.VISIBLE);
-            grvAl8.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev9").equals("")){
+            } else {
+                grvSorgu7.setVisibility(View.VISIBLE);
+                grvIptal7.setVisibility(View.VISIBLE);
+                grvAl7.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev8").equals("")) {
 
-        }else{
-            grvSorgu9.setVisibility(View.VISIBLE);
-            grvIptal9.setVisibility(View.VISIBLE);
-            grvAl9.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev10").equals("")){
+            } else {
+                grvSorgu8.setVisibility(View.VISIBLE);
+                grvIptal8.setVisibility(View.VISIBLE);
+                grvAl8.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev9").equals("")) {
 
-        }else{
-            grvSorgu10.setVisibility(View.VISIBLE);
-            grvIptal10.setVisibility(View.VISIBLE);
-            grvAl10.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev11").equals("")){
+            } else {
+                grvSorgu9.setVisibility(View.VISIBLE);
+                grvIptal9.setVisibility(View.VISIBLE);
+                grvAl9.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev10").equals("")) {
 
-        }else{
-            grvSorgu11.setVisibility(View.VISIBLE);
-            grvIptal11.setVisibility(View.VISIBLE);
-            grvAl11.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev12").equals("")){
+            } else {
+                grvSorgu10.setVisibility(View.VISIBLE);
+                grvIptal10.setVisibility(View.VISIBLE);
+                grvAl10.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev11").equals("")) {
 
-        }else{
-            grvSorgu12.setVisibility(View.VISIBLE);
-            grvIptal12.setVisibility(View.VISIBLE);
-            grvAl12.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev13").equals("")){
+            } else {
+                grvSorgu11.setVisibility(View.VISIBLE);
+                grvIptal11.setVisibility(View.VISIBLE);
+                grvAl11.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev12").equals("")) {
 
-        }else{
-            grvSorgu13.setVisibility(View.VISIBLE);
-            grvIptal13.setVisibility(View.VISIBLE);
-            grvAl13.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev14").equals("")){
+            } else {
+                grvSorgu12.setVisibility(View.VISIBLE);
+                grvIptal12.setVisibility(View.VISIBLE);
+                grvAl12.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev13").equals("")) {
 
-        }else{
-            grvSorgu14.setVisibility(View.VISIBLE);
-            grvIptal14.setVisibility(View.VISIBLE);
-            grvAl14.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev15").equals("")){
+            } else {
+                grvSorgu13.setVisibility(View.VISIBLE);
+                grvIptal13.setVisibility(View.VISIBLE);
+                grvAl13.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev14").equals("")) {
 
-        }else{
-            grvSorgu15.setVisibility(View.VISIBLE);
-            grvIptal15.setVisibility(View.VISIBLE);
-            grvAl15.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev16").equals("")){
+            } else {
+                grvSorgu14.setVisibility(View.VISIBLE);
+                grvIptal14.setVisibility(View.VISIBLE);
+                grvAl14.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev15").equals("")) {
 
-        }else{
-            grvSorgu16.setVisibility(View.VISIBLE);
-            grvIptal16.setVisibility(View.VISIBLE);
-            grvAl16.setVisibility(View.GONE);
-        }
-        if(dbHelper.getMatch("Gorev17").equals("")){
+            } else {
+                grvSorgu15.setVisibility(View.VISIBLE);
+                grvIptal15.setVisibility(View.VISIBLE);
+                grvAl15.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev16").equals("")) {
 
-        }else{
-            grvSorgu17.setVisibility(View.VISIBLE);
-            grvIptal17.setVisibility(View.VISIBLE);
-            grvAl17.setVisibility(View.GONE);
-        }
-        new getData().execute("");
-        grvAl1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
+            } else {
+                grvSorgu16.setVisibility(View.VISIBLE);
+                grvIptal16.setVisibility(View.VISIBLE);
+                grvAl16.setVisibility(View.GONE);
+            }
+            if (dbHelper.getMatch("Gorev17").equals("")) {
+
+            } else {
+                grvSorgu17.setVisibility(View.VISIBLE);
+                grvIptal17.setVisibility(View.VISIBLE);
+                grvAl17.setVisibility(View.GONE);
+            }
+            new getData().execute("");
+            grvAl1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
                         grvSorgu1.setVisibility(View.VISIBLE);
                         grvIptal1.setVisibility(View.VISIBLE);
                         grvAl1.setVisibility(View.GONE);
                         new getData().execute("-1");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("1");
-
-            }
-        });
-        grvIptal1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev1");
-                                grvAl1.setVisibility(View.VISIBLE);
-                                grvIptal1.setVisibility(View.GONE);
-                                grvSorgu1.setVisibility(View.GONE);
-                                break;
-
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
-                        }
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu2.setVisibility(View.VISIBLE);
-                grvIptal2.setVisibility(View.VISIBLE);
-                grvAl2.setVisibility(View.GONE);
-                new getData().execute("-2");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("2");
-            }
-        });
-        grvIptal2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev2");
-                                grvAl2.setVisibility(View.VISIBLE);
-                                grvIptal2.setVisibility(View.GONE);
-                                grvSorgu2.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("1");
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
-                        }
-                    }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu3.setVisibility(View.VISIBLE);
-                grvIptal3.setVisibility(View.VISIBLE);
-                grvAl3.setVisibility(View.GONE);
-                new getData().execute("-3");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("3");
-            }
-        });
-        grvIptal3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev3");
-                                grvAl3.setVisibility(View.VISIBLE);
-                                grvIptal3.setVisibility(View.GONE);
-                                grvSorgu3.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvIptal1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev1");
+                                    grvAl1.setVisibility(View.VISIBLE);
+                                    grvIptal1.setVisibility(View.GONE);
+                                    grvSorgu1.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu2.setVisibility(View.VISIBLE);
+                        grvIptal2.setVisibility(View.VISIBLE);
+                        grvAl2.setVisibility(View.GONE);
+                        new getData().execute("-2");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu4.setVisibility(View.VISIBLE);
-                grvIptal4.setVisibility(View.VISIBLE);
-                grvAl4.setVisibility(View.GONE);
-                new getData().execute("-4");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("4");
-            }
-        });
-        grvIptal4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev4");
-                                grvAl4.setVisibility(View.VISIBLE);
-                                grvIptal4.setVisibility(View.GONE);
-                                grvSorgu4.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("2");
+                }
+            });
+            grvIptal2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev2");
+                                    grvAl2.setVisibility(View.VISIBLE);
+                                    grvIptal2.setVisibility(View.GONE);
+                                    grvSorgu2.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu3.setVisibility(View.VISIBLE);
+                        grvIptal3.setVisibility(View.VISIBLE);
+                        grvAl3.setVisibility(View.GONE);
+                        new getData().execute("-3");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu5.setVisibility(View.VISIBLE);
-                grvIptal5.setVisibility(View.VISIBLE);
-                grvAl5.setVisibility(View.GONE);
-                new getData().execute("-5");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("5");
-            }
-        });
-        grvIptal5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev5");
-                                grvAl5.setVisibility(View.VISIBLE);
-                                grvIptal5.setVisibility(View.GONE);
-                                grvSorgu5.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("3");
+                }
+            });
+            grvIptal3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev3");
+                                    grvAl3.setVisibility(View.VISIBLE);
+                                    grvIptal3.setVisibility(View.GONE);
+                                    grvSorgu3.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu4.setVisibility(View.VISIBLE);
+                        grvIptal4.setVisibility(View.VISIBLE);
+                        grvAl4.setVisibility(View.GONE);
+                        new getData().execute("-4");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu6.setVisibility(View.VISIBLE);
-                grvIptal6.setVisibility(View.VISIBLE);
-                grvAl6.setVisibility(View.GONE);
-                new getData().execute("-6");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("6");
-            }
-        });
-        grvIptal6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev6");
-                                grvAl6.setVisibility(View.VISIBLE);
-                                grvIptal6.setVisibility(View.GONE);
-                                grvSorgu6.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("4");
+                }
+            });
+            grvIptal4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev4");
+                                    grvAl4.setVisibility(View.VISIBLE);
+                                    grvIptal4.setVisibility(View.GONE);
+                                    grvSorgu4.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu5.setVisibility(View.VISIBLE);
+                        grvIptal5.setVisibility(View.VISIBLE);
+                        grvAl5.setVisibility(View.GONE);
+                        new getData().execute("-5");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu7.setVisibility(View.VISIBLE);
-                grvIptal7.setVisibility(View.VISIBLE);
-                grvAl7.setVisibility(View.GONE);
-                new getData().execute("-7");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("7");
-            }
-        });
-        grvIptal7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev7");
-                                grvAl7.setVisibility(View.VISIBLE);
-                                grvIptal7.setVisibility(View.GONE);
-                                grvSorgu7.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("5");
+                }
+            });
+            grvIptal5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev5");
+                                    grvAl5.setVisibility(View.VISIBLE);
+                                    grvIptal5.setVisibility(View.GONE);
+                                    grvSorgu5.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu6.setVisibility(View.VISIBLE);
+                        grvIptal6.setVisibility(View.VISIBLE);
+                        grvAl6.setVisibility(View.GONE);
+                        new getData().execute("-6");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu8.setVisibility(View.VISIBLE);
-                grvIptal8.setVisibility(View.VISIBLE);
-                grvAl8.setVisibility(View.GONE);
-                new getData().execute("-8");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("8");
-            }
-        });
-        grvIptal8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev8");
-                                grvAl8.setVisibility(View.VISIBLE);
-                                grvIptal8.setVisibility(View.GONE);
-                                grvSorgu8.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("6");
+                }
+            });
+            grvIptal6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev6");
+                                    grvAl6.setVisibility(View.VISIBLE);
+                                    grvIptal6.setVisibility(View.GONE);
+                                    grvSorgu6.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu7.setVisibility(View.VISIBLE);
+                        grvIptal7.setVisibility(View.VISIBLE);
+                        grvAl7.setVisibility(View.GONE);
+                        new getData().execute("-7");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu9.setVisibility(View.VISIBLE);
-                grvIptal9.setVisibility(View.VISIBLE);
-                grvAl9.setVisibility(View.GONE);
-                new getData().execute("-9");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("9");
-            }
-        });
-        grvIptal9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev9");
-                                grvAl9.setVisibility(View.VISIBLE);
-                                grvIptal9.setVisibility(View.GONE);
-                                grvSorgu9.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("7");
+                }
+            });
+            grvIptal7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev7");
+                                    grvAl7.setVisibility(View.VISIBLE);
+                                    grvIptal7.setVisibility(View.GONE);
+                                    grvSorgu7.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu8.setVisibility(View.VISIBLE);
+                        grvIptal8.setVisibility(View.VISIBLE);
+                        grvAl8.setVisibility(View.GONE);
+                        new getData().execute("-8");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu10.setVisibility(View.VISIBLE);
-                grvIptal10.setVisibility(View.VISIBLE);
-                grvAl10.setVisibility(View.GONE);
-                new getData().execute("-10");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("10");
-            }
-        });
-        grvIptal10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev10");
-                                grvAl10.setVisibility(View.VISIBLE);
-                                grvIptal10.setVisibility(View.GONE);
-                                grvSorgu10.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("8");
+                }
+            });
+            grvIptal8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev8");
+                                    grvAl8.setVisibility(View.VISIBLE);
+                                    grvIptal8.setVisibility(View.GONE);
+                                    grvSorgu8.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu9.setVisibility(View.VISIBLE);
+                        grvIptal9.setVisibility(View.VISIBLE);
+                        grvAl9.setVisibility(View.GONE);
+                        new getData().execute("-9");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu11.setVisibility(View.VISIBLE);
-                grvIptal11.setVisibility(View.VISIBLE);
-                grvAl11.setVisibility(View.GONE);
-                new getData().execute("-11");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("11");
-            }
-        });
-        grvIptal11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev11");
-                                grvAl11.setVisibility(View.VISIBLE);
-                                grvIptal11.setVisibility(View.GONE);
-                                grvSorgu11.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("9");
+                }
+            });
+            grvIptal9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev9");
+                                    grvAl9.setVisibility(View.VISIBLE);
+                                    grvIptal9.setVisibility(View.GONE);
+                                    grvSorgu9.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu10.setVisibility(View.VISIBLE);
+                        grvIptal10.setVisibility(View.VISIBLE);
+                        grvAl10.setVisibility(View.GONE);
+                        new getData().execute("-10");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu12.setVisibility(View.VISIBLE);
-                grvIptal12.setVisibility(View.VISIBLE);
-                grvAl12.setVisibility(View.GONE);
-                new getData().execute("-12");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("12");
-            }
-        });
-        grvIptal12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev12");
-                                grvAl12.setVisibility(View.VISIBLE);
-                                grvIptal12.setVisibility(View.GONE);
-                                grvSorgu12.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("10");
+                }
+            });
+            grvIptal10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev10");
+                                    grvAl10.setVisibility(View.VISIBLE);
+                                    grvIptal10.setVisibility(View.GONE);
+                                    grvSorgu10.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl11.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu11.setVisibility(View.VISIBLE);
+                        grvIptal11.setVisibility(View.VISIBLE);
+                        grvAl11.setVisibility(View.GONE);
+                        new getData().execute("-11");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu13.setVisibility(View.VISIBLE);
-                grvIptal13.setVisibility(View.VISIBLE);
-                grvAl13.setVisibility(View.GONE);
-                new getData().execute("-13");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("13");
-            }
-        });
-        grvIptal13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev13");
-                                grvAl13.setVisibility(View.VISIBLE);
-                                grvIptal13.setVisibility(View.GONE);
-                                grvSorgu13.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu11.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("11");
+                }
+            });
+            grvIptal11.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev11");
+                                    grvAl11.setVisibility(View.VISIBLE);
+                                    grvIptal11.setVisibility(View.GONE);
+                                    grvSorgu11.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl12.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu12.setVisibility(View.VISIBLE);
+                        grvIptal12.setVisibility(View.VISIBLE);
+                        grvAl12.setVisibility(View.GONE);
+                        new getData().execute("-12");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu14.setVisibility(View.VISIBLE);
-                grvIptal14.setVisibility(View.VISIBLE);
-                grvAl14.setVisibility(View.GONE);
-                new getData().execute("-14");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("14");
-            }
-        });
-        grvIptal14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev14");
-                                grvAl14.setVisibility(View.VISIBLE);
-                                grvIptal14.setVisibility(View.GONE);
-                                grvSorgu14.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu12.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("12");
+                }
+            });
+            grvIptal12.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev12");
+                                    grvAl12.setVisibility(View.VISIBLE);
+                                    grvIptal12.setVisibility(View.GONE);
+                                    grvSorgu12.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl13.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu13.setVisibility(View.VISIBLE);
+                        grvIptal13.setVisibility(View.VISIBLE);
+                        grvAl13.setVisibility(View.GONE);
+                        new getData().execute("-13");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu15.setVisibility(View.VISIBLE);
-                grvIptal15.setVisibility(View.VISIBLE);
-                grvAl15.setVisibility(View.GONE);
-                new getData().execute("-15");
-                    }else{Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("15");
-            }
-        });
-        grvIptal15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev15");
-                                grvAl15.setVisibility(View.VISIBLE);
-                                grvIptal15.setVisibility(View.GONE);
-                                grvSorgu15.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu13.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("13");
+                }
+            });
+            grvIptal13.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev13");
+                                    grvAl13.setVisibility(View.VISIBLE);
+                                    grvIptal13.setVisibility(View.GONE);
+                                    grvSorgu13.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl14.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu14.setVisibility(View.VISIBLE);
+                        grvIptal14.setVisibility(View.VISIBLE);
+                        grvAl14.setVisibility(View.GONE);
+                        new getData().execute("-14");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl16.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dbHelper.getMatchs()){
-                grvSorgu16.setVisibility(View.VISIBLE);
-                grvIptal16.setVisibility(View.VISIBLE);
-                grvAl16.setVisibility(View.GONE);
-                new getData().execute("-16");
-                }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu16.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("16");
-            }
-        });
-        grvIptal16.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev16");
-                                grvAl16.setVisibility(View.VISIBLE);
-                                grvIptal16.setVisibility(View.GONE);
-                                grvSorgu16.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu14.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("14");
+                }
+            });
+            grvIptal14.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev14");
+                                    grvAl14.setVisibility(View.VISIBLE);
+                                    grvIptal14.setVisibility(View.GONE);
+                                    grvSorgu14.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl15.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu15.setVisibility(View.VISIBLE);
+                        grvIptal15.setVisibility(View.VISIBLE);
+                        grvAl15.setVisibility(View.GONE);
+                        new getData().execute("-15");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
-        grvAl17.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if(dbHelper.getMatchs()){
-                grvSorgu17.setVisibility(View.VISIBLE);
-                grvIptal17.setVisibility(View.VISIBLE);
-                grvAl17.setVisibility(View.GONE);
-                new getData().execute("-17");
-                    }else{Toast.makeText(view.getContext(),  getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();}
-            }
-        });
-        grvSorgu17.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new getData().execute("17");
-            }
-        });
-        grvIptal17.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                dbHelper.insertMatch("","Gorev17");
-                                grvAl17.setVisibility(View.VISIBLE);
-                                grvIptal17.setVisibility(View.GONE);
-                                grvSorgu17.setVisibility(View.GONE);
-                                break;
+                }
+            });
+            grvSorgu15.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("15");
+                }
+            });
+            grvIptal15.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev15");
+                                    grvAl15.setVisibility(View.VISIBLE);
+                                    grvIptal15.setVisibility(View.GONE);
+                                    grvSorgu15.setVisibility(View.GONE);
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
                         }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl16.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu16.setVisibility(View.VISIBLE);
+                        grvIptal16.setVisibility(View.VISIBLE);
+                        grvAl16.setVisibility(View.GONE);
+                        new getData().execute("-16");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
-                        .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
-            }
-        });
+                }
+            });
+            grvSorgu16.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("16");
+                }
+            });
+            grvIptal16.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev16");
+                                    grvAl16.setVisibility(View.VISIBLE);
+                                    grvIptal16.setVisibility(View.GONE);
+                                    grvSorgu16.setVisibility(View.GONE);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+            grvAl17.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dbHelper.getMatchs()) {
+                        grvSorgu17.setVisibility(View.VISIBLE);
+                        grvIptal17.setVisibility(View.VISIBLE);
+                        grvAl17.setVisibility(View.GONE);
+                        new getData().execute("-17");
+                    } else {
+                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            grvSorgu17.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new getData().execute("17");
+                }
+            });
+            grvIptal17.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dbHelper.insertMatch("", "Gorev17");
+                                    grvAl17.setVisibility(View.VISIBLE);
+                                    grvIptal17.setVisibility(View.GONE);
+                                    grvSorgu17.setVisibility(View.GONE);
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(getContext().getString(R.string.are_u_sure)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                            .setNegativeButton(getContext().getString(R.string.no), dialogClickListener).show();
+                }
+            });
+        }
 
         return view;
     }
@@ -1025,12 +1062,16 @@ public class MissionFragment extends Fragment {
             }
             catch (Exception e) {
                 e.printStackTrace();
+                return "HATA";
             }
             return strings[0];
         }
 
         @Override
         protected void onPostExecute(String s) {
+            if(s.equals("HATA")){
+                Toast.makeText(getContext(), getContext().getString(R.string.error_mission), Toast.LENGTH_LONG).show();
+            }
             if(s.equals("1")){
                 srg1=m.Gorev1(""+match_id,mission.get(0).getPentaKills());
                 if(srg1){

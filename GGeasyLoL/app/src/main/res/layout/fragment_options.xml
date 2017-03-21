@@ -16,12 +16,13 @@
         android:layout_margin="5dp"
         android:background="@color/colorAccent"
         android:padding="5dp"
-        android:text="Change Password"
+        android:text="@string/change_pass"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:textStyle="normal|bold" />
+
     <Button
         android:id="@+id/c_m"
         android:layout_width="match_parent"
@@ -29,12 +30,13 @@
         android:layout_margin="5dp"
         android:background="@color/colorAccent"
         android:padding="5dp"
-        android:text="Change Mail"
+        android:text="@string/change_mail"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:textStyle="normal|bold" />
+
     <Button
         android:id="@+id/s_m"
         android:layout_width="match_parent"
@@ -42,12 +44,13 @@
         android:layout_margin="5dp"
         android:background="@color/colorAccent"
         android:padding="5dp"
-        android:text="Send Mail For Bug"
+        android:text="@string/send_mail_bug"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:textStyle="normal|bold" />
+
     <Button
         android:id="@+id/ex"
         android:layout_width="match_parent"
@@ -55,11 +58,11 @@
         android:layout_margin="5dp"
         android:background="@color/colorAccent"
         android:padding="5dp"
-        android:text="Exit"
+        android:text="@string/log_out"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:textStyle="normal|bold" />
 
 </LinearLayout>

@@ -233,7 +233,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return match_id;
     }
 
-
     public boolean getMatchs() {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -249,6 +248,12 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public void deleteUser () {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_USER);
+        db.close();
     }
 
     public void insertUser (String email, String sifre, String region, String summonerID) {

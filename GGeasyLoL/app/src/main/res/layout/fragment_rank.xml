@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Rank"
+        android:text="@string/rank"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"

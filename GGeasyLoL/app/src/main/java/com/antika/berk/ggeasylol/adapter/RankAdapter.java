@@ -70,7 +70,7 @@ public class RankAdapter extends BaseAdapter {
         siralama.setText(""+(position+1));
         sihirdarAdi.setText(rank.getSihirdarAdi());
         region.setText(rank.getRegion());
-        puan.setText("x "+rank.getPuan());
+        puan.setText("x "+String.format("%.2f",Double.parseDouble(rank.getPuan())));
         if(!rank.getRank().equals("")&& rank.getRank().equals(""+position))
             background.setBackgroundColor(0xFF91F796);
 

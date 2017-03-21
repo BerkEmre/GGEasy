@@ -120,4 +120,16 @@
     <string name="earned">Point Earned.</string>
     <string name="mission_failed">Mission Failed!</string>
     <string name="not_detected">New Match isn\'t Detected!</string>
+    <string name="change_mail">Change Mail</string>
+    <string name="change_pass">Change Password</string>
+    <string name="log_out">Log Out</string>
+    <string name="send_mail_bug">Send Mail for Bugs</string>
+    <string name="changed_mail">Changed Your E-mail Adress</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="new_password_re">Re-New Password</string>
+    <string name="new_email">New Email</string>
+    <string name="explanation">Minimum 20 characters.</string>
+    <string name="subject">Subject</string>
+    <string name="error_mission">If Your Lv is 30, You Can Take Mission.</string>
 </resources>
