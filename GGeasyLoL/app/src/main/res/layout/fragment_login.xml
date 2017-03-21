@@ -57,7 +57,8 @@
             android:text="@string/log_in"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/forget"

@@ -131,7 +131,8 @@
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textAlignment="center" />
         </LinearLayout>
     </LinearLayout>
 

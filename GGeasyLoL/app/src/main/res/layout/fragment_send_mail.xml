@@ -1,25 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
-    tools:context="com.antika.berk.ggeasylol.fragment.ForgetFragment"
+    tools:context="com.antika.berk.ggeasylol.fragment.SendMailFragment"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
-    android:layout_marginTop="150dp">
+    android:background="@color/colorPrimaryDark">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:id="@+id/textView44"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/forget_password"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:textStyle="normal|bold" />
-
     <EditText
         android:layout_height="wrap_content"
         android:ems="10"
@@ -27,14 +14,28 @@
         android:padding="5dp"
         android:background="@android:color/white"
         android:textSize="18sp"
-        android:hint="E-mail"
+        android:hint="Title"
         android:inputType="textEmailSubject"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
-        android:layout_width="250dp" />
+        android:layout_width="match_parent" />
 
+    <EditText
+        android:ems="10"
+        android:id="@+id/editText10"
+        android:padding="5dp"
+        android:background="@android:color/white"
+        android:textSize="18sp"
+        android:hint="Explain"
+        android:inputType="textEmailSubject"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
     <Button
         android:id="@+id/button7"
         android:layout_width="match_parent"
@@ -46,6 +47,6 @@
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:textAlignment="center" />
+        android:textStyle="normal|bold" />
+
 </LinearLayout>

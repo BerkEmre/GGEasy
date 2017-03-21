@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    tools:context="com.antika.berk.ggeasylol.fragment.ChangeMailFragment"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/email"
+        android:padding="5dp"
+        android:background="@android:color/white"
+        android:textSize="18sp"
+        android:hint="New E-mail"
+        android:layout_margin="10dp"
+        android:inputType="textEmailSubject" />
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:text="@string/create_page"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:id="@+id/key_text"
+        android:layout_weight="0.24"
+        android:textSize="22sp"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/white" />
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:padding="5dp"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+
+
+</LinearLayout>
