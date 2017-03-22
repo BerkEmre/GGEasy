@@ -131,5 +131,5 @@
     <string name="new_email">Yeni E-Mail</string>
     <string name="explanation">En az 20 karakter.</string>
     <string name="subject">Konu</string>
-    <string name="error_mission">Görev Alabilmek İçin 30 Lv olmalısınız.</string>
+    <string name="error_mission">30 Lv Olup 1 Dereceli Maç Yapmalısın!</string>
 </resources>

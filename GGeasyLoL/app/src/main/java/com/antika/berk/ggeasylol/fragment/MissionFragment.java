@@ -23,6 +23,7 @@ import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ChampionStatObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
 import com.antika.berk.ggeasylol.object.SummonerIDsObject;
+import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -125,7 +126,6 @@ public class MissionFragment extends Fragment {
                     cmf,"0").commit();
         }
         else {
-
 
             if (dbHelper.getMatch("Gorev1").equals("")) {
 
@@ -988,6 +988,7 @@ public class MissionFragment extends Fragment {
         List<MissionObject> mission=new ArrayList<MissionObject>();
         List<SummonerIDsObject> ids=new ArrayList<SummonerIDsObject>();
         int y=0;
+        SummonerObject so;
 
 
         ProgressDialog progress;
@@ -1004,6 +1005,10 @@ public class MissionFragment extends Fragment {
             try {
                 UserObject uo = dbHelper.getUser();
                 String summoner_id=uo.getSummonerID();
+
+                so=apiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                if(so.getLvl()!=30)
+                    return "30 OL";
                 String mail=getJsonFromServer("http://ggeasylol.com/api/check_user.php?Mail=" + uo.getEmail().toLowerCase() + "&Sifre=" + uo.getSifre().toLowerCase());
                 JSONArray mail1=new JSONArray(mail);
                 JSONObject puan1=mail1.getJSONObject(0);
@@ -1033,6 +1038,7 @@ public class MissionFragment extends Fragment {
                 if(strings[0].equals("-15"))m.GorevAl(match_id, "Gorev15");
                 if(strings[0].equals("-16"))m.GorevAl(match_id, "Gorev16");
                 if(strings[0].equals("-17"))m.GorevAl(match_id, "Gorev17");
+
                 //URL den gelen veri String olarak aldım
                 String gelenData=getJsonFromServer("https://"+uo.getRegion()+".api.pvp.net/api/lol/"+uo.getRegion()+"/v2.2/match/"+match_id+"?api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
@@ -1069,10 +1075,15 @@ public class MissionFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            if(s.equals("HATA")){
-                Toast.makeText(getContext(), getContext().getString(R.string.error_mission), Toast.LENGTH_LONG).show();
+            if(so.getLvl()!=30){
+                Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
+                ProfilFragment cmf = new ProfilFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
             }
-            if(s.equals("1")){
+            else if(s.equals("1")){
                 srg1=m.Gorev1(""+match_id,mission.get(0).getPentaKills());
                 if(srg1){
                     grvAl1.setVisibility(View.VISIBLE);
@@ -1081,7 +1092,7 @@ public class MissionFragment extends Fragment {
                 }
             }
 
-            if(s.equals("2")){
+            else if(s.equals("2")){
                 srg2=m.Gorev2(""+match_id,mission.get(0).getQuadraKills());
                 if(srg2){
                     grvAl2.setVisibility(View.VISIBLE);
@@ -1089,7 +1100,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu2.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("3")){
+            else if(s.equals("3")){
                 srg3=m.Gorev3(""+match_id,mission.get(0).getTripleKills());
                 if(srg3){
                     grvAl3.setVisibility(View.VISIBLE);
@@ -1097,7 +1108,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu3.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("4")){
+            else if(s.equals("4")){
                 srg4=m.Gorev4(""+match_id,mission.get(0).getDoubleKills());
                 if(srg4){
                     grvAl4.setVisibility(View.VISIBLE);
@@ -1105,7 +1116,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu4.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("5")){
+            else if(s.equals("5")){
                 srg5=m.Gorev5(""+match_id,mission.get(0).getKills());
                 if(srg5){
                     grvAl5.setVisibility(View.VISIBLE);
@@ -1113,7 +1124,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu5.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("6")){
+            else if(s.equals("6")){
                 srg6=m.Gorev6(""+match_id,mission.get(0).getKills());
                 if(srg6){
                     grvAl6.setVisibility(View.VISIBLE);
@@ -1121,7 +1132,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu6.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("7")){
+            else if(s.equals("7")){
                 srg7=m.Gorev7(""+match_id,mission.get(0).getKills());
                 if(srg7){
                     grvAl7.setVisibility(View.VISIBLE);
@@ -1129,7 +1140,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu7.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("8")){
+            else if(s.equals("8")){
                 srg8=m.Gorev8(""+match_id,mission.get(0).getAssists());
                 if(srg8){
                     grvAl8.setVisibility(View.VISIBLE);
@@ -1137,7 +1148,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu8.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("9")){
+            else  if(s.equals("9")){
                 srg9=m.Gorev9(""+match_id,mission.get(0).getAssists());
                 if(srg9){
                     grvAl9.setVisibility(View.VISIBLE);
@@ -1145,7 +1156,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu9.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("10")){
+            else if(s.equals("10")){
                 srg10=m.Gorev10(""+match_id,mission.get(0).getAssists());
                 if(srg10){
                     grvAl10.setVisibility(View.VISIBLE);
@@ -1153,7 +1164,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu10.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("11")){
+            else if(s.equals("11")){
                 srg11=m.Gorev11(""+match_id,mission.get(0).getTowerKills());
                 if(srg11){
                     grvAl11.setVisibility(View.VISIBLE);
@@ -1161,7 +1172,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu11.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("12")){
+            else  if(s.equals("12")){
                 srg12=m.Gorev12(""+match_id,mission.get(0).getTowerKills());
                 if(srg12){
                     grvAl12.setVisibility(View.VISIBLE);
@@ -1169,7 +1180,7 @@ public class MissionFragment extends Fragment {
                     grvSorgu12.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("13")){
+            else if(s.equals("13")){
                 srg13=m.Gorev13(""+match_id,mission.get(0).getTowerKills());
                 if(srg13){
                     grvAl13.setVisibility(View.VISIBLE);
@@ -1177,31 +1188,31 @@ public class MissionFragment extends Fragment {
                     grvSorgu13.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("14")){
-                srg14=m.Gorev14(""+match_id,mission.get(0).getMinionsKilled());
+            else  if(s.equals("14")){
+                srg14=m.Gorev14(""+match_id,mission.get(0).getMinionsKilled()+mission.get(0).getNeutralMinionsKilled());
                 if(srg14){
                     grvAl14.setVisibility(View.VISIBLE);
                     grvIptal14.setVisibility(View.GONE);
                     grvSorgu14.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("15")){
-                srg15=m.Gorev15(""+match_id,mission.get(0).getMinionsKilled());
+            else  if(s.equals("15")){
+                srg15=m.Gorev15(""+match_id,mission.get(0).getMinionsKilled()+mission.get(0).getNeutralMinionsKilled());
                 if(srg15){
                     grvAl15.setVisibility(View.VISIBLE);
                     grvIptal15.setVisibility(View.GONE);
                     grvSorgu15.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("16")){
-                srg16=m.Gorev16(""+match_id,mission.get(0).getMinionsKilled());
+            else if(s.equals("16")){
+                srg16=m.Gorev16(""+match_id,mission.get(0).getMinionsKilled()+mission.get(0).getNeutralMinionsKilled());
                 if(srg16){
                     grvAl16.setVisibility(View.VISIBLE);
                     grvIptal16.setVisibility(View.GONE);
                     grvSorgu16.setVisibility(View.GONE);
                 }
             }
-            if(s.equals("17")){
+            else if(s.equals("17")){
                 srg17=m.Gorev17(""+match_id,mission.get(0).getKills(),mission.get(0).getDeaths(),
                         mission.get(0).getAssists(),mission.get(0).isWinner(),mission.get(0).getMinionsKilled(),
                         mission.get(0).getTowerKills(),mission.get(0).getNeutralMinionsKilled(),mission.get(0).getDoubleKills(),
@@ -1213,7 +1224,8 @@ public class MissionFragment extends Fragment {
                     grvSorgu17.setVisibility(View.GONE);
                 }
             }
-            textpuan.setText(" x "+String.format("%.2f",Double.parseDouble(puan)));
+            else if(so.getLvl()==30)
+                textpuan.setText(" x "+String.format("%.2f",Double.parseDouble(puan)));
 
 
             progress.dismiss();
@@ -1237,4 +1249,5 @@ public class MissionFragment extends Fragment {
         String jsonResult = inputStream.readLine();
         return jsonResult;
     }
+
 }
