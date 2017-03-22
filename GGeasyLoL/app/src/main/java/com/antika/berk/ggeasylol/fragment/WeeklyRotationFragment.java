@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,12 +67,13 @@ public class WeeklyRotationFragment extends Fragment {
     }
     private class getData extends AsyncTask<String, String, String >
     {
-        ProgressDialog progress;
+        BlankFragment progress;
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
-                    getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
         @Override
         protected String doInBackground(String... params) {

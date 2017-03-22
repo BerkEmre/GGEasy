@@ -85,14 +85,15 @@ public class ProfilFragment extends Fragment {
     }
 
     private class getData extends AsyncTask<String,String,String> {
-        ProgressDialog progress;
+        BlankFragment progress;
 
         String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="",_profilIcon ="";
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
-                    getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
 
         @Override

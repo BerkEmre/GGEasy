@@ -123,7 +123,7 @@
     <string name="change_mail">Email Değiştir</string>
     <string name="change_pass">Şifre Değiştir</string>
     <string name="log_out">Çıkış</string>
-    <string name="send_mail_bug">Hatalar İçin Mail At</string>
+    <string name="send_mail_bug">Geri Bildirim</string>
     <string name="changed_mail">Email Adresiniz Değişmiştir.</string>
     <string name="current_password">Mevcut Şifre</string>
     <string name="new_password">Yeni Şifre</string>
@@ -131,5 +131,10 @@
     <string name="new_email">Yeni E-Mail</string>
     <string name="explanation">En az 20 karakter.</string>
     <string name="subject">Konu</string>
-    <string name="error_mission">30 Lv Olup 1 Dereceli Maç Yapmalısın!</string>
+    <string name="error_mission">Üzgünüz 30 lv değilsiniz ya da hhiç DERECELİ MAÇINIZ yok!</string>
+    <string name="feed_back">Geri Bildirim İçin Teşekkür Ederiz.</string>
+    <string name="message">Lütfen 20 karakterden fazla giriniz.</string>
+    <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>
+    <string name="ok">Tamam</string>
+    <string name="joined_lottery">Çekilişe Katıldınız!</string>
 </resources>

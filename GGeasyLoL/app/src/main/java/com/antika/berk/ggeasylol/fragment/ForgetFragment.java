@@ -50,11 +50,13 @@ public class ForgetFragment extends DialogFragment {
     }
 
     private class getData extends AsyncTask<String, String, String> {
-        ProgressDialog progress;
+        BlankFragment progress;
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait), getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
 
         @Override
@@ -70,6 +72,10 @@ public class ForgetFragment extends DialogFragment {
         {
             progress.dismiss();
             Toast.makeText(getContext(),"Şifreniz Mail Adresinize Göderildi.",Toast.LENGTH_LONG).show();
+            View view = getActivity().getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
             getDialog().dismiss();
         }
     }

@@ -141,10 +141,12 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
         DBHelper dbHelper = new DBHelper(getContext());
         RiotApiHelper raHelper = new RiotApiHelper();
 
-        ProgressDialog progress;
+        BlankFragment progress;
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait), getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
 
         @Override

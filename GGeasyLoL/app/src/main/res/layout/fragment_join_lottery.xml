@@ -1,59 +1,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.AddSumonnerFragment"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".fragment.AddSumonnerFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:text="@string/summoner_name"
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/primary_text"
-        android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:layout_marginLeft="20dp" />
+        android:text="@string/congratulations"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText"
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
         android:layout_margin="10dp"
-        android:hint="@string/summoner_name" />
+        android:background="@android:color/white" />
 
     <TextView
-        android:text="@string/region"
+        android:id="@+id/textView48"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:textStyle="normal|bold"
-        android:textSize="18sp"
-        android:textColor="@color/primary_text"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_marginLeft="20dp" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_margin="10dp" />
+        android:text="@string/joined_lottery"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <Button
-        android:text="@string/join_lottery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/button3"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:background="@color/colorAccent"
-        android:textColor="@color/cast_expanded_controller_progress_text_color"
-        android:textStyle="normal|bold"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"
+        android:text="@string/ok"
         android:textAllCaps="false"
-        android:layout_margin="10dp" />
+        android:textColor="@color/cast_expanded_controller_progress_text_color"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
 </LinearLayout>

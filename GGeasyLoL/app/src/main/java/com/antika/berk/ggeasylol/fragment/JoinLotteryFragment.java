@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.LotteryObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
@@ -38,8 +41,6 @@ import java.util.List;
 public class JoinLotteryFragment extends DialogFragment {
     SummonerObject so;
 
-    EditText et_sumonner_name;
-    Spinner sp_region;
     Button bt_add;
 
     private Fragment f;
@@ -66,42 +67,28 @@ public class JoinLotteryFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_join_lottery, container, false);
-        //SET VIEWS*********************************************************************************
-        et_sumonner_name = (EditText) view.findViewById(R.id.editText);
-        sp_region        = (Spinner ) view.findViewById(R.id.spinner );
         bt_add           = (Button  ) view.findViewById(R.id.button3 );
-        //******************************************************************************************
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        //SPİNNER SETTINGS**************************************************************************
-        List<String> categories = new ArrayList<String>();
-        categories.add("TR"  );categories.add("EUNE");categories.add("EUW" );categories.add("JP"  );
-        categories.add("KR"  );categories.add("LAN" );categories.add("LAS" );categories.add("NA"  );
-        categories.add("OCE" );categories.add("RU"  );categories.add("BR"  );categories.add("PBE" );
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, categories);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_region.setAdapter(dataAdapter);
-        //******************************************************************************************
-
+        DBHelper dbHelper = new DBHelper(view.getContext());
+        new checkUser().execute(dbHelper.getUser().getSummonerID(), dbHelper.getUser().getRegion());
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(et_sumonner_name.getText().length() > 0)
-                    new checkUser().execute(et_sumonner_name.getText().toString(), sp_region.getSelectedItem().toString());
-                else
-                    Toast.makeText(getContext(), getString(R.string.set_summoner_name), Toast.LENGTH_LONG).show();
+            dismiss();
             }
         });
         return view;
     }
 
     private class checkUser extends AsyncTask<String, String, String> {
-        ProgressDialog progress;
+        BlankFragment progress;
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
-                    getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
 
         @Override
@@ -111,7 +98,7 @@ public class JoinLotteryFragment extends DialogFragment {
             {
                 RiotApiHelper riotApiHelper = new RiotApiHelper();
 
-                so = riotApiHelper.getSumonner(values[0], values[1]);
+                so = riotApiHelper.getSumonner(Integer.parseInt(values[0]), values[1]);
 
                 if(so == null)
                     return "0";
@@ -142,10 +129,6 @@ public class JoinLotteryFragment extends DialogFragment {
         protected void onPostExecute(String results)
         {
             progress.dismiss();
-            if(results.equals("1"))
-                dismiss();
-            else
-                Toast.makeText(getContext(), getString(R.string.check_summoner_name_or_region), Toast.LENGTH_LONG).show();
             View view = getActivity().getCurrentFocus();
             if (view != null) {
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

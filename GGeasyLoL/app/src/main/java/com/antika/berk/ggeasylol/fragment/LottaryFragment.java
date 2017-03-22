@@ -29,8 +29,10 @@ import com.adcolony.sdk.AdColonyUserMetadata;
 import com.adcolony.sdk.AdColonyZone;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
+import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.object.LotteryObject;
 import com.antika.berk.ggeasylol.object.Sumonner;
+import com.antika.berk.ggeasylol.object.UserObject;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -49,9 +51,9 @@ import it.sephiroth.android.library.picasso.Picasso;
 
 public class LottaryFragment extends Fragment implements DialogInterface.OnDismissListener {
     //*******************************************ADCOLONY*******************************************
-    final private String APP_ID = "app185a7e71e1714831a49ec7";
-    final private String ZONE_ID = "vz1fd5a8b2bf6841a0a4b826";
-    final private String TAG = "AdColonyDemo";
+    final private String APP_ID = "appd4be31ac30ce44f58f";
+    final private String ZONE_ID = "vz4b35fd5a978c4b009b";
+    final private String TAG = "GGEasy - ODUL";
 
     private AdColonyInterstitial ad;
     private AdColonyInterstitialListener listener;
@@ -82,6 +84,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
             asf.setLottery(lo);
             asf.show(fm, "Add Sumonner");
             show = false;
+
         }
     }
 
@@ -105,7 +108,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
         AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
 
-        ad_options = new AdColonyAdOptions().enableConfirmationDialog(true).enableResultsDialog(true);
+        ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
 
         AdColony.setRewardListener( new AdColonyRewardListener()
         {
@@ -121,9 +124,11 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
             @Override
             public void onRequestFilled( AdColonyInterstitial ad )
             {
-                LottaryFragment.this.ad = ad;
-                btn_join.setVisibility(View.VISIBLE);
-                pb_wait.setVisibility(View.GONE);
+                if(lo.getStatus().equals("0")) {
+                    LottaryFragment.this.ad = ad;
+                    btn_join.setVisibility(View.VISIBLE);
+                    pb_wait.setVisibility(View.GONE);
+                }
                 Log.d( TAG, "onRequestFilled" );
             }
             @Override
@@ -136,19 +141,18 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
             public void onOpened( AdColonyInterstitial ad )
             {
                 btn_join.setVisibility(View.GONE);
-                pb_wait.setVisibility(View.VISIBLE);
+                pb_wait.setVisibility(View.GONE);
                 Log.d( TAG, "onOpened" );
             }
             @Override
             public void onExpiring( AdColonyInterstitial ad )
             {
                 btn_join.setVisibility(View.GONE);
-                pb_wait.setVisibility(View.VISIBLE);
-                AdColony.requestInterstitial( ZONE_ID, this, ad_options );
+                pb_wait.setVisibility(View.GONE);
                 Log.d( TAG, "onExpiring" );
             }
         };
-
+        AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
         btn_join.setVisibility(View.GONE);
 
         Picasso.with(getContext()).load("http://ggeasylol.com/api/img/" + lo.getImg()).into(iv_image);
@@ -190,8 +194,17 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DBHelper dbHelper=new DBHelper(getContext());
+                UserObject uo=dbHelper.getUser();
+                if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){
+                    LoginFragment cmf = new LoginFragment();
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    fm.beginTransaction().replace(
+                            R.id.content_main_page,
+                            cmf,"0").commit();
+                }else{
                 ad.show();
-                show = true;
+                show = true;}
             }
         });
 
@@ -208,11 +221,12 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
 
     private class getData extends AsyncTask<String, String, String> {
-        ProgressDialog progress;
+        BlankFragment progress;
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
-                    getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
             summoners.clear();
         }
         @Override

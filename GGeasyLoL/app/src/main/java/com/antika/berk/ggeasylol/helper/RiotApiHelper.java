@@ -37,7 +37,7 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
-    public String version = "7.4.1";
+    public String version = "7.5.2";
     //Get summoner object with summoner name
     public SummonerObject getSumonner(String summonerName, String region) {
         SummonerObject sumonner;
@@ -618,7 +618,7 @@ public class RiotApiHelper {
             return array.getString(0);
         } catch (JSONException e) {
             e.printStackTrace();
-            return "6.24.1";
+            return "7.5.2";
         }
     }
 

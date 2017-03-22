@@ -2,14 +2,17 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -41,6 +44,8 @@ public class SendMailFragment extends DialogFragment {
                 if(konu.getText().length() > 0 && mesaj.getText().length() > 19){
                     new getData().execute(konu.getText().toString(), mesaj.getText().toString(), dbHelper.getUser().getEmail());
                 }
+                else
+                    Toast.makeText(getContext(),getContext().getString(R.string.message),Toast.LENGTH_LONG).show();
             }
         });
 
@@ -48,18 +53,20 @@ public class SendMailFragment extends DialogFragment {
     }
 
     private class getData extends AsyncTask<String, String, String> {
-        ProgressDialog progress;
+        BlankFragment progress;
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait), getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
 
         @Override
         protected String doInBackground(String... values)
         {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
-            riotApiHelper.readURL("http://ggeasylol.com/api/forget_password.php?mail="+values[0]);
+            riotApiHelper.readURL("http://ggeasylol.com/api/send_mail.php?konu="+values[0].replace(" ","_")+"&mesaj="+values[1].replace(" ","_")+"&mail="+values[2]);
             return null;
         }
 
@@ -67,7 +74,11 @@ public class SendMailFragment extends DialogFragment {
         protected void onPostExecute(String results)
         {
             progress.dismiss();
-            Toast.makeText(getContext(),"Şifreniz Mail Adresinize Göderildi.",Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),getContext().getString(R.string.feed_back),Toast.LENGTH_LONG).show();
+            View view = getActivity().getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
             getDialog().dismiss();
         }
     }

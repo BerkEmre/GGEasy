@@ -2,6 +2,7 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -62,11 +64,13 @@ public class ChangePasswordFragment extends DialogFragment {
     }
 
     private class getData extends AsyncTask<String, String, String> {
-        ProgressDialog progress;
+        BlankFragment progress;
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait), getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
 
         @Override
@@ -90,6 +94,10 @@ public class ChangePasswordFragment extends DialogFragment {
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
+            View view = getActivity().getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
             getDialog().dismiss();
         }
     }

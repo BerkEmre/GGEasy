@@ -40,7 +40,7 @@ import java.util.List;
 
 public class MissionFragment extends Fragment {
     Mission m;
-    int match_id;
+    int match_id=0;
     DBHelper dbHelper;
     TextView textpuan;
 
@@ -991,12 +991,13 @@ public class MissionFragment extends Fragment {
         SummonerObject so;
 
 
-        ProgressDialog progress;
+        BlankFragment progress;
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
-                    getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
 
         @Override
@@ -1018,6 +1019,8 @@ public class MissionFragment extends Fragment {
                 JSONArray matchID2=matchID.getJSONArray("matches");
                 JSONObject matchID3=matchID2.getJSONObject(0);
                 match_id=matchID3.getInt("matchId");
+                if(match_id==0)
+                    return "Adam Ol";
                 if(Integer.parseInt(strings[0]) < 0){
 
                 }
@@ -1075,6 +1078,7 @@ public class MissionFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
+
             if(so.getLvl()!=30){
                 Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                 ProfilFragment cmf = new ProfilFragment();
@@ -1083,6 +1087,15 @@ public class MissionFragment extends Fragment {
                         R.id.content_main_page,
                         cmf,"0").commit();
             }
+            else if(match_id==0){
+                Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
+                ProfilFragment cmf = new ProfilFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+            }
+
             else if(s.equals("1")){
                 srg1=m.Gorev1(""+match_id,mission.get(0).getPentaKills());
                 if(srg1){

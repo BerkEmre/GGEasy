@@ -1,16 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="250dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.antika.berk.ggeasylol.fragment.ChangeMailFragment"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark">
+    tools:context="com.antika.berk.ggeasylol.fragment.ChangeMailFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <EditText
         android:id="@+id/newma"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@android:color/white"
@@ -19,9 +19,10 @@
         android:inputType="textEmailSubject"
         android:padding="5dp"
         android:textSize="18sp" />
+
     <TextView
         android:id="@+id/textView47"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="5dp"
@@ -31,19 +32,21 @@
         android:textStyle="normal|bold" />
 
     <TextView
-        android:layout_height="wrap_content"
         android:id="@+id/key_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="0.24"
-        android:textSize="22sp"
-        android:layout_width="match_parent"
-        android:layout_gravity="center_vertical"
         android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="normal|bold" />
 
     <Button
         android:id="@+id/c_ma"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/colorAccent"

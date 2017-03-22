@@ -1,15 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.antika.berk.ggeasylol.fragment.SendMailFragment"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark">
+    tools:context="com.antika.berk.ggeasylol.fragment.SendMailFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <EditText
         android:id="@+id/editText9"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
@@ -25,7 +25,7 @@
 
     <MultiAutoCompleteTextView
         android:id="@+id/multiAutoCompleteTextView"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@android:color/white"
@@ -36,7 +36,7 @@
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/colorAccent"

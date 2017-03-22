@@ -68,7 +68,7 @@ public class LotteryAdapter extends BaseAdapter implements Filterable {
 
         LotteryObject lottery = mKisiListesi.get(position);
 
-        Picasso.with(context).load("http://berkemrealtan.com/GGEasy/img/" + lottery.getImg()).into(iv_img);
+        Picasso.with(context).load("http://ggeasylol.com/api/img/" + lottery.getImg()).into(iv_img);
 
         tv_name.setText(lottery.getName());
         tv_date.setText(lottery.getEnd_date());
