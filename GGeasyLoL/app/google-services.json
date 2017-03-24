@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "358213053224",
+    "firebase_url": "https://ggeasy-lol.firebaseio.com",
+    "project_id": "ggeasy-lol",
+    "storage_bucket": "ggeasy-lol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358213053224:android:e546c98eb93139ff",
+        "android_client_info": {
+          "package_name": "com.antika.berk.ggeasylol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358213053224-4fsc9eiorfncpqlvmhh341irh5saq4tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQlBBm2anaCwIU9UsobPkUUW5rGTIm8Wk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

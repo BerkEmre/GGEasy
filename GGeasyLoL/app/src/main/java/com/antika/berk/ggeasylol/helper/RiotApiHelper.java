@@ -13,6 +13,7 @@ import com.antika.berk.ggeasylol.object.MasterObject;
 import com.antika.berk.ggeasylol.object.MasteriesPageObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
 import com.antika.berk.ggeasylol.object.RankedStatObject;
+import com.antika.berk.ggeasylol.object.RozetObject;
 import com.antika.berk.ggeasylol.object.RuneObject;
 import com.antika.berk.ggeasylol.object.RunePageObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
@@ -36,8 +37,9 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RiotApiHelper {
-    public String apiKey = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
-    public String version = "7.5.2";
+    public String apiKey   = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
+    public String version  = "7.5.2";
+    public int iconSize    =  22;
     //Get summoner object with summoner name
     public SummonerObject getSumonner(String summonerName, String region) {
         SummonerObject sumonner;
@@ -623,6 +625,23 @@ public class RiotApiHelper {
         }
     }
 
+    public List<RozetObject> getRozet(String mail){
+        List<RozetObject> rozets = new ArrayList<RozetObject>();
+        String data=readURL("http://ggeasylol.com/api/get_gorev.php?Mail="+mail);
+        try {
+            JSONArray array = new JSONArray(data);
+            for(int i=0;i<array.length();i++){
+                JSONObject object=array.getJSONObject(i);
+                rozets.add(new RozetObject(object.getString("mission"),object.getString("adet")));
+            }
+            return rozets;
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private String regionToPlatform(String region) {
         switch (region)
         {
@@ -641,26 +660,20 @@ public class RiotApiHelper {
         }
         return null;
     }
+
     public int iconTable(int y) {
+
         int[]x={R.drawable.icon0,R.drawable.icon1,R.drawable.icon2,R.drawable.icon3,R.drawable.icon4,R.drawable.icon5,
                 R.drawable.icon6,R.drawable.icon7,R.drawable.icon8,R.drawable.icon9,R.drawable.icon10,R.drawable.icon11,R.drawable.icon12,
                 R.drawable.icon13,R.drawable.icon14,R.drawable.icon15,R.drawable.icon16,R.drawable.icon17,R.drawable.icon18,R.drawable.icon19,R.drawable.icon20,
-                R.drawable.icon21,R.drawable.icon22,R.drawable.icon23,R.drawable.icon24,R.drawable.icon25,R.drawable.icon26,R.drawable.icon27,R.drawable.icon28,
+                R.drawable.icon21
 
         };
 
         return x[y];
     }
-    public int iconsize() {
-        int[]x={R.drawable.icon0,R.drawable.icon1,R.drawable.icon2,R.drawable.icon3,R.drawable.icon4,R.drawable.icon5,
-                R.drawable.icon6,R.drawable.icon7,R.drawable.icon8,R.drawable.icon9,R.drawable.icon10,R.drawable.icon11,R.drawable.icon12,
-                R.drawable.icon13,R.drawable.icon14,R.drawable.icon15,R.drawable.icon16,R.drawable.icon17,R.drawable.icon18,R.drawable.icon19,R.drawable.icon20,
-                R.drawable.icon21,R.drawable.icon22,R.drawable.icon23,R.drawable.icon24,R.drawable.icon25,R.drawable.icon26,R.drawable.icon27,R.drawable.icon28,
 
-        };
 
-        return x.length;
-    }
 
     public String readURL(String link) {
         URL u = null;

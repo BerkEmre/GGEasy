@@ -64,7 +64,6 @@ public class RankFragment extends Fragment {
 
         @Override
         protected String doInBackground(String... strings) {
-            RiotApiHelper apiKey=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
             uo=dbHelper.getUser();
             try {
@@ -84,8 +83,7 @@ public class RankFragment extends Fragment {
                     for(int i=0;i<array1.length();i++){
 
                         JSONObject obj2=array1.getJSONObject(i);
-                        SummonerObject so= riotApiHelper.getSumonner(obj2.getString("SihirdarAdi"),obj2.getString("Region"));
-                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),""+so.getIcon(),object.getString("Rank")));
+                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),object.getString("Rank")));
                     }
 
                     if(Integer.parseInt(object.getString("Rank")) > 49){
@@ -93,9 +91,7 @@ public class RankFragment extends Fragment {
                         String data=riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail="+uo.getEmail()+"&Sifre="+uo.getSifre());
                         JSONArray array=new JSONArray(data);
                         JSONObject ob=array.getJSONObject(0);
-
-                        SummonerObject so= riotApiHelper.getSumonner(ob.getString("SihirdarAdi"),ob.getString("Region"));
-                        rank.add(new RankObject(ob.getString("SihirdarAdi"),ob.getString("SihirdarID"),ob.getString("Region"),ob.getString("Puan"),""+so.getIcon(),object.getString("Rank")));
+                        rank.add(new RankObject(ob.getString("SihirdarAdi"),ob.getString("SihirdarID"),ob.getString("Region"),ob.getString("Puan"),ob.getString("icon"),object.getString("Rank")));
 
                     }
 
@@ -114,7 +110,7 @@ public class RankFragment extends Fragment {
                     JSONObject obj2=array1.getJSONObject(i);
                     RiotApiHelper riotApiHelper=new RiotApiHelper();
                     SummonerObject so= riotApiHelper.getSumonner(obj2.getString("SihirdarAdi"),obj2.getString("Region"));
-                    rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),""+so.getIcon(),""));
+                    rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),""));
                 }
                 return "0";
             }

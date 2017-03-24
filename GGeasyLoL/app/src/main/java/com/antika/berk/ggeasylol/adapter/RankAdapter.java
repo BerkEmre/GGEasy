@@ -66,7 +66,9 @@ public class RankAdapter extends BaseAdapter {
         TextView sihirdarAdi=(TextView)satirView.findViewById(R.id.sihirdarAdi);
         TextView region=(TextView)satirView.findViewById(R.id.regi);
         TextView puan=(TextView)satirView.findViewById(R.id.puan);
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" +rank.getIcon() + ".png").transform(new CircleTransform()).into(summonerLogo);
+        RiotApiHelper riotApiHelper=new RiotApiHelper();
+
+        Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(rank.getIcon()))).transform(new CircleTransform()).into(summonerLogo);
         siralama.setText(""+(position+1));
         sihirdarAdi.setText(rank.getSihirdarAdi());
         region.setText(rank.getRegion());

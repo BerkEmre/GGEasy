@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +22,13 @@ import android.widget.Toast;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.IconAdapter;
 import com.antika.berk.ggeasylol.adapter.RankAdapter;
+import com.antika.berk.ggeasylol.adapter.RozetAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
+import com.antika.berk.ggeasylol.object.RozetObject;
 import com.antika.berk.ggeasylol.object.SummaryStat;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
@@ -34,6 +37,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.sephiroth.android.library.picasso.Picasso;
@@ -46,6 +50,7 @@ public class ProfilFragment extends Fragment {
     DBHelper dbHelper;
     UserObject uo;
     Button op;
+    GridView rozets;
 
 
     @Override
@@ -63,6 +68,7 @@ public class ProfilFragment extends Fragment {
         iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
         iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
         op              = (Button)view.findViewById(R.id.op_btn);
+        rozets          = (GridView)view.findViewById(R.id.rozet_view);
 
         uo = dbHelper.getUser();
         if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){
@@ -100,6 +106,8 @@ public class ProfilFragment extends Fragment {
 
         String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
         int _profilIcon=0;
+        List<RozetObject> ro=new ArrayList<RozetObject>();
+
         @Override
         protected void onPreExecute() {
             FragmentManager fm = getFragmentManager();
@@ -110,6 +118,8 @@ public class ProfilFragment extends Fragment {
         @Override
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
+            DBHelper dbHelper=new DBHelper(getContext());
+            UserObject uo=dbHelper.getUser();
 
 
 
@@ -123,8 +133,10 @@ public class ProfilFragment extends Fragment {
                     _puan=object.getString("Puan");
                     _profilIcon=object.getInt("icon");
                     try{
+
                         List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                         List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                        ro=riotApiHelper.getRozet(uo.getEmail());
                         ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion());
                         _champion=co.getChampionKey();
                         _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
@@ -155,6 +167,9 @@ public class ProfilFragment extends Fragment {
                 tv_asist.setText(_asist);
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
                 Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
+
+                RozetAdapter adapter=new RozetAdapter(getActivity(),ro);
+                rozets.setAdapter(adapter);
 
 
                 switch (_tier)

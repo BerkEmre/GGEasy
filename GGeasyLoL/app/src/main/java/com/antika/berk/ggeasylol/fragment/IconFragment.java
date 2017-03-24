@@ -31,11 +31,8 @@ import static java.lang.String.valueOf;
 
 
 public class IconFragment extends DialogFragment {
-    Button onay;
     GridView icons;
-    DBHelper dbHelper=new DBHelper(getContext());
     UserObject uo;
-    String x;
     IconAdapter adapter;
 
 
@@ -47,7 +44,7 @@ public class IconFragment extends DialogFragment {
         getDialog().setCanceledOnTouchOutside(false);
 
         icons  =  (GridView)  view.findViewById(R.id.icon_grid);
-        onay   =  (Button  )  view.findViewById(R.id.onay);
+
 
 
         adapter=new IconAdapter(getActivity());
@@ -57,8 +54,7 @@ public class IconFragment extends DialogFragment {
         icons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
+                new getData().execute(""+position);
 
             }
         });
@@ -80,13 +76,20 @@ public class IconFragment extends DialogFragment {
         @Override
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
+            DBHelper dbHelper=new DBHelper(getContext());
+            uo=dbHelper.getUser();
             riotApiHelper.readURL("http://ggeasylol.com/api/set_icon.php?mail="+uo.getEmail()+"&icon="+params[0]);
             return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
-
+            ProfilFragment cmf = new ProfilFragment();
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+            getDialog().dismiss();
             progress.dismiss();
         }
     }

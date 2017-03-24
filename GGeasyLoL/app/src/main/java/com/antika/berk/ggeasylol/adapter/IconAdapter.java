@@ -41,7 +41,7 @@ public class IconAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return riotApiHelper.iconsize();
+        return riotApiHelper.iconSize;
     }
 
     @Override
