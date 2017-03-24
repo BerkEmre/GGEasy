@@ -68,11 +68,11 @@ public class RankFragment extends Fragment {
             uo=dbHelper.getUser();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("http://ggeasylol.com/api/get_users.php");
+
                 //if(uo.getEmail().length()>0) gelenData= getJsonFromServer("http://ggeasylol.com/api/get_users.php?mail="+uo.getEmail());
                 if(uo.getEmail().length()>0){
 
-                    gelenData=getJsonFromServer("http://ggeasylol.com/api/get_users.php?mail="+uo.getEmail());
+                    String gelenData=getJsonFromServer("http://ggeasylol.com/api/get_users.php?mail="+uo.getEmail());
 
                     JSONObject obj1 = new JSONObject(gelenData);
                     JSONArray array1=obj1.getJSONArray("siralama");
@@ -99,20 +99,19 @@ public class RankFragment extends Fragment {
 
                 }
 
+                else{
+                    String gelenData=getJsonFromServer("http://ggeasylol.com/api/get_users.php");
+                    //String veriyi jsonObjeye çevirdim
+                    JSONObject obj1 = new JSONObject(gelenData);
+                    //passive içine girdim
+                    JSONArray array1=obj1.getJSONArray("siralama");
 
-                //String veriyi jsonObjeye çevirdim
-                JSONObject obj1 = new JSONObject(gelenData);
-                //passive içine girdim
-                JSONArray array1=obj1.getJSONArray("siralama");
+                    for(int i=0;i<array1.length();i++){
 
-                for(int i=0;i<array1.length();i++){
-
-                    JSONObject obj2=array1.getJSONObject(i);
-                    RiotApiHelper riotApiHelper=new RiotApiHelper();
-                    SummonerObject so= riotApiHelper.getSumonner(obj2.getString("SihirdarAdi"),obj2.getString("Region"));
-                    rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),""));
-                }
-                return "0";
+                        JSONObject obj2=array1.getJSONObject(i);
+                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),""));
+                    }
+                return "0";}
             }
             catch (Exception e) {
                 e.printStackTrace();

@@ -75,7 +75,8 @@ public class RankAdapter extends BaseAdapter {
         puan.setText("x "+String.format("%.2f",Double.parseDouble(rank.getPuan())));
         if(!rank.getRank().equals("")&& rank.getRank().equals(""+position))
             background.setBackgroundColor(0xFF91F796);
-
+        else if(!rank.getRank().equals("")&& position==50)
+            background.setBackgroundColor(0xFF91F796);
         return satirView;
     }
 

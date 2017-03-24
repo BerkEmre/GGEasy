@@ -44,7 +44,7 @@ public  class Mission {
             if (x>0) {
                 Toast.makeText(c, c.getString(R.string.congratulations)+3000+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev1");//gorevi siler
-                PuanGonder("1", 3000);
+                PuanGonder("Gorev01", 3000);
                 return true;
             }
             else
@@ -60,7 +60,7 @@ public  class Mission {
             if(x>0){
                 Toast.makeText(c,c.getString(R.string.congratulations)+1500+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev2");//gorevi siler
-                PuanGonder("2", 1500);
+                PuanGonder("Gorev02", 1500);
                 return true;
                 }
             else
@@ -77,7 +77,7 @@ public  class Mission {
             if(x>0){
                 Toast.makeText(c,c.getString(R.string.congratulations)+750+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev3");//gorevi siler
-                PuanGonder("3", 750);
+                PuanGonder("Gorev03", 750);
                 return true;
             }
             else
@@ -94,7 +94,7 @@ public  class Mission {
             if(x>0){
                 Toast.makeText(c,c.getString(R.string.congratulations)+300+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev4");//gorevi siler
-                PuanGonder("4", 300);
+                PuanGonder("Gorev04", 300);
                 return true;
             }
             else
@@ -110,7 +110,7 @@ public  class Mission {
         if(!matchId.equals(dbHelper.getMatch("Gorev5"))){
             if(x>=10){
                 Toast.makeText(c,c.getString(R.string.congratulations)+600+" Puan KazandınıSihirdarIDz.",Toast.LENGTH_LONG).show();
-                PuanGonder("5", 600);
+                PuanGonder("Gorev05", 600);
                 return true;
             }
             else
@@ -127,7 +127,7 @@ public  class Mission {
             if(x>=20){
                 Toast.makeText(c,c.getString(R.string.congratulations)+1200+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev6");//gorevi siler
-                PuanGonder("6", 1200);
+                PuanGonder("Gorev06", 1200);
                 return true;
             }
             else
@@ -144,7 +144,7 @@ public  class Mission {
             if(x>=30){
                 Toast.makeText(c,c.getString(R.string.congratulations)+2000+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev7");//gorevi siler
-                PuanGonder("7", 2000);
+                PuanGonder("Gorev07", 2000);
                 return true;
             }
             else
@@ -160,7 +160,7 @@ public  class Mission {
             if(x>=10){
                 Toast.makeText(c,c.getString(R.string.congratulations)+350+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev8");//gorevi siler
-                PuanGonder("8", 350);
+                PuanGonder("Gorev08", 350);
                 return true;
             }
             else
@@ -176,7 +176,7 @@ public  class Mission {
             if(x>=20){
                 Toast.makeText(c,c.getString(R.string.congratulations)+750+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev9");//gorevi siler
-                PuanGonder("9", 750);
+                PuanGonder("Gorev09", 750);
                 return true;
             }
             else
@@ -192,7 +192,7 @@ public  class Mission {
             if(x>=30){
                 Toast.makeText(c,c.getString(R.string.congratulations)+1500+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev10");//gorevi siler
-                PuanGonder("10", 1500);
+                PuanGonder("Gorev10", 1500);
                 return true;
             }
             else
@@ -208,7 +208,7 @@ public  class Mission {
             if(x>=2){
                 Toast.makeText(c,c.getString(R.string.congratulations)+400+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev11");//gorevi siler
-                PuanGonder("11", 400);
+                PuanGonder("Gorev11", 400);
                 return true;
             }
             else
@@ -224,7 +224,7 @@ public  class Mission {
             if(x>=4){
                 Toast.makeText(c,c.getString(R.string.congratulations)+1100+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev12");//gorevi siler
-                PuanGonder("12", 1100);
+                PuanGonder("Gorev12", 1100);
                 return true;
             }
             else
@@ -240,7 +240,7 @@ public  class Mission {
             if(x>=6){
                 Toast.makeText(c,c.getString(R.string.congratulations)+2000+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev13");//gorevi siler
-                PuanGonder("13", 2000);
+                PuanGonder("Gorev13", 2000);
                 return true;
             }
             else
@@ -256,7 +256,7 @@ public  class Mission {
             if(x>=100){
                 Toast.makeText(c,c.getString(R.string.congratulations)+200+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev14");//gorevi siler
-                PuanGonder("14", 200);
+                PuanGonder("Gorev14", 200);
                 return true;
             }
             else
@@ -272,7 +272,7 @@ public  class Mission {
             if(x>=150){
                 Toast.makeText(c,c.getString(R.string.congratulations)+350+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev15");//gorevi siler
-                PuanGonder("15", 350);
+                PuanGonder("Gorev15", 350);
                 return true;
             }
             else
@@ -288,7 +288,7 @@ public  class Mission {
             if(x>=200){
                 Toast.makeText(c,c.getString(R.string.congratulations)+600+c.getString(R.string.earned),Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("","Gorev16");//gorevi siler
-                PuanGonder("16", 600);
+                PuanGonder("Gorev16", 600);
                 return true;
             }
             else
@@ -306,14 +306,14 @@ public  class Mission {
             if(x4) {
                 Toast.makeText(c, c.getString(R.string.congratulations)+(x1*10+x2*(-10)+x3*6+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev17");//gorevi siler
-                PuanGonder("17", x1*10+x2*(-10)+x3*6+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
+                PuanGonder("Gorev17", x1*10+x2*(-10)+x3*6+100+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
                 return true;
             }
 
             else if (!x4){
                 Toast.makeText(c, c.getString(R.string.congratulations)+(x1*10+x2*(-10)+x3*6-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001)+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev17");//gorevi siler
-                PuanGonder("17", x1*10+x2*(-10)+x3*6-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
+                PuanGonder("Gorev17", x1*10+x2*(-10)+x3*6-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
                 return true;
             }
         }
