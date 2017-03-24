@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.adapter.IconAdapter;
+import com.antika.berk.ggeasylol.adapter.RankAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
@@ -80,6 +82,15 @@ public class ProfilFragment extends Fragment {
                 asf.show(fm, "");
             }
         });
+        iv_profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                IconFragment asf = new IconFragment();
+                asf.show(fm, "");
+            }
+        });
+
 
         return view;
     }
@@ -87,8 +98,8 @@ public class ProfilFragment extends Fragment {
     private class getData extends AsyncTask<String,String,String> {
         BlankFragment progress;
 
-        String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="",_profilIcon ="";
-
+        String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
+        int _profilIcon=0;
         @Override
         protected void onPreExecute() {
             FragmentManager fm = getFragmentManager();
@@ -110,8 +121,7 @@ public class ProfilFragment extends Fragment {
                     JSONObject object = array.getJSONObject(0);
                     _summonerName=object.getString("SihirdarAdi");
                     _puan=object.getString("Puan");
-                    SummonerObject so=riotApiHelper.getSumonner(_summonerName,uo.getRegion());
-                    _profilIcon=""+so.getIcon();
+                    _profilIcon=object.getInt("icon");
                     try{
                         List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                         List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
@@ -136,6 +146,7 @@ public class ProfilFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             if(s.equals(getContext().getString(R.string.hosgeldiniz))){
+                RiotApiHelper riotApiHelper=new RiotApiHelper();
                 tv_summonerName.setText(_summonerName);
                 tv_puan.setText(" x "+String.format("%.2f",Double.parseDouble(_puan)));
                 tv_lig.setText(_lig);
@@ -143,7 +154,8 @@ public class ProfilFragment extends Fragment {
                 tv_kill.setText(_kill);
                 tv_asist.setText(_asist);
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
-                Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" + _profilIcon + ".png").transform(new CircleTransform()).into(iv_profil);
+                Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
+
 
                 switch (_tier)
                 {

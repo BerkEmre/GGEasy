@@ -95,12 +95,13 @@ public class ChampionDetailFragment extends Fragment {
     }
     private class getData extends AsyncTask<String,String,String> {
     RiotApiHelper apiHelper=new RiotApiHelper();
-        ProgressDialog progress;
+        BlankFragment progress;
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(getActivity(), getString(R.string.please_wait),
-                    getString(R.string.loading), true);
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
         }
         @Override
         protected String doInBackground(String... strings) {

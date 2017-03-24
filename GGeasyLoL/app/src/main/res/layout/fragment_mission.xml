@@ -1399,7 +1399,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+2 Kule"
+                            android:text="@string/two_tower"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"
                             android:textStyle="normal|bold" />
@@ -1525,7 +1525,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+4 Kule"
+                            android:text="@string/four_tower"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"
                             android:textStyle="normal|bold" />
@@ -1651,7 +1651,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+6 Kule"
+                            android:text="@string/six_tower"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"
                             android:textStyle="normal|bold" />
@@ -1777,7 +1777,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+100 Minyon"
+                            android:text="@string/hundred_minion"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"
                             android:textStyle="normal|bold" />
@@ -1903,7 +1903,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+150 Minyon"
+                            android:text="@string/hundredfifty_minion"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"
                             android:textStyle="normal|bold" />
@@ -2029,7 +2029,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+200 Minyon"
+                            android:text="@string/twohundred_minion"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"
                             android:textStyle="normal|bold" />

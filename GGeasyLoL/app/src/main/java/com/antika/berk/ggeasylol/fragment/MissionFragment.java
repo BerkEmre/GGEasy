@@ -1005,7 +1005,7 @@ public class MissionFragment extends Fragment {
 
             try {
                 UserObject uo = dbHelper.getUser();
-                String summoner_id=uo.getSummonerID();
+                int summoner_id=Integer.parseInt(uo.getSummonerID());
 
                 so=apiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                 if(so.getLvl()!=30)
@@ -1014,7 +1014,7 @@ public class MissionFragment extends Fragment {
                 JSONArray mail1=new JSONArray(mail);
                 JSONObject puan1=mail1.getJSONObject(0);
                 puan=puan1.getString("Puan");
-                String gelenMatchID=getJsonFromServer("https://tr.api.pvp.net/api/lol/tr/v2.2/matchlist/by-summoner/"+summoner_id+"?beginIndex=0&endIndex=1&api_key="+apiHelper.apiKey);
+                String gelenMatchID=getJsonFromServer("https://"+uo.getRegion()+".api.pvp.net/api/lol/"+uo.getRegion()+"/v2.2/matchlist/by-summoner/"+summoner_id+"?beginIndex=0&endIndex=1&api_key="+apiHelper.apiKey);
                 JSONObject matchID=new JSONObject(gelenMatchID);
                 JSONArray matchID2=matchID.getJSONArray("matches");
                 JSONObject matchID3=matchID2.getJSONObject(0);
@@ -1022,8 +1022,6 @@ public class MissionFragment extends Fragment {
                 if(match_id==0)
                     return "Adam Ol";
                 if(Integer.parseInt(strings[0]) < 0){
-
-                }
                 if(strings[0].equals("-1"))m.GorevAl(match_id, "Gorev1");
                 if(strings[0].equals("-2"))m.GorevAl(match_id, "Gorev2");
                 if(strings[0].equals("-3"))m.GorevAl(match_id, "Gorev3");
@@ -1041,6 +1039,8 @@ public class MissionFragment extends Fragment {
                 if(strings[0].equals("-15"))m.GorevAl(match_id, "Gorev15");
                 if(strings[0].equals("-16"))m.GorevAl(match_id, "Gorev16");
                 if(strings[0].equals("-17"))m.GorevAl(match_id, "Gorev17");
+                    return "";
+                }
 
                 //URL den gelen veri String olarak aldım
                 String gelenData=getJsonFromServer("https://"+uo.getRegion()+".api.pvp.net/api/lol/"+uo.getRegion()+"/v2.2/match/"+match_id+"?api_key="+apiHelper.apiKey);
@@ -1054,7 +1054,7 @@ public class MissionFragment extends Fragment {
                     JSONObject idObj1=idarray.getJSONObject(i);
                     JSONObject idObj2=idObj1.getJSONObject("player");
                     ids.add(new SummonerIDsObject(idObj2.getInt("summonerId")));
-                    if(summoner_id.equals(ids.get(i).getId())){
+                    if(summoner_id==ids.get(i).getId()){
                         y=i;
                         break;
                     }

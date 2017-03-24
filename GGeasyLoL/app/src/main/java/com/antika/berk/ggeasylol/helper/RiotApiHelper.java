@@ -536,6 +536,7 @@ public class RiotApiHelper {
         }catch (Exception e){Log.e("Hata", e.toString());}
         return null;
     }
+
     //getChampion masteries
     public List<ChampionMasterObject> getChampionMasteries(int summonerID, String region){
         List<ChampionMasterObject> masteries = new ArrayList<ChampionMasterObject>();
@@ -639,6 +640,26 @@ public class RiotApiHelper {
             case "PBE" : return "PBE1";
         }
         return null;
+    }
+    public int iconTable(int y) {
+        int[]x={R.drawable.icon0,R.drawable.icon1,R.drawable.icon2,R.drawable.icon3,R.drawable.icon4,R.drawable.icon5,
+                R.drawable.icon6,R.drawable.icon7,R.drawable.icon8,R.drawable.icon9,R.drawable.icon10,R.drawable.icon11,R.drawable.icon12,
+                R.drawable.icon13,R.drawable.icon14,R.drawable.icon15,R.drawable.icon16,R.drawable.icon17,R.drawable.icon18,R.drawable.icon19,R.drawable.icon20,
+                R.drawable.icon21,R.drawable.icon22,R.drawable.icon23,R.drawable.icon24,R.drawable.icon25,R.drawable.icon26,R.drawable.icon27,R.drawable.icon28,
+
+        };
+
+        return x[y];
+    }
+    public int iconsize() {
+        int[]x={R.drawable.icon0,R.drawable.icon1,R.drawable.icon2,R.drawable.icon3,R.drawable.icon4,R.drawable.icon5,
+                R.drawable.icon6,R.drawable.icon7,R.drawable.icon8,R.drawable.icon9,R.drawable.icon10,R.drawable.icon11,R.drawable.icon12,
+                R.drawable.icon13,R.drawable.icon14,R.drawable.icon15,R.drawable.icon16,R.drawable.icon17,R.drawable.icon18,R.drawable.icon19,R.drawable.icon20,
+                R.drawable.icon21,R.drawable.icon22,R.drawable.icon23,R.drawable.icon24,R.drawable.icon25,R.drawable.icon26,R.drawable.icon27,R.drawable.icon28,
+
+        };
+
+        return x.length;
     }
 
     public String readURL(String link) {

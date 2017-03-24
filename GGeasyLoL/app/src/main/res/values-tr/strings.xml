@@ -131,7 +131,7 @@
     <string name="new_email">Yeni E-Mail</string>
     <string name="explanation">En az 20 karakter.</string>
     <string name="subject">Konu</string>
-    <string name="error_mission">Üzgünüz 30 lv değilsiniz ya da hhiç DERECELİ MAÇINIZ yok!</string>
+    <string name="error_mission">Üzgünüz 30 lv değilsiniz ya da hiç DERECELİ MAÇINIZ yok!</string>
     <string name="feed_back">Geri Bildirim İçin Teşekkür Ederiz.</string>
     <string name="message">Lütfen 20 karakterden fazla giriniz.</string>
     <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>

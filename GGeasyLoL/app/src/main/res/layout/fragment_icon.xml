@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/cast_intro_overlay_button_background_color"
+    android:orientation="vertical"
+    tools:context="com.antika.berk.ggeasylol.fragment.IconFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <GridView
+        android:id="@+id/icon_grid"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:numColumns="3"
+        android:padding="0dp" />
+
+    <Button
+        android:id="@+id/onay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Onayla" />
+</LinearLayout>

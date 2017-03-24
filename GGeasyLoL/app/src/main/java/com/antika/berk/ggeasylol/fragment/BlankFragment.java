@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 
 public class BlankFragment extends DialogFragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
