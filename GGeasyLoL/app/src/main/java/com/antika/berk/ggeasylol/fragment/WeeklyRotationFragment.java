@@ -79,7 +79,7 @@ public class WeeklyRotationFragment extends Fragment {
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper=new RiotApiHelper();
             DBHelper dbHelper=new DBHelper(getContext());
-
+            championObjects.clear();
             List<Integer>freeToPlay=riotApiHelper.getChampionFreeToPlay(getString(R.string.language));
             for(int i=0;i<freeToPlay.size();i++){
                 if (dbHelper.getChampion(freeToPlay.get(i).toString()) == null)
