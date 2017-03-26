@@ -1,14 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.antika.berk.ggeasylol.fragment.ProfilFragment"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginLeft="2dp"
-    android:layout_marginRight="2dp">
+    tools:context="com.antika.berk.ggeasylol.fragment.UserDeatailFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/summoner_name"
         android:layout_width="match_parent"
@@ -17,63 +15,63 @@
         android:fontFamily="sans-serif-condensed"
         android:textAlignment="center"
         android:textColor="?attr/colorAccent"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textStyle="normal|bold" />
 
     <View
-        android:layout_height="2dp"
         android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/secondary_text" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="match_parent"
             android:id="@+id/champion_logo"
-            android:layout_height="200dp" />
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_alignTop="@+id/imageView19"
-            android:layout_toEndOf="@+id/linearLayout"
-            android:layout_toRightOf="@+id/linearLayout"
-            android:padding="2dp"
-            app:srcCompat="@drawable/backicon" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/backicon"
+            android:padding="2dp" />
 
         <ImageView
             android:id="@+id/imageView19"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="137dp"
-            android:padding="5dp" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="5dp"
+            android:layout_alignTop="@+id/imageView12"
+            android:layout_alignLeft="@+id/imageView12"
+            android:layout_alignStart="@+id/imageView12" />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/champion_logo"
             android:layout_toLeftOf="@+id/imageView19"
             android:layout_toStartOf="@+id/imageView19"
-            android:layout_below="@+id/champion_logo"
-            android:id="@+id/linearLayout">
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/win" />
+                    android:background="@drawable/win" />
 
                 <TextView
                     android:id="@+id/textView64"
@@ -82,21 +80,23 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:textColor="@android:color/holo_green_light"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="normal|bold" />
 
             </LinearLayout>
+
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/imageView18"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/lose" />
+                    android:background="@drawable/lose" />
 
                 <TextView
                     android:id="@+id/textView66"
@@ -105,13 +105,14 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="normal|bold" />
 
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/champion_logo"
@@ -121,10 +122,11 @@
 
             <ImageView
                 android:id="@+id/imageView24"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="3dp" />
+                android:layout_marginTop="3dp"
+                android:background="@drawable/provisional" />
 
             <TextView
                 android:id="@+id/textView62"
@@ -134,7 +136,7 @@
                 android:layout_marginTop="3dp"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/cast_expanded_controller_background_color"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="normal|bold" />
 
             <TextView
@@ -151,20 +153,18 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView19"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_centerHorizontal="true">
 
             <ImageView
                 android:id="@+id/imageView16"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/textView51"
-                android:layout_toStartOf="@+id/textView51"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/imageView12"
+                android:layout_centerHorizontal="true"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/gold_icon" />
+                android:background="@drawable/gold_icon" />
 
             <TextView
                 android:id="@+id/textView51"
@@ -177,38 +177,30 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:textColor="@android:color/holo_purple"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="normal|bold" />
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/op_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="10dp"
-            android:background="@drawable/options" />
     </RelativeLayout>
+
     <View
-        android:layout_height="2dp"
         android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/secondary_text" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <GridView
+            android:id="@+id/rozet_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rozet_view"
             android:listSelector="@android:color/transparent"
             android:numColumns="3" />
-
     </LinearLayout>
 
 </LinearLayout>

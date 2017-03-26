@@ -1,26 +1,23 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
-import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.adapter.ChampionSkillAdapter;
 import com.antika.berk.ggeasylol.adapter.RankAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionSkillObject;
 import com.antika.berk.ggeasylol.object.RankObject;
-import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -37,7 +34,7 @@ import java.util.List;
 public class RankFragment extends Fragment {
     DBHelper dbHelper;
     UserObject uo;
-
+    List<RankObject> rank=new ArrayList<RankObject>();
     ListView rankList;
 
 
@@ -48,10 +45,26 @@ public class RankFragment extends Fragment {
 
         rankList=(ListView)view.findViewById(R.id.rank_list);
         new getData().execute();
+
+        rankList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String []array={rank.get(position).getSihirdarID(),rank.get(position).getRegion()};
+                Bundle args1 = new Bundle();
+                args1.putStringArray("array", array);
+                UserDeatailFragment newFragment = new UserDeatailFragment();
+                newFragment.setArguments(args1);
+                newFragment.show(getFragmentManager(), "TAG");
+
+
+
+            }
+        });
+
         return view;
     }
     private class getData extends AsyncTask<String,String,String> {
-        List<RankObject> rank=new ArrayList<RankObject>();
+
         BlankFragment progress;
 
 

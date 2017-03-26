@@ -1,13 +1,14 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
-import android.app.ProgressDialog;
+import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -20,8 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.adapter.IconAdapter;
-import com.antika.berk.ggeasylol.adapter.RankAdapter;
 import com.antika.berk.ggeasylol.adapter.RozetAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
@@ -29,8 +28,6 @@ import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
-import com.antika.berk.ggeasylol.object.SummaryStat;
-import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -43,20 +40,22 @@ import java.util.List;
 import it.sephiroth.android.library.picasso.Picasso;
 import it.sephiroth.android.library.picasso.Transformation;
 
+public class UserDeatailFragment extends DialogFragment {
 
-public class ProfilFragment extends Fragment {
     TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist;
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
-    UserObject uo;
     Button op;
     GridView rozets;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_profil, container, false);
-         dbHelper= new DBHelper(getContext());
+        View view=inflater.inflate(R.layout.fragment_user_deatail, container, false);
+
+        Bundle mArgs = getArguments();
+        String []array = mArgs.getStringArray("array");
+
 
         tv_summonerName = (TextView) view.findViewById(R.id.summoner_name);
         tv_puan         = (TextView) view.findViewById(R.id.textView51);
@@ -70,43 +69,19 @@ public class ProfilFragment extends Fragment {
         op              = (Button)view.findViewById(R.id.op_btn);
         rozets          = (GridView)view.findViewById(R.id.rozet_view);
 
+        new getData().execute(array[0],array[1]);
 
-        uo = dbHelper.getUser();
-        if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){
-            LoginFragment cmf = new LoginFragment();
-            FragmentManager fm = getActivity().getSupportFragmentManager();
-            fm.beginTransaction().replace(
-                    R.id.content_main_page,
-                    cmf,"0").commit();
-        }else{
-            new getData().execute(uo.getEmail(),uo.getSifre());
-        }
-        op.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                OptionsFragment asf = new OptionsFragment();
-                asf.show(fm, "");
-            }
-        });
-        iv_profil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                IconFragment asf = new IconFragment();
-                asf.show(fm, "");
-            }
-        });
+
 
 
         return view;
     }
-
     private class getData extends AsyncTask<String,String,String> {
         BlankFragment progress;
 
         String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
         int _profilIcon=0;
+        String _email="";
         List<RozetObject> ro=new ArrayList<RozetObject>();
 
         @Override
@@ -125,20 +100,21 @@ public class ProfilFragment extends Fragment {
 
 
 
-            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
+            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/get_user.php?ID="+params[0]+"&Region="+params[1]);
             if(cevap.length()>0){
                 try {
                     JSONArray array = new JSONArray(cevap);
                     JSONObject object = array.getJSONObject(0);
                     _summonerName=object.getString("SihirdarAdi");
                     _puan=object.getString("Puan");
+                    _email=object.getString("EMail");
                     _profilIcon=object.getInt("icon");
                     try{
 
-                        List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
-                        List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
-                        ro=riotApiHelper.getRozet(uo.getEmail());
-                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion());
+                        List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(params[0]),params[1]);
+                        List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(params[0]),params[1]);
+                        ro=riotApiHelper.getRozet(_email);
+                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),params[1]);
                         _champion=co.getChampionKey();
                         _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
                         _ligAdi=lo.get(0).getName();
@@ -153,7 +129,7 @@ public class ProfilFragment extends Fragment {
             }
             else
                 return "HATA";
-            }
+        }
 
 
         @Override
@@ -224,4 +200,5 @@ public class ProfilFragment extends Fragment {
             return "circle";
         }
     }
+
 }

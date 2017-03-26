@@ -96,9 +96,9 @@
     <string name="quadra_exp">Dereceli maçta 4 te 4 atarak görevi tamamla.</string>
     <string name="triple_exp">Dereceli maçta 3 te 3 atarak görevi tamamla.</string>
     <string name="doubl_exp">Dereceli maçta 2 de 2 atarak görevi tamamla.</string>
-    <string name="ten_asis_exp">Dereceli maçta 10 ve daha fazla kill alarak görevi tamamla.</string>
-    <string name="twenty_asist_exp">Dereceli maçta 20 ve daha fazla kill alarak görevi tamamla.</string>
-    <string name="thirty_asist_exp">Dereceli maçta 10 ve daha fazla kill alarak görevi tamamla.</string>
+    <string name="ten_asis_exp">Dereceli maçta 10 ve daha fazla asist alarak görevi tamamla.</string>
+    <string name="twenty_asist_exp">Dereceli maçta 20 ve daha fazla asist alarak görevi tamamla.</string>
+    <string name="thirty_asist_exp">Dereceli maçta 10 ve daha fazla asist alarak görevi tamamla.</string>
     <string name="two_tower_exp">Dereceli maçta 2 ve daha fazla kule yıkarak görevi tamamla.</string>
     <string name="four_tower_exp">Dereceli maçta 4 ve daha fazla kule yıkarak görevi tamamla.</string>
     <string name="six_tower_exp">Dereceli maçta 6 veya daha fazla kule yıkarak görevi tamamla.</string>

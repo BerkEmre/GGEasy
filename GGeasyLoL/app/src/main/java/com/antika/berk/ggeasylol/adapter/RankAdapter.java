@@ -69,14 +69,22 @@ public class RankAdapter extends BaseAdapter {
         RiotApiHelper riotApiHelper=new RiotApiHelper();
 
         Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(rank.getIcon()))).transform(new CircleTransform()).into(summonerLogo);
+
         siralama.setText(""+(position+1));
         sihirdarAdi.setText(rank.getSihirdarAdi());
         region.setText(rank.getRegion());
         puan.setText("x "+String.format("%.2f",Double.parseDouble(rank.getPuan())));
-        if(!rank.getRank().equals("")&& rank.getRank().equals(""+position))
+        if(!rank.getRank().equals("")&& rank.getRank().equals(""+(position+1))){
             background.setBackgroundColor(0xFF91F796);
-        else if(!rank.getRank().equals("")&& position==50)
+        }
+        else if(!rank.getRank().equals("")&& position==50){
             background.setBackgroundColor(0xFF91F796);
+            siralama.setText(rank.getRank());
+            sihirdarAdi.setText(rank.getSihirdarAdi());
+            region.setText(rank.getRegion());
+            puan.setText("x "+String.format("%.2f",Double.parseDouble(rank.getPuan())));
+        }
+
         return satirView;
     }
 
