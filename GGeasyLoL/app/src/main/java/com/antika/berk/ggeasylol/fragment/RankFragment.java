@@ -2,6 +2,7 @@ package com.antika.berk.ggeasylol.fragment;
 
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -38,9 +40,12 @@ public class RankFragment extends Fragment {
     ListView rankList;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_rank, container, false);
+
+
 
 
         rankList=(ListView)view.findViewById(R.id.rank_list);

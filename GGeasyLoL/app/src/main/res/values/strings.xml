@@ -137,4 +137,8 @@
     <string name="change_email_exp">*Please create a mastery page which named like this in your account and click CHANGE button!</string>
     <string name="ok">Okey</string>
     <string name="joined_lottery">Joined The Lottery!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="rank_info">*Rank is reset every week and leader of rank user earns 750 Riot Points!</string>
+    <string name="competition">Competitions</string>
+    <string name="info">*You can get the missions done before the match is over!</string>
 </resources>

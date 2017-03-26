@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class MissionFragment extends Fragment {
     int match_id=0;
     DBHelper dbHelper;
     TextView textpuan;
+    ImageView info;
 
     Button grvAl1,grvAl2,grvAl3,grvAl4,grvAl5,grvAl6,grvAl7,grvAl8,grvAl9,grvAl10,grvAl11,grvAl12,grvAl13,grvAl14,grvAl15,grvAl16,
             grvAl17;
@@ -61,6 +63,16 @@ public class MissionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_mission, container, false);
         m=new Mission(view.getContext());
+        info=(ImageView)view.findViewById(R.id.info);
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                InfoFragment asf = new InfoFragment();
+                asf.show(fm, "");
+            }
+        });
         textpuan=(TextView) view.findViewById(R.id.puan_id);
         grvAl1=(Button)view.findViewById(R.id.gorevAl_button1);
         grvAl2=(Button)view.findViewById(R.id.gorevAl_button2);

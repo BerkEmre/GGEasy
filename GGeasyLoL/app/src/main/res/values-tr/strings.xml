@@ -137,4 +137,7 @@
     <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>
     <string name="ok">Tamam</string>
     <string name="joined_lottery">Çekilişe Katıldınız!</string>
+    <string name="rank_info">*Rank her hafta sıfırlanır ve sıralamada birinci olan kullanıcı 400 Riot Points kazanır!</string>
+    <string name="competition">Yarışmalar</string>
+    <string name="info">*Maç bitmeden hemen önce de görevleri alabilirisiniz!</string>
 </resources>

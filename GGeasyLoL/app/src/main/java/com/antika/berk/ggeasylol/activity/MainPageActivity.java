@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 import com.antika.berk.ggeasylol.fragment.ComingSoonFragment;
+import com.antika.berk.ggeasylol.fragment.CompetitionFragment;
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
 import com.antika.berk.ggeasylol.fragment.LoginFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
@@ -97,6 +98,13 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
         } else if (id == R.id.nav_gallery) {
             SumonnerFragment cmf = new SumonnerFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+        }
+        else if (id == R.id.nav_competition) {
+            CompetitionFragment cmf = new CompetitionFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,

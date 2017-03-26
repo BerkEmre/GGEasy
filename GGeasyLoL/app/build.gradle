@@ -37,6 +37,7 @@ dependencies {
     compile 'it.sephiroth.android.library.picasso:picasso:2.5.2.4b'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.adcolony:sdk:3.0.7'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
 }
 

@@ -190,6 +190,7 @@
             android:layout_alignParentTop="true"
             android:layout_margin="10dp"
             android:background="@drawable/options" />
+
     </RelativeLayout>
     <View
         android:layout_height="2dp"
