@@ -110,6 +110,7 @@ public  class Mission {
         if(!matchId.equals(dbHelper.getMatch("Gorev5"))){
             if(x>=10){
                 Toast.makeText(c,c.getString(R.string.congratulations)+600+" Puan KazandınıSihirdarIDz.",Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("","Gorev5");//gorevi siler
                 PuanGonder("Gorev05", 600);
                 return true;
             }
