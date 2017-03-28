@@ -140,4 +140,8 @@
     <string name="rank_info">*Rank her hafta sıfırlanır ve sıralamada birinci olan kullanıcı 400 Riot Points kazanır!</string>
     <string name="competition">Yarışmalar</string>
     <string name="info">*Maç bitmeden hemen önce de görevleri alabilirisiniz!</string>
+    <string name="title_activity_main">Ana Sayfa</string>
+    <string name="match">Maç</string>
+    <string name="personal">Bireysel</string>
+    <string name="team">Takım</string>
 </resources>

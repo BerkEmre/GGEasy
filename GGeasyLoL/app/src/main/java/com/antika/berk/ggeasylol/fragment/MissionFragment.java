@@ -1034,23 +1034,23 @@ public class MissionFragment extends Fragment {
                 if(match_id==0)
                     return "Adam Ol";
                 if(Integer.parseInt(strings[0]) < 0){
-                if(strings[0].equals("-1"))m.GorevAl(match_id, "Gorev1");
-                if(strings[0].equals("-2"))m.GorevAl(match_id, "Gorev2");
-                if(strings[0].equals("-3"))m.GorevAl(match_id, "Gorev3");
-                if(strings[0].equals("-4"))m.GorevAl(match_id, "Gorev4");
-                if(strings[0].equals("-5"))m.GorevAl(match_id, "Gorev5");
-                if(strings[0].equals("-6"))m.GorevAl(match_id, "Gorev6");
-                if(strings[0].equals("-7"))m.GorevAl(match_id, "Gorev7");
-                if(strings[0].equals("-8"))m.GorevAl(match_id, "Gorev8");
-                if(strings[0].equals("-9"))m.GorevAl(match_id, "Gorev9");
-                if(strings[0].equals("-10"))m.GorevAl(match_id, "Gorev10");
-                if(strings[0].equals("-11"))m.GorevAl(match_id, "Gorev11");
-                if(strings[0].equals("-12"))m.GorevAl(match_id, "Gorev12");
-                if(strings[0].equals("-13"))m.GorevAl(match_id, "Gorev13");
-                if(strings[0].equals("-14"))m.GorevAl(match_id, "Gorev14");
-                if(strings[0].equals("-15"))m.GorevAl(match_id, "Gorev15");
-                if(strings[0].equals("-16"))m.GorevAl(match_id, "Gorev16");
-                if(strings[0].equals("-17"))m.GorevAl(match_id, "Gorev17");
+                    if(strings[0].equals("-1"))m.GorevAl(match_id, "Gorev1");
+                    if(strings[0].equals("-2"))m.GorevAl(match_id, "Gorev2");
+                    if(strings[0].equals("-3"))m.GorevAl(match_id, "Gorev3");
+                    if(strings[0].equals("-4"))m.GorevAl(match_id, "Gorev4");
+                    if(strings[0].equals("-5"))m.GorevAl(match_id, "Gorev5");
+                    if(strings[0].equals("-6"))m.GorevAl(match_id, "Gorev6");
+                    if(strings[0].equals("-7"))m.GorevAl(match_id, "Gorev7");
+                    if(strings[0].equals("-8"))m.GorevAl(match_id, "Gorev8");
+                    if(strings[0].equals("-9"))m.GorevAl(match_id, "Gorev9");
+                    if(strings[0].equals("-10"))m.GorevAl(match_id, "Gorev10");
+                    if(strings[0].equals("-11"))m.GorevAl(match_id, "Gorev11");
+                    if(strings[0].equals("-12"))m.GorevAl(match_id, "Gorev12");
+                    if(strings[0].equals("-13"))m.GorevAl(match_id, "Gorev13");
+                    if(strings[0].equals("-14"))m.GorevAl(match_id, "Gorev14");
+                    if(strings[0].equals("-15"))m.GorevAl(match_id, "Gorev15");
+                    if(strings[0].equals("-16"))m.GorevAl(match_id, "Gorev16");
+                    if(strings[0].equals("-17"))m.GorevAl(match_id, "Gorev17");
                     return "";
                 }
 

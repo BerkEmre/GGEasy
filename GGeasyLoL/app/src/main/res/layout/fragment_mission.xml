@@ -9,27 +9,6 @@
     android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:id="@+id/textView46"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/missions"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:textStyle="normal|bold" />
-
-    <View
-        android:layout_height="2dp"
-        android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="2"
+                android:textAlignment="viewStart"
                 android:textColor="@android:color/holo_purple"
                 android:textSize="18sp"
                 android:textStyle="bold" />

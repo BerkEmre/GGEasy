@@ -21,10 +21,11 @@ import android.view.MenuItem;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 import com.antika.berk.ggeasylol.fragment.ComingSoonFragment;
-import com.antika.berk.ggeasylol.fragment.CompetitionFragment;
+
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
 import com.antika.berk.ggeasylol.fragment.LoginFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
+import com.antika.berk.ggeasylol.fragment.MissionTabsFragment;
 import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.fragment.MissionFragment;
 import com.antika.berk.ggeasylol.fragment.RankFragment;
@@ -103,13 +104,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     R.id.content_main_page,
                     cmf,"0").commit();
         }
-        else if (id == R.id.nav_competition) {
-            CompetitionFragment cmf = new CompetitionFragment();
-            FragmentManager fm = getSupportFragmentManager();
-            fm.beginTransaction().replace(
-                    R.id.content_main_page,
-                    cmf,"0").commit();
-        }
+
         else if (id == R.id.nav_siralama) {
             RankFragment cmf = new RankFragment();
             FragmentManager fm = getSupportFragmentManager();
@@ -123,7 +118,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     R.id.content_main_page,
                     cmf,"0").commit();
         } else if (id == R.id.nav_mission) {
-            MissionFragment cmf = new MissionFragment();
+            MissionTabsFragment cmf = new MissionTabsFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,

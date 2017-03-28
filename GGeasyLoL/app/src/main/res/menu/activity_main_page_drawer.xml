@@ -20,10 +20,6 @@
             android:icon="@drawable/mission"
             android:title="@string/missions" />
         <item
-            android:id="@+id/nav_competition"
-            android:icon="@drawable/compete"
-            android:title="@string/competition" />
-        <item
             android:id="@+id/nav_siralama"
             android:icon="@drawable/rank"
             android:title="@string/rank" />

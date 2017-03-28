@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.adapter.RankAdapter;
 import com.antika.berk.ggeasylol.adapter.RozetAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
@@ -52,7 +54,7 @@ public class UserDeatailFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_user_deatail, container, false);
-
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         Bundle mArgs = getArguments();
         String []array = mArgs.getStringArray("array");
 
@@ -143,7 +145,10 @@ public class UserDeatailFragment extends DialogFragment {
                 tv_kill.setText(_kill);
                 tv_asist.setText(_asist);
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
-                Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
+                if((riotApiHelper.iconSize-1)<_profilIcon)
+                    Picasso.with(getContext()).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_profil);
+                else
+                    Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
 
                 RozetAdapter adapter=new RozetAdapter(getActivity(),ro);
                 rozets.setAdapter(adapter);

@@ -141,4 +141,7 @@
     <string name="rank_info">*Rank is reset every week and leader of rank user earns 750 Riot Points!</string>
     <string name="competition">Competitions</string>
     <string name="info">*You can get the missions done before the match is over!</string>
+    <string name="match">Match</string>
+    <string name="personal">Personal</string>
+    <string name="team">Team</string>
 </resources>

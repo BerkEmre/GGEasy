@@ -167,8 +167,10 @@ public class ProfilFragment extends Fragment {
                 tv_kill.setText(_kill);
                 tv_asist.setText(_asist);
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
-                Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
-
+                if((riotApiHelper.iconSize-1)<_profilIcon)
+                    Picasso.with(getContext()).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_profil);
+                else
+                    Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
                 RozetAdapter adapter=new RozetAdapter(getActivity(),ro);
                 rozets.setAdapter(adapter);
 
