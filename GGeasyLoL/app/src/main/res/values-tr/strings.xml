@@ -131,7 +131,7 @@
     <string name="new_email">Yeni E-Mail</string>
     <string name="explanation">En az 20 karakter.</string>
     <string name="subject">Konu</string>
-    <string name="error_mission">Üzgünüz 30 lv değilsiniz ya da hiç DERECELİ MAÇINIZ yok!</string>
+    <string name="error_mission">Üzgünüz 30 lv değilsiniz!</string>
     <string name="feed_back">Geri Bildirim İçin Teşekkür Ederiz.</string>
     <string name="message">Lütfen 20 karakterden fazla giriniz.</string>
     <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>
@@ -144,4 +144,26 @@
     <string name="match">Maç</string>
     <string name="personal">Bireysel</string>
     <string name="team">Takım</string>
+    <string name="baron">Baronu Katlet</string>
+    <string name="dragon">Ejderi Katlet</string>
+    <string name="inhibitor">İnhibitörleri Yık</string>
+    <string name="tower">Kuleleri Yık</string>
+    <string name="first_baron">İlk Baron</string>
+    <string name="first_dragon">İlk Ejder</string>
+    <string name="first_blood">İlk Kan</string>
+    <string name="first_tower">İlk Kule</string>
+    <string name="first_inhibitor">İlk İnhibitor</string>
+    <string name="win">Zafer</string>
+    <string name="error">Hata! Lütfen tekrar deneyin...</string>
+    <string name="error_match">Maç Geçmişinde Dereceli Maç Yok.</string>
+    <string name="kill_baron">Dereceli Maçta Takımca 2 veya Daha Fazla Baron Kes.</string>
+    <string name="kill_ejder">Dereceli Maçta Takımca 4 veya Daha Fazla Ejder Kes.</string>
+    <string name="destroy_inhi">Dereceli Maçta Takımca 3 veya Daha Fazla İnhibitör Yık.</string>
+    <string name="destroy_towers">Dereceli Maçta Takımca 7 veya Daha Fazla Kule Yık.</string>
+    <string name="first_kill_baron">Dereceli Maçta Takımca İlk Baronu Al.</string>
+    <string name="first_kill_ejder">Dereceli Maçta Takımca İlk Ejderi Al.</string>
+    <string name="firstblood_kill">Dereceli Maçta Takımca İlk Kanı Al.</string>
+    <string name="first_turrent">Dereceli Maçta Takımca İlk Kuleyi Al.</string>
+    <string name="first_inhi">Dereceli Maçta Takımca İlk İnhibitörü Yık.</string>
+    <string name="victory_exp">Dereceli Maçı Kazan.</string>
 </resources>

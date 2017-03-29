@@ -139,6 +139,46 @@ public class RozetAdapter extends BaseAdapter {
             Picasso.with(context).load(R.drawable.rapor).transform(new CircleTransform()).into(icon);
             adet.setText("x "+rozet.getGorevAdedi());
         }
+        else if(rozet.getGorevAdi().equals("Gorev18")){
+            Picasso.with(context).load(R.drawable.baron).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev19")){
+            Picasso.with(context).load(R.drawable.ejder).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev20")){
+            Picasso.with(context).load(R.drawable.inhibitor).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev21")){
+            Picasso.with(context).load(R.drawable.towers).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev22")){
+            Picasso.with(context).load(R.drawable.ejder_first).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev23")){
+            Picasso.with(context).load(R.drawable.ejder_first).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev24")){
+            Picasso.with(context).load(R.drawable.firstblood).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev25")){
+            Picasso.with(context).load(R.drawable.firstturrent).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev26")){
+            Picasso.with(context).load(R.drawable.firstinhi).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
+        else if(rozet.getGorevAdi().equals("Gorev27")){
+            Picasso.with(context).load(R.drawable.victory).transform(new CircleTransform()).into(icon);
+            adet.setText("x "+rozet.getGorevAdedi());
+        }
 
 
 

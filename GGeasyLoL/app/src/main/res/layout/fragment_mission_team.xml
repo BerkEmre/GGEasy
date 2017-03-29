@@ -14,73 +14,44 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/info"
-                android:layout_width="wrap_content"
+                android:id="@+id/info1"
+                android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_weight="2"
-                app:srcCompat="@drawable/info" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="35dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:visibility="gone"
-                    app:srcCompat="@drawable/can_icon" />
-
-                <TextView
-                    android:id="@+id/canID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                app:srcCompat="@drawable/info" />
 
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_alignTop="@+id/puan_id1"
                 android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/puan_id1"
+                android:layout_toStartOf="@+id/puan_id1"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/gold_icon" />
 
             <TextView
-                android:id="@+id/puan_id"
-                android:layout_width="wrap_content"
+                android:id="@+id/puan_id1"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="2"
-                android:textAlignment="viewStart"
+                android:textAlignment="center"
                 android:textColor="@android:color/holo_purple"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -103,1142 +74,1206 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/gorevResim1"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/penta" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/baron" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName1"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/pentakill"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/baron"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1600 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="3000 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/kill_baron"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama1"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button18"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/penta_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:onClick="onClickListener"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-                <ImageView
-                    android:id="@+id/gorevResim2"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/quadra" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ejder" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName2"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/quadra"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/dragon"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1200 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="1500 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/kill_ejder"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama2"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button19"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/quadra_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim3"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/triple" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/inhibitor" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName3"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/triple"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/inhibitor"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1200 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="750 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/destroy_inhi"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama3"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button20"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/triple_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim4"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/doub" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/towers" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName4"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/doublekill"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/tower"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1800 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="300 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/destroy_towers"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama4"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button21"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button21"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button21"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/doubl_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim5"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/kill" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gorevResim18"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/barons_first" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName5"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/ten_kill"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/first_baron"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1200 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="600 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/first_kill_baron"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama5"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button22"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button22"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button22"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/ten_kill_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim6"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/killa" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gorevResim18"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ejder_first" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName6"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/twelve_kill"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/first_dragon"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="800 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="1200 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/first_kill_ejder"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama6"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button23"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button23"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button23"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/twenty_kill_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim7"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/killb" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gorevResim18"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/firstblood" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName7"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+30 Kill"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/first_blood"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1000 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="2000 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/firstblood_kill"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama7"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button24"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button24"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button24"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/thirty_kill_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim8"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/asist" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gorevResim18"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/firstturrent" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName8"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+10 Asist"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/first_tower"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1000 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="350 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/first_turrent"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama8"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button25"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/ten_asis_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/sorgula_button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim9"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/asista" />
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gorevResim18"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/firstinhi" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/gorevName9"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+20 Asist"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/first_inhibitor"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="20sp"
+                                android:textStyle="normal|bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="1200 x"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/cast_intro_overlay_background_color"
+                                android:textSize="16sp"
+                                android:textStyle="normal|bold" />
+
+                            <ImageView
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/gold_icon" />
+                        </LinearLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:text="750 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
+                            android:text="@string/first_inhi"
+                            android:textColor="@color/cast_expanded_controller_background_color"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/gorevAciklama9"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/sorgula_button26"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_green_light"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/check"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevIptal_button26"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_red_dark"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/gorevAl_button26"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/twenty_asist_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:background="@color/accent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="onClickListener"
+                        android:text="@string/take_mission"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/fastScrollTextColor"
+                        android:textSize="25sp"
+                        android:textStyle="normal|bold"
+                        android:visibility="visible" />
+
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/secondary_text" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1246,12 +1281,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/gorevResim10"
+                    android:id="@+id/gorevResim18"
                     android:layout_width="200dp"
                     android:layout_height="100dp"
                     android:layout_marginRight="2dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asistb" />
+                    android:background="@drawable/victory" />
 
                 <LinearLayout
                     android:layout_width="350dp"
@@ -1266,136 +1301,10 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/gorevName10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="+30 Asist"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="1500 x"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
-                            android:textStyle="normal|bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/gorevAciklama10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/thirty_asist_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim11"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/kule1" />
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/gorevName11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/two_tower"
+                            android:text="@string/win"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"
                             android:textStyle="normal|bold" />
@@ -1412,6 +1321,7 @@
                             android:textStyle="normal|bold" />
 
                         <ImageView
+
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
@@ -1420,11 +1330,11 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/gorevAciklama11"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/two_tower_exp"
+                        android:text="@string/victory_exp"
                         android:textColor="@color/cast_expanded_controller_background_color"
                         android:textSize="18sp"
                         android:textStyle="normal|bold" />
@@ -1439,7 +1349,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/sorgula_button11"
+                    android:id="@+id/sorgula_button27"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -1454,7 +1364,7 @@
                     android:visibility="gone" />
 
                 <Button
-                    android:id="@+id/gorevIptal_button11"
+                    android:id="@+id/gorevIptal_button27"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -1469,769 +1379,13 @@
                     android:visibility="gone" />
 
                 <Button
-                    android:id="@+id/gorevAl_button11"
+                    android:id="@+id/gorevAl_button27"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/accent"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim12"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/kule2" />
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/gorevName12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/four_tower"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="1100 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
-                            android:textStyle="normal|bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/gorevAciklama12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/four_tower_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim13"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/kule3" />
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/gorevName13"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/six_tower"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="2000 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
-                            android:textStyle="normal|bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/gorevAciklama13"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/six_tower_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim14"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/minion10" />
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/gorevName14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/hundred_minion"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="200 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
-                            android:textStyle="normal|bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/gorevAciklama14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/hundred_minion_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim15"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/minion20" />
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/gorevName15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/hundredfifty_minion"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="350 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
-                            android:textStyle="normal|bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/gorevAciklama15"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/hundredfifty_minion_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim16"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/minion30" />
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/gorevName16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/twohundred_minion"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="600 x"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
-                            android:textStyle="normal|bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/gorevAciklama16"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/twohundred_minion_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/take_mission"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="visible" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:layout_margin="10dp"
-                android:background="@color/secondary_text" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/gorevResim17"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/rapor" />
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/gorevName17"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/end_of_match"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <TextView
-                            android:id="@+id/puan17"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:text="@string/variable"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/cast_intro_overlay_background_color"
-                            android:textSize="16sp"
-                            android:textStyle="normal|bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/gold_icon" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/gorevAciklama17"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/end_of_match_exp"
-                        android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sorgula_button17"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_green_light"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/check"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevIptal_button17"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_red_dark"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cancel"
-                    android:textAlignment="center"
-                    android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
-                    android:textStyle="normal|bold"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/gorevAl_button17"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/accent"
-                    android:fontFamily="sans-serif-condensed"
+                    android:onClick="onClickListener"
                     android:text="@string/take_mission"
                     android:textAlignment="center"
                     android:textColor="?android:attr/fastScrollTextColor"
@@ -2244,6 +1398,7 @@
 
 
         </LinearLayout>
+
 
     </ScrollView>
 

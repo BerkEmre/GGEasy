@@ -198,18 +198,11 @@
         android:background="@color/secondary_text"
         android:layout_margin="10dp" />
 
-    <LinearLayout
-        android:orientation="vertical"
+    <GridView
+        android:id="@+id/rozet_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/rozet_view"
-            android:listSelector="@android:color/transparent"
-            android:numColumns="3" />
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3" />
 
 </LinearLayout>

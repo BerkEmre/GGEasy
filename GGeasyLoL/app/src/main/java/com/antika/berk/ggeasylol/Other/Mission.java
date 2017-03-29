@@ -34,7 +34,7 @@ public  class Mission {
         this.c=c;
 
     }
-    public void GorevAl(int match_id, String gorev){
+    public void GorevAl(String match_id, String gorev){
         DBHelper dbHelper=new DBHelper(c);
         dbHelper.insertMatch(""+match_id, gorev);
     }
@@ -317,6 +317,166 @@ public  class Mission {
                 PuanGonder("Gorev17", x1*10+x2*(-10)+x3*6-50+x5*0.5+x6*20+x7*1.5+x8*50+x9*150+x10*300+x11*750+x12*0.005+x13*0.001);
                 return true;
             }
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev18(String matchId,int x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev18"))){
+            if (x>0) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1600+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev18");//gorevi siler
+                PuanGonder("Gorev18", 1600);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev19(String matchId,int x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev19"))){
+            if (x>3) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1200+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev19");//gorevi siler
+                PuanGonder("Gorev19", 1200);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev20(String matchId,int x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev20"))){
+            if (x>2) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1200+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev20");//gorevi siler
+                PuanGonder("Gorev20", 1200);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev21(String matchId,int x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev21"))){
+            if (x>6) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1800+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev21");//gorevi siler
+                PuanGonder("Gorev21", 1800);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev22(String matchId,boolean x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev22"))){
+            if (x) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1200+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev22");//gorevi siler
+                PuanGonder("Gorev22", 1200);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev23(String matchId,boolean x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev23"))){
+            if (x) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+800+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev23");//gorevi siler
+                PuanGonder("Gorev23", 800);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev24(String matchId,boolean x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev24"))){
+            if (x) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1000+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev24");//gorevi siler
+                PuanGonder("Gorev24", 1000);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev25(String matchId,boolean x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev25"))){
+            if (x) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1000+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev25");//gorevi siler
+                PuanGonder("Gorev25", 1000);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev26(String matchId,boolean x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev26"))){
+            if (x) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+1200+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev26");//gorevi siler
+                PuanGonder("Gorev26", 1200);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
+        return false;
+    }
+    public  boolean Gorev27(String matchId,boolean x){
+        DBHelper dbHelper=new DBHelper(c);
+        if(!matchId.equals(dbHelper.getMatch("Gorev27"))){
+            if (x) {
+                Toast.makeText(c, c.getString(R.string.congratulations)+400+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
+                dbHelper.insertMatch("", "Gorev27");//gorevi siler
+                PuanGonder("Gorev27", 400);
+                return true;
+            }
+            else
+                Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         }
         else
             Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();

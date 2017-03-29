@@ -130,6 +130,7 @@ public class LoginFragment extends Fragment {
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
 
+
             String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
             if(cevap.equals("EMail veya Şifre Hatalı"))
                 return getContext().getString(R.string.email_veya_sifre_hatali);
@@ -142,6 +143,7 @@ public class LoginFragment extends Fragment {
                     _sifre = params[1];
                     _region = object.getString("Region");
                     _summonerID = object.getString("SihirdarID");
+
                     return getContext().getString(R.string.hosgeldiniz);
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -11,6 +11,9 @@ import com.antika.berk.ggeasylol.object.CurrentGameObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.MasterObject;
 import com.antika.berk.ggeasylol.object.MasteriesPageObject;
+import com.antika.berk.ggeasylol.object.MatchIdObject;
+import com.antika.berk.ggeasylol.object.MissionObject;
+import com.antika.berk.ggeasylol.object.MissionTeamObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
 import com.antika.berk.ggeasylol.object.RankedStatObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
@@ -18,7 +21,9 @@ import com.antika.berk.ggeasylol.object.RuneObject;
 import com.antika.berk.ggeasylol.object.RunePageObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
 import com.antika.berk.ggeasylol.object.SummaryStat;
+import com.antika.berk.ggeasylol.object.SummonerIDsObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
+import java.lang.Math;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -625,6 +630,91 @@ public class RiotApiHelper {
         }
     }
 
+    public MissionTeamObject getTeam(String matchID,String region,int sihirdarID){
+
+        String data=readURL("https://"+region+".api.riotgames.com/api/lol/"+region+"/v2.2/match/"+matchID+"?api_key="+apiKey);
+        MissionTeamObject teamObjects;
+        try {
+            JSONObject obj1=new JSONObject(data);
+            JSONArray array=obj1.getJSONArray("participantIdentities");
+            int y=0;
+            for (int i=0;i<array.length();i++){
+                JSONObject object=array.getJSONObject(i);
+                JSONObject object1=object.getJSONObject("player");
+                int id=object1.getInt("summonerId");
+                if(id==sihirdarID){
+                    y=i;
+                    break;
+                }
+            }
+            if(y<5){
+                JSONArray array1=obj1.getJSONArray("teams");
+                JSONObject obj2=array1.getJSONObject(0);
+                teamObjects=new MissionTeamObject(obj2.getBoolean("winner"),obj2.getBoolean("firstBlood"),obj2.getBoolean("firstTower"),obj2.getBoolean("firstInhibitor"),obj2.getBoolean("firstBaron"),obj2.getBoolean("firstDragon"),obj2.getInt("towerKills"),obj2.getInt("inhibitorKills"),obj2.getInt("baronKills"),obj2.getInt("dragonKills"));
+            }
+            else {
+                JSONArray array1=obj1.getJSONArray("teams");
+                JSONObject obj2=array1.getJSONObject(1);
+                teamObjects=new MissionTeamObject(obj2.getBoolean("winner"),obj2.getBoolean("firstBlood"),obj2.getBoolean("firstTower"),obj2.getBoolean("firstInhibitor"),obj2.getBoolean("firstBaron"),obj2.getBoolean("firstDragon"),obj2.getInt("towerKills"),obj2.getInt("inhibitorKills"),obj2.getInt("baronKills"),obj2.getInt("dragonKills"));
+
+            }
+
+            return teamObjects;
+        }
+        catch (JSONException e) {
+            Log.e("Hata", e.toString());
+
+            return null;
+        }
+    }
+    public MissionObject getMatch(String matchID, String region, int sihirdarID){
+        String data=readURL("https://"+region+".api.riotgames.com/api/lol/"+region+"/v2.2/match/"+matchID+"?api_key="+apiKey);
+        MissionObject missionObject;
+        try {
+            JSONObject obj1=new JSONObject(data);
+            JSONArray array=obj1.getJSONArray("participantIdentities");
+            int y=0;
+            for (int i=0;i<array.length();i++){
+                JSONObject object=array.getJSONObject(i);
+                JSONObject object1=object.getJSONObject("player");
+                int id=object1.getInt("summonerId");
+                if(id==sihirdarID){
+                    y=i;
+                    break;
+                }
+            }
+            JSONArray array1=obj1.getJSONArray("participants");
+            JSONObject obj2=array1.getJSONObject(y);
+            JSONObject obj3=obj2.getJSONObject("stats");
+            missionObject=new MissionObject(obj3.getBoolean("winner"),obj3.getInt("champLevel"),obj3.getInt("kills"),obj3.getInt("doubleKills"),obj3.getInt("tripleKills"),
+                    obj3.getInt("quadraKills"),obj3.getInt("pentaKills"),obj3.getInt("deaths"),obj3.getInt("assists"),obj3.getInt("minionsKilled"),obj3.getInt("neutralMinionsKilled"),
+                    obj3.getInt("goldEarned"),obj3.getInt("towerKills"),obj3.getInt("wardsPlaced"),obj3.getInt("wardsKilled"),obj3.getInt("largestMultiKill"),obj3.getInt("totalDamageDealtToChampions"));
+
+            return missionObject;
+        }
+        catch (JSONException e) {
+            Log.e("Hata", e.toString());
+
+            return null;
+        }
+    }
+
+    public String getPuan(String emmail,String sifre) {
+        String data=readURL("http://ggeasylol.com/api/check_user.php?Mail="+emmail+"&Sifre="+sifre);
+        try {
+            JSONArray array=new JSONArray(data);
+            JSONObject object=array.getJSONObject(0);
+
+
+
+            return object.getString("Puan");
+        }
+        catch (Exception e){
+            return "HATA";
+        }
+
+
+    }
     public List<RozetObject> getRozet(String mail){
         List<RozetObject> rozets = new ArrayList<RozetObject>();
         String data=readURL("http://ggeasylol.com/api/get_gorev.php?Mail="+mail);
@@ -638,9 +728,28 @@ public class RiotApiHelper {
         }
         catch (JSONException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
+
+    public MatchIdObject getMatchID(int summonerID, String region){
+        String data=readURL("https://"+region.toLowerCase()+".api.riotgames.com/api/lol/"+region.toLowerCase()+"/v2.2/matchlist/by-summoner/"+summonerID+"?endIndex=1&beginIndex=0&api_key="+apiKey);
+        MatchIdObject matchIdObject;
+
+        try {
+            JSONObject object=new JSONObject(data);
+            JSONArray array=object.getJSONArray("matches");
+            JSONObject object1=array.getJSONObject(0);
+            matchIdObject=new MatchIdObject(object1.getString("matchId"));
+
+
+            return matchIdObject;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     private String regionToPlatform(String region) {
         switch (region)
