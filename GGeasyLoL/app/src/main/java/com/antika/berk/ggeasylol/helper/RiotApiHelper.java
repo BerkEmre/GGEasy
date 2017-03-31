@@ -51,7 +51,7 @@ public class RiotApiHelper {
 
         JSONObject sumonnerObject;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.4/" +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.4/" +
                     "summoner/by-name/" + convertToUTF8(summonerName) + "?api_key=" + apiKey);
 
         try{sumonnerObject = new JSONObject(JSONString);
@@ -74,7 +74,7 @@ public class RiotApiHelper {
 
         JSONObject sumonnerObject;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.4" +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.4" +
                 "/summoner/" + summonerID + "?api_key=" + apiKey);
 
 
@@ -102,7 +102,7 @@ public class RiotApiHelper {
         JSONObject master, masters;
         JSONArray masterArray, mastersArray;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.4/summoner/"
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.4/summoner/"
                 + summonerID + "/masteries?api_key=" + apiKey);
 
         try {
@@ -135,7 +135,7 @@ public class RiotApiHelper {
         JSONObject obje1, obje2;
         JSONArray array1, array2;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.4/summoner/"
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.4/summoner/"
                 + summonerID + "/runes?api_key=" + apiKey);
 
         try{
@@ -165,7 +165,7 @@ public class RiotApiHelper {
         JSONObject obje1, obje2;
         JSONArray array1;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.3/" +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.3/" +
                 "stats/by-summoner/" + summonerID + "/ranked?season=" + season + "&api_key=" + apiKey);
 
         try {
@@ -248,7 +248,7 @@ public class RiotApiHelper {
         JSONObject obje1, obje2;
         JSONArray array1;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() +
                 "/v1.3/stats/by-summoner/" + summonerID + "/ranked?api_key=" + apiKey);
 
         try {
@@ -331,7 +331,7 @@ public class RiotApiHelper {
         JSONObject obje1, obje2;
         JSONArray array1;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.3/" +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.3/" +
                 "stats/by-summoner/" + summonerID + "/summary?season=" + season + "&api_key=" + apiKey);
 
         try{
@@ -373,7 +373,7 @@ public class RiotApiHelper {
         JSONObject obje1, obje2;
         JSONArray array1;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.3/" +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.3/" +
                 "stats/by-summoner/" + summonerID + "/summary?api_key=" + apiKey);
 
         try{
@@ -421,7 +421,7 @@ public class RiotApiHelper {
         JSONObject obje1, obje2;
         JSONArray array1, array2;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/observer-mode/rest/" +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/observer-mode/rest/" +
                 "consumer/getSpectatorGameInfo/" + regionToPlatform(region) + "/" + summonerID +
                 "?api_key=" + apiKey);
 
@@ -471,7 +471,7 @@ public class RiotApiHelper {
         JSONObject obje1;
         JSONArray array1;
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/api/lol/" + region +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() +
                 "/v2.5/league/by-summoner/" + summonerID + "/entry?api_key=" + apiKey);
 
         try {
@@ -517,7 +517,7 @@ public class RiotApiHelper {
         ChampionObject co;
         JSONObject obje1;
 
-        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + region +
+        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + region.toLowerCase() +
                 "/v1.2/champion/" + championID + "?api_key=" + apiKey);
         try{
             obje1 = new JSONObject(JSONString);
@@ -533,7 +533,7 @@ public class RiotApiHelper {
         SpellObject so;
         JSONObject obje1;
 
-        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + region +
+        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + region.toLowerCase() +
                 "/v1.2/summoner-spell/" + spellID + "?api_key=" + apiKey);
         try{
             obje1 = new JSONObject(JSONString);
@@ -548,7 +548,7 @@ public class RiotApiHelper {
     public List<ChampionMasterObject> getChampionMasteries(int summonerID, String region){
         List<ChampionMasterObject> masteries = new ArrayList<ChampionMasterObject>();
 
-        String JSONString = readURL("https://" + region + ".api.pvp.net/championmastery/location/" +
+        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/championmastery/location/" +
                 regionToPlatform(region) + "/player/" + summonerID + "/champions?api_key=" + apiKey);
 
         JSONObject obje1;
@@ -574,7 +574,7 @@ public class RiotApiHelper {
     //get static champion data
     public List<ChampionObject> getChampionStaticData(Context context){
         List<ChampionObject> champions = new ArrayList<ChampionObject>();
-        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + context.getString(R.string.language) + "/v1.2/champion?api_key=" + apiKey);
+        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + context.getString(R.string.language).toLowerCase() + "/v1.2/champion?api_key=" + apiKey);
 
         JSONObject obje1, obje2, obje3;
 
@@ -598,7 +598,7 @@ public class RiotApiHelper {
     //get champion freeToPlay
     public List<Integer> getChampionFreeToPlay(String region){
         List<Integer> chapions=new ArrayList<Integer>();
-        String JSONString= readURL("https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.2/champion?api_key="+apiKey);
+        String JSONString= readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.2/champion?api_key="+apiKey);
         JSONObject obj1,obj2;
         JSONArray array1;
         try {
@@ -620,7 +620,7 @@ public class RiotApiHelper {
     }
     //get version
     public String getVersion(String region){
-        String data = readURL("https://global.api.pvp.net/api/lol/static-data/" + region + "/v1.2/versions?api_key=" + apiKey);
+        String data = readURL("https://global.api.pvp.net/api/lol/static-data/" + region.toLowerCase() + "/v1.2/versions?api_key=" + apiKey);
         try {
             JSONArray array = new JSONArray(data);
             return array.getString(0);
@@ -632,7 +632,7 @@ public class RiotApiHelper {
 
     public MissionTeamObject getTeam(String matchID,String region,int sihirdarID){
 
-        String data=readURL("https://"+region+".api.riotgames.com/api/lol/"+region+"/v2.2/match/"+matchID+"?api_key="+apiKey);
+        String data=readURL("https://"+region.toLowerCase()+".api.riotgames.com/api/lol/"+region.toLowerCase()+"/v2.2/match/"+matchID+"?api_key="+apiKey);
         MissionTeamObject teamObjects;
         try {
             JSONObject obj1=new JSONObject(data);
@@ -668,7 +668,7 @@ public class RiotApiHelper {
         }
     }
     public MissionObject getMatch(String matchID, String region, int sihirdarID){
-        String data=readURL("https://"+region+".api.riotgames.com/api/lol/"+region+"/v2.2/match/"+matchID+"?api_key="+apiKey);
+        String data=readURL("https://"+region.toLowerCase()+".api.riotgames.com/api/lol/"+region.toLowerCase()+"/v2.2/match/"+matchID+"?api_key="+apiKey);
         MissionObject missionObject;
         try {
             JSONObject obj1=new JSONObject(data);
