@@ -166,5 +166,9 @@
     <string name="first_turrent">Destroy First Turrents with Team in Ranked Match.</string>
     <string name="first_inhi">Destroy First Inhibitor with Team in Ranked Match.</string>
     <string name="victory_exp">Win The Ranked Match.</string>
+<<<<<<< HEAD
     <string name="app_update_text">You don\'t have latest version! Do you want update now?</string>
+=======
+    <string name="pls_register">Please Sing Up or Sing In on Profile Page!</string>
+>>>>>>> origin/master
 </resources>

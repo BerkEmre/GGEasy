@@ -1013,9 +1013,11 @@ public class MissionFragment extends Fragment {
         protected String doInBackground(String... strings) {
             uo= dbHelper.getUser();
             try {
-
+                if (uo.getSummonerID().equals(""))
+                    return "kayit";
                 so=apiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                 puan=apiHelper.getPuan(uo.getEmail(),uo.getSifre());
+
                 if(so.getLvl()!=30)
                     return "HATA";
                 mi=apiHelper.getMatchID(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
@@ -1049,14 +1051,17 @@ public class MissionFragment extends Fragment {
             }
             catch (Exception e) {
                 e.printStackTrace();
-                return null;
+                return "HATA2";
             }
 
         }
 
         @Override
         protected void onPostExecute(String s) {
-            textpuan.setText("x "+puan);
+            if (s.equals("kayit"))
+                Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+            else
+                textpuan.setText("x "+puan);
             if (s.equals("HATA"))
                 Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
             else if(s.equals("HATA1"))

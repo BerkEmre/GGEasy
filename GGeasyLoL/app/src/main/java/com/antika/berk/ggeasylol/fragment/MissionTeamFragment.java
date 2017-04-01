@@ -637,8 +637,11 @@ public class MissionTeamFragment extends Fragment {
 
             uo=dbHelper.getUser();
             try {
+                if (uo.getSummonerID().equals(""))
+                    return "kayit";
                 so=riotApiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                 puan=riotApiHelper.getPuan(uo.getEmail(),uo.getSifre());
+
                 if(so.getLvl()!=30)
                     return "HATA";
                 mi=riotApiHelper.getMatchID(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
@@ -663,7 +666,7 @@ public class MissionTeamFragment extends Fragment {
                 return values[0];
             }
             catch (Exception e){
-                return "HATA";
+                return "HATA2";
             }
 
 
@@ -673,7 +676,10 @@ public class MissionTeamFragment extends Fragment {
         @Override
         protected void onPostExecute(String results)
         {
-            textpuan.setText("x "+puan);
+            if (results.equals("kayit"))
+                Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+            else
+                textpuan.setText("x "+puan);
 
             if (results.equals("HATA"))
                 Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
