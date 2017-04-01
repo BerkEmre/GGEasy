@@ -1068,7 +1068,7 @@ public class MissionFragment extends Fragment {
                 Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
             else if (s.equals("HATA2"))
                 Toast.makeText(getContext(),getContext().getString(R.string.error),Toast.LENGTH_LONG).show();
-             if(s.equals("1")){
+            if(s.equals("1")){
                 srg1=m.Gorev1(""+mi.getMatchID(),mission.getPentaKills());
                 if(srg1){
                     grvAl1.setVisibility(View.VISIBLE);
