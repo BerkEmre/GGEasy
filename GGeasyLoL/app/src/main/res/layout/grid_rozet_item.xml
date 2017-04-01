@@ -8,8 +8,7 @@
     <ImageView
         android:id="@+id/rozet_icon"
         android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/asista" />
+        android:layout_height="50dp" />
 
     <TextView
         android:id="@+id/adet"

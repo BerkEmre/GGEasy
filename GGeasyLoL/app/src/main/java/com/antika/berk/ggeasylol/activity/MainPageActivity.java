@@ -4,9 +4,13 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.design.widget.Snackbar;
 import android.support.multidex.MultiDex;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,8 +22,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
+import com.antika.berk.ggeasylol.fragment.ChangePasswordFragment;
 import com.antika.berk.ggeasylol.fragment.ComingSoonFragment;
 
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
@@ -30,8 +38,10 @@ import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.fragment.MissionFragment;
 import com.antika.berk.ggeasylol.fragment.RankFragment;
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
+import com.antika.berk.ggeasylol.fragment.VersionFragment;
 import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
 import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.RankedStatObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
@@ -41,6 +51,15 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        PackageInfo pInfo = null;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            String version = pInfo.versionName;
+            new checkVersiyon().execute(version);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -194,5 +213,39 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
         MultiDex.install(this);
+    }
+
+    class checkVersiyon extends AsyncTask<String, String, String>{
+        @Override
+        protected String doInBackground(String... params) {
+            RiotApiHelper riotApiHelper = new RiotApiHelper();
+            String gelenVersiyon = riotApiHelper.readURL("http://ggeasylol.com/api/versiyon.html");
+            if(gelenVersiyon.equals(params[0]))
+                return "1";
+            else
+                return "0";
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if(s.equals("0")){
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.content_main_page), getApplicationContext().getString(R.string.app_update_text), 60000).setActionTextColor(0xFF17EA0C)
+                        .setAction(getApplicationContext().getString(R.string.yes), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                final String appPackageName = getPackageName();
+                                try {
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                                } catch (android.content.ActivityNotFoundException anfe) {
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                                }
+                            }
+                        });
+
+                snackbar.show();
+            }
+            super.onPostExecute(s);
+        }
     }
 }

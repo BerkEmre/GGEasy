@@ -182,6 +182,7 @@ public class RozetAdapter extends BaseAdapter {
 
 
 
+
         return satirView;
     }
     public class CircleTransform implements Transformation {
