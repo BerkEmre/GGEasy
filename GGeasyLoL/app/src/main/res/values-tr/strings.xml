@@ -8,7 +8,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ayarlar</string>
     <string name="sotec_media">berkemrealtan.com</string>
     <string name="summoner_name">Sihirdar Adı</string>
     <string name="region">Bölge</string>
@@ -81,7 +81,7 @@
     <string name="twelve_asist">+20 Asist</string>
     <string name="twelve_kill">+20 Kill</string>
     <string name="thirty_kill">+30 Kill</string>
-    <string name="thirty_asist">+30 Kill</string>
+    <string name="thirty_asist">+30 Asist</string>
     <string name="ten_kill">+10 Kill</string>
     <string name="ten_asist">+10 Asist</string>
     <string name="two_tower">+2 Kule</string>
@@ -131,7 +131,7 @@
     <string name="new_email">Yeni E-Mail</string>
     <string name="explanation">En az 20 karakter.</string>
     <string name="subject">Konu</string>
-    <string name="error_mission">Üzgünüz 30 lv değilsiniz!</string>
+    <string name="error_mission">Üzgünüz 30. seviye değilsiniz!</string>
     <string name="feed_back">Geri Bildirim İçin Teşekkür Ederiz.</string>
     <string name="message">Lütfen 20 karakterden fazla giriniz.</string>
     <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>
@@ -168,4 +168,6 @@
     <string name="victory_exp">Dereceli Maçı Kazan.</string>
     <string name="app_update_text">Uygulama versiyonu güncel değil! Şimdi güncellemek ister misiniz?</string>
     <string name="pls_register">Lütfen Kayıt Olun ya da Giriş Yapın!</string>
+    <string name="changed_pass">Şifreniz Değiştirildi</string>
+    <string name="language2">tr_TR</string>
 </resources>

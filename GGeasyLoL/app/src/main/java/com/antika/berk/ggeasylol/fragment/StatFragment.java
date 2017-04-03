@@ -105,15 +105,15 @@ public class StatFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            armor.setText(""+stat.get(0).getArmor()+"(+"+stat.get(0).getArmorperlevel()+"/Level)");
-            attackdamage.setText(""+stat.get(0).getAttackdamage()+"(+"+stat.get(0).getAttackdamageperlevel()+"/Level)");
+            armor.setText(""+stat.get(0).getArmor()+"(+"+stat.get(0).getArmorperlevel()+"/Lv)");
+            attackdamage.setText(""+stat.get(0).getAttackdamage()+"(+"+stat.get(0).getAttackdamageperlevel()+"/Lv)");
             attackrange.setText(""+stat.get(0).getAttackrange());
-            hp.setText("+ "+stat.get(0).getHp()+"(+"+stat.get(0).getHpperlevel()+"/Level)");
-            hpregen.setText(""+stat.get(0).getHpregen()+"(+"+stat.get(0).getHpregenperlevel()+"/Level)");
+            hp.setText(""+stat.get(0).getHp()+"(+"+stat.get(0).getHpperlevel()+"/Lv)");
+            hpregen.setText(""+stat.get(0).getHpregen()+"(+"+stat.get(0).getHpregenperlevel()+"/Lv)");
             movespeed.setText(""+stat.get(0).getMovespeed());
-            mp.setText(""+stat.get(0).getMp()+"(+"+stat.get(0).getMpregenperlevel()+"/Level)");
-            mpregen.setText(""+stat.get(0).getMpregen()+"(+"+stat.get(0).getMpregenperlevel()+"/Level)");
-            spellblock.setText(""+stat.get(0).getSpellblock()+"(+"+stat.get(0).getSpellblockperlevel()+"/Level)");
+            mp.setText(""+stat.get(0).getMp()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
+            mpregen.setText(""+stat.get(0).getMpregen()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
+            spellblock.setText(""+stat.get(0).getSpellblock()+"(+"+stat.get(0).getSpellblockperlevel()+"/Lv)");
             attack_p.setProgress(stat.get(0).getAttack());
             defense_p.setProgress(stat.get(0).getDefense());
             magic_p.setProgress(stat.get(0).getMagic());

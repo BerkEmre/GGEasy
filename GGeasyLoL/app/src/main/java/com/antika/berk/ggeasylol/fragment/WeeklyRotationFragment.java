@@ -83,7 +83,7 @@ public class WeeklyRotationFragment extends Fragment {
             List<Integer>freeToPlay=riotApiHelper.getChampionFreeToPlay(getString(R.string.language));
             for(int i=0;i<freeToPlay.size();i++){
                 if (dbHelper.getChampion(freeToPlay.get(i).toString()) == null)
-                    dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString()), getString(R.string.language)));
+                    dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString()), getString(R.string.language),getContext()));
 
                 championObjects.add(dbHelper.getChampion(freeToPlay.get(i).toString()));
 

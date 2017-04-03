@@ -185,7 +185,7 @@ public class CurrentMatchFragment extends Fragment implements DialogInterface.On
                         ));
 
                 if (dbHelper.getChampion(Integer.toString(part.getChampionId())) == null)
-                    dbHelper.insertChampion(raHelper.getStaticChampion(part.getChampionId(), strings[1]));
+                    dbHelper.insertChampion(raHelper.getStaticChampion(part.getChampionId(), strings[1],getContext()));
 
                 if (dbHelper.getSpell(Integer.toString(part.getSpell1Id())) == null)
                     dbHelper.insertSpell(raHelper.getStaticSpell(part.getSpell1Id(), strings[1]));

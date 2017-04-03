@@ -49,7 +49,7 @@ public class ChampionFragment extends Fragment {
         gv_champions = (GridView) view.findViewById(R.id.grid_view);
         et_arama     = (EditText) view.findViewById(R.id.editText3);
 
-        new getData().execute("TR");
+        new getData().execute(getContext().getString(R.string.language));
 
         gv_champions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -107,7 +107,7 @@ public class ChampionFragment extends Fragment {
             try{
                 for (int i = 0; i < champions.size(); i++) {
                     if (dbHelper.getChampion(champions.get(i).getChampionID()) == null)
-                        dbHelper.insertChampion(raHelper.getStaticChampion(Integer.parseInt(champions.get(i).getChampionID()), values[0]));
+                        dbHelper.insertChampion(raHelper.getStaticChampion(Integer.parseInt(champions.get(i).getChampionID()), values[0],getContext()));
                 }
             }catch (Exception e){
                 return null;

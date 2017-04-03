@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
@@ -55,10 +55,10 @@
             android:background="?attr/colorAccent"
             android:padding="5dp"
             android:text="@string/log_in"
+            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/forget"
@@ -72,39 +72,33 @@
             android:textSize="16sp"
             android:textStyle="normal|bold" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/signUp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="@string/sing_up_gg_easy"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:id="@+id/signUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:gravity="bottom"
-                android:text="@string/sing_up_gg_easy"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="22sp"
-                android:textStyle="normal|bold" />
-
-            <TextView
-                android:id="@+id/devam"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="@string/giris_yapmadan"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/divider"
-                android:textSize="20sp"
-                android:textStyle="normal|bold" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/devam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/giris_yapmadan"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/divider"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 

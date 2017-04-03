@@ -43,7 +43,7 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey   = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
-    public String version  = "7.5.2";
+    public String version  = "7.6.1";
     public int iconSize    =  22;
     //Get summoner object with summoner name
     public SummonerObject getSumonner(String summonerName, String region) {
@@ -513,12 +513,12 @@ public class RiotApiHelper {
         return null;
     }
     //get champion object from id
-    public ChampionObject getStaticChampion(int championID, String region){
+    public ChampionObject getStaticChampion(int championID, String region,Context context){
         ChampionObject co;
         JSONObject obje1;
 
         String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + region.toLowerCase() +
-                "/v1.2/champion/" + championID + "?api_key=" + apiKey);
+                "/v1.2/champion/" + championID + "?locale="+context.getString(R.string.language2)+"&api_key=" + apiKey);
         try{
             obje1 = new JSONObject(JSONString);
             co = new ChampionObject(obje1.getString("key"), obje1.getString("name"),
@@ -574,7 +574,7 @@ public class RiotApiHelper {
     //get static champion data
     public List<ChampionObject> getChampionStaticData(Context context){
         List<ChampionObject> champions = new ArrayList<ChampionObject>();
-        String JSONString = readURL("https://global.api.pvp.net/api/lol/static-data/" + context.getString(R.string.language).toLowerCase() + "/v1.2/champion?api_key=" + apiKey);
+        String JSONString = readURL("https://global.api.riotgames.com/api/lol/static-data/"+context.getString(R.string.language)+"/v1.2/champion?locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
 
         JSONObject obje1, obje2, obje3;
 

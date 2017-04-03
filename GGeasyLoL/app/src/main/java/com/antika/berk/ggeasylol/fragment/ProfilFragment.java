@@ -138,7 +138,7 @@ public class ProfilFragment extends Fragment {
                         List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                         List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
                         ro=riotApiHelper.getRozet(uo.getEmail());
-                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion());
+                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion(),getContext());
                         _champion=co.getChampionKey();
                         _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
                         _ligAdi=lo.get(0).getName();

@@ -7,28 +7,28 @@
 
     <TextView
         android:id="@+id/siralama"
-        android:layout_width="150dp"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="5"
-        android:text="50"
+        android:layout_weight="1"
+        android:text="10001"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="35sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="match_parent"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginLeft="10dp"
-        android:layout_weight="4"
+        android:layout_weight="1"
         app:srcCompat="@drawable/icon" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:orientation="vertical">
 
         <LinearLayout
@@ -39,24 +39,25 @@
 
             <TextView
                 android:id="@+id/sihirdarAdi"
-                android:layout_width="220dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="2dp"
                 android:text="SOLOTURK SF 260"
                 android:textColor="@color/cast_expanded_controller_background_color"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/regi"
-                android:layout_width="60dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="2dp"
                 android:text="TR"
+                android:textAlignment="viewEnd"
                 android:textColor="@android:color/holo_red_dark"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -85,7 +86,7 @@
                 android:text="x 999999999"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/holo_purple"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

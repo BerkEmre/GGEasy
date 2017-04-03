@@ -67,7 +67,7 @@ public class SkinFragment extends Fragment {
             RiotApiHelper apiKey=new RiotApiHelper();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?champData=skins&api_key="+apiKey.apiKey);
+                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?locale="+getContext().getString(R.string.language2)+"&champData=skins&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1=new JSONObject(gelenData);
                 JSONArray array1=obj1.getJSONArray("skins");

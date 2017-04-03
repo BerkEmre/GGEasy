@@ -37,226 +37,229 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="300dp"
-            android:layout_marginTop="5dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:id="@+id/gg"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/gg"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/t1"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/armor" />
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/armor"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/t3"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/attack" />
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/attack"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/t5"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/atack_range" />
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/atack_range"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/t10"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/health" />
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/health"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/t12"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/health_regen" />
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/health_regen"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/t14"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/movement_speed" />
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/movement_speed"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/t15"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/mana" />
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/mana"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/t17"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/background_dark"
-                        android:text="@string/mana_regen" />
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/t19"
                         android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
                         android:paddingTop="3dp"
+                        android:text="@string/mana_regen"
                         android:textColor="@android:color/background_dark"
-                        android:text="@string/magic_resistance" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/t19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text="@string/magic_resistance"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:id="@+id/kazo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/kazo"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:orientation="vertical">
+
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/armor"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/attackdamage"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/attackrange"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/hp"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/hpregen"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/movespeed"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/mp"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/mpregen"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spellblock"
                         android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
                         android:paddingTop="3dp"
-                        android:textColor="@android:color/holo_red_dark" />
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/spellblock"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="3dp"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

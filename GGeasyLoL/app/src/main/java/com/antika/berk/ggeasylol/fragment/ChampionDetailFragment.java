@@ -107,7 +107,7 @@ public class ChampionDetailFragment extends Fragment {
         protected String doInBackground(String... strings) {
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
+                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?locale="+getContext().getString(R.string.language2)+"&champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1;
                 obj1=new JSONObject(gelenData);

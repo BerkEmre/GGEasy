@@ -155,7 +155,7 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
 
             for (int i = 0; i < masteries.size(); i++) {
                 if (dbHelper.getChampion(Integer.toString(masteries.get(i).getChampionId())) == null)
-                    dbHelper.insertChampion(raHelper.getStaticChampion(masteries.get(i).getChampionId(), values[1]));
+                    dbHelper.insertChampion(raHelper.getStaticChampion(masteries.get(i).getChampionId(), values[1],getContext()));
             }
             return null;
         }

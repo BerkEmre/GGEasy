@@ -116,7 +116,7 @@ public class UserDeatailFragment extends DialogFragment {
                         List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(params[0]),params[1]);
                         List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(params[0]),params[1]);
                         ro=riotApiHelper.getRozet(_email);
-                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),params[1]);
+                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),params[1],getContext());
                         _champion=co.getChampionKey();
                         _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
                         _ligAdi=lo.get(0).getName();

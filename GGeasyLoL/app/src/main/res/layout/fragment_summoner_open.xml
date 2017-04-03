@@ -3,28 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListSumonnerDataFragment"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    tools:context=".ListSumonnerDataFragment">
 
 
     <TextView
-        android:text="4ntika"
+        android:id="@+id/textView31"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView31"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="4ntika"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textStyle="normal|bold"
         android:textSize="30sp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:layout_margin="10dp" />
+        android:textStyle="normal|bold" />
 
     <View
-        android:layout_height="2dp"
         android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/secondary_text" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,8 +34,8 @@
         android:padding="5dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -64,13 +64,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:orientation="horizontal">
@@ -93,7 +93,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:text="V"
-                    android:textAlignment="textEnd"
+                    android:textAlignment="viewStart"
                     android:textSize="18sp"
                     android:textStyle="normal|bold" />
 
@@ -103,23 +103,26 @@
                 android:id="@+id/textView34"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="Lux'un Fedaileri"
-                android:textAlignment="textEnd"
+                android:textAlignment="viewStart"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
                 android:text="XXOO--"
-                android:textAlignment="textEnd"
+                android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="normal|bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
@@ -186,14 +189,15 @@
     </LinearLayout>
 
     <View
-        android:layout_height="2dp"
         android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/secondary_text" />
 
     <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list_view" />
+        android:listSelector="@android:color/transparent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
