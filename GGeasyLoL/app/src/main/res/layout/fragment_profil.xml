@@ -191,6 +191,25 @@
             android:layout_margin="10dp"
             android:background="@drawable/options" />
 
+        <ImageView
+            android:id="@+id/mail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            app:srcCompat="@drawable/mail" />
+
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@+id/mail"
+            android:layout_alignStart="@+id/mail"
+            android:layout_alignTop="@+id/mail"
+            app:srcCompat="@drawable/notification" />
+
     </RelativeLayout>
     <View
         android:layout_height="2dp"

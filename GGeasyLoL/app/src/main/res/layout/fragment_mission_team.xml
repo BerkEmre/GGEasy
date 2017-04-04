@@ -84,8 +84,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/baron" />
@@ -103,12 +103,12 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/baron"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -137,8 +137,7 @@
                             android:layout_weight="1"
                             android:text="@string/kill_baron"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -152,7 +151,7 @@
                     <Button
                         android:id="@+id/sorgula_button18"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -160,14 +159,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button18"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -175,14 +174,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button18"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -190,7 +189,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -216,8 +215,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/ejder" />
@@ -235,12 +234,12 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/dragon"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -269,8 +268,7 @@
                             android:layout_weight="1"
                             android:text="@string/kill_ejder"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -284,7 +282,7 @@
                     <Button
                         android:id="@+id/sorgula_button19"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -292,14 +290,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button19"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -307,14 +305,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button19"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -322,7 +320,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -348,8 +346,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/inhibitor" />
@@ -401,8 +399,7 @@
                             android:layout_weight="1"
                             android:text="@string/destroy_inhi"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -416,7 +413,7 @@
                     <Button
                         android:id="@+id/sorgula_button20"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -424,14 +421,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button20"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -439,14 +436,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button20"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -454,7 +451,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -480,8 +477,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/towers" />
@@ -499,12 +496,12 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/tower"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -533,8 +530,7 @@
                             android:layout_weight="1"
                             android:text="@string/destroy_towers"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -548,7 +544,7 @@
                     <Button
                         android:id="@+id/sorgula_button21"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -556,14 +552,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button21"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -571,14 +567,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button21"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -586,7 +582,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -613,8 +609,8 @@
 
                     <ImageView
                         android:id="@+id/gorevResim18"
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/barons_first" />
@@ -633,12 +629,12 @@
 
                             <TextView
 
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/first_baron"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -668,8 +664,7 @@
                             android:layout_weight="1"
                             android:text="@string/first_kill_baron"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -683,7 +678,7 @@
                     <Button
                         android:id="@+id/sorgula_button22"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -691,14 +686,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button22"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -706,14 +701,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button22"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -721,7 +716,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -747,8 +742,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/ejder_first" />
@@ -767,12 +762,12 @@
 
                             <TextView
 
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/first_dragon"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -802,8 +797,7 @@
                             android:layout_weight="1"
                             android:text="@string/first_kill_ejder"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -817,7 +811,7 @@
                     <Button
                         android:id="@+id/sorgula_button23"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -825,14 +819,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button23"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -840,14 +834,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button23"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -855,7 +849,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -881,8 +875,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/firstblood" />
@@ -901,12 +895,12 @@
 
                             <TextView
 
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/first_blood"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -936,8 +930,7 @@
                             android:layout_weight="1"
                             android:text="@string/firstblood_kill"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -951,7 +944,7 @@
                     <Button
                         android:id="@+id/sorgula_button24"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -959,14 +952,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button24"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -974,14 +967,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button24"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -989,7 +982,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -1015,8 +1008,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/firstturrent" />
@@ -1035,12 +1028,12 @@
 
                             <TextView
 
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/first_tower"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -1070,8 +1063,7 @@
                             android:layout_weight="1"
                             android:text="@string/first_turrent"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -1085,7 +1077,7 @@
                     <Button
                         android:id="@+id/sorgula_button25"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -1093,14 +1085,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button25"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -1108,14 +1100,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button25"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -1123,7 +1115,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -1149,8 +1141,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_width="150dp"
+                        android:layout_height="75dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/firstinhi" />
@@ -1169,12 +1161,12 @@
 
                             <TextView
 
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/first_inhibitor"
                                 android:textColor="@android:color/holo_red_dark"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:textStyle="normal|bold" />
 
                             <TextView
@@ -1204,8 +1196,7 @@
                             android:layout_weight="1"
                             android:text="@string/first_inhi"
                             android:textColor="@color/cast_expanded_controller_background_color"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -1219,7 +1210,7 @@
                     <Button
                         android:id="@+id/sorgula_button26"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_green_light"
@@ -1227,14 +1218,14 @@
                         android:text="@string/check"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevIptal_button26"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@android:color/holo_red_dark"
@@ -1242,14 +1233,14 @@
                         android:text="@string/cancel"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="gone" />
 
                     <Button
                         android:id="@+id/gorevAl_button26"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@color/accent"
                         android:fontFamily="sans-serif-condensed"
@@ -1257,7 +1248,7 @@
                         android:text="@string/take_mission"
                         android:textAlignment="center"
                         android:textColor="?android:attr/fastScrollTextColor"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal|bold"
                         android:visibility="visible" />
 
@@ -1277,8 +1268,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
+                    android:layout_width="150dp"
+                    android:layout_height="75dp"
                     android:layout_marginRight="2dp"
                     android:layout_weight="1"
                     android:background="@drawable/victory" />
@@ -1296,12 +1287,12 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/win"
                             android:textColor="@android:color/holo_red_dark"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textStyle="normal|bold" />
 
                         <TextView
@@ -1331,8 +1322,7 @@
                         android:layout_weight="1"
                         android:text="@string/victory_exp"
                         android:textColor="@color/cast_expanded_controller_background_color"
-                        android:textSize="18sp"
-                        android:textStyle="normal|bold" />
+                        android:textSize="17sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -1346,7 +1336,7 @@
                 <Button
                     android:id="@+id/sorgula_button27"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_green_light"
@@ -1354,14 +1344,14 @@
                     android:text="@string/check"
                     android:textAlignment="center"
                     android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="normal|bold"
                     android:visibility="gone" />
 
                 <Button
                     android:id="@+id/gorevIptal_button27"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/holo_red_dark"
@@ -1369,14 +1359,14 @@
                     android:text="@string/cancel"
                     android:textAlignment="center"
                     android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="normal|bold"
                     android:visibility="gone" />
 
                 <Button
                     android:id="@+id/gorevAl_button27"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@color/accent"
                     android:fontFamily="sans-serif-condensed"
@@ -1384,7 +1374,7 @@
                     android:text="@string/take_mission"
                     android:textAlignment="center"
                     android:textColor="?android:attr/fastScrollTextColor"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="normal|bold"
                     android:visibility="visible" />
 

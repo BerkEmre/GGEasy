@@ -117,7 +117,7 @@
     <string name="cancel">İptal</string>
     <string name="take_mission">Görevi Al</string>
     <string name="congratulations">"Tebrikler... "</string>
-    <string name="earned">" Puan Kazandınız."</string>
+    <string name="earned">Puan Kazandınız.</string>
     <string name="mission_failed">\"Görev Tamamlanamadı!\"</string>
     <string name="not_detected">Yeni Maç Algılanmadı!</string>
     <string name="change_mail">Email Değiştir</string>

@@ -47,7 +47,6 @@ public class UserDeatailFragment extends DialogFragment {
     TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist;
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
-    Button op;
     GridView rozets;
 
 
@@ -68,7 +67,6 @@ public class UserDeatailFragment extends DialogFragment {
         iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
         iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
         iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
-        op              = (Button)view.findViewById(R.id.op_btn);
         rozets          = (GridView)view.findViewById(R.id.rozet_view);
 
         new getData().execute(array[0],array[1]);

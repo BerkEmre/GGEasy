@@ -30,8 +30,8 @@
     <string name="destroy_inhi">Destroy 3 Inibidores ou mais do que com a equipe no jogo Classificado.</string>
     <string name="destroy_towers">Destruir 7 Torres ou mais do que com a equipe no jogo Classificado.</string>
     <string name="difficulty">Dificuldade:</string>
-    <string name="doubl_exp">"Obter Double Kill em jogo classificado. "</string>
-    <string name="doublekill">Matar dupla</string>
+    <string name="doubl_exp">Obter Matar Dupla em jogo classificado.</string>
+    <string name="doublekill">Matar Dupla</string>
     <string name="dragon">Matar o dragão</string>
     <string name="drawing">Desenhos feitos ...</string>
     <string name="earned">Pontos ganhos.</string>
@@ -65,7 +65,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hosgeldiniz">Bem vindo</string>
     <string name="hundred_minion">+100 Minions</string>
-    <string name="hundredfifty_minion">+150 Minion</string>
+    <string name="hundredfifty_minion">+150 Minions</string>
     <string name="hundred_minion_exp">Mate 100 Minions ou mais do que m jogo Classificado.</string>
     <string name="hundredfifty_minion_exp">Mate 150 Minions ou mais do que m jogo Classificado.</string>
     <string name="info">* Você pode obter as missões feitas antes do jogo acabou!</string>
@@ -73,7 +73,7 @@
     <string name="its_over">Acabou</string>
     <string name="join_lottery">Participe da loteria</string>
     <string name="joined_lottery">Juntou-se à loteria!</string>
-    <string name="kill_baron">Mate 2 barões ou mais do que com a equipe em jogo Classificado.</string>
+    <string name="kill_baron">Matar 2 barões ou mais do que com a equipe em jogo Classificado.</string>
     <string name="kill_ejder">Matar 4 Dragons ou mais do que com a equipe em jogo Classificado.</string>
     <string name="language">BR</string>
     <string name="language2">pt_BR</string>
@@ -108,8 +108,8 @@
     <string name="pls_register">Inscreva-se ou Inicie Sessão na Página de Perfil!</string>
     <string name="point">Pontos</string>
     <string name="profile">Perfil</string>
-    <string name="quadra">Quadra Kill</string>
-    <string name="quadra_exp">"Obter Quadra Kill em jogo classificado. "</string>
+    <string name="quadra">Quadra Matar</string>
+    <string name="quadra_exp">Obter Quadra Matar em jogo classificado.</string>
     <string name="rank">Classificação</string>
     <string name="rank_info">* Rank é redefinido a cada semana e líder de usuário rank ganha 750 Riot Points!</string>
     <string name="rate">Avaliação</string>
@@ -125,7 +125,7 @@
     <string name="set_summoner_name">Definir nome do Summoner</string>
     <string name="share">Compartilhar</string>
     <string name="sing_up_gg_easy">Inscreva-se no GGEasy-LOL</string>
-    <string name="six_tower">+6 Torres</string>
+    <string name="six_tower">+6 Torretas</string>
     <string name="six_tower_exp">Destrua 6 torres ou mais do que em jogo Classificado.</string>
     <string name="skils">Habilidades</string>
     <string name="skins">Skins</string>
@@ -138,10 +138,10 @@
     <string name="take_mission">Tome Missão</string>
     <string name="team">Equipe</string>
     <string name="ten_asis_exp">Obtenha 10 assistências ou mais do que em jogo Classificado.</string>
-    <string name="ten_asist">+10 de assistência</string>
+    <string name="ten_asist">+10 Assistências</string>
     <string name="ten_kill">+10 Matar</string>
-    <string name="ten_kill_exp">Faça 10 mortes ou mais do que em jogo Classificado.</string>
-    <string name="thirty_asist">+30 Assists</string>
+    <string name="ten_kill_exp">Obter 10 mortes ou mais do que em jogo Classificado.</string>
+    <string name="thirty_asist">+30 Assistências</string>
     <string name="thirty_asist_exp">Obter 30 Assistências ou mais do que em jogo Classificado.</string>
     <string name="thirty_kill">+30 Matar</string>
     <string name="win">Vitória</string>
@@ -155,18 +155,18 @@
     <string name="twohundred_minion">+200 Minions</string>
     <string name="two_tower">+2 Torretas</string>
     <string name="two_tower_exp">Destrua 2 Torres ou mais do que em jogo Classificado.</string>
-    <string name="twenty_kill_exp">Obter 20 Kills ou mais do que em jogo Classificado.</string>
+    <string name="twenty_kill_exp">Obter 20 mortes ou mais do que em jogo Classificado.</string>
     <string name="twenty_asist_exp">Obter 20 Assistências ou mais do que em jogo Classificado.</string>
     <string name="twelve_kill">+20 Matar</string>
-    <string name="twelve_asist">+20 Assistência</string>
+    <string name="twelve_asist">+20 Assistências</string>
     <string name="try_again">Tente novamente</string>
-    <string name="triple_exp">"Obter Triple Kill em jogo classificado. "</string>
+    <string name="triple_exp">Obter Morte Tripla em jogo classificado.</string>
     <string name="triple">Morte Tripla</string>
     <string name="tower">Destrua Torretas</string>
     <string name="title_activity_main_page">MainPageActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="three_mission">Você não pode ter mais de 3 missões!</string>
-    <string name="thirty_kill_exp">Obter 30 Kills ou mais do que em jogo Classificado.</string>
+    <string name="thirty_kill_exp">Obter 30 mortes ou mais do que em jogo Classificado.</string>
 
 
 </resources>
