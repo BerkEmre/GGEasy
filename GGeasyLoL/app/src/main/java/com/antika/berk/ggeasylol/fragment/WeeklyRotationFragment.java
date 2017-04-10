@@ -56,7 +56,6 @@ public class WeeklyRotationFragment extends Fragment {
                 ChampionObject data= adapter.getItem(position);
 
                 ChampionDetailFragment cmof = new ChampionDetailFragment();
-                cmof.setChampionObject(data);
                 WeeklyRotationFragment.this.getFragmentManager().beginTransaction()
                         .replace(R.id.content_main_page, cmof)
                         .addToBackStack(null)

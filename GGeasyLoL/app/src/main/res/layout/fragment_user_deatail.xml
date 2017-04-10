@@ -127,8 +127,7 @@
                 android:layout_width="50dp"
                 android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="3dp"
-                android:background="@drawable/provisional" />
+                android:layout_marginTop="3dp" />
 
             <TextView
                 android:id="@+id/textView62"
@@ -139,7 +138,7 @@
                 android:layout_marginTop="3dp"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/cast_expanded_controller_background_color"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="normal|bold" />
 
             <TextView

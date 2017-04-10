@@ -30,67 +30,21 @@ import java.net.URLConnection;
 import it.sephiroth.android.library.picasso.Picasso;
 
 public class ChampionDetailFragment extends Fragment {
-    private int championId;
     Context context;
-    ImageView logo;
-    int championID;
     TextView hikayeView;
     TextView name;
-    Button stat;
-    Button skill;
-    Button skin;
-    private ChampionObject co;
-
-
-    public void setChampionObject(ChampionObject co) {
-        this.co = co;
-    }
+    String championID[];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_champion_detail, container, false);
-        logo=(ImageView)view.findViewById(R.id.logo) ;
         hikayeView=(TextView)view.findViewById(R.id.hikaye);
-        name=(TextView)view.findViewById(R.id.textView7);
-        skin=(Button)view.findViewById(R.id.btn_skin) ;
-        stat=(Button)view.findViewById(R.id.btn_stat);
-        skill=(Button)view.findViewById(R.id.btn_skill);
-        name.setText(co.getChampionTitle());
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+co.getChampionKey()+"_0.jpg").into(logo);
-        new getData().execute();
-        skin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SkinFragment cmof = new SkinFragment();
-                cmof.setChampionObject(co);
-                ChampionDetailFragment.this.getFragmentManager().beginTransaction()
-                        .replace(R.id.content_main_page, cmof, "")
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-        skill.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SkillFragment cmof = new SkillFragment();
-                cmof.setChampionObject(co);
-                ChampionDetailFragment.this.getFragmentManager().beginTransaction()
-                        .replace(R.id.content_main_page, cmof, "")
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-        stat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StatFragment cmof = new StatFragment();
-                cmof.setChampionObject(co);
-                ChampionDetailFragment.this.getFragmentManager().beginTransaction()
-                        .replace(R.id.content_main_page, cmof, "")
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+        name=(TextView)view.findViewById(R.id.champion_name);
+        Bundle bundle = this.getArguments();
+        championID = bundle.getStringArray("cID");
+        name.setText(championID[2]);
+        new getData().execute(championID[0]);
+
         return view;
     }
     private class getData extends AsyncTask<String,String,String> {
@@ -107,7 +61,7 @@ public class ChampionDetailFragment extends Fragment {
         protected String doInBackground(String... strings) {
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?locale="+getContext().getString(R.string.language2)+"&champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
+                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1;
                 obj1=new JSONObject(gelenData);
@@ -122,6 +76,7 @@ public class ChampionDetailFragment extends Fragment {
         protected void onPostExecute(String s) {
             String k=s.replace("<br>", "\n");
             hikayeView.setText("\t"+k);
+
             progress.dismiss();
 
 

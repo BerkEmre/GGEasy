@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionSkillAdapter;
@@ -35,24 +36,19 @@ import java.util.List;
 
 
 public class SkillFragment extends Fragment {
-
-    private ChampionObject co;
-
     ListView skilllist;
     TextView skill_tv;
-    public void setChampionObject(ChampionObject co) {
-        this.co = co;
-    }
+    String championID[];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_skill, container, false);
         skilllist=(ListView) view.findViewById(R.id.skillView);
         skill_tv=(TextView)view.findViewById(R.id.title);
-        skill_tv.setText(co.getChampionName());
-        new getData().execute();
 
-
+        Bundle bundle = this.getArguments();
+        championID = bundle.getStringArray("cID");
+        new getData().execute(championID[0]);
 
         return view;
     }
@@ -75,7 +71,7 @@ public class SkillFragment extends Fragment {
             RiotApiHelper apiKey=new RiotApiHelper();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData = getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?locale="+getContext().getString(R.string.language2)+"&champData=passive,spells&api_key="+apiKey.apiKey);
+                String gelenData = getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=passive,spells&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1 = new JSONObject(gelenData);
                 //passive içine girdim

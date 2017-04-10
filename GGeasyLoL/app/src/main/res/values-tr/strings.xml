@@ -170,4 +170,5 @@
     <string name="pls_register">Lütfen Kayıt Olun ya da Giriş Yapın!</string>
     <string name="changed_pass">Şifreniz Değiştirildi</string>
     <string name="language2">tr_TR</string>
+    <string name="lore">Efsane</string>
 </resources>

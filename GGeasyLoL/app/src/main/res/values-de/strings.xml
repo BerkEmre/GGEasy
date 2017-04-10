@@ -106,8 +106,8 @@
     <string name="pls_register">Bitte melden Sie sich an oder melden Sie sich an der Profilseite an!</string>
     <string name="point">Punkte</string>
     <string name="profile">Profil</string>
-    <string name="quadra">Vierfach Kill</string>
-    <string name="quadra_exp">Erhalten Vierfach Kill in Ranglisten-Spiel.</string>
+    <string name="quadra">Vierfach Tötung</string>
+    <string name="quadra_exp">Erhalten Vierfach Tötung in Ranglisten-Spiel.</string>
     <string name="rank">Rang</string>
     <string name="rank_info">* Rang wird jede Woche zurückgesetzt und Führer der Rang Benutzer verdient 750 Riot Punkte!</string>
     <string name="rate">Auswertung</string>
@@ -137,11 +137,11 @@
     <string name="team">Team</string>
     <string name="ten_asis_exp">Holen Sie sich 10 Assists oder mehr als in Ranglisten-Spiel.</string>
     <string name="ten_kill">+10 Töten</string>
-    <string name="ten_kill_exp">Holen Sie sich 10 Kills oder mehr als in Ranglisten-Spiel.</string>
+    <string name="ten_kill_exp">Holen Sie sich 10 Töten oder mehr als in Ranglisten-Spiel.</string>
     <string name="thirty_asist">+30 Unterstützen</string>
     <string name="thirty_asist_exp">Holen Sie sich 30 Assists oder mehr als in Ranglisten-Spiel.</string>
     <string name="thirty_kill">+30 Töten</string>
-    <string name="thirty_kill_exp">"Holen Sie sich 30 Kills oder mehr als in Ranglisten-Spiel. "</string>
+    <string name="thirty_kill_exp">"Holen Sie sich 30 Töten oder mehr als in Ranglisten-Spiel. "</string>
     <string name="three_mission">"Du kannst nicht mehr als 3 Missionen nehmen! "</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main_page">MainPageActivity</string>
@@ -152,7 +152,7 @@
     <string name="twelve_asist">+20 Unterstützen</string>
     <string name="twelve_kill">+20 Töten</string>
     <string name="twenty_asist_exp">Holen Sie sich 20 Assists oder mehr als in Ranglisten-Spiel.</string>
-    <string name="twenty_kill_exp">Holen Sie sich 20 Kills oder mehr als in Ranglisten-Spiel.</string>
+    <string name="twenty_kill_exp">Holen Sie sich 20 Töten oder mehr als in Ranglisten-Spiel.</string>
     <string name="two_tower">+2 Turrets</string>
     <string name="two_tower_exp">Zerstören Sie 2 Turrets oder mehr als in Ranglisten-Spiel.</string>
     <string name="twohundred_minion">+200 Minions</string>
@@ -160,7 +160,7 @@
     <string name="used_before">Diese Mail-Adresse wurde bereits verwendet.</string>
     <string name="variable">Variable x</string>
     <string name="victory_exp">Gewinnen Sie das Ranglisten-Spiel.</string>
-    <string name="weekly_rotation">Wöchentliche Rotation</string>
+    <string name="weekly_rotation">Wöchentliche Drehung</string>
     <string name="win">Sieg</string>
     <string name="winners_on_facebook">Gewinner auf Facebook</string>
     <string name="yes">Ja</string>
@@ -168,6 +168,7 @@
     <string name="penta_exp">Erhalten Pentakill in Ranglisten-Spiel.</string>
     <string name="language2">de_DE</string>
     <string name="ten_asist">+10 Unterstützen</string>
+    <string name="lore">Mythos</string>
 
 
 </resources>

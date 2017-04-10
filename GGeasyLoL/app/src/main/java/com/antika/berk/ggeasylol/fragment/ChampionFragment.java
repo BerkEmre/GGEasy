@@ -56,7 +56,7 @@ public class ChampionFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ChampionObject data= adapter.getItem(position);
 
-                ChampionDetailFragment cmof = new ChampionDetailFragment();
+                ChampionTabHost cmof = new ChampionTabHost();
                 cmof.setChampionObject(data);
                 ChampionFragment.this.getFragmentManager().beginTransaction()
                         .replace(R.id.content_main_page, cmof)

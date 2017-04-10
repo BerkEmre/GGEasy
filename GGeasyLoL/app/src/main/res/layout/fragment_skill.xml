@@ -7,24 +7,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
     android:orientation="vertical">
 
-<TextView
-    android:text="TextView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/title"
-    android:textSize="30sp"
-    android:textStyle="normal|bold"
-    android:textAlignment="center"
-    android:fontFamily="sans-serif-condensed"
-    android:textColor="?attr/colorAccent"
-    android:layout_margin="10dp" />
-
-    <View
-        android:layout_height="2dp"
-        android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
-<LinearLayout
+    <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

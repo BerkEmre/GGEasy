@@ -30,13 +30,10 @@ import java.util.List;
 
 
 public class StatFragment extends Fragment {
-    private ChampionObject co;
-    TextView name,armor,attackdamage,attackrange,hp,hpregen,movespeed,mp,mpregen,
+    TextView armor,attackdamage,attackrange,hp,hpregen,movespeed,mp,mpregen,
             spellblock;
     ProgressBar attack_p,defense_p,magic_p,difficulty_p;
-    public void setChampionObject(ChampionObject co) {
-        this.co = co;
-    }
+    String championID[];
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_stat, container, false);
@@ -49,14 +46,16 @@ public class StatFragment extends Fragment {
         mp=(TextView)view.findViewById(R.id.mp) ;
         mpregen=(TextView)view.findViewById(R.id.mpregen) ;
         spellblock=(TextView)view.findViewById(R.id.spellblock) ;
-
-        name=(TextView)view.findViewById(R.id.champion) ;
-        name.setText(co.getChampionName());
         attack_p=(ProgressBar)view.findViewById(R.id.attack_progress);
         defense_p=(ProgressBar)view.findViewById(R.id.defense_progress);
         magic_p=(ProgressBar)view.findViewById(R.id.magic_progress);
         difficulty_p=(ProgressBar)view.findViewById(R.id.difficulty_progress);
-        new getData().execute();
+
+
+        Bundle bundle = this.getArguments();
+        championID = bundle.getStringArray("cID");
+
+        new getData().execute(championID);
 
 
 
@@ -81,7 +80,7 @@ public class StatFragment extends Fragment {
             RiotApiHelper apiKey=new RiotApiHelper();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?champData=info,stats&api_key="+apiKey.apiKey);
+                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+strings[0]+"?champData=info,stats&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1=new JSONObject(gelenData);
                 //stats içine girdim

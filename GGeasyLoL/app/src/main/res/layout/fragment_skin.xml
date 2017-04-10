@@ -10,23 +10,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:textAlignment="center"
-            android:textStyle="normal|bold"
-            android:textSize="30sp"
-            android:textColor="@color/colorAccent"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_margin="10dp" />
 
-        <View
-            android:layout_height="2dp"
-            android:layout_width="fill_parent"
-            android:background="@color/secondary_text"
-            android:layout_margin="10dp" />
 
         <GridView
             android:id="@+id/gridview"

@@ -30,23 +30,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SkinFragment extends Fragment {
-    private ChampionObject co;
     TextView champion;
-    String championID;
+    String championID[];
     GridView gridview;
-
-    public void setChampionObject(ChampionObject co) {
-        this.co = co;
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_skin, container, false);
         gridview= (GridView) view.findViewById(R.id.gridview);
         champion=(TextView)view.findViewById(R.id.textView2);
-        champion.setText(co.getChampionName());
-        new getData().execute();
+        Bundle bundle = this.getArguments();
+        championID = bundle.getStringArray("cID");
+        new getData().execute(championID[0]);
         return view;
     }
 
@@ -67,7 +62,7 @@ public class SkinFragment extends Fragment {
             RiotApiHelper apiKey=new RiotApiHelper();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+co.getChampionID()+"?locale="+getContext().getString(R.string.language2)+"&champData=skins&api_key="+apiKey.apiKey);
+                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=skins&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1=new JSONObject(gelenData);
                 JSONArray array1=obj1.getJSONArray("skins");

@@ -45,7 +45,7 @@ import it.sephiroth.android.library.picasso.Transformation;
 
 public class ProfilFragment extends Fragment {
     TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist;
-    ImageView iv_profil, iv_lig,iv_back,iv_notification,iv_mail;
+    ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
     UserObject uo;
     Button op;
@@ -65,8 +65,6 @@ public class ProfilFragment extends Fragment {
         tv_asist        = (TextView) view.findViewById(R.id.textView66);
         iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
         iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
-        iv_mail         = (ImageView) view.findViewById(R.id.mail);
-        iv_notification = (ImageView) view.findViewById(R.id.notification);
         iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
         op              = (Button)view.findViewById(R.id.op_btn);
         rozets          = (GridView)view.findViewById(R.id.rozet_view);
@@ -98,14 +96,7 @@ public class ProfilFragment extends Fragment {
                 asf.show(fm, "");
             }
         });
-        iv_mail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                MailFragment asf = new MailFragment();
-                asf.show(fm, "");
-            }
-        });
+
 
 
         return view;

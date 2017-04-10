@@ -9,108 +9,40 @@
     android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:fontFamily="sans-serif-condensed"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:textStyle="normal|bold" />
-
-    <View
-        android:layout_height="2dp"
-        android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
-
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="170dp" />
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_width="150dp"
-            android:gravity="center_vertical"
-            android:background="@android:color/transparent"
-            android:layout_marginLeft="5dp">
-
-            <Button
-                android:text="@string/stats"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_stat"
-                android:background="@color/colorAccent"
-                android:textColor="@color/cast_expanded_controller_text_color" />
-
-            <Button
-                android:text="@string/skils"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_skill"
-                android:background="@color/colorAccent"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/cast_expanded_controller_text_color" />
-
-            <Button
-                android:text="@string/skins"
-                android:layout_width="match_parent"
-                android:id="@+id/btn_skin"
-                android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/cast_expanded_controller_text_color" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0dp">
+        android:orientation="vertical"
+        android:padding="2dp">
 
-        <View
-            android:layout_height="2dp"
-            android:layout_width="fill_parent"
-            android:background="@color/secondary_text"
-            android:layout_margin="10dp" />
+        <TextView
+            android:id="@+id/champion_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp"
+            android:textStyle="normal|bold" />
+
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/hikaye"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/hikaye"
-                    android:textStyle="normal|bold"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/background_dark" />
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="15sp"
+                    android:textStyle="normal|bold" />
             </LinearLayout>
         </ScrollView>
 

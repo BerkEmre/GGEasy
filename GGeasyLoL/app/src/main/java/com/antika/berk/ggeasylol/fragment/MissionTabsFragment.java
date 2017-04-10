@@ -26,10 +26,7 @@ public class MissionTabsFragment extends Fragment {
     public MissionTabsFragment() {
     }
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-    }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_mission_tabs,container, false);
