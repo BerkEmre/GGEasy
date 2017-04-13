@@ -31,6 +31,7 @@ import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
 import com.antika.berk.ggeasylol.object.UserObject;
+import com.mobstac.circularimageprogress.CircularImageProgressView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,10 +45,11 @@ import it.sephiroth.android.library.picasso.Transformation;
 
 public class UserDeatailFragment extends DialogFragment {
 
-    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist;
+    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist,tv_level;
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
     GridView rozets;
+    CircularImageProgressView lvl;
 
 
     @Override
@@ -66,8 +68,10 @@ public class UserDeatailFragment extends DialogFragment {
         tv_asist        = (TextView) view.findViewById(R.id.textView66);
         iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
         iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
+        tv_level        = (TextView) view.findViewById(R.id.tv_lvl);
         iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
         rozets          = (GridView)view.findViewById(R.id.rozet_view);
+        lvl             = (CircularImageProgressView)view.findViewById(R.id.lv_progress);
 
         new getData().execute(array[0],array[1]);
 
@@ -82,6 +86,7 @@ public class UserDeatailFragment extends DialogFragment {
         String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
         int _profilIcon=0;
         String _email="";
+        int _level=0;
         List<RozetObject> ro=new ArrayList<RozetObject>();
 
         @Override
@@ -109,6 +114,7 @@ public class UserDeatailFragment extends DialogFragment {
                     _puan=object.getString("Puan");
                     _email=object.getString("EMail");
                     _profilIcon=object.getInt("icon");
+                    _level=object.getInt("exp");
                     try{
 
                         List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(params[0]),params[1]);
@@ -142,6 +148,12 @@ public class UserDeatailFragment extends DialogFragment {
                 tv_lig_adi.setText(_ligAdi);
                 tv_kill.setText(_kill);
                 tv_asist.setText(_asist);
+                if(_level<=0)
+                    _level=1;
+                double level=Math.sqrt(_level)/5;
+                double exp=level%1;
+                tv_level.setText(""+(int)(level-exp+1));
+                lvl.setProgress((int)(exp*100));
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
                 if((riotApiHelper.iconSize-1)<_profilIcon)
                     Picasso.with(getContext()).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_profil);

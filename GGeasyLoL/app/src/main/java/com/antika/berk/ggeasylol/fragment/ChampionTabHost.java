@@ -7,9 +7,8 @@ import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.object.ChampionObject;

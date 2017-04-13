@@ -35,15 +35,18 @@
             android:id="@+id/champion_logo"
             android:layout_height="200dp" />
 
-        <ImageView
-            android:id="@+id/imageView12"
+
+        <com.mobstac.circularimageprogress.CircularImageProgressView
+            android:id="@+id/lv_progress"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_alignTop="@+id/imageView19"
+            android:layout_centerInParent="true"
             android:layout_toEndOf="@+id/linearLayout"
             android:layout_toRightOf="@+id/linearLayout"
-            android:padding="2dp"
-            app:srcCompat="@drawable/backicon" />
+            app:progress_width="50"
+            app:progress_background_color="@color/transparent"
+            app:max="100" />
 
         <ImageView
             android:id="@+id/imageView19"
@@ -52,7 +55,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="137dp"
-            android:padding="5dp" />
+            android:padding="10dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -117,7 +120,8 @@
             android:layout_below="@+id/champion_logo"
             android:layout_toEndOf="@+id/imageView19"
             android:layout_toRightOf="@+id/imageView19"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/linearLayout4">
 
             <ImageView
                 android:id="@+id/imageView24"
@@ -146,6 +150,7 @@
                 android:textAlignment="viewEnd"
                 android:textSize="12sp"
                 android:textStyle="normal|bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -154,7 +159,8 @@
             android:layout_below="@+id/imageView19"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout3">
 
             <ImageView
                 android:id="@+id/imageView16"
@@ -190,6 +196,20 @@
             android:layout_alignParentTop="true"
             android:layout_margin="10dp"
             android:background="@drawable/options" />
+
+        <TextView
+            android:id="@+id/tv_lvl"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/text_radius"
+            android:text="30"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <View

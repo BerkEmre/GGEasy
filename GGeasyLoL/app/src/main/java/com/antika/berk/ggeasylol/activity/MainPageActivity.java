@@ -36,6 +36,7 @@ import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
 import com.antika.berk.ggeasylol.fragment.MissionTabsFragment;
 import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.fragment.MissionFragment;
+import com.antika.berk.ggeasylol.fragment.ProfileTabHost;
 import com.antika.berk.ggeasylol.fragment.RankFragment;
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
 import com.antika.berk.ggeasylol.fragment.VersionFragment;
@@ -80,7 +81,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     cmf,"0").commit();
             navigationView.setCheckedItem(R.id.nav_profile);
         }else{
-            ProfilFragment cmf = new ProfilFragment();
+            ProfileTabHost cmf = new ProfileTabHost();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
@@ -131,7 +132,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     R.id.content_main_page,
                     cmf,"0").commit();
         }else if (id == R.id.nav_profile) {
-            ProfilFragment cmf = new ProfilFragment();
+            ProfileTabHost cmf = new ProfileTabHost();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,

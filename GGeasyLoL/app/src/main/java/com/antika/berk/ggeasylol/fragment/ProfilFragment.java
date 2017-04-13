@@ -19,8 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.adapter.IconAdapter;
-import com.antika.berk.ggeasylol.adapter.RankAdapter;
 import com.antika.berk.ggeasylol.adapter.RozetAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
@@ -28,10 +26,9 @@ import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
-import com.antika.berk.ggeasylol.object.SummaryStat;
-import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
-
+import com.mobstac.circularimageprogress.CircularImageProgressView;
+import java.lang.Math;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,26 +40,29 @@ import it.sephiroth.android.library.picasso.Picasso;
 import it.sephiroth.android.library.picasso.Transformation;
 
 
+
 public class ProfilFragment extends Fragment {
-    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist;
+    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist,tv_level;
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
     UserObject uo;
     Button op;
     GridView rozets;
+    CircularImageProgressView lvl;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_profil, container, false);
          dbHelper= new DBHelper(getContext());
-
+        lvl             = (CircularImageProgressView)view.findViewById(R.id.lv_progress);
         tv_summonerName = (TextView) view.findViewById(R.id.summoner_name);
         tv_puan         = (TextView) view.findViewById(R.id.textView51);
         tv_lig          = (TextView) view.findViewById(R.id.textView62);
         tv_lig_adi      = (TextView) view.findViewById(R.id.textView63);
         tv_kill         = (TextView) view.findViewById(R.id.textView64);
         tv_asist        = (TextView) view.findViewById(R.id.textView66);
+        tv_level        = (TextView) view.findViewById(R.id.tv_lvl);
         iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
         iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
         iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
@@ -107,6 +107,8 @@ public class ProfilFragment extends Fragment {
 
         String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
         int _profilIcon=0;
+        int _level=0;
+
         List<RozetObject> ro=new ArrayList<RozetObject>();
 
         @Override
@@ -133,6 +135,7 @@ public class ProfilFragment extends Fragment {
                     _summonerName=object.getString("SihirdarAdi");
                     _puan=object.getString("Puan");
                     _profilIcon=object.getInt("icon");
+                    _level=object.getInt("exp");
                     try{
 
                         List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
@@ -166,6 +169,12 @@ public class ProfilFragment extends Fragment {
                 tv_lig_adi.setText(_ligAdi);
                 tv_kill.setText(_kill);
                 tv_asist.setText(_asist);
+                if(_level<=0)
+                    _level=1;
+                double level=Math.sqrt(_level)/5;
+                double exp=level%1;
+                tv_level.setText(""+(int)(level-exp+1));
+                lvl.setProgress((int)(exp*100));
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
                 if((riotApiHelper.iconSize-1)<_profilIcon)
                     Picasso.with(getContext()).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_profil);

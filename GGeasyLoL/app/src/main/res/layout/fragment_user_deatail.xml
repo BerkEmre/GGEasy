@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.antika.berk.ggeasylol.fragment.UserDeatailFragment">
 
@@ -33,24 +34,40 @@
             android:layout_width="match_parent"
             android:layout_height="150dp" />
 
-        <ImageView
-            android:id="@+id/imageView12"
+        <com.mobstac.circularimageprogress.CircularImageProgressView
+            android:id="@+id/lv_progress"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignBottom="@+id/linearLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/backicon"
-            android:padding="2dp" />
+            android:padding="2dp"
+            app:max="100"
+            app:progress_background_color="@color/transparent"
+            app:progress_width="50" />
 
         <ImageView
             android:id="@+id/imageView19"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignLeft="@+id/imageView12"
-            android:layout_alignStart="@+id/imageView12"
-            android:layout_alignTop="@+id/imageView12"
-            android:padding="5dp" />
+            android:layout_alignLeft="@+id/lv_progress"
+            android:layout_alignStart="@+id/lv_progress"
+            android:layout_alignTop="@+id/lv_progress"
+            android:padding="11dp" />
+
+        <TextView
+            android:id="@+id/tv_lvl"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/champion_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/text_radius"
+            android:text="30"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/linearLayout"

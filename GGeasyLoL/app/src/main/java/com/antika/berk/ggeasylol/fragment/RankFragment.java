@@ -85,9 +85,7 @@ public class RankFragment extends Fragment {
             dbHelper=new DBHelper(getContext());
             uo=dbHelper.getUser();
             try {
-                //URL den gelen veri String olarak aldım
-
-                //if(uo.getEmail().length()>0) gelenData= getJsonFromServer("http://ggeasylol.com/api/get_users.php?mail="+uo.getEmail());
+                rank.clear();
                 if(uo.getEmail().length()>0){
 
                     String gelenData=getJsonFromServer("http://ggeasylol.com/api/get_users.php?mail="+uo.getEmail());
