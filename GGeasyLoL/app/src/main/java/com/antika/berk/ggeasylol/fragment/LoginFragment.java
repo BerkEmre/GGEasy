@@ -159,7 +159,7 @@ public class LoginFragment extends Fragment {
                 DBHelper dbHelper = new DBHelper(getContext());
                 dbHelper.insertUser(_email.replace(" ",""), _sifre, _region, _summonerID);
 
-                ProfilFragment cmf = new ProfilFragment();
+                ProfileTabHost cmf = new ProfileTabHost();
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction().replace(
                         R.id.content_main_page,

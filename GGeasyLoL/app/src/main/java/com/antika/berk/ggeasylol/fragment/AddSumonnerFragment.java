@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -58,7 +59,7 @@ public class AddSumonnerFragment extends DialogFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_sumonner, container, false);
-
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         //SET VIEWS*********************************************************************************
         et_sumonner_name = (EditText) view.findViewById(R.id.editText);
         sp_region        = (Spinner ) view.findViewById(R.id.spinner );

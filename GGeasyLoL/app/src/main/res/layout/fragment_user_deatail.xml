@@ -63,7 +63,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:background="@drawable/text_radius"
-            android:text="30"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="14sp"

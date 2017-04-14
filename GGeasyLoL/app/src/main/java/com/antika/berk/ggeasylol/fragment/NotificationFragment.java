@@ -3,15 +3,14 @@ package com.antika.berk.ggeasylol.fragment;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
@@ -26,46 +25,26 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FriendsFragment extends Fragment {
+
+public class NotificationFragment extends DialogFragment {
 
     DBHelper dbHelper;
     UserObject uo;
     List<RankObject> rank=new ArrayList<RankObject>();
     ListView fri_lv;
-    Button ekle,bildirim;
-    int istek=0;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_friends, container, false);
-        fri_lv=(ListView)view.findViewById(R.id.lv_fri);
-        bildirim=(Button) view.findViewById(R.id.button10);
-        ekle=(Button) view.findViewById(R.id.button6);
-        bildirim.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(istek>0){
-                   FragmentManager fm = getFragmentManager();
-                NotificationFragment asf = new NotificationFragment();
-                asf.show(fm, "");}
-                else
-                    Toast.makeText(getContext(),"Yeni Bildirim Yok.",Toast.LENGTH_LONG).show();
-            }
-        });
-        ekle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                AddFriendFragment asf = new AddFriendFragment();
-                asf.show(fm, "");
-            }
-        });
+        View view= inflater.inflate(R.layout.fragment_notification, container, false);
+        fri_lv=(ListView)view.findViewById(R.id.list_fri);
         new getData().execute();
-        return  view;
+
+
+        return view;
     }
-
-
     private class getData extends AsyncTask<String,String,String> {
 
         BlankFragment progress;
@@ -91,19 +70,19 @@ public class FriendsFragment extends Fragment {
                 JSONArray array=obj.getJSONArray("friends");
                 for(int i=0;i<array.length();i++){
                     JSONObject obj1=array.getJSONObject(i);
-                    JSONObject obj2=obj1.getJSONObject("other");
-                    if(obj1.getString("status").equals("1"))
-                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),""));
-                    JSONObject obj3=obj1.getJSONObject("user2");
-                    if(obj3.getString("SihirdarID").equals(uo.getSummonerID()) && obj1.getString("status").equals("0"))
-                        istek++;
+                    JSONObject obj2=obj1.getJSONObject("user2");
+                    JSONObject obj3=obj1.getJSONObject("user1");
+                    if(obj1.getString("status").equals("0")  &&  obj2.getString("SihirdarID").equals(uo.getSummonerID()))
+                        rank.add(new RankObject(obj3.getString("SihirdarAdi"),obj3.getString("SihirdarID"),obj3.getString("Region"),obj3.getString("Puan"),obj3.getString("icon"),""));
+
+
 
                 }
 
 
                 return "0";
 
-                }
+            }
 
 
 
@@ -119,13 +98,11 @@ public class FriendsFragment extends Fragment {
         protected void onPostExecute(String s) {
             FriendsAdapter adapter=new FriendsAdapter(getActivity(),rank);
             fri_lv.setAdapter(adapter);
-            if(istek>0)
-                bildirim.setText("İstekler ("+istek+")");
+
             progress.dismiss();
 
 
         }
     }
-
 
 }

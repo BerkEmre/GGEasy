@@ -38,14 +38,14 @@
     <string name="end_of_match_exp">Töten +10, Tod -10, Unterstützung +6, Sieg +100, Niederlage -50, Schergen 0.5, Turm +20, Neutraler Minion +1.5, Doppelkill +50, Dreifach-Kill +150, Quad-Kill +300, Penta-Kill + 750, gold +0.05, Schaden +0.001 Punkte in Ranglisten-Spiel.</string>
     <string name="error">Fehler!Bitte versuche es erneut...</string>
     <string name="error_match">Kein Ranglisten-Spiel entdeckt auf Geschichte</string>
-    <string name="error_mission">"Du bist nicht 30 Level! "</string>
-    <string name="explanation">"Mindestens 20 Zeichen. "</string>
+    <string name="error_mission">Du bist nicht 30 Level!</string>
+    <string name="explanation">Mindestens 20 Zeichen.</string>
     <string name="feed_back">Danke für dein Feedback</string>
     <string name="fill_in_all">Danke für dein Feedback</string>
     <string name="first_blood">Erstes Blut</string>
     <string name="first_dragon">Erster Drache</string>
-    <string name="first_inhi">"Zerstört Ersten Inhibitor mit dem Team in Ranglisten-Spiel. "</string>
-    <string name="first_inhibitor">"Erster Inhibitor "</string>
+    <string name="first_inhi">Zerstört Ersten Inhibitor mit dem Team in Ranglisten-Spiel.</string>
+    <string name="first_inhibitor">Erster Inhibitor</string>
     <string name="first_kill_baron">Tötet Ersten Baron mit dem Team in Ranglisten-Spiel.</string>
     <string name="first_kill_ejder">Tötet Erste Drachen mit dem Team in Ranglisten-Spiel.</string>
     <string name="first_tower">Erster Turret</string>
@@ -169,6 +169,12 @@
     <string name="language2">de_DE</string>
     <string name="ten_asist">+10 Unterstützen</string>
     <string name="lore">Mythos</string>
+    <string name="friends">Freunde</string>
+    <string name="add_friend">Freund Hinzufügen</string>
+    <string name="notification">Benachrichtigungen</string>
+    <string name="request_sent">Anfrage Geschickt.</string>
+    <string name="before_request">" Es Gibt eine Anfrage Vor."</string>
+    <string name="no_user">Es ist kein registrierter Benutzer in unserer App.</string>
 
 
 </resources>

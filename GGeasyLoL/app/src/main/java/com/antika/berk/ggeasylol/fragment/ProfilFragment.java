@@ -42,7 +42,7 @@ import it.sephiroth.android.library.picasso.Transformation;
 
 
 public class ProfilFragment extends Fragment {
-    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist,tv_level;
+    TextView  tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist,tv_level;
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
     UserObject uo;
@@ -56,7 +56,6 @@ public class ProfilFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_profil, container, false);
          dbHelper= new DBHelper(getContext());
         lvl             = (CircularImageProgressView)view.findViewById(R.id.lv_progress);
-        tv_summonerName = (TextView) view.findViewById(R.id.summoner_name);
         tv_puan         = (TextView) view.findViewById(R.id.textView51);
         tv_lig          = (TextView) view.findViewById(R.id.textView62);
         tv_lig_adi      = (TextView) view.findViewById(R.id.textView63);
@@ -105,7 +104,7 @@ public class ProfilFragment extends Fragment {
     private class getData extends AsyncTask<String,String,String> {
         BlankFragment progress;
 
-        String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
+        String  _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
         int _profilIcon=0;
         int _level=0;
 
@@ -132,7 +131,6 @@ public class ProfilFragment extends Fragment {
                 try {
                     JSONArray array = new JSONArray(cevap);
                     JSONObject object = array.getJSONObject(0);
-                    _summonerName=object.getString("SihirdarAdi");
                     _puan=object.getString("Puan");
                     _profilIcon=object.getInt("icon");
                     _level=object.getInt("exp");
@@ -163,7 +161,6 @@ public class ProfilFragment extends Fragment {
         protected void onPostExecute(String s) {
             if(s.equals(getContext().getString(R.string.hosgeldiniz))){
                 RiotApiHelper riotApiHelper=new RiotApiHelper();
-                tv_summonerName.setText(_summonerName);
                 tv_puan.setText(" x "+String.format("%.2f",Double.parseDouble(_puan)));
                 tv_lig.setText(_lig);
                 tv_lig_adi.setText(_ligAdi);

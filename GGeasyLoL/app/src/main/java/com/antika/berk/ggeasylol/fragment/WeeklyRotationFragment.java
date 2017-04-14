@@ -55,7 +55,8 @@ public class WeeklyRotationFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ChampionObject data= adapter.getItem(position);
 
-                ChampionDetailFragment cmof = new ChampionDetailFragment();
+                ChampionTabHost cmof = new ChampionTabHost();
+                cmof.setChampionObject(data);
                 WeeklyRotationFragment.this.getFragmentManager().beginTransaction()
                         .replace(R.id.content_main_page, cmof)
                         .addToBackStack(null)

@@ -8,23 +8,7 @@
     android:layout_marginLeft="2dp"
     android:layout_marginRight="2dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/summoner_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textAlignment="center"
-        android:textColor="?attr/colorAccent"
-        android:textSize="30sp"
-        android:textStyle="normal|bold" />
 
-    <View
-        android:layout_height="2dp"
-        android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -205,7 +189,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="12dp"
             android:background="@drawable/text_radius"
-            android:text="30"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="16sp"

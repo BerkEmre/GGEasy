@@ -168,6 +168,12 @@
     <string name="three_mission">Você não pode ter mais de 3 missões!</string>
     <string name="thirty_kill_exp">Obter 30 mortes ou mais do que em jogo Classificado.</string>
     <string name="lore">Mito</string>
+    <string name="friends">Amigos</string>
+    <string name="add_friend">Adicionar Amigo</string>
+    <string name="notification">Notificações</string>
+    <string name="request_sent">Solicitação Enviada.</string>
+    <string name="before_request">Há um Pedido Antes.</string>
+    <string name="no_user">Não há nenhum usuário registrado neste Aplicativo.</string>
 
 
 </resources>

@@ -171,4 +171,10 @@
     <string name="language2">us_US</string>
     <string name="end_of_match_exp">Kills +10, Deaths -10, Assists +6, Victory +100, Defeat -50, Minions 0.5, Turrents +20, Neutral Minions +1.5, Double Kills +50, Triple Kills +150, Quadra Kills +300, Penta Kills +750, Golds +0.05, Damages +0.001 Points in Ranked Match</string>
     <string name="lore">Myth</string>
+    <string name="friends">Friends</string>
+    <string name="add_friend">Add  Friend</string>
+    <string name="notification">Notifications</string>
+    <string name="request_sent">Request Sent.</string>
+    <string name="before_request">There is a Request Before.</string>
+    <string name="no_user">There is no Registered This User in our App.</string>
 </resources>

@@ -171,4 +171,10 @@
     <string name="changed_pass">Şifreniz Değiştirildi</string>
     <string name="language2">tr_TR</string>
     <string name="lore">Efsane</string>
+    <string name="friends">Arkadaşlar</string>
+    <string name="add_friend">Arkadaş Ekle</string>
+    <string name="notification">Bildirimler</string>
+    <string name="request_sent">İstek Gönderildi.</string>
+    <string name="before_request">Daha Önce Gönderilmiş Bir İstek Var.</string>
+    <string name="no_user">Uygulamamızda kayıtlı böyle bir kullanıcı yok.</string>
 </resources>
