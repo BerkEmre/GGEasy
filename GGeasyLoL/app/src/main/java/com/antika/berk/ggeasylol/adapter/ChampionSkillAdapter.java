@@ -57,11 +57,21 @@ public class ChampionSkillAdapter extends BaseAdapter {
         TextView skillName=(TextView)satirView.findViewById(R.id.skillName);
         ChampionSkillObject skill = skillList.get(position);
         skillDescription.setText("\t"+skill.getDescription());
-        skillName.setText(skill.getSkillName());
-        if(position<=3)
-            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/spell/"+skill.getImage()).into(skillLogo);
-        if(position==4)
+        if(position==0)
+            skillName.setText(skill.getSkillName()+" (P)");
+        else if(position==1)
+            skillName.setText(skill.getSkillName()+" (Q)");
+        else if(position==2)
+            skillName.setText(skill.getSkillName()+" (W)");
+        else if(position==3)
+            skillName.setText(skill.getSkillName()+" (E)");
+        else
+            skillName.setText(skill.getSkillName()+" (R)");
+
+        if(position==0)
             Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/passive/"+skill.getImage()).into(skillLogo);
+        else
+            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/spell/"+skill.getImage()).into(skillLogo);
 
 
         return satirView;

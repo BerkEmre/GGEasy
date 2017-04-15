@@ -78,13 +78,13 @@ public class SkillFragment extends Fragment {
                 JSONArray array1=obj1.getJSONArray("spells");
                 JSONObject passive=obj1.getJSONObject("passive");
                 JSONObject obj4=passive.getJSONObject("image");
+                skill.add(new ChampionSkillObject(passive.getString("name"), passive.getString("sanitizedDescription"), obj4.getString("full")));
 
                 for (int i = 0; i < array1.length(); i++) {
                     JSONObject obj2 = array1.getJSONObject(i);
                     JSONObject obj3 = obj2.getJSONObject("image");
                     skill.add(new ChampionSkillObject(obj2.getString("name"), obj2.getString("sanitizedDescription"), obj3.getString("full")));
                 }
-                skill.add(new ChampionSkillObject(passive.getString("name"), passive.getString("sanitizedDescription"), obj4.getString("full")));
 
 
             }

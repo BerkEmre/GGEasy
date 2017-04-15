@@ -33,7 +33,7 @@ public class FriendsFragment extends Fragment {
     List<RankObject> rank=new ArrayList<RankObject>();
     ListView fri_lv;
     Button ekle,bildirim;
-    int istek=0;
+    int istek;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,6 +83,7 @@ public class FriendsFragment extends Fragment {
         protected String doInBackground(String... strings) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
+            istek=0;
             uo=dbHelper.getUser();
             try {
                 rank.clear();
@@ -120,7 +121,7 @@ public class FriendsFragment extends Fragment {
             FriendsAdapter adapter=new FriendsAdapter(getActivity(),rank);
             fri_lv.setAdapter(adapter);
             if(istek>0)
-                bildirim.setText("İstekler ("+istek+")");
+                bildirim.setText(getContext().getString(R.string.notification)+"("+istek+")");
             progress.dismiss();
 
 

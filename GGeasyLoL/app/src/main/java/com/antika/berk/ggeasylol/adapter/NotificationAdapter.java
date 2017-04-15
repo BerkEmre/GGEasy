@@ -68,7 +68,7 @@ public class NotificationAdapter extends BaseAdapter {
         Button accept=(Button) satirView.findViewById(R.id.accept);
         Button cancel=(Button) satirView.findViewById(R.id.cancel);
         summonerName.setText(rank.getSihirdarAdi());
-        puan.setText("x"+rank.getPuan());
+        puan.setText("x "+rank.getPuan());
         region.setText(rank.getRegion());
 
         RiotApiHelper riotApiHelper=new RiotApiHelper();

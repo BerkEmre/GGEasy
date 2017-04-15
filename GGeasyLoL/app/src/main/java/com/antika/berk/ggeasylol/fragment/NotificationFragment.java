@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
+import com.antika.berk.ggeasylol.adapter.NotificationAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.RankObject;
@@ -96,7 +97,7 @@ public class NotificationFragment extends DialogFragment {
 
         @Override
         protected void onPostExecute(String s) {
-            FriendsAdapter adapter=new FriendsAdapter(getActivity(),rank);
+            NotificationAdapter adapter=new NotificationAdapter(getActivity(),rank);
             fri_lv.setAdapter(adapter);
 
             progress.dismiss();
