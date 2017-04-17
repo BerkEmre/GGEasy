@@ -17,6 +17,7 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.RankObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
@@ -30,7 +31,7 @@ public class FriendsFragment extends Fragment {
 
     DBHelper dbHelper;
     UserObject uo;
-    List<RankObject> rank=new ArrayList<RankObject>();
+    List<FriendsObject> friend=new ArrayList<FriendsObject>();
     ListView fri_lv;
     Button ekle,bildirim;
     int istek;
@@ -42,13 +43,15 @@ public class FriendsFragment extends Fragment {
         fri_lv=(ListView)view.findViewById(R.id.lv_fri);
         bildirim=(Button) view.findViewById(R.id.button10);
         ekle=(Button) view.findViewById(R.id.button6);
+
         bildirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(istek>0){
-                   FragmentManager fm = getFragmentManager();
-                NotificationFragment asf = new NotificationFragment();
-                asf.show(fm, "");}
+                    FragmentManager fm = getFragmentManager();
+                    NotificationFragment asf = new NotificationFragment();
+                    asf.setFragment(FriendsFragment.this);
+                    asf.show(fm, "");}
                 else
                     Toast.makeText(getContext(),"Yeni Bildirim Yok.",Toast.LENGTH_LONG).show();
             }
@@ -86,7 +89,7 @@ public class FriendsFragment extends Fragment {
             istek=0;
             uo=dbHelper.getUser();
             try {
-                rank.clear();
+                friend.clear();
                 String gelenData=riotApiHelper.readURL("http://ggeasylol.com/api/get_friends.php?sihirdarID="+uo.getSummonerID()+"&region="+uo.getRegion());
                 JSONObject obj=new JSONObject(gelenData);
                 JSONArray array=obj.getJSONArray("friends");
@@ -94,7 +97,7 @@ public class FriendsFragment extends Fragment {
                     JSONObject obj1=array.getJSONObject(i);
                     JSONObject obj2=obj1.getJSONObject("other");
                     if(obj1.getString("status").equals("1"))
-                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),""));
+                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
                     JSONObject obj3=obj1.getJSONObject("user2");
                     if(obj3.getString("SihirdarID").equals(uo.getSummonerID()) && obj1.getString("status").equals("0"))
                         istek++;
@@ -118,7 +121,7 @@ public class FriendsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            FriendsAdapter adapter=new FriendsAdapter(getActivity(),rank);
+            FriendsAdapter adapter=new FriendsAdapter(getActivity(),friend);
             fri_lv.setAdapter(adapter);
             if(istek>0)
                 bildirim.setText(getContext().getString(R.string.notification)+"("+istek+")");
@@ -126,6 +129,11 @@ public class FriendsFragment extends Fragment {
 
 
         }
+    }
+    public  void yenile(){
+
+
+        new getData().execute();
     }
 
 

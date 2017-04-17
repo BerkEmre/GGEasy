@@ -58,15 +58,15 @@ public class ChampionSkillAdapter extends BaseAdapter {
         ChampionSkillObject skill = skillList.get(position);
         skillDescription.setText("\t"+skill.getDescription());
         if(position==0)
-            skillName.setText(skill.getSkillName()+" (P)");
+            skillName.setText(skill.getSkillName()+" [P]");
         else if(position==1)
-            skillName.setText(skill.getSkillName()+" (Q)");
+            skillName.setText(skill.getSkillName()+" [Q]");
         else if(position==2)
-            skillName.setText(skill.getSkillName()+" (W)");
+            skillName.setText(skill.getSkillName()+" [W]");
         else if(position==3)
-            skillName.setText(skill.getSkillName()+" (E)");
+            skillName.setText(skill.getSkillName()+" [E]");
         else
-            skillName.setText(skill.getSkillName()+" (R)");
+            skillName.setText(skill.getSkillName()+" [R]");
 
         if(position==0)
             Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/passive/"+skill.getImage()).into(skillLogo);

@@ -19,6 +19,7 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionSkillObject;
+import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.RankObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
@@ -31,23 +32,23 @@ import it.sephiroth.android.library.picasso.Transformation;
 public class FriendsAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     Context context;
-    private List<RankObject> rankObjects;
-    public FriendsAdapter(Activity activity, List<RankObject> rank) {
+    private List<FriendsObject> friendsObjects;
+    public FriendsAdapter(Activity activity, List<FriendsObject> friend) {
         //XML'i alıp View'a çevirecek inflater'ı örnekleyelim
         mInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         //gösterilecek listeyi de alalım
-        rankObjects = rank;
+        friendsObjects = friend;
         context=activity.getApplicationContext();
     }
     @Override
     public int getCount() {
-        return rankObjects.size();
+        return friendsObjects.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return rankObjects.get(position);
+        return friendsObjects.get(position);
     }
 
     @Override
@@ -59,20 +60,20 @@ public class FriendsAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View satirView;
         satirView = mInflater.inflate(R.layout.friends_list_item, null);
-        RankObject rank = rankObjects.get(position);
+        FriendsObject friendsObject = friendsObjects.get(position);
         ImageView summonerLogo=(ImageView)satirView.findViewById(R.id.imageView20) ;
         TextView summonerName=(TextView)satirView.findViewById(R.id.textView52);
         TextView puan=(TextView)satirView.findViewById(R.id.textView54) ;
         TextView region=(TextView)satirView.findViewById(R.id.textView53) ;
-        summonerName.setText(rank.getSihirdarAdi());
-        puan.setText("x "+rank.getPuan());
-        region.setText(rank.getRegion());
+        summonerName.setText(friendsObject.getSihirdarAdi());
+        puan.setText("x "+friendsObject.getPuan());
+        region.setText(friendsObject.getRegion());
 
         RiotApiHelper riotApiHelper=new RiotApiHelper();
-        if((riotApiHelper.iconSize-1)<Integer.parseInt(rank.getIcon()))
+        if((riotApiHelper.iconSize-1)<Integer.parseInt(friendsObject.getIcon()))
             Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(summonerLogo);
         else
-            Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(rank.getIcon()))).transform(new CircleTransform()).into(summonerLogo);
+            Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(friendsObject.getIcon()))).transform(new CircleTransform()).into(summonerLogo);
 
 
 
