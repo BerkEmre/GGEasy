@@ -5,10 +5,10 @@
     android:layout_height="wrap_content"
     android:background="@color/cast_expanded_controller_ad_label_background_color"
     android:orientation="vertical"
-    android:paddingBottom="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp">
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,15 +19,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView20"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:padding="3dp"
                 app:srcCompat="@drawable/adc" />
 
             <LinearLayout
@@ -69,7 +69,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -95,7 +95,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:padding="5dp">
@@ -112,8 +111,7 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/cancel"
@@ -127,8 +125,7 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>

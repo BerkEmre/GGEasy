@@ -38,7 +38,6 @@ public class NotificationFragment extends DialogFragment {
     UserObject uo;
     List<FriendsObject> friend=new ArrayList<FriendsObject>();
     ListView fri_lv;
-
     FriendsFragment ff;
     public void setFragment(FriendsFragment ff){
         this.ff=ff;
@@ -116,10 +115,8 @@ public class NotificationFragment extends DialogFragment {
         @Override
         protected void onPostExecute(String s) {
             ff.yenile();
-
             NotificationAdapter adapter=new NotificationAdapter(getActivity(),friend,NotificationFragment.this);
             fri_lv.setAdapter(adapter);
-
             progress.dismiss();
 
         }

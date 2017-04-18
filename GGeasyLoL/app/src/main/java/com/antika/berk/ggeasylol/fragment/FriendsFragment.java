@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -65,6 +66,22 @@ public class FriendsFragment extends Fragment {
             }
         });
         new getData().execute();
+
+
+        fri_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String []array={friend.get(position).getSihirdarID(),friend.get(position).getRegion()};
+                Bundle args = new Bundle();
+                args.putStringArray("array", array);
+                UserDeatailFragment newFragment = new UserDeatailFragment();
+                newFragment.setArguments(args);
+                newFragment.show(getFragmentManager(), "TAG");
+
+
+
+            }
+        });
         return  view;
     }
 

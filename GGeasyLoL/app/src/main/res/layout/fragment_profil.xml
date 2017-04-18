@@ -22,20 +22,20 @@
 
         <com.mobstac.circularimageprogress.CircularImageProgressView
             android:id="@+id/lv_progress"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_alignTop="@+id/imageView19"
             android:layout_centerInParent="true"
             android:layout_toEndOf="@+id/linearLayout"
             android:layout_toRightOf="@+id/linearLayout"
-            app:progress_width="50"
+            app:max="100"
             app:progress_background_color="@color/transparent"
-            app:max="100" />
+            app:progress_width="50" />
 
         <ImageView
             android:id="@+id/imageView19"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="137dp"
@@ -56,8 +56,8 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/win" />
@@ -69,18 +69,21 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:textColor="@android:color/holo_green_light"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="normal|bold" />
 
             </LinearLayout>
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/imageView22"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/lose" />
@@ -92,7 +95,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="normal|bold" />
 
             </LinearLayout>
@@ -122,7 +125,7 @@
                 android:layout_marginTop="3dp"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/cast_expanded_controller_background_color"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="normal|bold" />
 
             <TextView
@@ -132,7 +135,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="3dp"
                 android:textAlignment="viewEnd"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textStyle="normal|bold" />
 
         </LinearLayout>
@@ -206,6 +209,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:listSelector="@android:color/transparent"
-        android:numColumns="3" />
+        android:numColumns="4" />
 
 </LinearLayout>
