@@ -16,6 +16,10 @@
             android:icon="@drawable/sumonners_icon"
             android:title="@string/summoner" />
         <item
+            android:id="@+id/nav_meydan"
+            android:icon="@drawable/places_ic_search"
+            android:title="Meydan Oku" />
+        <item
             android:id="@+id/nav_mission"
             android:icon="@drawable/mission"
             android:title="@string/missions" />
@@ -23,6 +27,7 @@
             android:id="@+id/nav_siralama"
             android:icon="@drawable/rank"
             android:title="@string/rank" />
+
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/champions_icon"
@@ -41,12 +46,6 @@
             <item android:title="Facebook"
                 android:id="@+id/facebook"
                 android:icon="@drawable/facebook_logo" />
-            <item android:title="Instagram"
-                android:id="@+id/instagram"
-                android:icon="@drawable/instagram_logo" />
-            <item android:title="Twitch"
-                android:id="@+id/twitch"
-                android:icon="@drawable/twitch_logo" />
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"

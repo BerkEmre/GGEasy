@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.fragment.ChallengeFragment;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 import com.antika.berk.ggeasylol.fragment.ChangePasswordFragment;
 import com.antika.berk.ggeasylol.fragment.ComingSoonFragment;
@@ -137,6 +138,12 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
+        }else if (id == R.id.nav_meydan) {
+            ChallengeFragment cmf = new ChallengeFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
         } else if (id == R.id.nav_mission) {
             MissionTabsFragment cmf = new MissionTabsFragment();
             FragmentManager fm = getSupportFragmentManager();
@@ -188,22 +195,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                         Uri.parse("https://www.facebook.com/GGEasyTR/")); //catches and opens a url to the desired page
             }
             startActivity(intent);
-        } else if (id==R.id.twitch) {
-            String url = "https://www.twitch.tv/ggeasy_tr";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
-        } else if (id==R.id.instagram) {
-            Uri uri = Uri.parse("https://www.instagram.com/_u/ggeasytr/");
-            Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-            likeIng.setPackage("com.instagram.android");
-            try {
-                startActivity(likeIng);
-            } catch (ActivityNotFoundException e) {
-                startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.instagram.com/ggeasytr/")));
-            }
-        }
+        } 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
