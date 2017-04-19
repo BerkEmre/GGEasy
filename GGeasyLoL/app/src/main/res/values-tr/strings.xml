@@ -177,4 +177,9 @@
     <string name="request_sent">İstek Gönderildi.</string>
     <string name="before_request">Daha Önce Gönderilmiş Bir İstek Var.</string>
     <string name="no_user">Uygulamamızda kayıtlı böyle bir kullanıcı yok.</string>
+    <string name="challenge">Meydan Okuma</string>
+    <string name="waiting">Bekliyor</string>
+    <string name="accepted">Kabul Edildi</string>
+    <string name="concluded">Sonuçlandı</string>
+    <string name="accept">Kabul Et</string>
 </resources>

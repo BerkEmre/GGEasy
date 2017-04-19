@@ -177,4 +177,9 @@
     <string name="request_sent">Request Sent.</string>
     <string name="before_request">There is a Request Before.</string>
     <string name="no_user">There is no Registered This User in our App.</string>
+    <string name="challenge">Challenge</string>
+    <string name="waiting">Waiting</string>
+    <string name="accepted">Accepted</string>
+    <string name="concluded">Concluded</string>
+    <string name="accept">Accept</string>
 </resources>

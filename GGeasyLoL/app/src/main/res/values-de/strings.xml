@@ -173,8 +173,13 @@
     <string name="add_friend">Freund Hinzufügen</string>
     <string name="notification">Benachrichtigungen</string>
     <string name="request_sent">Anfrage Geschickt.</string>
-    <string name="before_request">" Es Gibt eine Anfrage Vor."</string>
+    <string name="before_request">Es Gibt eine Anfrage Vor.</string>
     <string name="no_user">Es ist kein registrierter Benutzer in unserer App.</string>
+    <string name="challenge">Herausforderung</string>
+    <string name="waiting">Warten</string>
+    <string name="accepted">Akzeptiert</string>
+    <string name="concluded">Abgeschlossen</string>
+    <string name="accept">Akzeptieren</string>
 
 
 </resources>

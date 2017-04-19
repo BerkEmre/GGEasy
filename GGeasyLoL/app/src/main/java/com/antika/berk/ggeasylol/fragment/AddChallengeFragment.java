@@ -41,6 +41,8 @@ public class AddChallengeFragment extends DialogFragment {
     Button add_btn;
     List<FriendsObject> friend=new ArrayList<FriendsObject>();
 
+
+
     int secili_user = 999999999;
     int secili_gorev = 999999999;
 
@@ -192,6 +194,11 @@ public class AddChallengeFragment extends DialogFragment {
 
             }
         }
+        public  void yenile(){
+
+
+            new getData().execute();
+        }
 
         @Override
         protected void onPostExecute(String s) {
@@ -221,7 +228,7 @@ public class AddChallengeFragment extends DialogFragment {
             RiotApiHelper apiHelper=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
 
-            apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&sihirdarID="+strings[0]+"&region="+strings[1]+"&mission=Gorev"+strings[2]);
+            apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&sihirdarID="+strings[0]+"&region="+strings[1]+"&mission="+strings[2]);
 
 
             return "0";
@@ -235,4 +242,6 @@ public class AddChallengeFragment extends DialogFragment {
         }
 
     }
+
+
 }

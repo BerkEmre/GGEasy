@@ -17,8 +17,8 @@
             android:title="@string/summoner" />
         <item
             android:id="@+id/nav_meydan"
-            android:icon="@drawable/places_ic_search"
-            android:title="Meydan Oku" />
+            android:icon="@drawable/challenge_icon"
+            android:title="@string/challenge" />
         <item
             android:id="@+id/nav_mission"
             android:icon="@drawable/mission"

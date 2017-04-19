@@ -8,16 +8,16 @@
     android:weightSum="1">
 
     <TextView
-        android:text="Challenge"
+        android:id="@+id/textView21"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView21"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif-condensed"
         android:layout_margin="10dp"
-        android:textColor="@color/colorAccent" />
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/challenge"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:textStyle="normal|bold" />
 
     <View
         android:layout_height="2dp"

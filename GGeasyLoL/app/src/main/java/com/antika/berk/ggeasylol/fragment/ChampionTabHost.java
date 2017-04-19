@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 

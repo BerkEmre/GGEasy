@@ -19,6 +19,7 @@ import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChallengeObject;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.sephiroth.android.library.picasso.Picasso;
@@ -28,12 +29,15 @@ public class ChallengeAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<ChallengeObject> mKisiListesi;
     private Context context;
+    List<String> gorev_puan = new ArrayList<String>();
 
     public ChallengeAdapter(Activity activity, List<ChallengeObject> kisiler) {
         context = activity;
         mInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         mKisiListesi = kisiler;
+
+
     }
 
     @Override
@@ -62,10 +66,37 @@ public class ChallengeAdapter extends BaseAdapter {
         ImageView iv_user2 = (ImageView) satirView.findViewById(R.id.imageView28);
         TextView tv_user1   = (TextView ) satirView.findViewById(R.id.textView58);
         TextView tv_user2  = (TextView ) satirView.findViewById(R.id.textView65);
+        TextView status  = (TextView ) satirView.findViewById(R.id.textView60);
+        TextView puan  = (TextView ) satirView.findViewById(R.id.textView61);
+        gorev_puan.add("3000");
+        gorev_puan.add("1500");
+        gorev_puan.add("750");
+        gorev_puan.add("300");
+        gorev_puan.add("600");
+        gorev_puan.add("1200");
+        gorev_puan.add("2000");
+        gorev_puan.add("350");
+        gorev_puan.add("750");
+        gorev_puan.add("1500");
+        gorev_puan.add("400");
+        gorev_puan.add("1100");
+        gorev_puan.add("2000");
+        gorev_puan.add("200");
+        gorev_puan.add("350");
+        gorev_puan.add("600");
         ChallengeObject challengeObject = mKisiListesi.get(position);
+        tv_user1.setText(challengeObject.getSihirdarAdi1());
+        tv_user2.setText(challengeObject.getSihirdarAdi2());
+        puan.setText("x "+gorev_puan.get(Integer.parseInt(challengeObject.getGorev())-1));
+        if(challengeObject.getStatus().equals("0"))
+            status.setText(context.getString(R.string.waiting));
+        else if(challengeObject.getStatus().equals("1"))
+            status.setText(context.getString(R.string.accepted));
+        else
+            status.setText(context.getString(R.string.concluded));
 
         RiotApiHelper riotApiHelper=new RiotApiHelper();
-        if((riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon1())&& (riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon2())){
+        if((riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon1())|| (riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon2())){
             Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user1);
             Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user2);}
         else {
