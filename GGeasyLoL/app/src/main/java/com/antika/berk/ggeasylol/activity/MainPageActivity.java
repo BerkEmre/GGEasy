@@ -21,11 +21,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.firebase.MyFirebaseInstanceIDService;
 import com.antika.berk.ggeasylol.fragment.ChallengeFragment;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 import com.antika.berk.ggeasylol.fragment.ChangePasswordFragment;
@@ -46,6 +48,7 @@ import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.RankedStatObject;
 import com.antika.berk.ggeasylol.object.UserObject;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @Override
@@ -53,6 +56,10 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d("TOKEN", "Token: " + token);
+        new checkVersiyon().execute(token);
 
         PackageInfo pInfo = null;
         try {
@@ -212,6 +219,11 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         @Override
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
+            if(params[0].length() > 30){
+                DBHelper dbHelper = new DBHelper(getApplicationContext());
+                riotApiHelper.readURL("http://ggeasylol.com/api/send_token.php?email=" + dbHelper.getUser().getEmail() + "&token=" + params[0]);
+                return "1";
+            }
             String gelenVersiyon = riotApiHelper.readURL("http://ggeasylol.com/api/versiyon.html");
             if(gelenVersiyon.equals(params[0]))
                 return "1";
