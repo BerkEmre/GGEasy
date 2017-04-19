@@ -17,12 +17,14 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChallengeMissionAdapter;
 import com.antika.berk.ggeasylol.adapter.ChallengeSumonnerAdapter;
 import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.helper.MissionHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.UserObject;
@@ -40,7 +42,11 @@ public class AddChallengeFragment extends DialogFragment {
     TextView puan;
     Button add_btn;
     List<FriendsObject> friend=new ArrayList<FriendsObject>();
-
+    MissionHelper missionHelper;
+    ChallengeFragment cf;
+    public void setChallengeFragment(ChallengeFragment cf){
+        this.cf=cf;
+    }
 
 
     int secili_user = 999999999;
@@ -55,61 +61,11 @@ public class AddChallengeFragment extends DialogFragment {
         mission_gv=(GridView)view.findViewById(R.id.mission_gv);
         puan=(TextView)view.findViewById(R.id.textView59);
         add_btn = (Button) view.findViewById(R.id.button12);
+        missionHelper=new MissionHelper(getContext());
 
-        List<Integer> gorev_img = new ArrayList<Integer>();
-        List<String> gorev_txt = new ArrayList<String>();
-        final List<String> gorev_puan = new ArrayList<String>();
 
-        gorev_img.add(R.drawable.penta);
-        gorev_txt.add(getContext().getString(R.string.pentakill));
-        gorev_puan.add("3000");
-        gorev_img.add(R.drawable.quadra);
-        gorev_txt.add(getContext().getString(R.string.quadra));
-        gorev_puan.add("1500");
-        gorev_img.add(R.drawable.triple);
-        gorev_txt.add(getContext().getString(R.string.triple));
-        gorev_puan.add("750");
-        gorev_img.add(R.drawable.doub);
-        gorev_txt.add(getContext().getString(R.string.doublekill));
-        gorev_puan.add("300");
-        gorev_img.add(R.drawable.kill);
-        gorev_txt.add(getContext().getString(R.string.ten_kill));
-        gorev_puan.add("600");
-        gorev_img.add(R.drawable.killa);
-        gorev_txt.add(getContext().getString(R.string.twelve_kill));
-        gorev_puan.add("1200");
-        gorev_img.add(R.drawable.killb);
-        gorev_txt.add(getContext().getString(R.string.thirty_kill));
-        gorev_puan.add("2000");
-        gorev_img.add(R.drawable.asist);
-        gorev_txt.add(getContext().getString(R.string.ten_asist));
-        gorev_puan.add("350");
-        gorev_img.add(R.drawable.asista);
-        gorev_txt.add(getContext().getString(R.string.twelve_asist));
-        gorev_puan.add("750");
-        gorev_img.add(R.drawable.asistb);
-        gorev_txt.add(getContext().getString(R.string.thirty_asist));
-        gorev_puan.add("1500");
-        gorev_img.add(R.drawable.kule1);
-        gorev_txt.add(getContext().getString(R.string.two_tower));
-        gorev_puan.add("400");
-        gorev_img.add(R.drawable.kule2);
-        gorev_txt.add(getContext().getString(R.string.four_tower));
-        gorev_puan.add("1100");
-        gorev_img.add(R.drawable.kule3);
-        gorev_txt.add(getContext().getString(R.string.six_tower));
-        gorev_puan.add("2000");
-        gorev_img.add(R.drawable.minion10);
-        gorev_txt.add(getContext().getString(R.string.hundred_minion));
-        gorev_puan.add("200");
-        gorev_img.add(R.drawable.minion20);
-        gorev_txt.add(getContext().getString(R.string.hundredfifty_minion));
-        gorev_puan.add("350");
-        gorev_img.add(R.drawable.minion30);
-        gorev_txt.add(getContext().getString(R.string.twohundred_minion));
-        gorev_puan.add("600");
 
-        ChallengeMissionAdapter adapter1=new ChallengeMissionAdapter(getActivity(),gorev_img,gorev_txt);
+        ChallengeMissionAdapter adapter1=new ChallengeMissionAdapter(getActivity());
         mission_gv.setAdapter(adapter1);
         new getData().execute();
 
@@ -137,13 +93,16 @@ public class AddChallengeFragment extends DialogFragment {
                 row2[0] = view;
                 view.setBackgroundResource(R.color.primary_light);
                 secili_gorev = position;
-                puan.setText("x "+gorev_puan.get(position));
+                puan.setText("x "+missionHelper.gorev_puan.get(position));
             }
         });
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new addChallenge().execute(friend.get(secili_user).getSihirdarID(), friend.get(secili_user).getRegion(),""+(secili_gorev+1));
+                if(secili_user != 999999999 && secili_gorev != 999999999)
+                    new addChallenge().execute(friend.get(secili_user).getSihirdarID(), friend.get(secili_user).getRegion(),""+(secili_gorev+1));
+                else
+                    Toast.makeText(getContext(),getContext().getString(R.string.try_again), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -227,18 +186,29 @@ public class AddChallengeFragment extends DialogFragment {
         protected String doInBackground(String... strings) {
             RiotApiHelper apiHelper=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
+            try{
+                apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&sihirdarID="+strings[0]+"&region="+strings[1]+"&mission="+strings[2]);
+                return "okey";
+            }
+            catch (Exception e){
+                return "HATA";
+            }
 
-            apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&sihirdarID="+strings[0]+"&region="+strings[1]+"&mission="+strings[2]);
 
 
-            return "0";
         }
 
         @Override
         protected void onPostExecute(String s) {
             progress.dismiss();
-            getDialog().dismiss();
+            if(!s.equals("HATA")){
 
+                cf.yenile();
+                getDialog().dismiss();
+
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
         }
 
     }

@@ -43,7 +43,7 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey   = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
-    public String version  = "7.6.1";
+    public String version  = "7.8.1";
     public int iconSize    =  22;
     //Get summoner object with summoner name
     public SummonerObject getSumonner(String summonerName, String region) {

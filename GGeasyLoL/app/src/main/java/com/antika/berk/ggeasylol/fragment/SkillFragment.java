@@ -86,19 +86,23 @@ public class SkillFragment extends Fragment {
                     skill.add(new ChampionSkillObject(obj2.getString("name"), obj2.getString("sanitizedDescription"), obj3.getString("full")));
                 }
 
-
+                return "tamam";
             }
 
             catch (Exception e) {
                 e.printStackTrace();
+                return "HATA";
             }
-            return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
-            ChampionSkillAdapter adapter=new ChampionSkillAdapter(getActivity(),skill);
-            skilllist.setAdapter(adapter);
+            if(s.equals("HATA"))
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+            else {
+                ChampionSkillAdapter adapter=new ChampionSkillAdapter(getActivity(),skill);
+                skilllist.setAdapter(adapter);
+            }
             progress.dismiss();
 
 

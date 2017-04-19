@@ -35,7 +35,7 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -47,7 +47,7 @@
                 android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="10sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -191,7 +191,7 @@
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/cancel"
@@ -205,7 +205,7 @@
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:visibility="visible" />
+            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>

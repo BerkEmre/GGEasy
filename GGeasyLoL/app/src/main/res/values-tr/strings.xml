@@ -182,4 +182,6 @@
     <string name="accepted">Kabul Edildi</string>
     <string name="concluded">Sonuçlandı</string>
     <string name="accept">Kabul Et</string>
+    <string name="victory">Zafer</string>
+    <string name="defeat">Bozgun</string>
 </resources>

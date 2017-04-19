@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionSkinAdapter;
@@ -70,17 +71,22 @@ public class SkinFragment extends Fragment {
                     JSONObject obj2=array1.getJSONObject(i);
                     skins.add(new ChampionSkinObject(obj2.getString("name"),obj2.getInt("num"),obj1.getString("key")));
                 }
+                return "tamam";
 
             } catch (Exception e) {
                 e.printStackTrace();
+                return "HATA";
             }
-            return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
-            ChampionSkinAdapter adapter=new ChampionSkinAdapter(getActivity(),skins);
-            gridview.setAdapter(adapter);
+            if(s.equals("HATA"))
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+            else {
+                ChampionSkinAdapter adapter=new ChampionSkinAdapter(getActivity(),skins);
+                gridview.setAdapter(adapter);
+            }
             progress.dismiss();
 
 

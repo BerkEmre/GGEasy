@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.helper.MissionHelper;
 
 import java.util.List;
 
@@ -23,26 +24,25 @@ import it.sephiroth.android.library.picasso.Transformation;
 
 public class ChallengeMissionAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
-    private List<Integer> images;
-    private List<String> texts;
     private Context context;
+    MissionHelper missionHelper;
 
-    public ChallengeMissionAdapter(Activity activity, List<Integer> images, List<String> texts) {
+    public ChallengeMissionAdapter(Activity activity) {
         context = activity;
         mInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
-        this.images = images;
-        this.texts = texts;
+        missionHelper=new MissionHelper(context);
+
     }
 
     @Override
     public int getCount() {
-        return texts.size();
+        return missionHelper.gorev_puan.size();
     }
 
     @Override
     public String getItem(int position) {
-        return texts.get(position);
+        return missionHelper.gorev_puan.get(position);
     }
 
     @Override
@@ -59,8 +59,8 @@ public class ChallengeMissionAdapter extends BaseAdapter {
         ImageView iv_image = (ImageView) satirView.findViewById(R.id.imageView23);
         TextView tv_text   = (TextView ) satirView.findViewById(R.id.textView55);
 
-        tv_text.setText(texts.get(position));
-        Picasso.with(context).load(images.get(position)).transform(new CircleTransform()).into(iv_image);
+        tv_text.setText(missionHelper.gorev_txt.get(position));
+        Picasso.with(context).load(missionHelper.gorev_img.get(position)).transform(new CircleTransform()).into(iv_image);
 
         return satirView;
     }

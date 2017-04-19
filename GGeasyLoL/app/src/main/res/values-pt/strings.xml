@@ -179,6 +179,8 @@
     <string name="accepted">Aceitaram</string>
     <string name="concluded">Concluído</string>
     <string name="accept">Aceitar</string>
+    <string name="victory">Vitória</string>
+    <string name="defeat">Derrota</string>
 
 
 </resources>

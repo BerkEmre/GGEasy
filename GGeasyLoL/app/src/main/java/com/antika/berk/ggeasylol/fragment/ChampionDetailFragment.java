@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
@@ -60,44 +61,34 @@ public class ChampionDetailFragment extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
             try {
+                RiotApiHelper apiHelper=new RiotApiHelper();
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
+                String gelenData=apiHelper.readURL("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1;
                 obj1=new JSONObject(gelenData);
                 return obj1.getString("lore");
             } catch (Exception e) {
                 e.printStackTrace();
+                return "HATA";
             }
-            return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
-            String k=s.replace("<br>", "\n");
-            hikayeView.setText("\t"+k);
+            if(!s.equals("HATA")){
+                String k=s.replace("<br>", "\n");
+                hikayeView.setText("\t"+k);
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+
 
             progress.dismiss();
 
 
         }
-    }//urlden Json çektim
-    public static String getJsonFromServer(String url) throws IOException {
-
-        BufferedReader inputStream = null;
-
-        URL jsonUrl = new URL(url);
-        URLConnection dc = jsonUrl.openConnection();
-
-        dc.setConnectTimeout(5000);
-        dc.setReadTimeout(5000);
-
-        inputStream = new BufferedReader(new InputStreamReader(
-                dc.getInputStream()));
-
-        // read the JSON results into a string
-        String jsonResult = inputStream.readLine();
-        return jsonResult;
     }
+
 
 }

@@ -11,13 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.helper.MissionHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChallengeObject;
 import com.antika.berk.ggeasylol.object.FriendsObject;
+import com.antika.berk.ggeasylol.object.UserObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +32,6 @@ public class ChallengeAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<ChallengeObject> mKisiListesi;
     private Context context;
-    List<String> gorev_puan = new ArrayList<String>();
 
     public ChallengeAdapter(Activity activity, List<ChallengeObject> kisiler) {
         context = activity;
@@ -60,49 +62,40 @@ public class ChallengeAdapter extends BaseAdapter {
         View satirView;
 
         DBHelper dbHelper = new DBHelper(context);
-
+        UserObject uo=dbHelper.getUser();
+        MissionHelper missionHelper=new MissionHelper(context);
         satirView = mInflater.inflate(R.layout.challenge_list_item, null);
         ImageView iv_user1 = (ImageView) satirView.findViewById(R.id.imageView26);
         ImageView iv_user2 = (ImageView) satirView.findViewById(R.id.imageView28);
         TextView tv_user1   = (TextView ) satirView.findViewById(R.id.textView58);
         TextView tv_user2  = (TextView ) satirView.findViewById(R.id.textView65);
-        TextView status  = (TextView ) satirView.findViewById(R.id.textView60);
         TextView puan  = (TextView ) satirView.findViewById(R.id.textView61);
-        gorev_puan.add("3000");
-        gorev_puan.add("1500");
-        gorev_puan.add("750");
-        gorev_puan.add("300");
-        gorev_puan.add("600");
-        gorev_puan.add("1200");
-        gorev_puan.add("2000");
-        gorev_puan.add("350");
-        gorev_puan.add("750");
-        gorev_puan.add("1500");
-        gorev_puan.add("400");
-        gorev_puan.add("1100");
-        gorev_puan.add("2000");
-        gorev_puan.add("200");
-        gorev_puan.add("350");
-        gorev_puan.add("600");
+        LinearLayout back=(LinearLayout)satirView.findViewById(R.id.background);
+
         ChallengeObject challengeObject = mKisiListesi.get(position);
         tv_user1.setText(challengeObject.getSihirdarAdi1());
         tv_user2.setText(challengeObject.getSihirdarAdi2());
-        puan.setText("x "+gorev_puan.get(Integer.parseInt(challengeObject.getGorev())-1));
-        if(challengeObject.getStatus().equals("0"))
-            status.setText(context.getString(R.string.waiting));
-        else if(challengeObject.getStatus().equals("1"))
-            status.setText(context.getString(R.string.accepted));
-        else
-            status.setText(context.getString(R.string.concluded));
+        puan.setText("x "+missionHelper.gorev_puan.get(Integer.parseInt(challengeObject.getGorev())-1));
+        if(challengeObject.getStatus().equals("0")){
+            back.setBackgroundColor(0x55FFC107);
+          }
+        else if(challengeObject.getStatus().equals("2")){
+            if(challengeObject.getWinner().equals(uo.getSummonerID()))
+                back.setBackgroundColor(0x3907FF07);
+            else
+                back.setBackgroundColor(0x50FF1100);        }
+
 
         RiotApiHelper riotApiHelper=new RiotApiHelper();
-        if((riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon1())|| (riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon2())){
+        if((riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon1()))
             Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user1);
-            Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user2);}
-        else {
+        else
             Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_user1);
+        if((riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon2()))
+            Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user2);
+        else
             Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon2()))).transform(new CircleTransform()).into(iv_user2);
-        }
+
         return satirView;
     }
 

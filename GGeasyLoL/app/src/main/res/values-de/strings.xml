@@ -180,6 +180,8 @@
     <string name="accepted">Akzeptiert</string>
     <string name="concluded">Abgeschlossen</string>
     <string name="accept">Akzeptieren</string>
+    <string name="victory">Sieg</string>
+    <string name="defeat">Niederlage</string>
 
 
 </resources>

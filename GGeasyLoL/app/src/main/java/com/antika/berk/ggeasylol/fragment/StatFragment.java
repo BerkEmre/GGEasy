@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
@@ -94,29 +95,33 @@ public class StatFragment extends Fragment {
                         obj2.getDouble("mpperlevel"),obj2.getDouble("mpregen"),obj2.getDouble("mpregenperlevel"),
                         obj2.getDouble("spellblock"),obj2.getDouble("spellblockperlevel"),obj3.getInt("attack"),
                         obj3.getInt("defense"),obj3.getInt("magic"),obj3.getInt("difficulty")));
-
+                return "tamam";
             }
             catch (Exception e) {
                 e.printStackTrace();
+                return "HATA";
             }
-            return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
-            armor.setText(""+stat.get(0).getArmor()+"(+"+stat.get(0).getArmorperlevel()+"/Lv)");
-            attackdamage.setText(""+stat.get(0).getAttackdamage()+"(+"+stat.get(0).getAttackdamageperlevel()+"/Lv)");
-            attackrange.setText(""+stat.get(0).getAttackrange());
-            hp.setText(""+stat.get(0).getHp()+"(+"+stat.get(0).getHpperlevel()+"/Lv)");
-            hpregen.setText(""+stat.get(0).getHpregen()+"(+"+stat.get(0).getHpregenperlevel()+"/Lv)");
-            movespeed.setText(""+stat.get(0).getMovespeed());
-            mp.setText(""+stat.get(0).getMp()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
-            mpregen.setText(""+stat.get(0).getMpregen()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
-            spellblock.setText(""+stat.get(0).getSpellblock()+"(+"+stat.get(0).getSpellblockperlevel()+"/Lv)");
-            attack_p.setProgress(stat.get(0).getAttack());
-            defense_p.setProgress(stat.get(0).getDefense());
-            magic_p.setProgress(stat.get(0).getMagic());
-            difficulty_p.setProgress(stat.get(0).getDifficulty());
+            if(s.equals("HATA"))
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+            else {
+                armor.setText(""+stat.get(0).getArmor()+"(+"+stat.get(0).getArmorperlevel()+"/Lv)");
+                attackdamage.setText(""+stat.get(0).getAttackdamage()+"(+"+stat.get(0).getAttackdamageperlevel()+"/Lv)");
+                attackrange.setText(""+stat.get(0).getAttackrange());
+                hp.setText(""+stat.get(0).getHp()+"(+"+stat.get(0).getHpperlevel()+"/Lv)");
+                hpregen.setText(""+stat.get(0).getHpregen()+"(+"+stat.get(0).getHpregenperlevel()+"/Lv)");
+                movespeed.setText(""+stat.get(0).getMovespeed());
+                mp.setText(""+stat.get(0).getMp()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
+                mpregen.setText(""+stat.get(0).getMpregen()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
+                spellblock.setText(""+stat.get(0).getSpellblock()+"(+"+stat.get(0).getSpellblockperlevel()+"/Lv)");
+                attack_p.setProgress(stat.get(0).getAttack());
+                defense_p.setProgress(stat.get(0).getDefense());
+                magic_p.setProgress(stat.get(0).getMagic());
+                difficulty_p.setProgress(stat.get(0).getDifficulty());
+        }
             progress.dismiss();
 
 

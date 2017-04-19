@@ -2,9 +2,9 @@ package com.antika.berk.ggeasylol.object;
 
 public class ChallengeObject {
 
-    private String sihirdarAdi1, sihirdarID1,region1,puan1,icon1,id,sihirdarAdi2, sihirdarID2,region2,puan2,icon2,status,gorev,winner;
+    private String sihirdarAdi1, sihirdarID1,region1,puan1,icon1,id,sihirdarAdi2, sihirdarID2,region2,puan2,icon2,status,gorev,winner,matchID1,matchID2;
 
-    public ChallengeObject(String sihirdarAdi1, String sihirdarID1,String region1,String puan1,String icon1,String id,String sihirdarAdi2, String sihirdarID2,String region2,String puan2,String icon2,String status,String gorev,String winner){
+    public ChallengeObject(String sihirdarAdi1, String sihirdarID1,String region1,String puan1,String icon1,String id,String sihirdarAdi2, String sihirdarID2,String region2,String puan2,String icon2,String status,String gorev,String winner,String matchID1,String matchID2){
         this.sihirdarAdi1   = sihirdarAdi1;
         this.sihirdarID1 = sihirdarID1;
         this.region1 = region1;
@@ -19,6 +19,8 @@ public class ChallengeObject {
         this.status=status;
         this.gorev=gorev;
         this.winner=winner;
+        this.matchID1=matchID1;
+        this.matchID2=matchID2;
     }
 
     public String getSihirdarAdi1()  {return sihirdarAdi1;}
@@ -35,6 +37,8 @@ public class ChallengeObject {
     public String getStatus(){return status;}
     public String getGorev(){return gorev;}
     public String getWinner(){return winner;}
+    public String getMatchID1(){return matchID1;}
+    public String getMatchID2(){return matchID2;}
 
 
 

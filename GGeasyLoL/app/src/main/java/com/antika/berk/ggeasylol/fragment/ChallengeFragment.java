@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.antika.berk.ggeasylol.Other.Challenge;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChallengeAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
@@ -37,6 +38,7 @@ public class ChallengeFragment extends Fragment {
     DBHelper dbHelper;
     UserObject uo;
 
+
     List<ChallengeObject> challengeObjects;
 
     public void setChampions(List<ChallengeObject> challengeObjects){
@@ -56,6 +58,7 @@ public class ChallengeFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
                 AddChallengeFragment asf = new AddChallengeFragment();
+                asf.setChallengeFragment(ChallengeFragment.this);
                 asf.show(fm, "");
             }
         });
@@ -67,6 +70,8 @@ public class ChallengeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentManager fm = getFragmentManager();
                 ChallengeOpenFragment asf = new ChallengeOpenFragment();
+                asf.setChallengeObject(challengeObjects.get(position));
+                asf.setChallengeFragment(ChallengeFragment.this);
                 asf.show(fm, "");
             }
         });
@@ -104,7 +109,7 @@ public class ChallengeFragment extends Fragment {
                     JSONObject obj1=array.getJSONObject(i);
                     JSONObject obj2=obj1.getJSONObject("user1");
                     JSONObject obj3=obj1.getJSONObject("user2");
-                    challengeObjects.add(new ChallengeObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID"),obj3.getString("SihirdarAdi"),obj3.getString("SihirdarID"),obj3.getString("Region"),obj3.getString("Puan"),obj3.getString("icon"),obj1.getString("status"),obj1.getString("mission"),obj1.getString("winnerUser")));
+                    challengeObjects.add(new ChallengeObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID"),obj3.getString("SihirdarAdi"),obj3.getString("SihirdarID"),obj3.getString("Region"),obj3.getString("Puan"),obj3.getString("icon"),obj1.getString("status"),obj1.getString("mission"),obj1.getString("winnerUser"),obj1.getString("user1Match"),obj1.getString("user2Match")));
 
 
                 }

@@ -182,4 +182,6 @@
     <string name="accepted">Accepted</string>
     <string name="concluded">Concluded</string>
     <string name="accept">Accept</string>
+    <string name="victory">Victory</string>
+    <string name="defeat">Defeat</string>
 </resources>
