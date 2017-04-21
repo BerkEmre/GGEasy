@@ -54,7 +54,7 @@ public class FriendsFragment extends Fragment {
                     asf.setFragment(FriendsFragment.this);
                     asf.show(fm, "");}
                 else
-                    Toast.makeText(getContext(),"Yeni Bildirim Yok.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),getContext().getString(R.string.no_notification),Toast.LENGTH_LONG).show();
             }
         });
         ekle.setOnClickListener(new View.OnClickListener() {

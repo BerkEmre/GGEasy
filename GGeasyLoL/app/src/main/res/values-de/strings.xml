@@ -118,16 +118,16 @@
     <string name="registred">Dieser Summoner Name wurde bereits registriert.</string>
     <string name="save_summoner">Speichern Sie Summoner</string>
     <string name="search">Suche...</string>
-    <string name="send_mail">E-Mail senden</string>
-    <string name="send_mail_bug">Feedback</string>
-    <string name="set_summoner_name">Set Summoner Name</string>
+    <string name="send_mail">Mail Senden</string>
+    <string name="send_mail_bug">Mission çevirileri</string>
+    <string name="set_summoner_name">Feedback</string>
     <string name="share">Aktie</string>
-    <string name="sing_up_gg_easy">Melden Sie sich für GGEasy-LOL</string>
+    <string name="sing_up_gg_easy">Mission, Aufgabe, Auftrag, Sendung, Einsatz, Berufung</string>
     <string name="six_tower">+6 Turrets</string>
-    <string name="six_tower_exp">Zerstören Sie 6 Turrets oder mehr als in Ranglisten-Spiel.</string>
-    <string name="skils">Fähigkeiten</string>
+    <string name="six_tower_exp">"Zerstören Sie 6 Turrets oder mehr als in Ranglisten-Spiel. "</string>
+    <string name="skils">Fähigkeit</string>
     <string name="skins">Haut</string>
-    <string name="sotec_media">berkemrealtan.com</string>
+    <string name="sotec_media">ggeasylol.com</string>
     <string name="stats">Stats</string>
     <string name="subject">Fach</string>
     <string name="summoner">Summoner</string>
@@ -184,6 +184,10 @@
     <string name="defeat">Niederlage</string>
     <string name="confront">Konfrontieren</string>
     <string name="create_new">Erstelle Neu</string>
+    <string name="select_mission">Mission Auswählen</string>
+    <string name="waiting_opponent">Wartende Gegner</string>
+    <string name="select_opponent">Wähle Gegner</string>
+    <string name="no_notification">Keine neuen Benachrichtigungen</string>
 
 
 </resources>

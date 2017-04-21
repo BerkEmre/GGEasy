@@ -129,7 +129,7 @@
     <string name="six_tower_exp">Destrua 6 torres ou mais do que em jogo Classificado.</string>
     <string name="skils">Habilidades</string>
     <string name="skins">Skins</string>
-    <string name="sotec_media">berkemrealtan.com</string>
+    <string name="sotec_media">ggeasylol.com</string>
     <string name="stats">Estatísticas</string>
     <string name="subject">Sujeito</string>
     <string name="summoner">Summoner</string>
@@ -183,6 +183,10 @@
     <string name="defeat">Derrota</string>
     <string name="confront">Enfrentar</string>
     <string name="create_new">Crie Um Novo</string>
+    <string name="select_mission">Selecionar Missão</string>
+    <string name="waiting_opponent">Aguardando Oponentes</string>
+    <string name="select_opponent">Selecione o Adversário</string>
+    <string name="no_notification">Não há novas notificações</string>
 
 
 </resources>

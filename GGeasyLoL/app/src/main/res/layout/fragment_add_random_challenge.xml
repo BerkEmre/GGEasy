@@ -27,10 +27,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:text="Görev Seç"
+                android:text="@string/select_mission"
                 android:textAlignment="center"
                 android:textColor="@color/cast_expanded_controller_background_color"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <GridView
@@ -62,10 +62,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    android:text="Bekleyen Rakipler"
+                    android:text="@string/waiting_opponent"
                     android:textAlignment="center"
                     android:textColor="@color/cast_expanded_controller_background_color"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
             </RelativeLayout>

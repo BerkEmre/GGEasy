@@ -9,7 +9,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="sotec_media">berkemrealtan.com</string>
+    <string name="sotec_media">ggeasylol.com</string>
     <string name="summoner_name">Summoner Name</string>
     <string name="region">Region</string>
     <string name="save_summoner">Save Summoner</string>
@@ -168,7 +168,6 @@
     <string name="app_update_text">You don\'t have latest version! Do you want update now?</string>
     <string name="pls_register">Please Sign Up or Sign In on Profile Page!</string>
     <string name="changed_pass">Changed Your Password</string>
-    <string name="language2">us_US</string>
     <string name="end_of_match_exp">Kills +10, Deaths -10, Assists +6, Victory +100, Defeat -50, Minions 0.5, Turrents +20, Neutral Minions +1.5, Double Kills +50, Triple Kills +150, Quadra Kills +300, Penta Kills +750, Golds +0.05, Damages +0.001 Points in Ranked Match</string>
     <string name="lore">Myth</string>
     <string name="friends">Friends</string>
@@ -186,4 +185,9 @@
     <string name="defeat">Defeat</string>
     <string name="confront">Confront</string>
     <string name="create_new">Create New</string>
+    <string name="language2">en_US</string>
+    <string name="select_mission">Select Mission</string>
+    <string name="waiting_opponent">Waiting Opponents</string>
+    <string name="select_opponent">Select Opponent</string>
+    <string name="no_notification">No New Notifications</string>
 </resources>
