@@ -44,7 +44,7 @@ public class FriendsFragment extends Fragment {
         fri_lv=(ListView)view.findViewById(R.id.lv_fri);
         bildirim=(Button) view.findViewById(R.id.button10);
         ekle=(Button) view.findViewById(R.id.button6);
-
+        istek=0;
         bildirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -181,6 +181,8 @@
     <string name="accept">Aceitar</string>
     <string name="victory">Vitória</string>
     <string name="defeat">Derrota</string>
+    <string name="confront">Enfrentar</string>
+    <string name="create_new">Crie Um Novo</string>
 
 
 </resources>

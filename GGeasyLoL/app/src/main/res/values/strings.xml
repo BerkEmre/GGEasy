@@ -184,4 +184,6 @@
     <string name="accept">Accept</string>
     <string name="victory">Victory</string>
     <string name="defeat">Defeat</string>
+    <string name="confront">Confront</string>
+    <string name="create_new">Create New</string>
 </resources>

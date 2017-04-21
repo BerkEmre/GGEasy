@@ -182,6 +182,8 @@
     <string name="accept">Akzeptieren</string>
     <string name="victory">Sieg</string>
     <string name="defeat">Niederlage</string>
+    <string name="confront">Konfrontieren</string>
+    <string name="create_new">Erstelle Neu</string>
 
 
 </resources>

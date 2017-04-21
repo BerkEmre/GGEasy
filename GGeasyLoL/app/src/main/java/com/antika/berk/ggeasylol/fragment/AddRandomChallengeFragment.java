@@ -3,6 +3,7 @@ package com.antika.berk.ggeasylol.fragment;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,7 +37,8 @@ public class AddRandomChallengeFragment extends DialogFragment {
 
     GridView mission;
     ListView rakip;
-    Button meydanOku, addChallenge;
+    Button meydanOku;
+    FloatingActionButton addChallenge;
     ChallengeFragment cf;
     public void setChallengeFragment(ChallengeFragment cf){
         this.cf=cf;
@@ -43,30 +46,36 @@ public class AddRandomChallengeFragment extends DialogFragment {
     DBHelper dbHelper;
     List<ChallengeObject> challengeObjects;
 
+
     int secili_gorev = 999999999;
     int secili_user = 999999999;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_add_random_challenge, container, false);
+        final View view= inflater.inflate(R.layout.fragment_add_random_challenge, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         mission=(GridView)view.findViewById(R.id.mission_gv);
         rakip=(ListView) view.findViewById(R.id.lv_rakip);
         meydanOku=(Button)view.findViewById(R.id.button12);
-        addChallenge=(Button)view.findViewById(R.id.empty_button);
+        addChallenge=(FloatingActionButton)view.findViewById(R.id.empty_button);
+
+
+        challengeObjects=new ArrayList<ChallengeObject>();
 
         final View[] row1 = new View[1];
         mission.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                secili_user = 999999999;
                 if (row1[0] != null) {
                     row1[0].setBackgroundResource(android.R.color.transparent);
                 }
                 row1[0] = view;
                 view.setBackgroundResource(R.color.primary_light);
-                secili_user = position;
+                secili_gorev = position;
                 new getData().execute(""+(position+1));
+
             }
         });
 
@@ -79,7 +88,7 @@ public class AddRandomChallengeFragment extends DialogFragment {
                 }
                 row2[0] = view;
                 view.setBackgroundResource(R.color.primary_light);
-                secili_gorev = position;
+                secili_user = position;
             }
         });
         meydanOku.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +111,7 @@ public class AddRandomChallengeFragment extends DialogFragment {
         mission.setAdapter(adapter1);
         return view;
     }
+    //TAMAM
     private class getData extends AsyncTask<String,String,String> {
 
         BlankFragment progress;
@@ -113,7 +123,6 @@ public class AddRandomChallengeFragment extends DialogFragment {
             FragmentManager fm = getFragmentManager();
             progress = new BlankFragment();
             progress.show(fm, "");
-            challengeObjects=new ArrayList<ChallengeObject>();
         }
 
         @Override
@@ -151,17 +160,22 @@ public class AddRandomChallengeFragment extends DialogFragment {
         protected void onPostExecute(String s) {
             progress.dismiss();
             if(!s.equals("HATA")){
-
                 ChallengeAdapter adapter=new ChallengeAdapter(getActivity(),challengeObjects);
                 rakip.setAdapter(adapter);
-                if(challengeObjects==null)
-                    rakip.setEmptyView(addChallenge);
             }
             else
                 Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+            if(challengeObjects.size()<=0){
+                addChallenge.setVisibility(View.VISIBLE);
+
+            }
+            else if (challengeObjects.size()>9){
+                addChallenge.setVisibility(View.GONE);
+            }
         }
 
     }
+    //TAMAM
     private class meydanoku extends AsyncTask<String,String,String> {
 
         BlankFragment progress;
@@ -175,7 +189,6 @@ public class AddRandomChallengeFragment extends DialogFragment {
             FragmentManager fm = getFragmentManager();
             progress = new BlankFragment();
             progress.show(fm, "");
-            challengeObjects=new ArrayList<ChallengeObject>();
         }
 
         @Override
@@ -184,9 +197,9 @@ public class AddRandomChallengeFragment extends DialogFragment {
             dbHelper=new DBHelper(getContext());
 
             try{
-               // user1MatchId=apiHelper.getMatchID(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
-                //user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
-               // apiHelper.readURL("http://ggeasylol.com/api/set_challege.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1"+"&user1Match="+user1MatchId.getMatchID()+"user2Match"+user2MatchId.getMatchID());
+               user1MatchId=apiHelper.getMatchID(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
+               user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
+               apiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1&email="+dbHelper.getUser().getEmail()+"&user1Match="+user1MatchId.getMatchID()+"&user2Match="+user2MatchId.getMatchID());
 
 
 
@@ -206,11 +219,19 @@ public class AddRandomChallengeFragment extends DialogFragment {
         protected void onPostExecute(String s) {
             progress.dismiss();
 
-            Toast.makeText(getContext(),user1MatchId.getMatchID(),Toast.LENGTH_LONG).show();
+            if(!s.equals("HATA")){
+                Toast.makeText(getContext(),getContext().getString(R.string.accepted),Toast.LENGTH_LONG).show();
+                cf.yenile();
+                getDialog().dismiss();
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+
 
         }
 
     }
+    //TAMAM
     private class yeniMeydanOkuma extends AsyncTask<String,String,String> {
 
         BlankFragment progress;
@@ -222,7 +243,6 @@ public class AddRandomChallengeFragment extends DialogFragment {
             FragmentManager fm = getFragmentManager();
             progress = new BlankFragment();
             progress.show(fm, "");
-            challengeObjects=new ArrayList<ChallengeObject>();
         }
 
         @Override
@@ -232,7 +252,7 @@ public class AddRandomChallengeFragment extends DialogFragment {
 
             try{
 
-                apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&missio="+strings[0]);
+                apiHelper.readURL("http://ggeasylol.com/api/add_random_challenge.php?email="+dbHelper.getUser().getEmail()+"&mission="+strings[0]);
 
 
 
@@ -252,11 +272,8 @@ public class AddRandomChallengeFragment extends DialogFragment {
         protected void onPostExecute(String s) {
             progress.dismiss();
             if(!s.equals("HATA")){
-
-                ChallengeAdapter adapter=new ChallengeAdapter(getActivity(),challengeObjects);
-                rakip.setAdapter(adapter);
-                if(challengeObjects==null)
-                    rakip.setEmptyView(addChallenge);
+                cf.yenile();
+                getDialog().dismiss();
             }
             else
                 Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
