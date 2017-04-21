@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -59,6 +60,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_challenge_open, container, false);
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         check           =   (Button)view.findViewById(R.id.check          );
         accept          =   (Button)view.findViewById(R.id.accept         );
         cancel          =   (Button)view.findViewById(R.id.cancel         );
@@ -94,12 +96,19 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
             }
         }
         tv_s1.setText(challengeObject.getSihirdarAdi1());
-        tv_s2.setText(challengeObject.getSihirdarAdi2());
+        if(challengeObject.getIcon2().length()>0)
+            tv_s2.setText(challengeObject.getSihirdarAdi2());
+        else
+            tv_s2.setText(R.string.waiting);
         mission_ad.setText(missionHelper.gorev_txt.get(Integer.parseInt(challengeObject.getGorev())-1));
         mission_aciklama.setText(missionHelper.GorevAciklama.get(Integer.parseInt(challengeObject.getGorev())-1));
         mission_logo.setImageResource(missionHelper.gorev_img.get(Integer.parseInt(challengeObject.getGorev())-1));
         Picasso.with(getContext()).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_s1);
-        Picasso.with(getContext()).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon2()))).transform(new CircleTransform()).into(iv_s2);
+        if(challengeObject.getIcon2().length()>0)
+            Picasso.with(getContext()).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon2()))).transform(new CircleTransform()).into(iv_s2);
+        else
+            Picasso.with(getContext()).load(R.drawable.unknown).transform(new CircleTransform()).into(iv_s2);
+
         puan.setText("x "+missionHelper.gorev_puan.get(Integer.parseInt(challengeObject.getGorev())-1));
 
         if (challengeObject.getSihirdarID1().equals(dbHelper.getUser().getSummonerID()) &&challengeObject.getStatus().equals("0")){

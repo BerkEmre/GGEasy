@@ -1,7 +1,5 @@
 package com.antika.berk.ggeasylol.fragment;
 
-
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,34 +9,28 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.antika.berk.ggeasylol.Other.Challenge;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChallengeAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChallengeObject;
-import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.UserObject;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChallengeFragment extends Fragment {
-    FloatingActionButton add_cha;
+
+    FloatingActionButton add_cha,friend,random;
     ChallengeAdapter adapter;
     ListView listView;
     DBHelper dbHelper;
     UserObject uo;
-
-
+    boolean durum;
     List<ChallengeObject> challengeObjects;
 
     public void setChampions(List<ChallengeObject> challengeObjects){
@@ -49,11 +41,12 @@ public class ChallengeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_challenge, container, false);
         add_cha=(FloatingActionButton)view.findViewById(R.id.floatingActionButton2) ;
-
+        friend=(FloatingActionButton)view.findViewById(R.id.floatingActionButton) ;
+        random=(FloatingActionButton)view.findViewById(R.id.floatingActionButton3) ;
         listView=(ListView)view.findViewById(R.id.ch_lv) ;
+        durum=true;
 
-
-        add_cha.setOnClickListener(new View.OnClickListener() {
+        friend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
@@ -62,6 +55,39 @@ public class ChallengeFragment extends Fragment {
                 asf.show(fm, "");
             }
         });
+        random.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                AddRandomChallengeFragment asf = new AddRandomChallengeFragment();
+                asf.setChallengeFragment(ChallengeFragment.this);
+                asf.show(fm, "");
+            }
+        });
+
+        add_cha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(durum){
+                    friend.setVisibility(View.VISIBLE);
+                    random.setVisibility(View.VISIBLE);
+                    durum=false;
+                    add_cha.setImageResource(R.drawable.cross);
+                }
+                else{
+                    friend.setVisibility(View.GONE);
+                    random.setVisibility(View.GONE);
+                    durum=true;
+                    add_cha.setImageResource(R.drawable.plus);
+                }
+
+            }
+        });
+
+
+
+
+
         new getData().execute();
 
 
@@ -143,5 +169,4 @@ public class ChallengeFragment extends Fragment {
 
         new getData().execute();
     }
-
 }

@@ -74,7 +74,10 @@ public class ChallengeAdapter extends BaseAdapter {
 
         ChallengeObject challengeObject = mKisiListesi.get(position);
         tv_user1.setText(challengeObject.getSihirdarAdi1());
-        tv_user2.setText(challengeObject.getSihirdarAdi2());
+        if(challengeObject.getSihirdarAdi2().length()>0)
+            tv_user2.setText(challengeObject.getSihirdarAdi2());
+        else
+            tv_user2.setText(R.string.waiting);
         puan.setText("x "+missionHelper.gorev_puan.get(Integer.parseInt(challengeObject.getGorev())-1));
         if(challengeObject.getStatus().equals("0")){
             back.setBackgroundColor(0x55FFC107);
@@ -87,14 +90,24 @@ public class ChallengeAdapter extends BaseAdapter {
 
 
         RiotApiHelper riotApiHelper=new RiotApiHelper();
-        if((riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon1()))
-            Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user1);
-        else
-            Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_user1);
-        if((riotApiHelper.iconSize-1)<Integer.parseInt(challengeObject.getIcon2()))
-            Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user2);
-        else
-            Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon2()))).transform(new CircleTransform()).into(iv_user2);
+        if(challengeObject.getIcon2().length()>0) {
+            if ((riotApiHelper.iconSize - 1) < Integer.parseInt(challengeObject.getIcon1()))
+                Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user1);
+            else
+                Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_user1);
+            if ((riotApiHelper.iconSize - 1) < Integer.parseInt(challengeObject.getIcon2()))
+                Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user2);
+            else
+                Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon2()))).transform(new CircleTransform()).into(iv_user2);
+       }
+        else  {
+            if ((riotApiHelper.iconSize - 1) < Integer.parseInt(challengeObject.getIcon1()))
+                Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user1);
+            else
+                Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_user1);
+
+                Picasso.with(context).load(R.drawable.unknown).transform(new CircleTransform()).into(iv_user2);
+        }
 
         return satirView;
     }
