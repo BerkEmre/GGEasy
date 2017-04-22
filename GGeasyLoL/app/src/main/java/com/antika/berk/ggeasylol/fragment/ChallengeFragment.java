@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChallengeAdapter;
@@ -45,6 +46,7 @@ public class ChallengeFragment extends Fragment {
         random=(FloatingActionButton)view.findViewById(R.id.floatingActionButton3) ;
         listView=(ListView)view.findViewById(R.id.ch_lv) ;
         durum=true;
+        dbHelper=new DBHelper(getContext());
 
         friend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,21 +67,25 @@ public class ChallengeFragment extends Fragment {
             }
         });
 
-        add_cha.setOnClickListener(new View.OnClickListener() {
+            add_cha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(durum){
-                    friend.setVisibility(View.VISIBLE);
-                    random.setVisibility(View.VISIBLE);
-                    durum=false;
-                    add_cha.setImageResource(R.drawable.cross);
+                if(dbHelper.getUser().getEmail().length()>0){
+                    if(durum){
+                        friend.setVisibility(View.VISIBLE);
+                        random.setVisibility(View.VISIBLE);
+                        durum=false;
+                        add_cha.setImageResource(R.drawable.cross);
+                    }
+                    else{
+                        friend.setVisibility(View.GONE);
+                        random.setVisibility(View.GONE);
+                        durum=true;
+                        add_cha.setImageResource(R.drawable.plus);
+                    }
                 }
-                else{
-                    friend.setVisibility(View.GONE);
-                    random.setVisibility(View.GONE);
-                    durum=true;
-                    add_cha.setImageResource(R.drawable.plus);
-                }
+                else
+                    Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
 
             }
         });
@@ -88,8 +94,11 @@ public class ChallengeFragment extends Fragment {
 
 
 
-        new getData().execute();
 
+        if(dbHelper.getUser().getEmail().length()>0)
+            new getData().execute();
+        else
+            Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

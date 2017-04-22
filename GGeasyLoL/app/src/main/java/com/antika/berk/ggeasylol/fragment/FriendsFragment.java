@@ -57,6 +57,7 @@ public class FriendsFragment extends Fragment {
                     Toast.makeText(getContext(),getContext().getString(R.string.no_notification),Toast.LENGTH_LONG).show();
             }
         });
+
         ekle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +66,7 @@ public class FriendsFragment extends Fragment {
                 asf.show(fm, "");
             }
         });
+
         new getData().execute();
 
 
