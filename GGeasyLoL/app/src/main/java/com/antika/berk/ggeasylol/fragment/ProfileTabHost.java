@@ -36,6 +36,10 @@ public class ProfileTabHost extends Fragment {
     DBHelper dbHelper;
     UserObject uo;
     private FragmentTabHost mTabHost;
+    private boolean isFriends = false;
+    public void isFriends(boolean isFriends){
+        this.isFriends = isFriends;
+    }
     public ProfileTabHost() {
     }
     @Override
@@ -64,6 +68,9 @@ public class ProfileTabHost extends Fragment {
         }
         else
             new getData().execute(uo.getEmail(),uo.getSifre());
+
+        if(isFriends)
+            mTabHost.setCurrentTab(1);
 
         return rootView;
     }

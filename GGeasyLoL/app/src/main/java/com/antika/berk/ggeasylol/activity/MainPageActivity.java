@@ -46,10 +46,12 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        //NOTİFİCATİON TOKEN
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d("TOKEN", "Token: " + token);
         new checkVersiyon().execute(token);
 
+        //VERSİYON KONTROL
         PackageInfo pInfo = null;
         try {
             pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -68,24 +70,71 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        DBHelper dbHelper = new DBHelper(getApplicationContext());
-        UserObject userObject = dbHelper.getUser();
-        if(userObject == null || userObject.getEmail().equals("")){
-            LoginFragment cmf = new LoginFragment();
-            FragmentManager fm = getSupportFragmentManager();
-            fm.beginTransaction().replace(
-                    R.id.content_main_page,
-                    cmf,"0").commit();
-            navigationView.setCheckedItem(R.id.nav_profile);
-        }else{
-            ProfileTabHost cmf = new ProfileTabHost();
-            FragmentManager fm = getSupportFragmentManager();
-            fm.beginTransaction().replace(
-                    R.id.content_main_page,
-                    cmf,"0").commit();
-            navigationView.setCheckedItem(R.id.nav_profile);
-        }
+        //YÖNLENDİRME
+        try{
+            Bundle extras = getIntent().getExtras();
+            String value = extras.getString("sayfa");
 
+            if(value.equals("meydan_okuma")){
+                ChallengeFragment cmf = new ChallengeFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+                navigationView.setCheckedItem(R.id.nav_profile);
+            }else if(value.equals("arkadas")){
+                ProfileTabHost cmf = new ProfileTabHost();
+                cmf.isFriends(true);
+                FragmentManager fm = getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+                navigationView.setCheckedItem(R.id.nav_profile);
+            }else if(value.equals("cekilis")){
+                LotteriesFragment cmf = new LotteriesFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+                navigationView.setCheckedItem(R.id.nav_profile);
+            }else{
+                DBHelper dbHelper = new DBHelper(getApplicationContext());
+                UserObject userObject = dbHelper.getUser();
+                if(userObject == null || userObject.getEmail().equals("")){
+                    LoginFragment cmf = new LoginFragment();
+                    FragmentManager fm = getSupportFragmentManager();
+                    fm.beginTransaction().replace(
+                            R.id.content_main_page,
+                            cmf,"0").commit();
+                    navigationView.setCheckedItem(R.id.nav_profile);
+                }else{
+                    ProfileTabHost cmf = new ProfileTabHost();
+                    FragmentManager fm = getSupportFragmentManager();
+                    fm.beginTransaction().replace(
+                            R.id.content_main_page,
+                            cmf,"0").commit();
+                    navigationView.setCheckedItem(R.id.nav_profile);
+                }
+            }
+        }catch(Exception e){
+            DBHelper dbHelper = new DBHelper(getApplicationContext());
+            UserObject userObject = dbHelper.getUser();
+            if(userObject == null || userObject.getEmail().equals("")){
+                LoginFragment cmf = new LoginFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+                navigationView.setCheckedItem(R.id.nav_profile);
+            }else{
+                ProfileTabHost cmf = new ProfileTabHost();
+                FragmentManager fm = getSupportFragmentManager();
+                fm.beginTransaction().replace(
+                        R.id.content_main_page,
+                        cmf,"0").commit();
+                navigationView.setCheckedItem(R.id.nav_profile);
+            }
+        }
 
 
     }
