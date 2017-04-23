@@ -16,6 +16,7 @@ import com.antika.berk.ggeasylol.activity.MainPageActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -31,17 +32,21 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Mesaj data içeriği: " + remoteMessage.getData());
 
             //Json formatındaki datayı parse edip kullanabiliriz. Biz direk datayı Push Notification olarak bastırıyoruz
-
-            sendNotification("Mobilhanem.com",""+remoteMessage.getData());
             JSONObject json = new JSONObject(remoteMessage.getData());
-            if(getString(R.string.language2).equals("en_US")){
-
-            }else if(getString(R.string.language2).equals("de_DE")){
-
-            }else if(getString(R.string.language2).equals("us_US")){
-
-            }else if(getString(R.string.language2).equals("us_US")){
-
+            try {
+                if(getString(R.string.language2).equals("de_DE")){
+                    sendNotification(json.getString("de_title"), json.getString("de_body"),json.getString("sayfa"));
+                }else if(getString(R.string.language2).equals("pt_BR")){
+                    sendNotification(json.getString("pt_title"), json.getString("pt_body"),json.getString("sayfa"));
+                }else if(getString(R.string.language2).equals("tr_TR")){
+                    sendNotification(json.getString("pt_title"), json.getString("pt_body"),json.getString("sayfa"));
+                }else{
+                    sendNotification(json.getString("pt_title"), json.getString("pt_body"),json.getString("sayfa"));
+                }
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+                sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody(),"");
             }
 
         }
@@ -58,9 +63,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     }
 
-    private void sendNotification(String messageTitle,String messageBody) {
+    private void sendNotification(String messageTitle,String messageBody, String sayfa) {
 
         Intent intent = new Intent(this, MainPageActivity.class);
+        intent.putExtra("sayfa",sayfa);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
@@ -68,7 +74,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         long[] pattern = {500,500,500,500};//Titreşim ayarı
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.icon)
+                .setSmallIcon(R.drawable.notification_icon)
                 .setContentTitle(messageTitle)
                 .setContentText(messageBody)
                 .setAutoCancel(true)
@@ -79,8 +85,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         try {
-            Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
-                    + "://" + this.getPackageName() + "/raw/notification");
+            Uri alarmSound = Uri.parse("android.resource://"
+                    + getPackageName() + "/" + R.raw.notification);
             Ringtone r = RingtoneManager.getRingtone(this, alarmSound);
             r.play();
         } catch (Exception e) {

@@ -197,18 +197,9 @@ public class AddRandomChallengeFragment extends DialogFragment {
             dbHelper=new DBHelper(getContext());
 
             try{
-               user1MatchId=apiHelper.getMatchID(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
-<<<<<<< HEAD
-                //user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
-               // apiHelper.readURL("http://ggeasylol.com/api/set_challege.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1"+"&user1Match="+user1MatchId.getMatchID()+"user2Match"+user2MatchId.getMatchID());
-=======
-               user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
-               apiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1&email="+dbHelper.getUser().getEmail()+"&user1Match="+user1MatchId.getMatchID()+"&user2Match="+user2MatchId.getMatchID());
->>>>>>> origin/master
-
-
-
-
+                user1MatchId=apiHelper.getMatchID(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
+                user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
+                apiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1&email="+dbHelper.getUser().getEmail()+"&user1Match="+user1MatchId.getMatchID()+"&user2Match="+user2MatchId.getMatchID());
 
                 return "okey";
             }
