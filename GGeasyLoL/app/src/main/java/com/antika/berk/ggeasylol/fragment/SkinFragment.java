@@ -82,7 +82,7 @@ public class SkinFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             if(s.equals("HATA"))
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             else {
                 ChampionSkinAdapter adapter=new ChampionSkinAdapter(getActivity(),skins);
                 gridview.setAdapter(adapter);

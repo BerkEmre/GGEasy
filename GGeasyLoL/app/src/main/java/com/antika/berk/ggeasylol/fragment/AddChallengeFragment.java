@@ -27,6 +27,7 @@ import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.MissionHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.FriendsObject;
+import com.antika.berk.ggeasylol.object.MatchIdObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -173,7 +174,8 @@ public class AddChallengeFragment extends DialogFragment {
 
         BlankFragment progress;
 
-
+        MatchIdObject user2MatchId;
+        MatchIdObject user1MatchId;
 
         @Override
         protected void onPreExecute() {
@@ -187,7 +189,12 @@ public class AddChallengeFragment extends DialogFragment {
             RiotApiHelper apiHelper=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
             try{
-                apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&sihirdarID="+strings[0]+"&region="+strings[1]+"&mission="+strings[2]);
+                user1MatchId=apiHelper.getMatchID(Integer.parseInt(strings[0]),strings[1]);
+                user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
+                if (user1MatchId.getMatchID().length()>0 && user2MatchId.getMatchID().length()>0)
+                    apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&sihirdarID="+strings[0]+"&region="+strings[1]+"&mission="+strings[2]);
+                else
+                    return "MAÇ";
                 return "okey";
             }
             catch (Exception e){
@@ -207,8 +214,9 @@ public class AddChallengeFragment extends DialogFragment {
                 getDialog().dismiss();
 
             }
+
             else
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.level),Toast.LENGTH_LONG).show();
         }
 
     }

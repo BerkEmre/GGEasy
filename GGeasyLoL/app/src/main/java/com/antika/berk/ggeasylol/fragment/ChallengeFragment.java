@@ -157,17 +157,20 @@ public class ChallengeFragment extends Fragment {
 
 
             catch (Exception e) {
-                e.printStackTrace();
-                Log.d("HATA",e.toString());
-                return e.toString();
+                return "HATA";
 
             }
         }
 
         @Override
         protected void onPostExecute(String s) {
-            ChallengeAdapter adapter=new ChallengeAdapter(getActivity(),challengeObjects);
-            listView.setAdapter(adapter);
+            if(!s.equals("HATA")){
+
+                ChallengeAdapter adapter=new ChallengeAdapter(getActivity(),challengeObjects);
+                listView.setAdapter(adapter);
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
             progress.dismiss();
 
 

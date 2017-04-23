@@ -107,9 +107,12 @@ public class NotificationFragment extends DialogFragment {
 
         @Override
         protected void onPostExecute(String s) {
-            ff.yenile();
+
             NotificationAdapter adapter=new NotificationAdapter(getActivity(),friend,NotificationFragment.this);
             fri_lv.setAdapter(adapter);
+            ff.yenile();
+            if (friend.size()<=0)
+                getDialog().dismiss();
             progress.dismiss();
 
         }

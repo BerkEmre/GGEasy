@@ -177,7 +177,7 @@ public class UserDeatailFragment extends DialogFragment {
                     default             : iv_lig.setImageResource(R.drawable.provisional); break;
                 }
             }else
-                Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getContext().getString(R.string.ops_make_mistake), Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
     }

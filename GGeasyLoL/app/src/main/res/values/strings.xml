@@ -130,7 +130,7 @@
     <string name="new_email">New Email</string>
     <string name="explanation">Minimum 20 characters.</string>
     <string name="subject">Subject</string>
-    <string name="error_mission">You aren\'t 30 lv!</string>
+    <string name="error_mission">You aren\'t 30 level in LOL</string>
     <string name="feed_back">Thank You for Feedback</string>
     <string name="message">Please  enter more than 20 characters!</string>
     <string name="change_email_exp">*Please create a mastery page which named like this in your account and click CHANGE button!</string>
@@ -190,4 +190,6 @@
     <string name="waiting_opponent">Waiting Opponents</string>
     <string name="select_opponent">Select Opponent</string>
     <string name="no_notification">No New Notifications</string>
+    <string name="sent_mail_pass">Your password has been sent to your mail address.</string>
+    <string name="level">"Opponent or you are not level 30 in LOL "</string>
 </resources>

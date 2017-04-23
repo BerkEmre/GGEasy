@@ -98,7 +98,7 @@ public class SkillFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             if(s.equals("HATA"))
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             else {
                 ChampionSkillAdapter adapter=new ChampionSkillAdapter(getActivity(),skill);
                 skilllist.setAdapter(adapter);

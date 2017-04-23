@@ -65,21 +65,32 @@ public class SendMailFragment extends DialogFragment {
         @Override
         protected String doInBackground(String... values)
         {
-            RiotApiHelper riotApiHelper = new RiotApiHelper();
-            riotApiHelper.readURL("http://ggeasylol.com/api/send_mail.php?konu="+values[0].replace(" ","_")+"&mesaj="+values[1].replace(" ","_")+"&mail="+values[2]);
-            return null;
+            try {
+                RiotApiHelper riotApiHelper = new RiotApiHelper();
+                riotApiHelper.readURL("http://ggeasylol.com/api/send_mail.php?konu="+values[0].replace(" ","_")+"&mesaj="+values[1].replace(" ","_")+"&mail="+values[2]);
+                return "0";
+            }
+            catch (Exception e){
+                return "HATA";
+            }
+
         }
 
         @Override
         protected void onPostExecute(String results)
         {
             progress.dismiss();
-            Toast.makeText(getContext(),getContext().getString(R.string.feed_back),Toast.LENGTH_LONG).show();
-            View view = getActivity().getCurrentFocus();
-            if (view != null) {
-                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
-            getDialog().dismiss();
+            if (results.equals("0")) {
+                Toast.makeText(getContext(),getContext().getString(R.string.feed_back),Toast.LENGTH_LONG).show();
+                View view = getActivity().getCurrentFocus();
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
+                getDialog().dismiss();
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
+
         }
     }
 }

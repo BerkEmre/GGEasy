@@ -89,34 +89,45 @@ public class ChangeMailFragment extends DialogFragment {
         @Override
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper=new RiotApiHelper();
-            List<MasteriesPageObject> mo=riotApiHelper.getSummonerMasteries(Integer.parseInt(params[0]),params[1]);
+            try{
+                List<MasteriesPageObject> mo=riotApiHelper.getSummonerMasteries(Integer.parseInt(params[0]),params[1]);
                 for(int i = 0; i < mo.size(); i++){
                     if(mo.get(i).getName().toLowerCase().equals(params[2].toLowerCase())) {
                         riotApiHelper.readURL("http://ggeasylol.com/api/change_mail.php?mail="+params[3]+"&newmail="+params[4]);
                         return getContext().getString(R.string.changed_mail);
-                }
+                    }
 
+                }
+                return getContext().getString(R.string.change_email_exp) + " '" + params[2] + "'";
             }
-            return getContext().getString(R.string.change_email_exp) + " '" + params[2] + "'";
+            catch (Exception e){
+                return "HATA";
+            }
         }
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(getContext(),s,Toast.LENGTH_LONG).show();
-            if(s.equals(getContext().getString(R.string.changed_mail))){
-                DBHelper dbHelper = new DBHelper(getContext());
-                dbHelper.deleteUser();
-                getDialog().dismiss();
-                LoginFragment cmf = new LoginFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.beginTransaction().replace(
-                        R.id.content_main_page,
-                        cmf,"0").commit();
-                View view = getActivity().getCurrentFocus();
-                if (view != null) {
-                    InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
+                if(!s.equals("HATA")){
+                    Toast.makeText(getContext(),s,Toast.LENGTH_LONG).show();
+                    if(s.equals(getContext().getString(R.string.changed_mail))){
+                        DBHelper dbHelper = new DBHelper(getContext());
+                        dbHelper.deleteUser();
+                        getDialog().dismiss();
+                        LoginFragment cmf = new LoginFragment();
+                        FragmentManager fm = getActivity().getSupportFragmentManager();
+                        fm.beginTransaction().replace(
+                                R.id.content_main_page,
+                                cmf,"0").commit();
+                        View view = getActivity().getCurrentFocus();
+                        if (view != null) {
+                            InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);}
+                }
+                else
+                    Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
+
                 progress.dismiss();
+
             }
         }
     }

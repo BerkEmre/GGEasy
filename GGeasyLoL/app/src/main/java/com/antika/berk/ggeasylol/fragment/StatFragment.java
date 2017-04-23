@@ -106,7 +106,7 @@ public class StatFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             if(s.equals("HATA"))
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             else {
                 armor.setText(""+stat.get(0).getArmor()+"(+"+stat.get(0).getArmorperlevel()+"/Lv)");
                 attackdamage.setText(""+stat.get(0).getAttackdamage()+"(+"+stat.get(0).getAttackdamageperlevel()+"/Lv)");

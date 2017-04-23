@@ -131,14 +131,19 @@ public class RankFragment extends Fragment {
             }
             catch (Exception e) {
                 e.printStackTrace();
-                return e.toString();
+                return "HATA";
             }
         }
 
         @Override
         protected void onPostExecute(String s) {
-            RankAdapter adapter=new RankAdapter(getActivity(),rank);
-            rankList.setAdapter(adapter);
+            if (s.equals("0")){
+
+                RankAdapter adapter=new RankAdapter(getActivity(),rank);
+                rankList.setAdapter(adapter);
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             progress.dismiss();
 
 

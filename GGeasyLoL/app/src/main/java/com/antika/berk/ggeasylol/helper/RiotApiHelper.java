@@ -618,18 +618,7 @@ public class RiotApiHelper {
         }
         return null;
     }
-    //get version
-    public String getVersion(String region){
-        String data = readURL("https://global.api.pvp.net/api/lol/static-data/" + region.toLowerCase() + "/v1.2/versions?api_key=" + apiKey);
-        try {
-            JSONArray array = new JSONArray(data);
-            return array.getString(0);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "7.5.2";
-        }
-    }
-
+    //get Team Stats
     public MissionTeamObject getTeam(String matchID,String region,int sihirdarID){
 
         String data=readURL("https://"+region.toLowerCase()+".api.riotgames.com/api/lol/"+region.toLowerCase()+"/v2.2/match/"+matchID+"?api_key="+apiKey);
@@ -667,6 +656,7 @@ public class RiotApiHelper {
             return null;
         }
     }
+    //get Summoner Stats
     public MissionObject getMatch(String matchID, String region, int sihirdarID){
         String data=readURL("https://"+region.toLowerCase()+".api.riotgames.com/api/lol/"+region.toLowerCase()+"/v2.2/match/"+matchID+"?api_key="+apiKey);
         MissionObject missionObject;

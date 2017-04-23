@@ -1,15 +1,12 @@
 package com.antika.berk.ggeasylol.activity;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.design.widget.Snackbar;
 import android.support.multidex.MultiDex;
 import android.support.v4.app.Fragment;
@@ -18,7 +15,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -27,26 +23,19 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.firebase.MyFirebaseInstanceIDService;
 import com.antika.berk.ggeasylol.fragment.ChallengeFragment;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
-import com.antika.berk.ggeasylol.fragment.ChangePasswordFragment;
-import com.antika.berk.ggeasylol.fragment.ComingSoonFragment;
 
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
 import com.antika.berk.ggeasylol.fragment.LoginFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
 import com.antika.berk.ggeasylol.fragment.MissionTabsFragment;
-import com.antika.berk.ggeasylol.fragment.ProfilFragment;
-import com.antika.berk.ggeasylol.fragment.MissionFragment;
 import com.antika.berk.ggeasylol.fragment.ProfileTabHost;
 import com.antika.berk.ggeasylol.fragment.RankFragment;
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
-import com.antika.berk.ggeasylol.fragment.VersionFragment;
 import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.RankedStatObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -219,16 +208,22 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         @Override
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
-            if(params[0].length() > 30){
-                DBHelper dbHelper = new DBHelper(getApplicationContext());
-                riotApiHelper.readURL("http://ggeasylol.com/api/send_token.php?email=" + dbHelper.getUser().getEmail() + "&token=" + params[0]);
-                return "1";
+            try {
+                if(params[0].length() > 30){
+                    DBHelper dbHelper = new DBHelper(getApplicationContext());
+                    riotApiHelper.readURL("http://ggeasylol.com/api/send_token.php?email=" + dbHelper.getUser().getEmail() + "&token=" + params[0]);
+                    return "1";
+                }
+                String gelenVersiyon = riotApiHelper.readURL("http://ggeasylol.com/api/versiyon.html");
+                if(gelenVersiyon.equals(params[0]))
+                    return "1";
+                else
+                    return "0";
             }
-            String gelenVersiyon = riotApiHelper.readURL("http://ggeasylol.com/api/versiyon.html");
-            if(gelenVersiyon.equals(params[0]))
-                return "1";
-            else
-                return "0";
+            catch (Exception e){
+                return "HATA";
+            }
+
         }
 
         @Override
@@ -249,6 +244,9 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                         });
 
                 snackbar.show();
+            }
+            else if (s.equals("HATA")){
+                Toast.makeText(getApplicationContext(),getApplicationContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             }
             super.onPostExecute(s);
         }

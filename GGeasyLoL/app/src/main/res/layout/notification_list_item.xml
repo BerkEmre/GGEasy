@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cast_expanded_controller_progress_text_color"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"

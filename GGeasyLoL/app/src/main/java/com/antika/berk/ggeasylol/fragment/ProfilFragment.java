@@ -33,6 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.interfaces.RSAKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,6 +93,7 @@ public class ProfilFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
                 IconFragment asf = new IconFragment();
+                asf.setFragment(ProfilFragment.this);
                 asf.show(fm, "");
             }
         });
@@ -125,35 +127,41 @@ public class ProfilFragment extends Fragment {
 
 
 
+            try{
+                String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
+                if(cevap.length()>0){
+                    try {
+                        JSONArray array = new JSONArray(cevap);
+                        JSONObject object = array.getJSONObject(0);
+                        _puan=object.getString("Puan");
+                        _profilIcon=object.getInt("icon");
+                        _level=object.getInt("exp");
+                        try{
 
-            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
-            if(cevap.length()>0){
-                try {
-                    JSONArray array = new JSONArray(cevap);
-                    JSONObject object = array.getJSONObject(0);
-                    _puan=object.getString("Puan");
-                    _profilIcon=object.getInt("icon");
-                    _level=object.getInt("exp");
-                    try{
-
-                        List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
-                        List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
-                        ro=riotApiHelper.getRozet(uo.getEmail());
-                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion(),getContext());
-                        _champion=co.getChampionKey();
-                        _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
-                        _ligAdi=lo.get(0).getName();
-                        _tier=lo.get(0).getTier();
-                        _kill=""+lo.get(0).getWins();
-                        _asist=""+lo.get(0).getLosses();
-                    }catch(Exception e) {return getContext().getString(R.string.hosgeldiniz);}
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                            List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                            List<LeagueObject> lo=riotApiHelper.getSummonerLeague(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                            ro=riotApiHelper.getRozet(uo.getEmail());
+                            ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),uo.getRegion(),getContext());
+                            _champion=co.getChampionKey();
+                            _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
+                            _ligAdi=lo.get(0).getName();
+                            _tier=lo.get(0).getTier();
+                            _kill=""+lo.get(0).getWins();
+                            _asist=""+lo.get(0).getLosses();
+                        }catch(Exception e) {return getContext().getString(R.string.hosgeldiniz);}
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return getContext().getString(R.string.hosgeldiniz);
                 }
-                return getContext().getString(R.string.hosgeldiniz);
+                else
+                    return "HATA";
             }
-            else
+
+            catch (Exception e){
+
                 return "HATA";
+            }
             }
 
 
@@ -194,7 +202,7 @@ public class ProfilFragment extends Fragment {
                     default             : iv_lig.setImageResource(R.drawable.provisional); break;
                 }
             }else
-                Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getContext().getString(R.string.ops_make_mistake), Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
     }
@@ -231,5 +239,8 @@ public class ProfilFragment extends Fragment {
         public String key() {
             return "circle";
         }
+    }
+    public  void yenile(){
+        new getData().execute(uo.getEmail(),uo.getSifre());
     }
 }

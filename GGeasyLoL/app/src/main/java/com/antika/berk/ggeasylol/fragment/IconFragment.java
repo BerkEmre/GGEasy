@@ -34,6 +34,10 @@ public class IconFragment extends DialogFragment {
     GridView icons;
     UserObject uo;
     IconAdapter adapter;
+    ProfilFragment pf;
+    public void setFragment(ProfilFragment pf){
+        this.pf=pf;
+    }
 
 
 
@@ -84,13 +88,9 @@ public class IconFragment extends DialogFragment {
 
         @Override
         protected void onPostExecute(String s) {
-            ProfilFragment cmf = new ProfilFragment();
-            FragmentManager fm = getActivity().getSupportFragmentManager();
-            fm.beginTransaction().replace(
-                    R.id.content_main_page,
-                    cmf,"0").commit();
-            getDialog().dismiss();
+            pf.yenile();
             progress.dismiss();
+            getDialog().dismiss();
         }
     }
 

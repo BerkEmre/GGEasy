@@ -71,7 +71,7 @@ public class ForgetFragment extends DialogFragment {
         protected void onPostExecute(String results)
         {
             progress.dismiss();
-            Toast.makeText(getContext(),"Şifreniz Mail Adresinize Göderildi.",Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),getContext().getString(R.string.sent_mail_pass),Toast.LENGTH_LONG).show();
             View view = getActivity().getCurrentFocus();
             if (view != null) {
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

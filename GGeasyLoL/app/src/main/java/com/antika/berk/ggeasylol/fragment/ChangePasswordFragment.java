@@ -83,7 +83,7 @@ public class ChangePasswordFragment extends DialogFragment {
         protected void onPostExecute(String results)
         {
             progress.dismiss();
-            Toast.makeText(getContext(),"Şifreniz Değiştirildi.",Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),getContext().getString(R.string.changed_pass),Toast.LENGTH_LONG).show();
             DBHelper dbHelper = new DBHelper(getContext());
             dbHelper.deleteUser();
             getDialog().dismiss();

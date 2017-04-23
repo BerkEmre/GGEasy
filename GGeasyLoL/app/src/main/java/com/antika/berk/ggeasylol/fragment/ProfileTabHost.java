@@ -55,7 +55,15 @@ public class ProfileTabHost extends Fragment {
         mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator(getContext().getString(R.string.friends)),
                 FriendsFragment.class, null);
         uo = dbHelper.getUser();
-        new getData().execute(uo.getEmail(),uo.getSifre());
+        if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){
+            LoginFragment cmf = new LoginFragment();
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+        }
+        else
+            new getData().execute(uo.getEmail(),uo.getSifre());
 
         return rootView;
     }
@@ -75,26 +83,36 @@ public class ProfileTabHost extends Fragment {
         @Override
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
-            String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
            try{
-               JSONArray array = new JSONArray(cevap);
-               JSONObject object = array.getJSONObject(0);
-               name=object.getString("SihirdarAdi");
+               String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
+               if (cevap.length()>0){
+                   JSONArray array = new JSONArray(cevap);
+                   JSONObject object = array.getJSONObject(0);
+                   name=object.getString("SihirdarAdi");
+                   return "0";
+               }
+               else
+                   return "HATA";
+
            }
            catch (JSONException e) {
                e.printStackTrace();
+               return "HATA";
            }
 
 
-
-        return null;
 
         }
 
 
         @Override
         protected void onPostExecute(String s) {
-            summonerName.setText(name);
+            if(s.equals("0")){
+
+                summonerName.setText(name);
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
 

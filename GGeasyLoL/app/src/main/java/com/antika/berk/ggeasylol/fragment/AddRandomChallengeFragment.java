@@ -197,14 +197,12 @@ public class AddRandomChallengeFragment extends DialogFragment {
             dbHelper=new DBHelper(getContext());
 
             try{
-               user1MatchId=apiHelper.getMatchID(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
-               user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
-               apiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1&email="+dbHelper.getUser().getEmail()+"&user1Match="+user1MatchId.getMatchID()+"&user2Match="+user2MatchId.getMatchID());
-
-
-
-
-
+                user1MatchId=apiHelper.getMatchID(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
+                user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
+                if (user1MatchId.getMatchID().length()>0&& user2MatchId.getMatchID().length()>0)
+                    apiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1&email="+dbHelper.getUser().getEmail()+"&user1Match="+user1MatchId.getMatchID()+"&user2Match="+user2MatchId.getMatchID());
+                else
+                    return "MAÇ";
                 return "okey";
             }
             catch (Exception e){
@@ -225,7 +223,7 @@ public class AddRandomChallengeFragment extends DialogFragment {
                 getDialog().dismiss();
             }
             else
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
 
 
         }
@@ -249,14 +247,16 @@ public class AddRandomChallengeFragment extends DialogFragment {
         protected String doInBackground(String... strings) {
             RiotApiHelper apiHelper=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
+            MatchIdObject user1MatchId;
+
 
             try{
+                user1MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
 
-                apiHelper.readURL("http://ggeasylol.com/api/add_random_challenge.php?email="+dbHelper.getUser().getEmail()+"&mission="+strings[0]);
-
-
-
-
+                if(user1MatchId.getMatchID().length()>0)
+                    apiHelper.readURL("http://ggeasylol.com/api/add_random_challenge.php?email="+dbHelper.getUser().getEmail()+"&mission="+strings[0]);
+                else
+                    return "MAÇ";
 
                 return "okey";
             }
@@ -276,7 +276,7 @@ public class AddRandomChallengeFragment extends DialogFragment {
                 getDialog().dismiss();
             }
             else
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
         }
 
     }

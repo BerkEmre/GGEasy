@@ -108,16 +108,17 @@ public class ChampionFragment extends Fragment {
                     if (dbHelper.getChampion(champions.get(i).getChampionID()) == null)
                         dbHelper.insertChampion(raHelper.getStaticChampion(Integer.parseInt(champions.get(i).getChampionID()), values[0],getContext()));
                 }
+                return "0";
             }catch (Exception e){
-                return null;
+                return "HATA";
             }
-            return "0";
+
         }
 
         @Override
         protected void onPostExecute(String results)
         {
-            if(results != null){
+            if(results.equals("0")){
                 adapter = new ChampionsAdapter(getActivity(), champions);
                 gv_champions.setAdapter(adapter);
                 et_arama.addTextChangedListener(new TextWatcher() {

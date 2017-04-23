@@ -41,7 +41,7 @@
     <string name="end_of_match_exp">Mata +10, Mortes -10, Ataques +6, Vitória +100, Derrota -50, Minions 0.5, Turrantes +20, Minions neutros +1.5, Kills duplos +50, Kills triplos +150, Quadra Kills +300, 750, Dólares +0,05, Danos +0,001 Pontos no Torneio Classificado</string>
     <string name="error">Erro! Por favor, tente novamente...</string>
     <string name="error_match">Nenhuma partida classificada detectada no histórico</string>
-    <string name="error_mission">Você não é nível 30!</string>
+    <string name="error_mission">"Você não tem 30 níveis em LOL "</string>
     <string name="explanation">Mindestens 20 Zeichen.</string>
     <string name="feed_back">Obrigado pelo feedback</string>
     <string name="fill_in_all">Preencha todos os campos</string>
@@ -187,6 +187,8 @@
     <string name="waiting_opponent">Aguardando Oponentes</string>
     <string name="select_opponent">Selecione o Adversário</string>
     <string name="no_notification">Não há novas notificações</string>
+    <string name="sent_mail_pass">Sua senha foi enviada para o seu endereço de e-mail</string>
+    <string name="level">Adversário ou você não está em nível 30 em LOL</string>
 
 
 </resources>

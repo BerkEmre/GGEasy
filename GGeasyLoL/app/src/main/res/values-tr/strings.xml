@@ -131,7 +131,7 @@
     <string name="new_email">Yeni E-Mail</string>
     <string name="explanation">En az 20 karakter.</string>
     <string name="subject">Konu</string>
-    <string name="error_mission">Üzgünüz 30. seviye değilsiniz!</string>
+    <string name="error_mission">"LOL'de 30. seviye değilsin "</string>
     <string name="feed_back">Geri Bildirim İçin Teşekkür Ederiz.</string>
     <string name="message">Lütfen 20 karakterden fazla giriniz.</string>
     <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>
@@ -190,4 +190,6 @@
     <string name="waiting_opponent">Bekleyen Rakipler</string>
     <string name="select_opponent">Rakip Seç</string>
     <string name="no_notification">Yeni bildirim yok</string>
+    <string name="sent_mail_pass">Şifreniz mail adresinize gönderildi.</string>
+    <string name="level">Rakip ya da sen LOL\'de 30. seviye değilsin</string>
 </resources>

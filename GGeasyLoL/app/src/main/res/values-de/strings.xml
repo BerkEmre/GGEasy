@@ -38,7 +38,7 @@
     <string name="end_of_match_exp">Töten +10, Tod -10, Unterstützung +6, Sieg +100, Niederlage -50, Schergen 0.5, Turm +20, Neutraler Minion +1.5, Doppelkill +50, Dreifach-Kill +150, Quad-Kill +300, Penta-Kill + 750, gold +0.05, Schaden +0.001 Punkte in Ranglisten-Spiel.</string>
     <string name="error">Fehler!Bitte versuche es erneut...</string>
     <string name="error_match">Kein Ranglisten-Spiel entdeckt auf Geschichte</string>
-    <string name="error_mission">Du bist nicht 30 Level!</string>
+    <string name="error_mission">"Du bist nicht 30 Level in LOL "</string>
     <string name="explanation">Mindestens 20 Zeichen.</string>
     <string name="feed_back">Danke für dein Feedback</string>
     <string name="fill_in_all">Danke für dein Feedback</string>
@@ -188,6 +188,8 @@
     <string name="waiting_opponent">Wartende Gegner</string>
     <string name="select_opponent">Wähle Gegner</string>
     <string name="no_notification">Keine neuen Benachrichtigungen</string>
+    <string name="sent_mail_pass">Ihr Passwort wurde an Ihre E-Mail-Adresse gesendet</string>
+    <string name="level">Gegner oder du bist nicht Level 30 in LOL</string>
 
 
 </resources>

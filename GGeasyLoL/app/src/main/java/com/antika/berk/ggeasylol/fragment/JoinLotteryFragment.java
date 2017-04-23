@@ -122,7 +122,8 @@ public class JoinLotteryFragment extends DialogFragment {
                 return "1";
             }
             catch (Exception e){
-                Log.d("ASYNTASK",e.toString()); return "0";}
+                Log.d("ASYNTASK",e.toString());
+                return "0";}
         }
 
         @Override

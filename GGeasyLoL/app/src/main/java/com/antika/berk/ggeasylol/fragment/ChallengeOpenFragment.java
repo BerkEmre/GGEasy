@@ -219,11 +219,11 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
                     riotApiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID=" + challengeObject.getId() + "&cevap=1&user1Match=" + user1MatchId.getMatchID()+ "&user2Match=" + user2MatchId.getMatchID());
                     return "Kabul Edildi";
                 }
+                return "HATA";
             }
             catch (Exception e){
                 return "HATA";
             }
-            return "HATA";
         }
 
         @Override

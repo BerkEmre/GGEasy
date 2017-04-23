@@ -105,8 +105,8 @@ public class FriendsFragment extends Fragment {
         protected String doInBackground(String... strings) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
-            istek=0;
             uo=dbHelper.getUser();
+            istek=0;
             try {
                 friend.clear();
                 String gelenData=riotApiHelper.readURL("http://ggeasylol.com/api/get_friends.php?sihirdarID="+uo.getSummonerID()+"&region="+uo.getRegion());
@@ -140,18 +140,23 @@ public class FriendsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String s) {
-            FriendsAdapter adapter=new FriendsAdapter(getActivity(),friend);
-            fri_lv.setAdapter(adapter);
-            if(istek>0)
-                bildirim.setText(getContext().getString(R.string.notification)+"("+istek+")");
+            if(s.equals("0")){
+                FriendsAdapter adapter=new FriendsAdapter(getActivity(),friend);
+                fri_lv.setAdapter(adapter);
+                if(istek>0)
+                    bildirim.setText(getContext().getString(R.string.notification)+"("+istek+")");
+                else
+                    bildirim.setText(getContext().getString(R.string.notification));
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+
             progress.dismiss();
 
 
         }
     }
     public  void yenile(){
-
-
         new getData().execute();
     }
 
