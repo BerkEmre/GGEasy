@@ -16,6 +16,8 @@ import com.antika.berk.ggeasylol.activity.MainPageActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import org.json.JSONObject;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
@@ -31,10 +33,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             //Json formatındaki datayı parse edip kullanabiliriz. Biz direk datayı Push Notification olarak bastırıyoruz
 
             sendNotification("Mobilhanem.com",""+remoteMessage.getData());
+            JSONObject json = new JSONObject(remoteMessage.getData());
+            if(getString(R.string.language2).equals("en_US")){
+
+            }else if(getString(R.string.language2).equals("de_DE")){
+
+            }else if(getString(R.string.language2).equals("us_US")){
+
+            }else if(getString(R.string.language2).equals("us_US")){
+
+            }
 
         }
 
-        if (remoteMessage.getNotification() != null) { //Notification mesajı içeriyor mu
+        /*if (remoteMessage.getNotification() != null) { //Notification mesajı içeriyor mu
             //Uygulama arkaplanda ise burası çağrılmaz.Ön planda ise notification mesajı geldiğinde çağırılır
             //getBody() ile mesaj içeriği
             //getTitle() ile mesaj başlığı
@@ -42,7 +54,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             //Gelen içeriğe göre notifikasyon bildiriminde bulunma
             sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
-        }
+        }*/
 
     }
 
