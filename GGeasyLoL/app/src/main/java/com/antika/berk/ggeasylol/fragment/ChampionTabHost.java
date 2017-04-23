@@ -41,6 +41,14 @@ public class ChampionTabHost extends Fragment {
                 StatFragment.class, bundle);
         mTabHost.addTab(mTabHost.newTabSpec("fragmente").setIndicator(getContext().getString(R.string.lore)),
                 ChampionDetailFragment.class, bundle);
+        TextView x = (TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
+        x.setTextSize(12);
+        TextView y = (TextView) mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
+        y.setTextSize(12);
+        TextView z = (TextView) mTabHost.getTabWidget().getChildAt(2).findViewById(android.R.id.title);
+        z.setTextSize(12);
+        TextView t = (TextView) mTabHost.getTabWidget().getChildAt(3).findViewById(android.R.id.title);
+        t.setTextSize(12);
 
         return view;
     }

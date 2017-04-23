@@ -111,9 +111,15 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
         puan.setText("x "+missionHelper.gorev_puan.get(Integer.parseInt(challengeObject.getGorev())-1));
 
-        if (challengeObject.getSihirdarID1().equals(dbHelper.getUser().getSummonerID()) &&challengeObject.getStatus().equals("0")){
+        if(challengeObject.getSihirdarID1().equals(dbHelper.getUser().getSummonerID())&& challengeObject.getSihirdarAdi2().length()<=0){
             accept.setVisibility(View.GONE);
-            cancel.setVisibility(View.GONE);
+            cancel.setVisibility(View.VISIBLE);
+            check.setVisibility(View.GONE);
+        }
+
+        else if (challengeObject.getSihirdarID1().equals(dbHelper.getUser().getSummonerID()) && challengeObject.getStatus().equals("0")){
+            accept.setVisibility(View.GONE);
+            cancel.setVisibility(View.VISIBLE);
             check.setVisibility(View.GONE);
         }
 
@@ -122,6 +128,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
             cancel.setVisibility(View.VISIBLE);
             check.setVisibility(View.GONE);
         }
+
         else if(challengeObject.getStatus().equals("2")){
             accept.setVisibility(View.GONE);
             cancel.setVisibility(View.GONE);
@@ -209,7 +216,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
                 user1MatchId=riotApiHelper.getMatchID(Integer.parseInt(challengeObject.getSihirdarID1()),challengeObject.getRegion1());
                 user2MatchId=riotApiHelper.getMatchID(Integer.parseInt(challengeObject.getSihirdarID2()),challengeObject.getRegion2());
                 if (!user1MatchId.equals(null) &&!user2MatchId.equals(null)) {
-                    riotApiHelper.readURL("http://ggeasylol.com/api/set_challenge.php?ID=" + challengeObject.getId() + "&cevap=1&user1Match=" + user1MatchId.getMatchID()+ "&user2Match=" + user2MatchId.getMatchID());
+                    riotApiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID=" + challengeObject.getId() + "&cevap=1&user1Match=" + user1MatchId.getMatchID()+ "&user2Match=" + user2MatchId.getMatchID());
                     return "Kabul Edildi";
                 }
             }

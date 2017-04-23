@@ -9,7 +9,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Ayarlar</string>
-    <string name="sotec_media">berkemrealtan.com</string>
+    <string name="sotec_media">ggeasylol.com</string>
     <string name="summoner_name">Sihirdar Adı</string>
     <string name="region">Bölge</string>
     <string name="save_summoner">Sihirdarı Kaydet</string>
@@ -177,11 +177,17 @@
     <string name="request_sent">İstek Gönderildi.</string>
     <string name="before_request">Daha Önce Gönderilmiş Bir İstek Var.</string>
     <string name="no_user">Uygulamamızda kayıtlı böyle bir kullanıcı yok.</string>
-    <string name="challenge">Meydan Okuma</string>
+    <string name="challenge">Meydan Oku</string>
     <string name="waiting">Bekliyor</string>
     <string name="accepted">Kabul Edildi</string>
     <string name="concluded">Sonuçlandı</string>
     <string name="accept">Kabul Et</string>
     <string name="victory">Zafer</string>
     <string name="defeat">Bozgun</string>
+    <string name="confront">Karşısına Çık</string>
+    <string name="create_new">Yeni Oluştur</string>
+    <string name="select_mission">Görev Seç</string>
+    <string name="waiting_opponent">Bekleyen Rakipler</string>
+    <string name="select_opponent">Rakip Seç</string>
+    <string name="no_notification">Yeni bildirim yok</string>
 </resources>

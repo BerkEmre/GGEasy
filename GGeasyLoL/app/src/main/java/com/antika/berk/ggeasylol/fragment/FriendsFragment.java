@@ -44,7 +44,7 @@ public class FriendsFragment extends Fragment {
         fri_lv=(ListView)view.findViewById(R.id.lv_fri);
         bildirim=(Button) view.findViewById(R.id.button10);
         ekle=(Button) view.findViewById(R.id.button6);
-
+        istek=0;
         bildirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,9 +54,10 @@ public class FriendsFragment extends Fragment {
                     asf.setFragment(FriendsFragment.this);
                     asf.show(fm, "");}
                 else
-                    Toast.makeText(getContext(),"Yeni Bildirim Yok.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),getContext().getString(R.string.no_notification),Toast.LENGTH_LONG).show();
             }
         });
+
         ekle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +66,7 @@ public class FriendsFragment extends Fragment {
                 asf.show(fm, "");
             }
         });
+
         new getData().execute();
 
 

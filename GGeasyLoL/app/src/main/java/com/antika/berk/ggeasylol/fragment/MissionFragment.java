@@ -255,18 +255,27 @@ public class MissionFragment extends Fragment {
                 grvIptal17.setVisibility(View.VISIBLE);
                 grvAl17.setVisibility(View.GONE);
             }
+
+        if(dbHelper.getUser().getEmail().length()>0)
             new getData().execute("0");
+        else
+            Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
             grvAl1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu1.setVisibility(View.VISIBLE);
-                        grvIptal1.setVisibility(View.VISIBLE);
-                        grvAl1.setVisibility(View.GONE);
-                        new getData().execute("-1");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu1.setVisibility(View.VISIBLE);
+                            grvIptal1.setVisibility(View.VISIBLE);
+                            grvAl1.setVisibility(View.GONE);
+                            new getData().execute("-1");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu1.setOnClickListener(new View.OnClickListener() {
@@ -303,14 +312,19 @@ public class MissionFragment extends Fragment {
             grvAl2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu2.setVisibility(View.VISIBLE);
-                        grvIptal2.setVisibility(View.VISIBLE);
-                        grvAl2.setVisibility(View.GONE);
-                        new getData().execute("-2");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu2.setVisibility(View.VISIBLE);
+                            grvIptal2.setVisibility(View.VISIBLE);
+                            grvAl2.setVisibility(View.GONE);
+                            new getData().execute("-2");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu2.setOnClickListener(new View.OnClickListener() {
@@ -346,7 +360,8 @@ public class MissionFragment extends Fragment {
             grvAl3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
                         grvSorgu3.setVisibility(View.VISIBLE);
                         grvIptal3.setVisibility(View.VISIBLE);
                         grvAl3.setVisibility(View.GONE);
@@ -355,6 +370,10 @@ public class MissionFragment extends Fragment {
                         Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
                     }
                 }
+                    else
+                            Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
+            }
             });
             grvSorgu3.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -389,14 +408,20 @@ public class MissionFragment extends Fragment {
             grvAl4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu4.setVisibility(View.VISIBLE);
-                        grvIptal4.setVisibility(View.VISIBLE);
-                        grvAl4.setVisibility(View.GONE);
-                        new getData().execute("-4");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu4.setVisibility(View.VISIBLE);
+                            grvIptal4.setVisibility(View.VISIBLE);
+                            grvAl4.setVisibility(View.GONE);
+                            new getData().execute("-4");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
+
                 }
             });
             grvSorgu4.setOnClickListener(new View.OnClickListener() {
@@ -432,14 +457,20 @@ public class MissionFragment extends Fragment {
             grvAl5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu5.setVisibility(View.VISIBLE);
-                        grvIptal5.setVisibility(View.VISIBLE);
-                        grvAl5.setVisibility(View.GONE);
-                        new getData().execute("-5");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu5.setVisibility(View.VISIBLE);
+                            grvIptal5.setVisibility(View.VISIBLE);
+                            grvAl5.setVisibility(View.GONE);
+                            new getData().execute("-5");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu5.setOnClickListener(new View.OnClickListener() {
@@ -475,14 +506,19 @@ public class MissionFragment extends Fragment {
             grvAl6.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu6.setVisibility(View.VISIBLE);
-                        grvIptal6.setVisibility(View.VISIBLE);
-                        grvAl6.setVisibility(View.GONE);
-                        new getData().execute("-6");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu6.setVisibility(View.VISIBLE);
+                            grvIptal6.setVisibility(View.VISIBLE);
+                            grvAl6.setVisibility(View.GONE);
+                            new getData().execute("-6");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu6.setOnClickListener(new View.OnClickListener() {
@@ -518,14 +554,19 @@ public class MissionFragment extends Fragment {
             grvAl7.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu7.setVisibility(View.VISIBLE);
-                        grvIptal7.setVisibility(View.VISIBLE);
-                        grvAl7.setVisibility(View.GONE);
-                        new getData().execute("-7");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu7.setVisibility(View.VISIBLE);
+                            grvIptal7.setVisibility(View.VISIBLE);
+                            grvAl7.setVisibility(View.GONE);
+                            new getData().execute("-7");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu7.setOnClickListener(new View.OnClickListener() {
@@ -561,14 +602,19 @@ public class MissionFragment extends Fragment {
             grvAl8.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu8.setVisibility(View.VISIBLE);
-                        grvIptal8.setVisibility(View.VISIBLE);
-                        grvAl8.setVisibility(View.GONE);
-                        new getData().execute("-8");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu8.setVisibility(View.VISIBLE);
+                            grvIptal8.setVisibility(View.VISIBLE);
+                            grvAl8.setVisibility(View.GONE);
+                            new getData().execute("-8");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu8.setOnClickListener(new View.OnClickListener() {
@@ -604,14 +650,19 @@ public class MissionFragment extends Fragment {
             grvAl9.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu9.setVisibility(View.VISIBLE);
-                        grvIptal9.setVisibility(View.VISIBLE);
-                        grvAl9.setVisibility(View.GONE);
-                        new getData().execute("-9");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu9.setVisibility(View.VISIBLE);
+                            grvIptal9.setVisibility(View.VISIBLE);
+                            grvAl9.setVisibility(View.GONE);
+                            new getData().execute("-9");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu9.setOnClickListener(new View.OnClickListener() {
@@ -647,14 +698,19 @@ public class MissionFragment extends Fragment {
             grvAl10.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu10.setVisibility(View.VISIBLE);
-                        grvIptal10.setVisibility(View.VISIBLE);
-                        grvAl10.setVisibility(View.GONE);
-                        new getData().execute("-10");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu10.setVisibility(View.VISIBLE);
+                            grvIptal10.setVisibility(View.VISIBLE);
+                            grvAl10.setVisibility(View.GONE);
+                            new getData().execute("-10");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu10.setOnClickListener(new View.OnClickListener() {
@@ -690,14 +746,19 @@ public class MissionFragment extends Fragment {
             grvAl11.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu11.setVisibility(View.VISIBLE);
-                        grvIptal11.setVisibility(View.VISIBLE);
-                        grvAl11.setVisibility(View.GONE);
-                        new getData().execute("-11");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu11.setVisibility(View.VISIBLE);
+                            grvIptal11.setVisibility(View.VISIBLE);
+                            grvAl11.setVisibility(View.GONE);
+                            new getData().execute("-11");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu11.setOnClickListener(new View.OnClickListener() {
@@ -733,14 +794,19 @@ public class MissionFragment extends Fragment {
             grvAl12.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu12.setVisibility(View.VISIBLE);
-                        grvIptal12.setVisibility(View.VISIBLE);
-                        grvAl12.setVisibility(View.GONE);
-                        new getData().execute("-12");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu12.setVisibility(View.VISIBLE);
+                            grvIptal12.setVisibility(View.VISIBLE);
+                            grvAl12.setVisibility(View.GONE);
+                            new getData().execute("-12");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu12.setOnClickListener(new View.OnClickListener() {
@@ -776,14 +842,20 @@ public class MissionFragment extends Fragment {
             grvAl13.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu13.setVisibility(View.VISIBLE);
-                        grvIptal13.setVisibility(View.VISIBLE);
-                        grvAl13.setVisibility(View.GONE);
-                        new getData().execute("-13");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu13.setVisibility(View.VISIBLE);
+                            grvIptal13.setVisibility(View.VISIBLE);
+                            grvAl13.setVisibility(View.GONE);
+                            new getData().execute("-13");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu13.setOnClickListener(new View.OnClickListener() {
@@ -819,14 +891,19 @@ public class MissionFragment extends Fragment {
             grvAl14.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu14.setVisibility(View.VISIBLE);
-                        grvIptal14.setVisibility(View.VISIBLE);
-                        grvAl14.setVisibility(View.GONE);
-                        new getData().execute("-14");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu14.setVisibility(View.VISIBLE);
+                            grvIptal14.setVisibility(View.VISIBLE);
+                            grvAl14.setVisibility(View.GONE);
+                            new getData().execute("-14");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu14.setOnClickListener(new View.OnClickListener() {
@@ -862,14 +939,19 @@ public class MissionFragment extends Fragment {
             grvAl15.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu15.setVisibility(View.VISIBLE);
-                        grvIptal15.setVisibility(View.VISIBLE);
-                        grvAl15.setVisibility(View.GONE);
-                        new getData().execute("-15");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu15.setVisibility(View.VISIBLE);
+                            grvIptal15.setVisibility(View.VISIBLE);
+                            grvAl15.setVisibility(View.GONE);
+                            new getData().execute("-15");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu15.setOnClickListener(new View.OnClickListener() {
@@ -905,14 +987,19 @@ public class MissionFragment extends Fragment {
             grvAl16.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu16.setVisibility(View.VISIBLE);
-                        grvIptal16.setVisibility(View.VISIBLE);
-                        grvAl16.setVisibility(View.GONE);
-                        new getData().execute("-16");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu16.setVisibility(View.VISIBLE);
+                            grvIptal16.setVisibility(View.VISIBLE);
+                            grvAl16.setVisibility(View.GONE);
+                            new getData().execute("-16");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu16.setOnClickListener(new View.OnClickListener() {
@@ -948,14 +1035,19 @@ public class MissionFragment extends Fragment {
             grvAl17.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dbHelper.getMatchs()) {
-                        grvSorgu17.setVisibility(View.VISIBLE);
-                        grvIptal17.setVisibility(View.VISIBLE);
-                        grvAl17.setVisibility(View.GONE);
-                        new getData().execute("-17");
-                    } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                    if(dbHelper.getUser().getEmail().length()>0){
+                        if (dbHelper.getMatchs()) {
+                            grvSorgu17.setVisibility(View.VISIBLE);
+                            grvIptal17.setVisibility(View.VISIBLE);
+                            grvAl17.setVisibility(View.GONE);
+                            new getData().execute("-17");
+                        } else {
+                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else
+                        Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
                 }
             });
             grvSorgu17.setOnClickListener(new View.OnClickListener() {
