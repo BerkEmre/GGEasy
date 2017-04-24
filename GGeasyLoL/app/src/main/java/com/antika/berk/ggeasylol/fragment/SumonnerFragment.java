@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,19 +24,25 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
+import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.Sumonner;
+import com.antika.berk.ggeasylol.object.UserObject;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SumonnerFragment extends Fragment implements DialogInterface.OnDismissListener {
+public class SumonnerFragment extends Fragment  {
     SummonerObject so;
     List<LeagueObject> leagues;
     List<ChampionMasterObject> masteries;
@@ -43,12 +50,11 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
     EditText et_username;
     Spinner sp_server;
     Button bt_getdata;
-    ListView lw_matchdata;
     ImageButton im_adduser;
-
-    List<Sumonner> countries;
-
-    final List<ParticipantListObject> kisiler=new ArrayList<ParticipantListObject>();
+    DBHelper dbHelper;
+    UserObject uo;
+    List<FriendsObject> friend=new ArrayList<FriendsObject>();
+    ListView fri_lv;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sumonner, container, false);
@@ -57,7 +63,7 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
         et_username  = (EditText   ) view.findViewById(R.id.editText2   );
         sp_server    = (Spinner    ) view.findViewById(R.id.spinner2    );
         bt_getdata   = (Button     ) view.findViewById(R.id.button2     );
-        lw_matchdata = (ListView   ) view.findViewById(R.id.listview    );
+        fri_lv = (ListView   ) view.findViewById(R.id.listview    );
         im_adduser   = (ImageButton) view.findViewById(R.id.imageButton2);
         //******************************************************************************************
 
@@ -71,7 +77,7 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_server.setAdapter(dataAdapter);
         //******************************************************************************************
-
+        new getData1().execute();
         bt_getdata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,56 +87,20 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
                     Toast.makeText(getContext(), getString(R.string.set_summoner_name), Toast.LENGTH_LONG).show();
             }
         });
-
-        im_adduser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fm = getFragmentManager();
-                AddSumonnerFragment asf = new AddSumonnerFragment();
-                asf.setFragment(SumonnerFragment.this);
-                asf.show(fm, "Add Sumonner");
-            }
-        });
-
-        lw_matchdata.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        fri_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                try{new getData().execute(countries.get(position).getSumonnerName(),sp_server.getSelectedItem().toString());}
-                catch (Exception e){Toast.makeText(getContext(), getString(R.string.try_again), Toast.LENGTH_LONG).show();}
+                new getData().execute(friend.get(position).getSihirdarAdi(),friend.get(position).getRegion());
             }
         });
 
-        setSumonnersonListview();
 
-        view.setFocusableInTouchMode(true);
-        view.requestFocus();
-        view.setOnKeyListener( new View.OnKeyListener()
-        {
-            @Override
-            public boolean onKey( View v, int keyCode, KeyEvent event )
-            {
-                if( keyCode == KeyEvent.KEYCODE_BACK )
-                {
-                    getActivity().finish();
-                }
-                return false;
-            }
-        } );
+
+
 
         return view;
     }
 
-    @Override
-    public void onDismiss(DialogInterface dialog) {
-        setSumonnersonListview();
-    }
-
-    private void setSumonnersonListview() {
-        DBHelper dbHelper = new DBHelper(getContext());
-        countries = dbHelper.getAllSunmonners();
-        SumonnersAdapter myListAdapter = new SumonnersAdapter(getActivity(), countries);
-        lw_matchdata.setAdapter(myListAdapter);
-    }
 
     private class getData extends AsyncTask<String, String, String> {
         BlankFragment progress;
@@ -181,6 +151,74 @@ public class SumonnerFragment extends Fragment implements DialogInterface.OnDism
             else
                 Toast.makeText(getContext(), results, Toast.LENGTH_LONG).show();
             progress.dismiss();
+        }
+    }
+    private class getData1 extends AsyncTask<String,String,String> {
+
+        BlankFragment progress;
+
+
+
+        @Override
+        protected void onPreExecute() {
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            RiotApiHelper riotApiHelper = new RiotApiHelper();
+            dbHelper=new DBHelper(getContext());
+            uo=dbHelper.getUser();
+            try {
+                friend.clear();
+                String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + uo.getEmail() + "&Sifre=" + uo.getSifre());
+                JSONArray array1 = new JSONArray(cevap);
+                JSONObject object = array1.getJSONObject(0);
+                friend.add(new FriendsObject(object.getString("SihirdarAdi"),object.getString("SihirdarID"),object.getString("Region"),object.getString("Puan"),object.getString("icon"),object.getString("ID")));
+
+                String gelenData=riotApiHelper.readURL("http://ggeasylol.com/api/get_friends.php?sihirdarID="+uo.getSummonerID()+"&region="+uo.getRegion());
+                JSONObject obj=new JSONObject(gelenData);
+                JSONArray array=obj.getJSONArray("friends");
+                for(int i=0;i<array.length();i++){
+                    JSONObject obj1=array.getJSONObject(i);
+                    JSONObject obj2=obj1.getJSONObject("other");
+                    if(obj1.getString("status").equals("1"))
+                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
+
+
+
+                }
+
+
+                return "0";
+
+            }
+
+
+
+            catch (Exception e) {
+                e.printStackTrace();
+                Log.d("HATA",e.toString());
+                return e.toString();
+
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if(s.equals("0")){
+                FriendsAdapter adapter=new FriendsAdapter(getActivity(),friend);
+                fri_lv.setAdapter(adapter);
+
+            }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+
+            progress.dismiss();
+
+
         }
     }
 }

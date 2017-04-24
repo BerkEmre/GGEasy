@@ -192,4 +192,6 @@
     <string name="no_notification">Yeni bildirim yok</string>
     <string name="sent_mail_pass">Şifreniz mail adresinize gönderildi.</string>
     <string name="level">Rakip ya da sen LOL\'de 30. seviye değilsin</string>
+    <string name="advertisement">4\'den fazla meydan okuma başlatmak istiyorsanız Reklam izlemelisiniz.</string>
+    <string name="advertisement_mission">3\'ten fazla görev almak istiyorsanız Reklam izlemelisiniz.</string>
 </resources>

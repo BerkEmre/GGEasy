@@ -12,6 +12,7 @@ import android.support.multidex.MultiDex;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -39,6 +40,8 @@ import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.UserObject;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.util.Locale;
+
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         //NOTİFİCATİON TOKEN
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d("TOKEN", "Token: " + token);
-        new checkVersiyon().execute(token);
+        new checkVersiyon().execute(token, Locale.getDefault().getLanguage());
 
         //VERSİYON KONTROL
         PackageInfo pInfo = null;
@@ -260,7 +263,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             try {
                 if(params[0].length() > 30){
                     DBHelper dbHelper = new DBHelper(getApplicationContext());
-                    riotApiHelper.readURL("http://ggeasylol.com/api/send_token.php?email=" + dbHelper.getUser().getEmail() + "&token=" + params[0]);
+                    riotApiHelper.readURL("http://ggeasylol.com/api/send_token.php?email=" + dbHelper.getUser().getEmail() + "&token=" + params[0] + "&lang=" + params[1]);
                     return "1";
                 }
                 String gelenVersiyon = riotApiHelper.readURL("http://ggeasylol.com/api/versiyon.html");

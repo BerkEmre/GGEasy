@@ -8,48 +8,50 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.adcolony.sdk.AdColony;
+import com.adcolony.sdk.AdColonyAdOptions;
+import com.adcolony.sdk.AdColonyAppOptions;
+import com.adcolony.sdk.AdColonyInterstitial;
+import com.adcolony.sdk.AdColonyInterstitialListener;
+import com.adcolony.sdk.AdColonyReward;
+import com.adcolony.sdk.AdColonyRewardListener;
+import com.adcolony.sdk.AdColonyZone;
 import com.antika.berk.ggeasylol.Other.Mission;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionObject;
-import com.antika.berk.ggeasylol.object.ChampionStatObject;
 import com.antika.berk.ggeasylol.object.MatchIdObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
-import com.antika.berk.ggeasylol.object.SummonerIDsObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MissionFragment extends Fragment {
     Mission m;
     int match_id=0;
+    String x="0";
     DBHelper dbHelper;
     TextView textpuan;
     ImageView info;
     UserObject uo;
     SummonerObject so;
+    BlankFragment progress_fragment;
 
     Button grvAl1,grvAl2,grvAl3,grvAl4,grvAl5,grvAl6,grvAl7,grvAl8,grvAl9,grvAl10,grvAl11,grvAl12,grvAl13,grvAl14,grvAl15,grvAl16,
             grvAl17;
@@ -63,6 +65,28 @@ public class MissionFragment extends Fragment {
     boolean srg1,srg2,srg3,srg4,srg5,srg6,srg7,srg8,srg9,srg10,srg11,srg12,srg13,srg14,srg15,srg16,srg17;
 
     String puan;
+
+    //*******************************************ADCOLONY*******************************************
+    final private String APP_ID = "appd4be31ac30ce44f58f";
+    final private String ZONE_ID = "vz4b35fd5a978c4b009b";
+    final private String TAG = "GGEasy - ODUL";
+
+    private AdColonyInterstitial ad;
+    private AdColonyInterstitialListener listener;
+    private AdColonyAdOptions ad_options;
+
+    boolean show = false;
+    //**********************************************************************************************
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(show){
+            show = false;
+            new getData().execute(x);
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -261,6 +285,53 @@ public class MissionFragment extends Fragment {
             new getData().execute("0");
         else
             Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+        //ADCOLONY
+        AdColonyAppOptions app_options = new AdColonyAppOptions()
+                .setUserID( "unique_user_id" );
+
+        AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
+
+        ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
+
+        AdColony.setRewardListener( new AdColonyRewardListener()
+        {
+            @Override
+            public void onReward( AdColonyReward reward )
+            {
+                Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
+            }
+        } );
+
+        listener = new AdColonyInterstitialListener()
+        {
+            @Override
+            public void onRequestFilled( AdColonyInterstitial ad )
+            {
+                progress_fragment.dismiss();
+                show = true;
+                ad.show();
+                Log.d( TAG, "onRequestFilled" );
+            }
+            @Override
+            public void onRequestNotFilled( AdColonyZone zone )
+            {
+                //REKLAM YOK
+                Log.d( TAG, "onRequestNotFilled");
+            }
+            @Override
+            public void onOpened( AdColonyInterstitial ad )
+            {
+                //REKLAM AÇILDI
+                Log.d( TAG, "onOpened" );
+            }
+            @Override
+            public void onExpiring( AdColonyInterstitial ad )
+            {
+                //SÜRESİ DOLDU
+                Log.d( TAG, "onExpiring" );
+            }
+        };
+
             grvAl1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -272,7 +343,28 @@ public class MissionFragment extends Fragment {
                                 grvAl1.setVisibility(View.GONE);
                                 new getData().execute("-1");
                             } else {
-                                Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        switch (which){
+                                            case DialogInterface.BUTTON_POSITIVE:
+                                                AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                                FragmentManager fm = getFragmentManager();
+                                                progress_fragment = new BlankFragment();
+                                                progress_fragment.show(fm, "");
+                                                show =false;
+                                                grvSorgu1.setVisibility(View.VISIBLE);
+                                                grvIptal1.setVisibility(View.VISIBLE);
+                                                grvAl1.setVisibility(View.GONE);
+                                                x="-1";
+                                                break;
+                                        }
+                                    }
+                                };
+
+                                android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                                builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                        .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                             }
                         else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
@@ -324,7 +416,28 @@ public class MissionFragment extends Fragment {
                             grvAl2.setVisibility(View.GONE);
                             new getData().execute("-2");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu2.setVisibility(View.VISIBLE);
+                                            grvIptal2.setVisibility(View.VISIBLE);
+                                            grvAl2.setVisibility(View.GONE);
+                                            x="-2";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -374,7 +487,28 @@ public class MissionFragment extends Fragment {
                         grvAl3.setVisibility(View.GONE);
                         new getData().execute("-3");
                     } else {
-                        Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu3.setVisibility(View.VISIBLE);
+                                            grvIptal3.setVisibility(View.VISIBLE);
+                                            grvAl3.setVisibility(View.GONE);
+                                            x="-3";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                     }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                 }
@@ -424,7 +558,28 @@ public class MissionFragment extends Fragment {
                             grvAl4.setVisibility(View.GONE);
                             new getData().execute("-4");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu4.setVisibility(View.VISIBLE);
+                                            grvIptal4.setVisibility(View.VISIBLE);
+                                            grvAl4.setVisibility(View.GONE);
+                                            x="-4";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -475,7 +630,28 @@ public class MissionFragment extends Fragment {
                             grvAl5.setVisibility(View.GONE);
                             new getData().execute("-5");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu5.setVisibility(View.VISIBLE);
+                                            grvIptal5.setVisibility(View.VISIBLE);
+                                            grvAl5.setVisibility(View.GONE);
+                                            x="-5";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -525,7 +701,28 @@ public class MissionFragment extends Fragment {
                             grvAl6.setVisibility(View.GONE);
                             new getData().execute("-6");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu6.setVisibility(View.VISIBLE);
+                                            grvIptal6.setVisibility(View.VISIBLE);
+                                            grvAl6.setVisibility(View.GONE);
+                                            x="-6";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -575,7 +772,28 @@ public class MissionFragment extends Fragment {
                             grvAl7.setVisibility(View.GONE);
                             new getData().execute("-7");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu7.setVisibility(View.VISIBLE);
+                                            grvIptal7.setVisibility(View.VISIBLE);
+                                            grvAl7.setVisibility(View.GONE);
+                                            x="-7";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -625,7 +843,28 @@ public class MissionFragment extends Fragment {
                             grvAl8.setVisibility(View.GONE);
                             new getData().execute("-8");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu8.setVisibility(View.VISIBLE);
+                                            grvIptal8.setVisibility(View.VISIBLE);
+                                            grvAl8.setVisibility(View.GONE);
+                                            x="-8";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -675,7 +914,28 @@ public class MissionFragment extends Fragment {
                             grvAl9.setVisibility(View.GONE);
                             new getData().execute("-9");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu9.setVisibility(View.VISIBLE);
+                                            grvIptal9.setVisibility(View.VISIBLE);
+                                            grvAl9.setVisibility(View.GONE);
+                                            x="-9";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -725,7 +985,28 @@ public class MissionFragment extends Fragment {
                             grvAl10.setVisibility(View.GONE);
                             new getData().execute("-10");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu10.setVisibility(View.VISIBLE);
+                                            grvIptal10.setVisibility(View.VISIBLE);
+                                            grvAl10.setVisibility(View.GONE);
+                                            x="-10";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -775,7 +1056,28 @@ public class MissionFragment extends Fragment {
                             grvAl11.setVisibility(View.GONE);
                             new getData().execute("-11");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu11.setVisibility(View.VISIBLE);
+                                            grvIptal11.setVisibility(View.VISIBLE);
+                                            grvAl11.setVisibility(View.GONE);
+                                            x="-11";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -825,8 +1127,28 @@ public class MissionFragment extends Fragment {
                             grvAl12.setVisibility(View.GONE);
                             new getData().execute("-12");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
-                        }else
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu12.setVisibility(View.VISIBLE);
+                                            grvIptal12.setVisibility(View.VISIBLE);
+                                            grvAl12.setVisibility(View.GONE);
+                                            x="-12";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();                        }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
                     else
@@ -876,7 +1198,28 @@ public class MissionFragment extends Fragment {
                             grvAl13.setVisibility(View.GONE);
                             new getData().execute("-13");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu13.setVisibility(View.VISIBLE);
+                                            grvIptal13.setVisibility(View.VISIBLE);
+                                            grvAl5.setVisibility(View.GONE);
+                                            x="-13";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -926,7 +1269,28 @@ public class MissionFragment extends Fragment {
                             grvAl14.setVisibility(View.GONE);
                             new getData().execute("-14");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu14.setVisibility(View.VISIBLE);
+                                            grvIptal14.setVisibility(View.VISIBLE);
+                                            grvAl14.setVisibility(View.GONE);
+                                            x="-14";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -976,7 +1340,28 @@ public class MissionFragment extends Fragment {
                             grvAl15.setVisibility(View.GONE);
                             new getData().execute("-15");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu15.setVisibility(View.VISIBLE);
+                                            grvIptal15.setVisibility(View.VISIBLE);
+                                            grvAl15.setVisibility(View.GONE);
+                                            x="-15";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }
@@ -1026,7 +1411,28 @@ public class MissionFragment extends Fragment {
                                 grvAl16.setVisibility(View.GONE);
                                 new getData().execute("-16");
                             } else {
-                                Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        switch (which){
+                                            case DialogInterface.BUTTON_POSITIVE:
+                                                AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                                FragmentManager fm = getFragmentManager();
+                                                progress_fragment = new BlankFragment();
+                                                progress_fragment.show(fm, "");
+                                                show =false;
+                                                grvSorgu16.setVisibility(View.VISIBLE);
+                                                grvIptal16.setVisibility(View.VISIBLE);
+                                                grvAl16.setVisibility(View.GONE);
+                                                x="-16";
+                                                break;
+                                        }
+                                    }
+                                };
+
+                                android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                                builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                        .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                             }
                         else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
@@ -1077,7 +1483,28 @@ public class MissionFragment extends Fragment {
                             grvAl17.setVisibility(View.GONE);
                             new getData().execute("-17");
                         } else {
-                            Toast.makeText(view.getContext(), getContext().getString(R.string.three_mission), Toast.LENGTH_LONG).show();
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which){
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+                                            FragmentManager fm = getFragmentManager();
+                                            progress_fragment = new BlankFragment();
+                                            progress_fragment.show(fm, "");
+                                            show =false;
+                                            grvSorgu17.setVisibility(View.VISIBLE);
+                                            grvIptal17.setVisibility(View.VISIBLE);
+                                            grvAl17.setVisibility(View.GONE);
+                                            x="-17";
+                                            break;
+                                    }
+                                }
+                            };
+
+                            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(view.getContext());
+                            builder.setMessage(getContext().getString(R.string.advertisement_mission)).setPositiveButton(getContext().getString(R.string.yes), dialogClickListener)
+                                    .setNegativeButton(getContext().getText(R.string.no), dialogClickListener).show();
                         }else
                             Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
                     }

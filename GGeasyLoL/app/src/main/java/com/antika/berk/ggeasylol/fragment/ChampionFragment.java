@@ -54,6 +54,7 @@ public class ChampionFragment extends Fragment {
         gv_champions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                et_arama.setText("");
                 ChampionObject data= adapter.getItem(position);
                 ChampionTabHost cmof = new ChampionTabHost();
                 cmof.setChampionObject(data);
@@ -99,15 +100,10 @@ public class ChampionFragment extends Fragment {
         @Override
         protected String doInBackground(String... values)
         {
-            DBHelper dbHelper = new DBHelper(getActivity());
             RiotApiHelper raHelper = new RiotApiHelper();
 
-            champions = raHelper.getChampionStaticData(getContext());
             try{
-                for (int i = 0; i < champions.size(); i++) {
-                    if (dbHelper.getChampion(champions.get(i).getChampionID()) == null)
-                        dbHelper.insertChampion(raHelper.getStaticChampion(Integer.parseInt(champions.get(i).getChampionID()), values[0],getContext()));
-                }
+                champions = raHelper.getChampionStaticData(getContext());
                 return "0";
             }catch (Exception e){
                 return "HATA";

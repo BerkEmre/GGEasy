@@ -216,7 +216,8 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
                 user1MatchId=riotApiHelper.getMatchID(Integer.parseInt(challengeObject.getSihirdarID1()),challengeObject.getRegion1());
                 user2MatchId=riotApiHelper.getMatchID(Integer.parseInt(challengeObject.getSihirdarID2()),challengeObject.getRegion2());
                 if (!user1MatchId.equals(null) &&!user2MatchId.equals(null)) {
-                    riotApiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID=" + challengeObject.getId() + "&cevap=1&user1Match=" + user1MatchId.getMatchID()+ "&user2Match=" + user2MatchId.getMatchID());
+
+                    riotApiHelper.readURL("http://ggeasylol.com/api/set_challenge.php?ID=" + challengeObject.getId() + "&cevap=1&user1Match=" + user1MatchId.getMatchID()+ "&user2Match=" + user2MatchId.getMatchID());
                     return "Kabul Edildi";
                 }
                 return "HATA";

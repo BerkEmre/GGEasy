@@ -3,6 +3,7 @@ package com.antika.berk.ggeasylol.fragment;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,14 @@ import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.adcolony.sdk.AdColony;
+import com.adcolony.sdk.AdColonyAdOptions;
+import com.adcolony.sdk.AdColonyAppOptions;
+import com.adcolony.sdk.AdColonyInterstitial;
+import com.adcolony.sdk.AdColonyInterstitialListener;
+import com.adcolony.sdk.AdColonyReward;
+import com.adcolony.sdk.AdColonyRewardListener;
+import com.adcolony.sdk.AdColonyZone;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ParticipantsAdapter;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
@@ -26,6 +35,15 @@ public class CurrentMatchOpenFragment extends Fragment {
     CurrentGameObject cgo;
     String summonerName;
     private InterstitialAd gecisReklam;
+    //**********************************ADCOLONY***********************************************
+    final private String APP_ID = "appd4be31ac30ce44f58f";
+    final private String ZONE_ID = "vze7a42d4c0bb34ef288";
+    final private String TAG = "GGEasy - GECIS";
+
+    private AdColonyInterstitial ad;
+    private AdColonyInterstitialListener listener;
+    private AdColonyAdOptions ad_options;
+    //*****************************************************************************************
 
     TextView tv_name, tv_gameMode, tv_gameType, tv_Time;
     ListView lv_participants;
@@ -43,25 +61,48 @@ public class CurrentMatchOpenFragment extends Fragment {
         tv_gameMode.setText(cgo.getGameMode());
         tv_gameType.setText(cgo.getGameType());
 
-        gecisReklam = new InterstitialAd(getActivity());
+        //ADCOLONY
+        AdColonyAppOptions app_options = new AdColonyAppOptions()
+                .setUserID( "unique_user_id" );
 
-        gecisReklam.setAdUnitId("ca-app-pub-3539552494760504/2165243670");
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("D8592250ED9C011634C41C2295225021")
-                .build();
-        gecisReklam.loadAd(adRequest);
+        AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
 
-        final int random = new Random().nextInt(5);
-        //if(random == 1 && gecisReklam.isLoaded())
-        gecisReklam.setAdListener(new AdListener() {
+        ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
+
+        AdColony.setRewardListener( new AdColonyRewardListener()
+        {
             @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                if(random == 1)
-                gecisReklam.show();
+            public void onReward( AdColonyReward reward )
+            {
+                Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
             }
-        });
+        } );
+
+        listener = new AdColonyInterstitialListener()
+        {
+            @Override
+            public void onRequestFilled( AdColonyInterstitial ad )
+            {
+                ad.show();
+                Log.d( TAG, "onRequestFilled" );
+            }
+            @Override
+            public void onRequestNotFilled( AdColonyZone zone )
+            {
+                Log.d( TAG, "onRequestNotFilled");
+            }
+            @Override
+            public void onOpened( AdColonyInterstitial ad )
+            {
+                Log.d( TAG, "onOpened" );
+            }
+            @Override
+            public void onExpiring( AdColonyInterstitial ad )
+            {
+                Log.d( TAG, "onExpiring" );
+            }
+        };
+        AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
 
         int sec, min;
 

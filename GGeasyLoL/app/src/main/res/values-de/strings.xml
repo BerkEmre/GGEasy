@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">GGeasyLoL</string>
+    <string name="app_name">GGeasyLoL.</string>
     <string name="armor">Rüstung:</string>
     <string name="atack_range">Angriffsreichweite</string>
     <string name="attack">Attacke:</string>
@@ -190,6 +190,8 @@
     <string name="no_notification">Keine neuen Benachrichtigungen</string>
     <string name="sent_mail_pass">Ihr Passwort wurde an Ihre E-Mail-Adresse gesendet</string>
     <string name="level">Gegner oder du bist nicht Level 30 in LOL</string>
+    <string name="advertisement">"Wenn du mehr als 4 neue Herausforderung anfangen willst, musst du Werbung ansehen. "</string>
+    <string name="advertisement_mission">"Wenn du mehr als drei Missionen nehmen willst, musst du Werbung ansehen. "</string>
 
 
 </resources>

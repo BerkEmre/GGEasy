@@ -189,6 +189,8 @@
     <string name="no_notification">Não há novas notificações</string>
     <string name="sent_mail_pass">Sua senha foi enviada para o seu endereço de e-mail</string>
     <string name="level">Adversário ou você não está em nível 30 em LOL</string>
+    <string name="advertisement">"Se você quiser começar mais de 4 novos desafios, você tem que assistir Anúncio. "</string>
+    <string name="advertisement_mission">"Se você quiser tomar mais de três missões, você tem que assistir Anúncio. "</string>
 
 
 </resources>

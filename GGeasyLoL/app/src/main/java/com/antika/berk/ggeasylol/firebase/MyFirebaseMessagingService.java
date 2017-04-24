@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -37,19 +38,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             //Json formatındaki datayı parse edip kullanabiliriz. Biz direk datayı Push Notification olarak bastırıyoruz
             JSONObject json = new JSONObject(remoteMessage.getData());
             try {
-                if(Locale.getDefault().getLanguage().equals("de")){
-                    sendNotification(json.getString("de_title"), json.getString("de_body"),json.getString("sayfa"));
-                }else if(Locale.getDefault().getLanguage().equals("pt")){
-                    sendNotification(json.getString("pt_title"), json.getString("pt_body"),json.getString("sayfa"));
-                }else if(Locale.getDefault().getLanguage().equals("tr")){
-                    sendNotification(json.getString("tr_title"), json.getString("tr_body"),json.getString("sayfa"));
-                }else{
-                    sendNotification(json.getString("en_title"), json.getString("en_body"),json.getString("sayfa"));
-                }
+                sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody(),json.getString("sayfa"));
             }
             catch (JSONException e) {
                 e.printStackTrace();
-                sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody(),"");
+                Log.d(TAG, "Mesaj data içeriği: " + remoteMessage.getData());
+                //sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody(),"");
             }
 
         }
@@ -79,7 +73,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         try {
             Uri alarmSound = Uri.parse("android.resource://"
-                    + getPackageName() + "/" + R.raw.notification);
+                    + getPackageName() + "/" +
+                    R.raw.notification);
             Ringtone r = RingtoneManager.getRingtone(this, alarmSound);
             r.play();
         } catch (Exception e) {

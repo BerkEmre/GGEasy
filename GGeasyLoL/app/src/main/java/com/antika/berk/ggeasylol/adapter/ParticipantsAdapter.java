@@ -95,6 +95,9 @@ public class ParticipantsAdapter extends BaseAdapter {
         }
 
         ChampionObject cmp = dbHelper.getChampion(Integer.toString(kisi.getChampionID()));
+        if(dbHelper.getChampion(""+kisi.getChampionID()) == null){
+
+        }
         SpellObject spl1 = dbHelper.getSpell(Integer.toString(kisi.getSpell1()));
         SpellObject spl2 = dbHelper.getSpell(Integer.toString(kisi.getSpell2()));
 
