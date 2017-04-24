@@ -16,8 +16,11 @@ import com.antika.berk.ggeasylol.activity.MainPageActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import org.intellij.lang.annotations.Language;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Locale;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -34,14 +37,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             //Json formatındaki datayı parse edip kullanabiliriz. Biz direk datayı Push Notification olarak bastırıyoruz
             JSONObject json = new JSONObject(remoteMessage.getData());
             try {
-                if(getString(R.string.language2).equals("de_DE")){
+                if(Locale.getDefault().getLanguage().equals("de")){
                     sendNotification(json.getString("de_title"), json.getString("de_body"),json.getString("sayfa"));
-                }else if(getString(R.string.language2).equals("pt_BR")){
+                }else if(Locale.getDefault().getLanguage().equals("pt")){
                     sendNotification(json.getString("pt_title"), json.getString("pt_body"),json.getString("sayfa"));
-                }else if(getString(R.string.language2).equals("tr_TR")){
-                    sendNotification(json.getString("pt_title"), json.getString("pt_body"),json.getString("sayfa"));
+                }else if(Locale.getDefault().getLanguage().equals("tr")){
+                    sendNotification(json.getString("tr_title"), json.getString("tr_body"),json.getString("sayfa"));
                 }else{
-                    sendNotification(json.getString("pt_title"), json.getString("pt_body"),json.getString("sayfa"));
+                    sendNotification(json.getString("en_title"), json.getString("en_body"),json.getString("sayfa"));
                 }
             }
             catch (JSONException e) {
@@ -50,16 +53,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             }
 
         }
-
-        /*if (remoteMessage.getNotification() != null) { //Notification mesajı içeriyor mu
-            //Uygulama arkaplanda ise burası çağrılmaz.Ön planda ise notification mesajı geldiğinde çağırılır
-            //getBody() ile mesaj içeriği
-            //getTitle() ile mesaj başlığı
-            Log.d(TAG, "Mesaj Notification Başlığı: " + remoteMessage.getNotification().getTitle() +" "+"Mesaj Notification İçeriği: " + remoteMessage.getNotification().getBody() );
-
-            //Gelen içeriğe göre notifikasyon bildiriminde bulunma
-            sendNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
-        }*/
 
     }
 
