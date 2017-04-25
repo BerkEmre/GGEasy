@@ -45,7 +45,7 @@ import it.sephiroth.android.library.picasso.Transformation;
 
 public class UserDeatailFragment extends DialogFragment {
 
-    TextView tv_summonerName, tv_puan, tv_lig, tv_lig_adi, tv_kill, tv_asist,tv_level;
+    TextView tv_summonerName, tv_puan,tv_level;
     ImageView iv_profil, iv_lig,iv_back;
     DBHelper dbHelper;
     GridView rozets;
@@ -62,12 +62,7 @@ public class UserDeatailFragment extends DialogFragment {
 
         tv_summonerName = (TextView) view.findViewById(R.id.summoner_name);
         tv_puan         = (TextView) view.findViewById(R.id.textView51);
-        tv_lig          = (TextView) view.findViewById(R.id.textView62);
-        tv_lig_adi      = (TextView) view.findViewById(R.id.textView63);
-        tv_kill         = (TextView) view.findViewById(R.id.textView64);
-        tv_asist        = (TextView) view.findViewById(R.id.textView66);
         iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
-        iv_lig          = (ImageView) view.findViewById(R.id.imageView24);
         tv_level        = (TextView) view.findViewById(R.id.tv_lvl);
         iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
         rozets          = (GridView)view.findViewById(R.id.rozet_view);
@@ -83,7 +78,7 @@ public class UserDeatailFragment extends DialogFragment {
     private class getData extends AsyncTask<String,String,String> {
         BlankFragment progress;
 
-        String _summonerName ="", _puan ="", _lig ="Unranked", _ligAdi ="", _kill ="0", _asist ="0",_tier ="",_champion ="";
+        String _summonerName ="", _puan ="",_champion ="";
         int _profilIcon=0;
         String _email="";
         int _level=0;
@@ -122,11 +117,7 @@ public class UserDeatailFragment extends DialogFragment {
                         ro=riotApiHelper.getRozet(_email);
                         ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),params[1],getContext());
                         _champion=co.getChampionKey();
-                        _lig=lo.get(0).getTier()+" "+lo.get(0).getDivision();
-                        _ligAdi=lo.get(0).getName();
-                        _tier=lo.get(0).getTier();
-                        _kill=""+lo.get(0).getWins();
-                        _asist=""+lo.get(0).getLosses();
+
                     }catch(Exception e) {return getContext().getString(R.string.hosgeldiniz);}
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -144,10 +135,6 @@ public class UserDeatailFragment extends DialogFragment {
                 RiotApiHelper riotApiHelper=new RiotApiHelper();
                 tv_summonerName.setText(_summonerName);
                 tv_puan.setText(" x "+String.format("%.2f",Double.parseDouble(_puan)));
-                tv_lig.setText(_lig);
-                tv_lig_adi.setText(_ligAdi);
-                tv_kill.setText(_kill);
-                tv_asist.setText(_asist);
                 if(_level<=0)
                     _level=1;
                 double level=Math.sqrt(_level)/5;
@@ -164,18 +151,7 @@ public class UserDeatailFragment extends DialogFragment {
                 rozets.setAdapter(adapter);
 
 
-                switch (_tier)
-                {
-                    case ("BRONZE")     : iv_lig.setImageResource(R.drawable.bronze     ); break;
-                    case ("CHALLENGER") : iv_lig.setImageResource(R.drawable.challenger ); break;
-                    case ("DIAMOND")    : iv_lig.setImageResource(R.drawable.diamond    ); break;
-                    case ("GOLD")       : iv_lig.setImageResource(R.drawable.gold       ); break;
-                    case ("MASTER")     : iv_lig.setImageResource(R.drawable.master     ); break;
-                    case ("PLATINUM")   : iv_lig.setImageResource(R.drawable.platinum   ); break;
-                    case ("PROVISIONAL"): iv_lig.setImageResource(R.drawable.provisional); break;
-                    case ("SILVER")     : iv_lig.setImageResource(R.drawable.silver     ); break;
-                    default             : iv_lig.setImageResource(R.drawable.provisional); break;
-                }
+
             }else
                 Toast.makeText(getContext(), getContext().getString(R.string.ops_make_mistake), Toast.LENGTH_LONG).show();
             progress.dismiss();

@@ -50,7 +50,6 @@ public class SumonnerFragment extends Fragment  {
     EditText et_username;
     Spinner sp_server;
     Button bt_getdata;
-    ImageButton im_adduser;
     DBHelper dbHelper;
     UserObject uo;
     List<FriendsObject> friend=new ArrayList<FriendsObject>();
@@ -64,7 +63,6 @@ public class SumonnerFragment extends Fragment  {
         sp_server    = (Spinner    ) view.findViewById(R.id.spinner2    );
         bt_getdata   = (Button     ) view.findViewById(R.id.button2     );
         fri_lv = (ListView   ) view.findViewById(R.id.listview    );
-        im_adduser   = (ImageButton) view.findViewById(R.id.imageButton2);
         //******************************************************************************************
 
         //SPİNNER SETTINGS**************************************************************************
@@ -213,8 +211,6 @@ public class SumonnerFragment extends Fragment  {
                 fri_lv.setAdapter(adapter);
 
             }
-            else
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
 
             progress.dismiss();
 

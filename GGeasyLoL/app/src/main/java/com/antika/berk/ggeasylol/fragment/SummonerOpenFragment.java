@@ -8,12 +8,22 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.adcolony.sdk.AdColony;
+import com.adcolony.sdk.AdColonyAdOptions;
+import com.adcolony.sdk.AdColonyAppOptions;
+import com.adcolony.sdk.AdColonyInterstitial;
+import com.adcolony.sdk.AdColonyInterstitialListener;
+import com.adcolony.sdk.AdColonyReward;
+import com.adcolony.sdk.AdColonyRewardListener;
+import com.adcolony.sdk.AdColonyZone;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionMasterAdapter;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
@@ -22,6 +32,7 @@ import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 
 import java.util.List;
+import java.util.Random;
 
 import it.sephiroth.android.library.picasso.Picasso;
 import it.sephiroth.android.library.picasso.Transformation;
@@ -41,7 +52,12 @@ public class SummonerOpenFragment extends Fragment {
         this.leagues = leagues;
         this.masteries = masteries;
     }
-
+    final private String APP_ID = "appd4be31ac30ce44f58f";
+    final private String ZONE_ID = "vze7a42d4c0bb34ef288";
+    final private String TAG = "GGEasy - GECIS";
+    private AdColonyInterstitial ad;
+    private AdColonyInterstitialListener listener;
+    private AdColonyAdOptions ad_options;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_summoner_open, container, false);
@@ -61,6 +77,53 @@ public class SummonerOpenFragment extends Fragment {
 
         tv_summonerName.setText(so.getName());
         tv_summonerLvl.setText(so.getLvl() + " LV");
+        AdColonyAppOptions app_options = new AdColonyAppOptions()
+                .setUserID( "unique_user_id" );
+
+        Random r=new Random();
+        int x=r.nextInt(5);
+        if(x==3){
+
+            AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
+            ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
+
+        }
+
+
+        AdColony.setRewardListener( new AdColonyRewardListener()
+        {
+            @Override
+            public void onReward( AdColonyReward reward )
+            {
+                Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
+            }
+        } );
+
+        listener = new AdColonyInterstitialListener()
+        {
+            @Override
+            public void onRequestFilled( AdColonyInterstitial ad )
+            {
+                ad.show();
+                Log.d( TAG, "onRequestFilled" );
+            }
+            @Override
+            public void onRequestNotFilled( AdColonyZone zone )
+            {
+                Log.d( TAG, "onRequestNotFilled");
+            }
+            @Override
+            public void onOpened( AdColonyInterstitial ad )
+            {
+                Log.d( TAG, "onOpened" );
+            }
+            @Override
+            public void onExpiring( AdColonyInterstitial ad )
+            {
+                Log.d( TAG, "onExpiring" );
+            }
+        };
+        AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
 
         Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" + so.getIcon() + ".png").transform(new CircleTransform()).into(iv_summonerIcon);
 

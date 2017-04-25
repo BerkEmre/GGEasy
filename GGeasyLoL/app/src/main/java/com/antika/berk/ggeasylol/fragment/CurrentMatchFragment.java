@@ -52,15 +52,12 @@ public class CurrentMatchFragment extends Fragment {
     EditText et_username;
     Spinner sp_server;
     Button bt_getdata;
-    ImageButton im_adduser;
     DBHelper dbHelper;
     UserObject uo;
     List<FriendsObject> friend=new ArrayList<FriendsObject>();
     ListView fri_lv;
 
-    List<Sumonner> countries;
     List<ParticipantListObject> participantsItems = new ArrayList<ParticipantListObject>();
-    List<ParticipantListObject> kisiler = new ArrayList<ParticipantListObject>();
     String summonerName;
 
     CurrentGameObject cgo;
@@ -74,7 +71,6 @@ public class CurrentMatchFragment extends Fragment {
         sp_server    = (Spinner    ) view.findViewById(R.id.spinner2    );
         bt_getdata   = (Button     ) view.findViewById(R.id.button2     );
         fri_lv = (ListView   ) view.findViewById(R.id.listview    );
-        im_adduser   = (ImageButton) view.findViewById(R.id.imageButton2);
         //******************************************************************************************
 
         //SPİNNER SETTINGS**************************************************************************
@@ -204,44 +200,44 @@ public class CurrentMatchFragment extends Fragment {
 
 
 
-        @Override
-        protected void onPreExecute() {
-            FragmentManager fm = getFragmentManager();
-            progress = new BlankFragment();
-            progress.show(fm, "");
-        }
+            @Override
+            protected void onPreExecute() {
+                FragmentManager fm = getFragmentManager();
+                progress = new BlankFragment();
+                progress.show(fm, "");
+            }
 
-        @Override
-        protected String doInBackground(String... strings) {
-            RiotApiHelper riotApiHelper = new RiotApiHelper();
-            dbHelper=new DBHelper(getContext());
-            uo=dbHelper.getUser();
-            try {
-                friend.clear();
-                String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + uo.getEmail() + "&Sifre=" + uo.getSifre());
-                JSONArray array1 = new JSONArray(cevap);
-                JSONObject object = array1.getJSONObject(0);
-                friend.add(new FriendsObject(object.getString("SihirdarAdi"),object.getString("SihirdarID"),object.getString("Region"),object.getString("Puan"),object.getString("icon"),object.getString("ID")));
+            @Override
+            protected String doInBackground(String... strings) {
+                RiotApiHelper riotApiHelper = new RiotApiHelper();
+                dbHelper=new DBHelper(getContext());
+                uo=dbHelper.getUser();
+                try {
+                    friend.clear();
+                    String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + uo.getEmail() + "&Sifre=" + uo.getSifre());
+                    JSONArray array1 = new JSONArray(cevap);
+                    JSONObject object = array1.getJSONObject(0);
+                    friend.add(new FriendsObject(object.getString("SihirdarAdi"),object.getString("SihirdarID"),object.getString("Region"),object.getString("Puan"),object.getString("icon"),object.getString("ID")));
 
 
 
-                String gelenData=riotApiHelper.readURL("http://ggeasylol.com/api/get_friends.php?sihirdarID="+uo.getSummonerID()+"&region="+uo.getRegion());
-                JSONObject obj=new JSONObject(gelenData);
-                JSONArray array=obj.getJSONArray("friends");
-                for(int i=0;i<array.length();i++){
-                    JSONObject obj1=array.getJSONObject(i);
-                    JSONObject obj2=obj1.getJSONObject("other");
-                    if(obj1.getString("status").equals("1"))
-                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
-                    
+                    String gelenData=riotApiHelper.readURL("http://ggeasylol.com/api/get_friends.php?sihirdarID="+uo.getSummonerID()+"&region="+uo.getRegion());
+                    JSONObject obj=new JSONObject(gelenData);
+                    JSONArray array=obj.getJSONArray("friends");
+                    for(int i=0;i<array.length();i++){
+                        JSONObject obj1=array.getJSONObject(i);
+                        JSONObject obj2=obj1.getJSONObject("other");
+                        if(obj1.getString("status").equals("1"))
+                            friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
 
+
+
+                    }
+
+
+                    return "0";
 
                 }
-
-
-                return "0";
-
-            }
 
 
 
@@ -260,8 +256,7 @@ public class CurrentMatchFragment extends Fragment {
                 fri_lv.setAdapter(adapter);
 
             }
-            else
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+
 
             progress.dismiss();
 

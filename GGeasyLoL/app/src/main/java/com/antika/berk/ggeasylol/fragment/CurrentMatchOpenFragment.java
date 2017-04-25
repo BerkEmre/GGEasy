@@ -34,7 +34,6 @@ public class CurrentMatchOpenFragment extends Fragment {
     List<ParticipantListObject> participantsItems;
     CurrentGameObject cgo;
     String summonerName;
-    private InterstitialAd gecisReklam;
     //**********************************ADCOLONY***********************************************
     final private String APP_ID = "appd4be31ac30ce44f58f";
     final private String ZONE_ID = "vze7a42d4c0bb34ef288";
@@ -65,9 +64,15 @@ public class CurrentMatchOpenFragment extends Fragment {
         AdColonyAppOptions app_options = new AdColonyAppOptions()
                 .setUserID( "unique_user_id" );
 
-        AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
+        Random r=new Random();
+        int x=r.nextInt(10);
+        if(x==3){
 
-        ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
+            AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
+            ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
+
+        }
+
 
         AdColony.setRewardListener( new AdColonyRewardListener()
         {
