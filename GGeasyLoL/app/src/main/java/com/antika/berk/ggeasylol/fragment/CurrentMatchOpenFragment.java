@@ -60,54 +60,54 @@ public class CurrentMatchOpenFragment extends Fragment {
         tv_gameMode.setText(cgo.getGameMode());
         tv_gameType.setText(cgo.getGameType());
 
-        //ADCOLONY
-        AdColonyAppOptions app_options = new AdColonyAppOptions()
-                .setUserID( "unique_user_id" );
+
 
         Random r=new Random();
         int x=r.nextInt(10);
         if(x==3){
-
+            //ADCOLONY
+            AdColonyAppOptions app_options = new AdColonyAppOptions()
+                    .setUserID( "unique_user_id" );
             AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
             ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
+            AdColony.setRewardListener( new AdColonyRewardListener()
+            {
+                @Override
+                public void onReward( AdColonyReward reward )
+                {
+                    Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
+                }
+            } );
 
+            listener = new AdColonyInterstitialListener()
+            {
+                @Override
+                public void onRequestFilled( AdColonyInterstitial ad )
+                {
+                    ad.show();
+                    Log.d( TAG, "onRequestFilled" );
+                }
+                @Override
+                public void onRequestNotFilled( AdColonyZone zone )
+                {
+                    Log.d( TAG, "onRequestNotFilled");
+                }
+                @Override
+                public void onOpened( AdColonyInterstitial ad )
+                {
+                    Log.d( TAG, "onOpened" );
+                }
+                @Override
+                public void onExpiring( AdColonyInterstitial ad )
+                {
+                    Log.d( TAG, "onExpiring" );
+                }
+            };
+            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
         }
 
 
-        AdColony.setRewardListener( new AdColonyRewardListener()
-        {
-            @Override
-            public void onReward( AdColonyReward reward )
-            {
-                Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
-            }
-        } );
 
-        listener = new AdColonyInterstitialListener()
-        {
-            @Override
-            public void onRequestFilled( AdColonyInterstitial ad )
-            {
-                ad.show();
-                Log.d( TAG, "onRequestFilled" );
-            }
-            @Override
-            public void onRequestNotFilled( AdColonyZone zone )
-            {
-                Log.d( TAG, "onRequestNotFilled");
-            }
-            @Override
-            public void onOpened( AdColonyInterstitial ad )
-            {
-                Log.d( TAG, "onOpened" );
-            }
-            @Override
-            public void onExpiring( AdColonyInterstitial ad )
-            {
-                Log.d( TAG, "onExpiring" );
-            }
-        };
-        AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
 
         int sec, min;
 

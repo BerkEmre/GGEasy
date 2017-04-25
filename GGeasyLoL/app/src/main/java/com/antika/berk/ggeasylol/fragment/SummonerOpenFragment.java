@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -45,7 +46,7 @@ public class SummonerOpenFragment extends Fragment {
     TextView tv_summonerName, tv_summonerLvl, tv_leaugeTier, tv_leaugeName, tv_leagueDivision,
             tv_leagueWin, tv_leagueLost, tv_leaguePoint, tv_leagueProgress;
     ImageView iv_summonerIcon, iv_leagueTier;
-    ListView lv_masteries;
+    GridView lv_masteries;
 
     public void setData(SummonerObject so, List<LeagueObject> leagues, List<ChampionMasterObject> masteries){
         this.so = so;
@@ -73,57 +74,57 @@ public class SummonerOpenFragment extends Fragment {
         tv_leagueProgress = (TextView ) view.findViewById(R.id.textView18 );
         iv_summonerIcon   = (ImageView) view.findViewById(R.id.imageView9 );
         iv_leagueTier     = (ImageView) view.findViewById(R.id.imageView10);
-        lv_masteries      = (ListView ) view.findViewById(R.id.list_view  );
+        lv_masteries      = (GridView ) view.findViewById(R.id.grid_view  );
 
         tv_summonerName.setText(so.getName());
         tv_summonerLvl.setText(so.getLvl() + " LV");
-        AdColonyAppOptions app_options = new AdColonyAppOptions()
-                .setUserID( "unique_user_id" );
+
 
         Random r=new Random();
         int x=r.nextInt(5);
         if(x==3){
-
+            AdColonyAppOptions app_options = new AdColonyAppOptions()
+                    .setUserID( "unique_user_id" );
             AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
             ad_options = new AdColonyAdOptions().enableConfirmationDialog(false).enableResultsDialog(false);
+            AdColony.setRewardListener( new AdColonyRewardListener()
+            {
+                @Override
+                public void onReward( AdColonyReward reward )
+                {
+                    Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
+                }
+            } );
 
+            listener = new AdColonyInterstitialListener()
+            {
+                @Override
+                public void onRequestFilled( AdColonyInterstitial ad )
+                {
+                    ad.show();
+                    Log.d( TAG, "onRequestFilled" );
+                }
+                @Override
+                public void onRequestNotFilled( AdColonyZone zone )
+                {
+                    Log.d( TAG, "onRequestNotFilled");
+                }
+                @Override
+                public void onOpened( AdColonyInterstitial ad )
+                {
+                    Log.d( TAG, "onOpened" );
+                }
+                @Override
+                public void onExpiring( AdColonyInterstitial ad )
+                {
+                    Log.d( TAG, "onExpiring" );
+                }
+            };
+            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
         }
 
 
-        AdColony.setRewardListener( new AdColonyRewardListener()
-        {
-            @Override
-            public void onReward( AdColonyReward reward )
-            {
-                Log.d( TAG, "onReward" );//ÖDÜL KZANMA KODLARI BURAYA
-            }
-        } );
 
-        listener = new AdColonyInterstitialListener()
-        {
-            @Override
-            public void onRequestFilled( AdColonyInterstitial ad )
-            {
-                ad.show();
-                Log.d( TAG, "onRequestFilled" );
-            }
-            @Override
-            public void onRequestNotFilled( AdColonyZone zone )
-            {
-                Log.d( TAG, "onRequestNotFilled");
-            }
-            @Override
-            public void onOpened( AdColonyInterstitial ad )
-            {
-                Log.d( TAG, "onOpened" );
-            }
-            @Override
-            public void onExpiring( AdColonyInterstitial ad )
-            {
-                Log.d( TAG, "onExpiring" );
-            }
-        };
-        AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
 
         Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/profileicon/" + so.getIcon() + ".png").transform(new CircleTransform()).into(iv_summonerIcon);
 

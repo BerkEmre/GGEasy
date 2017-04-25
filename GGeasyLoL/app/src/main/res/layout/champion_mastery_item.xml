@@ -1,57 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:orientation="horizontal"
+    <TextView
+        android:id="@+id/textView17"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageView4"
+        android:layout_toRightOf="@+id/imageView4"
+        android:layout_weight="1"
         android:gravity="center_vertical"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp">
+        android:text="Champion Name"
+        android:textAlignment="center"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/add_sumonner"
-            android:id="@+id/imageView4"
-            android:layout_weight="1" />
-
-        <TextView
-            android:text="Champion Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView17"
+            android:id="@+id/imageView22"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:textSize="24sp"
-            android:gravity="center_vertical"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/imageView4"
-            android:layout_toEndOf="@+id/imageView4" />
+            app:srcCompat="@drawable/adc"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
-
-            <TextView
-                android:text="6 LVL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView19"
-                android:textAlignment="textEnd" />
-
-            <TextView
-                android:text="150545"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView20" />
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView36"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@+id/imageView22"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/imageView22"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp" />
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_weight="1" />
+
 </LinearLayout>

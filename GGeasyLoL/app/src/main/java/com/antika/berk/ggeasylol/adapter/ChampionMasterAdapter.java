@@ -58,20 +58,40 @@ public class ChampionMasterAdapter extends BaseAdapter {
 
         satirView = mInflater.inflate(R.layout.champion_mastery_item, null);
 
-        ImageView iv_champion_image = (ImageView) satirView.findViewById(R.id.imageView4);
-        TextView tv_champion_name   = (TextView ) satirView.findViewById(R.id.textView17);
-        TextView tv_champion_lvl    = (TextView ) satirView.findViewById(R.id.textView19);
-        TextView tv_champion_point  = (TextView ) satirView.findViewById(R.id.textView20);
+        ImageView iv_champion_image = (ImageView) satirView.findViewById(R.id.imageView22);
+        ImageView back = (ImageView) satirView.findViewById(R.id.imageView24);
+        ImageView chest = (ImageView) satirView.findViewById(R.id.imageView36);
+        TextView tv_champion_point  = (TextView ) satirView.findViewById(R.id.textView17);
 
         ChampionMasterObject champion = mKisiListesi.get(position);
 
         Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" +
                 dbHelper.getChampion(Integer.toString(champion.getChampionId())).getChampionKey() +
                 ".png").into(iv_champion_image);
-        tv_champion_name.setText(dbHelper.getChampion(Integer.toString(champion.getChampionId())).getChampionName());
-        tv_champion_lvl.setText(Integer.toString(champion.getChampionLevel()) + " LVL");
-        tv_champion_point.setText(Integer.toString(champion.getChampionPoints()) + " " + context.getString(R.string.point));
-
-        return satirView;
+       if (champion.getChampionPoints()>999999){
+           tv_champion_point.setText(""+(champion.getChampionPoints()/1000000)+" M "+((champion.getChampionPoints()-1000000)/1000)+" K");
+       }else if (champion.getChampionPoints()>999){
+            tv_champion_point.setText(""+(champion.getChampionPoints()/1000)+" K");
+       }else {
+            tv_champion_point.setText(""+champion.getChampionPoints());
+       }
+        if (champion.getChampionLevel()==1) {
+            back.setImageResource(R.drawable.seviye1);
+        }else if (champion.getChampionLevel()==2) {
+            back.setImageResource(R.drawable.seviye2);
+        }else if (champion.getChampionLevel()==3) {
+            back.setImageResource(R.drawable.seviye3);
+        }else if (champion.getChampionLevel()==4) {
+            back.setImageResource(R.drawable.seviye4);
+        }else if (champion.getChampionLevel()==5) {
+            back.setImageResource(R.drawable.seviye5);
+        } else if (champion.getChampionLevel()==6) {
+            back.setImageResource(R.drawable.seviye6);
+        } else if (champion.getChampionLevel()==7) {
+            back.setImageResource(R.drawable.seviye7);
+        }
+        if (champion.isChestGranted())
+            chest.setImageResource(R.drawable.chest);
+       return satirView;
     }
 }

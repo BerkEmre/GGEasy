@@ -565,7 +565,8 @@ public class RiotApiHelper {
                         obje1.getInt("tokensEarned"),
                         obje1.getInt("championId"),
                         obje1.getInt("championPointsSinceLastLevel"),
-                        obje1.getInt("lastPlayTime")));
+                        obje1.getInt("lastPlayTime"),
+                        obje1.getBoolean("chestGranted")));
             }
             return masteries;
         }catch (Exception e){Log.e("Hata", e.toString());}
