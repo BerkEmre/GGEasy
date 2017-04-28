@@ -66,7 +66,7 @@ public class FriendsAdapter extends BaseAdapter {
         TextView puan=(TextView)satirView.findViewById(R.id.textView54) ;
         TextView region=(TextView)satirView.findViewById(R.id.textView53) ;
         summonerName.setText(friendsObject.getSihirdarAdi());
-        puan.setText("x "+friendsObject.getPuan());
+        puan.setText("x "+String.format("%.2f",Double.parseDouble(friendsObject.getPuan())));
         region.setText(friendsObject.getRegion());
 
         RiotApiHelper riotApiHelper=new RiotApiHelper();

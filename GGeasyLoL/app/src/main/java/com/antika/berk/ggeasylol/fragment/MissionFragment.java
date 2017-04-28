@@ -1575,7 +1575,7 @@ public class MissionFragment extends Fragment {
 
                 if(so.getLvl()!=30)
                     return "HATA";
-                mi=apiHelper.getMatchID(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                mi=apiHelper.getMatchID(so.getAccountID(),uo.getRegion());
                 if ((mi.getMatchID()).equals(null))
                     return "HATA1";
                 if(Integer.parseInt(strings[0]) < 0){

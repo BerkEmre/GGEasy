@@ -3,53 +3,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/common_google_signin_btn_text_light_default"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/imageView4"
-        android:layout_toRightOf="@+id/imageView4"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:text="Champion Name"
-        android:textAlignment="center"
-        android:textColor="@color/cast_expanded_controller_background_color"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_margin="1dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView22"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageView4"
+            android:layout_toRightOf="@+id/imageView4"
             android:layout_weight="1"
-            app:srcCompat="@drawable/adc"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:gravity="center_vertical"
+            android:textAlignment="center"
+            android:textColor="@color/cast_expanded_controller_background_color"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/imageView36"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@+id/imageView22"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/imageView22"
+                android:layout_marginLeft="48dp"
+                android:layout_marginStart="48dp" />
+
+        </RelativeLayout>
 
         <ImageView
-            android:id="@+id/imageView36"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignLeft="@+id/imageView22"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/imageView22"
-            android:layout_marginLeft="48dp"
-            android:layout_marginStart="48dp" />
-    </RelativeLayout>
+            android:id="@+id/imageView24"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1" />
 
-    <ImageView
-        android:id="@+id/imageView24"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>

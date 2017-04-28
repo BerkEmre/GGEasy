@@ -466,10 +466,10 @@ public  class Mission {
             Toast.makeText(c,c.getString(R.string.not_detected),Toast.LENGTH_LONG).show();
         return false;
     }
-    public  boolean Gorev27(String matchId,boolean x){
+    public  boolean Gorev27(String matchId,String x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev27"))){
-            if (x) {
+            if (x.equals("Win")) {
                 Toast.makeText(c, c.getString(R.string.congratulations)+400+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev27");//gorevi siler
                 PuanGonder("Gorev27", 400);

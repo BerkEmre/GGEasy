@@ -177,8 +177,7 @@ public class ProfilFragment extends Fragment {
 
 
 
-            }else
-                Toast.makeText(getContext(), getContext().getString(R.string.ops_make_mistake), Toast.LENGTH_LONG).show();
+            }
             progress.dismiss();
         }
     }

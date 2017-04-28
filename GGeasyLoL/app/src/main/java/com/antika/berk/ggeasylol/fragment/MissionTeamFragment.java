@@ -1017,7 +1017,7 @@ public class MissionTeamFragment extends Fragment {
 
                 if(so.getLvl()!=30)
                     return "HATA";
-                mi=riotApiHelper.getMatchID(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                mi=riotApiHelper.getMatchID(so.getAccountID(),uo.getRegion());
                 if ((""+mi.getMatchID()).equals(null))
                     return "HATA1";
                 if (Integer.parseInt(values[0])<0) {
@@ -1127,7 +1127,7 @@ public class MissionTeamFragment extends Fragment {
                     grvSorgu26.setVisibility(View.GONE);}
             }
             else if(results.equals("27")){
-                srg27=m.Gorev27(""+mi.getMatchID(),mto.isWinner());
+                srg27=m.Gorev27(""+mi.getMatchID(),mto.getWinner());
                 if(srg27){
                     grvAl27.setVisibility(View.VISIBLE);
                     grvIptal27.setVisibility(View.GONE);

@@ -4,7 +4,7 @@ package com.antika.berk.ggeasylol.object;
 
 public class MissionTeamObject {
 
-    private boolean winner;
+    private String winner;
     private boolean firstBlood;
     private boolean firstTower;
     private boolean firstInhibitor;
@@ -16,7 +16,7 @@ public class MissionTeamObject {
     private int dragonKills;
 
 
-    public MissionTeamObject(boolean winner,boolean firstBlood,boolean firstTower, boolean firstInhibitor,boolean firstBaron,
+    public MissionTeamObject(String winner,boolean firstBlood,boolean firstTower, boolean firstInhibitor,boolean firstBaron,
                              boolean firstDragon,int towerKills,int inhibitorKills,int baronKills,int dragonKills){
         this.winner=winner;
         this.firstBlood=firstBlood;
@@ -30,7 +30,7 @@ public class MissionTeamObject {
         this.dragonKills=dragonKills;
 
     }
-    public boolean isWinner(){
+    public String getWinner(){
         return winner;
     }
     public boolean isFirstBlood(){
