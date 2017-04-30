@@ -1,6 +1,8 @@
 package com.antika.berk.ggeasylol.Other;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
@@ -22,7 +24,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=3000");
+            PuanGonder(id,uo.getSummonerID(),3000);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -35,7 +37,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=1500");
+            PuanGonder(id,uo.getSummonerID(),1500);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -49,7 +51,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=750");
+            PuanGonder(id,uo.getSummonerID(),750);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -63,7 +65,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=300");
+            PuanGonder(id,uo.getSummonerID(),300);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -76,7 +78,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=10){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=600");
+            PuanGonder(id,uo.getSummonerID(),600);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -89,7 +91,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=20){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=1200");
+            PuanGonder(id,uo.getSummonerID(),1200);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -102,7 +104,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=30){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=2000");
+            PuanGonder(id,uo.getSummonerID(),2000);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -114,7 +116,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=10){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=350");
+            PuanGonder(id,uo.getSummonerID(),350);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -126,7 +128,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=20){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=750");
+            PuanGonder(id,uo.getSummonerID(),750);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -138,7 +140,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=30){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=1500");
+            PuanGonder(id,uo.getSummonerID(),1500);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -150,7 +152,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=2){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=400");
+            PuanGonder(id,uo.getSummonerID(),400);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -162,7 +164,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=4){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=1100");
+            PuanGonder(id,uo.getSummonerID(),1100);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -174,7 +176,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=6){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=2000");
+            PuanGonder(id,uo.getSummonerID(),2000);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -186,7 +188,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=100){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=200");
+            PuanGonder(id,uo.getSummonerID(),200);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -198,7 +200,7 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=150){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=350");
+            PuanGonder(id,uo.getSummonerID(),350);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
@@ -210,12 +212,38 @@ public class Challenge {
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=200){
-            apiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+id+"&winnerID="+uo.getSummonerID()+"&puan=600");
+            PuanGonder(id,uo.getSummonerID(),600);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
         }
         Toast.makeText(c,c.getString(R.string.mission_failed),Toast.LENGTH_LONG).show();
         return false;
+    }
+    public void PuanGonder(String id,String userID, double puan){
+        new getData().execute(id,userID, Double.toString(puan));
+    }
+
+    private class getData extends AsyncTask<String,String,String> {
+        ProgressDialog progress;
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(c, c.getString(R.string.please_wait),
+                    c.getString(R.string.loading), true);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            RiotApiHelper riotApiHelper = new RiotApiHelper();
+
+            String cevap =  riotApiHelper.readURL("http://ggeasylol.com/api/sonuc_challenge.php?ID="+params[0]+"&winnerID="+params[1]+"&puan="+params[2]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            progress.dismiss();
+        }
     }
 
 }
