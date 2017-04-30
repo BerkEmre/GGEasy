@@ -28,6 +28,7 @@ import com.antika.berk.ggeasylol.helper.MissionHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.MatchIdObject;
+import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -188,9 +189,12 @@ public class AddChallengeFragment extends DialogFragment {
         protected String doInBackground(String... strings) {
             RiotApiHelper apiHelper=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
+            UserObject uo=dbHelper.getUser();
+            SummonerObject so1=apiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+            SummonerObject so2=apiHelper.getSumonner(Integer.parseInt(strings[0]),strings[1]);
             try{
-                user1MatchId=apiHelper.getMatchID(Integer.parseInt(strings[0]),strings[1]);
-                user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
+                user1MatchId=apiHelper.getMatchID(so2.getAccountID(),strings[1]);
+                user2MatchId=apiHelper.getMatchID(so1.getAccountID(),dbHelper.getUser().getRegion());
                 if (user1MatchId.getMatchID().length()>0 && user2MatchId.getMatchID().length()>0)
                     apiHelper.readURL("http://ggeasylol.com/api/add_challenge.php?email="+dbHelper.getUser().getEmail()+"&sihirdarID="+strings[0]+"&region="+strings[1]+"&mission="+strings[2]);
                 else

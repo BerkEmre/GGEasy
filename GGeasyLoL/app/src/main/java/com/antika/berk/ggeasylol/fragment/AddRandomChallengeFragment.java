@@ -25,6 +25,7 @@ import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChallengeObject;
 import com.antika.berk.ggeasylol.object.MatchIdObject;
+import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -195,10 +196,13 @@ public class AddRandomChallengeFragment extends DialogFragment {
         protected String doInBackground(String... strings) {
             RiotApiHelper apiHelper=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
+            UserObject uo=dbHelper.getUser();
+            SummonerObject so1=apiHelper.getSumonner(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
+            SummonerObject so2=apiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
 
             try{
-                user1MatchId=apiHelper.getMatchID(Integer.parseInt(challengeObjects.get(Integer.parseInt(strings[1])).getSihirdarID1()),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
-                user2MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
+                user1MatchId=apiHelper.getMatchID(so1.getAccountID(),challengeObjects.get(Integer.parseInt(strings[1])).getRegion1());
+                user2MatchId=apiHelper.getMatchID(so2.getAccountID(),dbHelper.getUser().getRegion());
 
                 if (user1MatchId.getMatchID().length()>0&& user2MatchId.getMatchID().length()>0)
                     apiHelper.readURL("http://ggeasylol.com/api/set_random_challenge.php?ID="+challengeObjects.get(Integer.parseInt(strings[1])).getId()+"&cevap=1&email="+dbHelper.getUser().getEmail()+"&user1Match="+user1MatchId.getMatchID()+"&user2Match="+user2MatchId.getMatchID());
@@ -249,11 +253,12 @@ public class AddRandomChallengeFragment extends DialogFragment {
         protected String doInBackground(String... strings) {
             RiotApiHelper apiHelper=new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
+            UserObject uo=dbHelper.getUser();
             MatchIdObject user1MatchId;
-
+            SummonerObject so=apiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
 
             try{
-                user1MatchId=apiHelper.getMatchID(Integer.parseInt(dbHelper.getUser().getSummonerID()),dbHelper.getUser().getRegion());
+                user1MatchId=apiHelper.getMatchID(so.getAccountID(),dbHelper.getUser().getRegion());
 
                 if(user1MatchId.getMatchID().length()>0)
                     apiHelper.readURL("http://ggeasylol.com/api/add_random_challenge.php?email="+dbHelper.getUser().getEmail()+"&mission="+strings[0]);

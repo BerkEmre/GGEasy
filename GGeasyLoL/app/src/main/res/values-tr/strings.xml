@@ -194,4 +194,15 @@
     <string name="level">Rakip ya da sen LOL\'de 30. seviye değilsin</string>
     <string name="advertisement">4\'den fazla meydan okuma başlatmak istiyorsanız Reklam izlemelisiniz.</string>
     <string name="advertisement_mission">3\'ten fazla görev almak istiyorsanız Reklam izlemelisiniz.</string>
+    <string name="special_game">ÖZEL OYUN</string>
+    <string name="normal">NORMAL</string>
+    <string name="blind_pick">NORMAL (KAPALI SEÇİM)</string>
+    <string name="draft">NORMAL (SIRALI SEÇİM)</string>
+    <string name="ranked">DERECELİ</string>
+    <string name="ranked_flex">DERECELİ (ESNEK)</string>
+    <string name="aram">SONSUZ UÇURUM</string>
+    <string name="normal_draft">NORMAL (SIRALI SEÇİM)</string>
+    <string name="all_in_one">HEPİMİZ BİRİMİZ İÇİN</string>
+    <string name="poro_king">PORO KRALI</string>
+    <string name="random_urf">RASTGELE URF</string>
 </resources>

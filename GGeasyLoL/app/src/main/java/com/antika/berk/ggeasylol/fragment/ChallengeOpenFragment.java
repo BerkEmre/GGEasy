@@ -32,6 +32,7 @@ import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.MatchIdObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
+import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -212,9 +213,12 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
         protected String doInBackground(String... strings) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
             dbHelper=new DBHelper(getContext());
+            SummonerObject so1=riotApiHelper.getSumonner(Integer.parseInt(challengeObject.getSihirdarID1()),challengeObject.getRegion1());
+            SummonerObject so2=riotApiHelper.getSumonner(Integer.parseInt(challengeObject.getSihirdarID2()),challengeObject.getRegion2());
+
             try {
-                user1MatchId=riotApiHelper.getMatchID(Integer.parseInt(challengeObject.getSihirdarID1()),challengeObject.getRegion1());
-                user2MatchId=riotApiHelper.getMatchID(Integer.parseInt(challengeObject.getSihirdarID2()),challengeObject.getRegion2());
+                user1MatchId=riotApiHelper.getMatchID(so1.getAccountID(),challengeObject.getRegion1());
+                user2MatchId=riotApiHelper.getMatchID(so2.getAccountID(),challengeObject.getRegion2());
                 if (!user1MatchId.equals(null) &&!user2MatchId.equals(null)) {
 
                     riotApiHelper.readURL("http://ggeasylol.com/api/set_challenge.php?ID=" + challengeObject.getId() + "&cevap=1&user1Match=" + user1MatchId.getMatchID()+ "&user2Match=" + user2MatchId.getMatchID());
@@ -303,7 +307,8 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
             try{
                 dbHelper=new DBHelper(getContext());
                 uo=dbHelper.getUser();
-                matchIdObject=riotApiHelper.getMatchID(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                SummonerObject so=riotApiHelper.getSumonner(Integer.parseInt(uo.getSummonerID()),uo.getRegion());
+                matchIdObject=riotApiHelper.getMatchID(so.getAccountID(),uo.getRegion());
                 missionObject=riotApiHelper.getMatch(matchIdObject.getMatchID(),uo.getRegion(),Integer.parseInt(uo.getSummonerID()));
                 return "okey";
             }

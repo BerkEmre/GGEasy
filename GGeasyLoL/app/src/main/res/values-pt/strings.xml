@@ -191,6 +191,17 @@
     <string name="level">Adversário ou você não está em nível 30 em LOL</string>
     <string name="advertisement">"Se você quiser começar mais de 4 novos desafios, você tem que assistir Anúncio. "</string>
     <string name="advertisement_mission">"Se você quiser tomar mais de três missões, você tem que assistir Anúncio. "</string>
+    <string name="special_game">JOGOS ESPECIAIS</string>
+    <string name="normal">NORMAL</string>
+    <string name="blind_pick">NORMAL (ESCOLHA ALEATÓRIA)</string>
+    <string name="draft">NORMAL (ESBOÇO)</string>
+    <string name="ranked">CLASSİFİCADO</string>
+    <string name="ranked_flex">CLASSİFİCADO (FLEX)</string>
+    <string name="aram">ARAM</string>
+    <string name="normal_draft">NORMAL (ESBOÇO)</string>
+    <string name="all_in_one">TURDO EM UM</string>
+    <string name="poro_king">PORO REİ</string>
+    <string name="random_urf">ALEATÓRIA URF</string>
 
 
 </resources>

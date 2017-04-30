@@ -194,4 +194,15 @@
     <string name="level">"Opponent or you are not level 30 in LOL "</string>
     <string name="advertisement">If you want to start more than 4 new challenge, You have to watch Advertisement .</string>
     <string name="advertisement_mission">If you want to take more than three missions, You have to watch Advertisement .</string>
+    <string name="special_game">SPECIAL GAME</string>
+    <string name="normal">NORMAL</string>
+    <string name="blind_pick">NORMAL (BLAND PICK)</string>
+    <string name="draft">NORMAL (DRAFT)</string>
+    <string name="ranked">RANKED</string>
+    <string name="ranked_flex">RANKED (FLEX)</string>
+    <string name="aram">ARAM</string>
+    <string name="normal_draft">NORMAL (DRAFT)</string>
+    <string name="all_in_one">ALL IN ONE</string>
+    <string name="poro_king">PORO KING</string>
+    <string name="random_urf">RANDOM URF</string>
 </resources>

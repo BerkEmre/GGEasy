@@ -192,6 +192,17 @@
     <string name="level">Gegner oder du bist nicht Level 30 in LOL</string>
     <string name="advertisement">"Wenn du mehr als 4 neue Herausforderung anfangen willst, musst du Werbung ansehen. "</string>
     <string name="advertisement_mission">"Wenn du mehr als drei Missionen nehmen willst, musst du Werbung ansehen. "</string>
+    <string name="special_game">SPEZIAL-SPIELE</string>
+    <string name="normal">NORMAL</string>
+    <string name="blind_pick">NORMAL (ZUFÄLLIGE WAHL)</string>
+    <string name="draft">NORMAL (ENTWURF)</string>
+    <string name="ranked">RANGEN</string>
+    <string name="ranked_flex">RANGEN (BIEGEN)</string>
+    <string name="aram">ARAM</string>
+    <string name="normal_draft">NORMAL (ENTWURF)</string>
+    <string name="all_in_one">"ALLES IN EINEM "</string>
+    <string name="poro_king">PORO KONIG</string>
+    <string name="random_urf">ZUFÄLLIG URF</string>
 
 
 </resources>
