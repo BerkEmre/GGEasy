@@ -28,12 +28,13 @@ public class ParticipantsAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<ParticipantListObject> mKisiListesi;
     private Context context;
-
-    public ParticipantsAdapter(Activity activity, List<ParticipantListObject> kisiler) {
+    String sihirdarAdi;
+    public ParticipantsAdapter(Activity activity, List<ParticipantListObject> kisiler,String summonerName) {
         context = activity;
         mInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         mKisiListesi = kisiler;
+        sihirdarAdi=summonerName;
     }
 
     @Override
@@ -57,7 +58,7 @@ public class ParticipantsAdapter extends BaseAdapter {
         DBHelper dbHelper = new DBHelper(context);
 
         satirView = mInflater.inflate(R.layout.match_data_list_item, null);
-
+        RelativeLayout back=(RelativeLayout)satirView.findViewById(R.id.back);
         TextView textView = (TextView) satirView.findViewById(R.id.isimsoyisim);
         ImageView imageView = (ImageView) satirView.findViewById(R.id.simge);
         ImageView spell1 = (ImageView) satirView.findViewById(R.id.imageView2);
@@ -65,20 +66,41 @@ public class ParticipantsAdapter extends BaseAdapter {
         ImageView league = (ImageView) satirView.findViewById(R.id.imageView14);
         RelativeLayout rl_teamcolor1 = (RelativeLayout) satirView.findViewById(R.id.colorlayout1);
         RelativeLayout rl_teamcolor2 = (RelativeLayout) satirView.findViewById(R.id.colorlayout2);
-        TextView tv_kill = (TextView) satirView.findViewById(R.id.tv_kill);
-        TextView tv_death = (TextView) satirView.findViewById(R.id.tv_death);
-        TextView tv_asist = (TextView) satirView.findViewById(R.id.tv_asist);
-        TextView tv_win = (TextView) satirView.findViewById(R.id.tv_win);
-        TextView tv_lost = (TextView) satirView.findViewById(R.id.tv_lost);
-        TextView tv_played = (TextView) satirView.findViewById(R.id.tv_played);
+        TextView tv_k = (TextView) satirView.findViewById(R.id.textView19);
+        ImageView image_mastery = (ImageView) satirView.findViewById(R.id.imageView18);
         TextView tv_league = (TextView) satirView.findViewById(R.id.textView26);
         TextView tv_divison = (TextView) satirView.findViewById(R.id.textView27);
         TextView tv_point = (TextView) satirView.findViewById(R.id.textView30);
         TextView tv_progress = (TextView) satirView.findViewById(R.id.textView29);
 
         ParticipantListObject kisi = mKisiListesi.get(position);
-
         String new_progress = "";
+        tv_k.setText(""+kisi.getMaster());
+        if(kisi.getMaster_icon()==0)
+            image_mastery.setImageResource(R.drawable.seviye0);
+        else if(kisi.getMaster_icon()==1)
+            image_mastery.setImageResource(R.drawable.seviye1);
+        else if(kisi.getMaster_icon()==2)
+            image_mastery.setImageResource(R.drawable.seviye2);
+        else if(kisi.getMaster_icon()==3)
+            image_mastery.setImageResource(R.drawable.seviye3);
+        else if(kisi.getMaster_icon()==4)
+            image_mastery.setImageResource(R.drawable.seviye4);
+        else if(kisi.getMaster_icon()==5)
+            image_mastery.setImageResource(R.drawable.seviye5);
+        else if(kisi.getMaster_icon()==6)
+            image_mastery.setImageResource(R.drawable.seviye6);
+        else if(kisi.getMaster_icon()==7)
+            image_mastery.setImageResource(R.drawable.seviye7);
+        if ((kisi.getMaster())>0) {
+            if (kisi.getMaster() > 999999) {
+                tv_k.setText("" + (kisi.getMaster() / 1000000) + " M " + ((kisi.getMaster() - 1000000) / 1000) + " K");
+            } else if (kisi.getMaster() > 999) {
+                tv_k.setText("" + (kisi.getMaster() / 1000) + " K");
+            } else {
+                tv_k.setText("" + kisi.getMaster());
+            }
+        }
         for (char ch: kisi.getLeague_progress().toCharArray()) {
             if(ch == 'L')
             {
@@ -117,17 +139,15 @@ public class ParticipantsAdapter extends BaseAdapter {
             case ("SILVER")     : league.setImageResource(R.drawable.silver     ); break;
             default             : league.setImageResource(R.drawable.provisional); break;
         }
-
+        if(kisi.getIsim().equals(sihirdarAdi))
+            back.setBackgroundColor(0x3907FF07);
         textView.setText(kisi.getIsim());
-        tv_kill.setText(Integer.toString(kisi.getKill()));
-        tv_death.setText(Integer.toString(kisi.getDeath()));
-        tv_asist.setText(Integer.toString(kisi.getAsist()));
-        tv_win.setText(Integer.toString(kisi.getWin()));
-        tv_lost.setText(Integer.toString(kisi.getLost()));
-        tv_played.setText(Integer.toString(kisi.getPlayed()));
-        tv_league.setText(kisi.getLeague());
+        if (kisi.getLeague().length()>0)
+            tv_league.setText(kisi.getLeague());
+        else
+            tv_league.setText("UNRANKED");
         tv_divison.setText(kisi.getLeague_division());
-        tv_point.setText(Integer.toString(kisi.getLeague_point()));
+        tv_point.setText("LP "+kisi.getLeague_point());
         tv_progress.setText(Html.fromHtml(new_progress));
 
         if(kisi.getTeam() == 100){

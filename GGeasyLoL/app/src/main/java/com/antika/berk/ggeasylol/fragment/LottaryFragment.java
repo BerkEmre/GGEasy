@@ -31,6 +31,7 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.object.LotteryObject;
+import com.antika.berk.ggeasylol.object.SummonerLottery;
 import com.antika.berk.ggeasylol.object.Sumonner;
 import com.antika.berk.ggeasylol.object.UserObject;
 import com.google.android.gms.ads.AdListener;
@@ -69,7 +70,7 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
     boolean show = false;
 
     LotteryObject lo;
-    List<Sumonner> summoners = new ArrayList<Sumonner>();
+    List<SummonerLottery> summoners = new ArrayList<SummonerLottery>();
     SumonnersAdapter adapter;
 
     public void setLottery(LotteryObject lo){this.lo = lo;}
@@ -241,8 +242,8 @@ public class LottaryFragment extends Fragment implements DialogInterface.OnDismi
 
                 for (int i = 0; i < array1.length(); i++){
                     obje1 = array1.getJSONObject(i);
-                    summoners.add(new Sumonner(obje1.getString("userID"), obje1.getString("userName"),
-                            obje1.getString("userRegion"), obje1.getString("userIcon")));
+                    summoners.add(new SummonerLottery( obje1.getString("userName"),
+                            obje1.getString("userRegion"), obje1.getString("userIcon"),obje1.getInt("durum")));
                 }
             }catch (Exception e){}
 

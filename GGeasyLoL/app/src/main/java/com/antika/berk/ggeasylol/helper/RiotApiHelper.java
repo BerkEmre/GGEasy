@@ -135,297 +135,51 @@ public class RiotApiHelper {
         }catch (Exception e){Log.e("Hata", e.toString());}
         return null;
     }
-    //Get ranked stat for summoner champion id "0" is all champs stats
-    //GOING AWAY AND NOW BEING REPLACED
-    public List<RankedStatObject> getRankedStat(int summonerID, String region, String season){
-        List<RankedStatObject> stats = new ArrayList<RankedStatObject>();
-
-        JSONObject obje1, obje2;
-        JSONArray array1;
-
-        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.3/" +
-                "stats/by-summoner/" + summonerID + "/ranked?season=" + season + "&api_key=" + apiKey);
-
-        try {
-            obje1 = new JSONObject(JSONString);
-            array1 = obje1.getJSONArray("champions");
-
-            for (int i = 0; i < array1.length(); i++){
-                obje2 = array1.getJSONObject(i);
-
-                int totalDeathsPerSession, totalSessionsPlayed, totalDamageTaken,
-                        totalQuadraKills, totalTripleKills, totalMinionKills, maxChampionsKilled,
-                        totalDoubleKills, totalPhysicalDamageDealt, totalChampionKills, totalAssists,
-                        mostChampionKillsPerSession, totalDamageDealt, totalFirstBlood, totalSessionsLost,
-                        totalSessionsWon, totalMagicDamageDealt, totalGoldEarned, totalPentaKills,
-                        totalTurretsKilled, mostSpellsCast, maxNumDeaths, totalUnrealKills;
-
-                try{totalDeathsPerSession = obje2.getJSONObject("stats").getInt("totalDeathsPerSession");}
-                catch (Exception e){totalDeathsPerSession = 0;}
-                try{totalSessionsPlayed = obje2.getJSONObject("stats").getInt("totalSessionsPlayed");}
-                catch (Exception e){totalSessionsPlayed = 0;}
-                try{totalDamageTaken = obje2.getJSONObject("stats").getInt("totalDamageTaken");}
-                catch (Exception e){totalDamageTaken = 0;}
-                try{totalQuadraKills = obje2.getJSONObject("stats").getInt("totalQuadraKills");}
-                catch (Exception e){totalQuadraKills = 0;}
-                try{totalTripleKills = obje2.getJSONObject("stats").getInt("totalTripleKills");}
-                catch (Exception e){totalTripleKills = 0;}
-                try{totalMinionKills = obje2.getJSONObject("stats").getInt("totalMinionKills");}
-                catch (Exception e){totalMinionKills = 0;}
-                try{maxChampionsKilled = obje2.getJSONObject("stats").getInt("maxChampionsKilled");}
-                catch (Exception e){maxChampionsKilled = 0;}
-                try{totalDoubleKills = obje2.getJSONObject("stats").getInt("totalDoubleKills");}
-                catch (Exception e){totalDoubleKills = 0;}
-                try{totalPhysicalDamageDealt = obje2.getJSONObject("stats").getInt("totalPhysicalDamageDealt");}
-                catch (Exception e){totalPhysicalDamageDealt = 0;}
-                try{totalChampionKills = obje2.getJSONObject("stats").getInt("totalChampionKills");}
-                catch (Exception e){totalChampionKills = 0;}
-                try{totalAssists = obje2.getJSONObject("stats").getInt("totalAssists");}
-                catch (Exception e){totalAssists = 0;}
-                try{mostChampionKillsPerSession = obje2.getJSONObject("stats").getInt("mostChampionKillsPerSession");}
-                catch (Exception e){mostChampionKillsPerSession = 0;}
-                try{totalDamageDealt = obje2.getJSONObject("stats").getInt("totalDamageDealt");}
-                catch (Exception e){totalDamageDealt = 0;}
-                try{totalFirstBlood = obje2.getJSONObject("stats").getInt("totalFirstBlood");}
-                catch (Exception e){totalFirstBlood = 0;}
-                try{totalSessionsLost = obje2.getJSONObject("stats").getInt("totalSessionsLost");}
-                catch (Exception e){totalSessionsLost = 0;}
-                try{totalSessionsWon = obje2.getJSONObject("stats").getInt("totalSessionsWon");}
-                catch (Exception e){totalSessionsWon = 0;}
-                try{totalMagicDamageDealt = obje2.getJSONObject("stats").getInt("totalMagicDamageDealt");}
-                catch (Exception e){totalMagicDamageDealt = 0;}
-                try{totalGoldEarned = obje2.getJSONObject("stats").getInt("totalGoldEarned");}
-                catch (Exception e){totalGoldEarned = 0;}
-                try{totalPentaKills = obje2.getJSONObject("stats").getInt("totalPentaKills");}
-                catch (Exception e){totalPentaKills = 0;}
-                try{totalTurretsKilled = obje2.getJSONObject("stats").getInt("totalTurretsKilled");}
-                catch (Exception e){totalTurretsKilled = 0;}
-                try{mostSpellsCast = obje2.getJSONObject("stats").getInt("mostSpellsCast");}
-                catch (Exception e){mostSpellsCast = 0;}
-                try{maxNumDeaths = obje2.getJSONObject("stats").getInt("maxNumDeaths");}
-                catch (Exception e){maxNumDeaths = 0;}
-                try{totalUnrealKills = obje2.getJSONObject("stats").getInt("totalUnrealKills");}
-                catch (Exception e){totalUnrealKills = 0;}
-
-                stats.add(new RankedStatObject(obje2.getInt("id"),
-                        totalDeathsPerSession, totalSessionsPlayed, totalDamageTaken, totalQuadraKills,
-                        totalTripleKills, totalMinionKills, maxChampionsKilled, totalDoubleKills,
-                        totalPhysicalDamageDealt, totalChampionKills, totalAssists,
-                        mostChampionKillsPerSession, totalDamageDealt, totalFirstBlood, totalSessionsLost,
-                        totalSessionsWon, totalMagicDamageDealt, totalGoldEarned, totalPentaKills,
-                        totalTurretsKilled, mostSpellsCast, maxNumDeaths, totalUnrealKills));
-            }
-            return stats;
-        }catch (Exception e){ Log.e("Hata", e.toString());};
-        return null;
-    }
-    //Get ranked stat for summoner champion id "0" is all champs stats for last season
-    //GOING AWAY AND NOW BEING REPLACED
-    public List<RankedStatObject> getRankedStat(int summonerID, String region){
-        List<RankedStatObject> stats = new ArrayList<RankedStatObject>();
-
-        JSONObject obje1, obje2;
-        JSONArray array1;
-
-        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() +
-                "/v1.3/stats/by-summoner/" + summonerID + "/ranked?api_key=" + apiKey);
-
-        try {
-            obje1 = new JSONObject(JSONString);
-            array1 = obje1.getJSONArray("champions");
-
-            for (int i = 0; i < array1.length(); i++){
-                obje2 = array1.getJSONObject(i);
-
-                int totalDeathsPerSession, totalSessionsPlayed, totalDamageTaken,
-                        totalQuadraKills, totalTripleKills, totalMinionKills, maxChampionsKilled,
-                        totalDoubleKills, totalPhysicalDamageDealt, totalChampionKills, totalAssists,
-                        mostChampionKillsPerSession, totalDamageDealt, totalFirstBlood, totalSessionsLost,
-                        totalSessionsWon, totalMagicDamageDealt, totalGoldEarned, totalPentaKills,
-                        totalTurretsKilled, mostSpellsCast, maxNumDeaths, totalUnrealKills;
-
-                try{totalDeathsPerSession = obje2.getJSONObject("stats").getInt("totalDeathsPerSession");}
-                catch (Exception e){totalDeathsPerSession = 0;}
-                try{totalSessionsPlayed = obje2.getJSONObject("stats").getInt("totalSessionsPlayed");}
-                catch (Exception e){totalSessionsPlayed = 0;}
-                try{totalDamageTaken = obje2.getJSONObject("stats").getInt("totalDamageTaken");}
-                catch (Exception e){totalDamageTaken = 0;}
-                try{totalQuadraKills = obje2.getJSONObject("stats").getInt("totalQuadraKills");}
-                catch (Exception e){totalQuadraKills = 0;}
-                try{totalTripleKills = obje2.getJSONObject("stats").getInt("totalTripleKills");}
-                catch (Exception e){totalTripleKills = 0;}
-                try{totalMinionKills = obje2.getJSONObject("stats").getInt("totalMinionKills");}
-                catch (Exception e){totalMinionKills = 0;}
-                try{maxChampionsKilled = obje2.getJSONObject("stats").getInt("maxChampionsKilled");}
-                catch (Exception e){maxChampionsKilled = 0;}
-                try{totalDoubleKills = obje2.getJSONObject("stats").getInt("totalDoubleKills");}
-                catch (Exception e){totalDoubleKills = 0;}
-                try{totalPhysicalDamageDealt = obje2.getJSONObject("stats").getInt("totalPhysicalDamageDealt");}
-                catch (Exception e){totalPhysicalDamageDealt = 0;}
-                try{totalChampionKills = obje2.getJSONObject("stats").getInt("totalChampionKills");}
-                catch (Exception e){totalChampionKills = 0;}
-                try{totalAssists = obje2.getJSONObject("stats").getInt("totalAssists");}
-                catch (Exception e){totalAssists = 0;}
-                try{mostChampionKillsPerSession = obje2.getJSONObject("stats").getInt("mostChampionKillsPerSession");}
-                catch (Exception e){mostChampionKillsPerSession = 0;}
-                try{totalDamageDealt = obje2.getJSONObject("stats").getInt("totalDamageDealt");}
-                catch (Exception e){totalDamageDealt = 0;}
-                try{totalFirstBlood = obje2.getJSONObject("stats").getInt("totalFirstBlood");}
-                catch (Exception e){totalFirstBlood = 0;}
-                try{totalSessionsLost = obje2.getJSONObject("stats").getInt("totalSessionsLost");}
-                catch (Exception e){totalSessionsLost = 0;}
-                try{totalSessionsWon = obje2.getJSONObject("stats").getInt("totalSessionsWon");}
-                catch (Exception e){totalSessionsWon = 0;}
-                try{totalMagicDamageDealt = obje2.getJSONObject("stats").getInt("totalMagicDamageDealt");}
-                catch (Exception e){totalMagicDamageDealt = 0;}
-                try{totalGoldEarned = obje2.getJSONObject("stats").getInt("totalGoldEarned");}
-                catch (Exception e){totalGoldEarned = 0;}
-                try{totalPentaKills = obje2.getJSONObject("stats").getInt("totalPentaKills");}
-                catch (Exception e){totalPentaKills = 0;}
-                try{totalTurretsKilled = obje2.getJSONObject("stats").getInt("totalTurretsKilled");}
-                catch (Exception e){totalTurretsKilled = 0;}
-                try{mostSpellsCast = obje2.getJSONObject("stats").getInt("mostSpellsCast");}
-                catch (Exception e){mostSpellsCast = 0;}
-                try{maxNumDeaths = obje2.getJSONObject("stats").getInt("maxNumDeaths");}
-                catch (Exception e){maxNumDeaths = 0;}
-                try{totalUnrealKills = obje2.getJSONObject("stats").getInt("totalUnrealKills");}
-                catch (Exception e){totalUnrealKills = 0;}
-
-                stats.add(new RankedStatObject(obje2.getInt("id"),
-                        totalDeathsPerSession, totalSessionsPlayed, totalDamageTaken, totalQuadraKills,
-                        totalTripleKills, totalMinionKills, maxChampionsKilled, totalDoubleKills,
-                        totalPhysicalDamageDealt, totalChampionKills, totalAssists,
-                        mostChampionKillsPerSession, totalDamageDealt, totalFirstBlood, totalSessionsLost,
-                        totalSessionsWon, totalMagicDamageDealt, totalGoldEarned, totalPentaKills,
-                        totalTurretsKilled, mostSpellsCast, maxNumDeaths, totalUnrealKills));
-            }
-            return stats;
-        }catch (Exception e){ Log.e("Hata", e.toString());};
-        return null;
-    }
-    //get summary stat
-    //GOING AWAY AND NOW BEING REPLACED
-    public List<SummaryStat> getSummaryStat(int summonerID, String region, String season){
-        List<SummaryStat> stats = new ArrayList<SummaryStat>();
-
-        JSONObject obje1, obje2;
-        JSONArray array1;
-
-        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.3/" +
-                "stats/by-summoner/" + summonerID + "/summary?season=" + season + "&api_key=" + apiKey);
-
-        try{
-            obje1 = new JSONObject(JSONString);
-            array1 = obje1.getJSONArray("playerStatSummaries");
-
-            for (int i = 0; i < array1.length(); i++){
-                int losses, win, totalNeutralMinionsKilled, totalMinionKills, totalChampionKills,
-                        totalAssists, totalTurretsKilled;
-
-                obje2 = array1.getJSONObject(i);
-
-                try {losses = obje2.getInt("losses");}catch (Exception e){losses = 0;}
-                try {win = obje2.getInt("wins");}catch (Exception e){win = 0;}
-                try {totalNeutralMinionsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalNeutralMinionsKilled");}
-                catch (Exception e){totalNeutralMinionsKilled = 0;}
-                try {totalMinionKills = obje2.getJSONObject("aggregatedStats").getInt("totalMinionKills");}
-                catch (Exception e){totalMinionKills = 0;}
-                try {totalChampionKills = obje2.getJSONObject("aggregatedStats").getInt("totalChampionKills");}
-                catch (Exception e){totalChampionKills = 0;}
-                try {totalAssists = obje2.getJSONObject("aggregatedStats").getInt("totalAssists");}
-                catch (Exception e){totalAssists = 0;}
-                try {totalTurretsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalTurretsKilled");}
-                catch (Exception e){totalTurretsKilled = 0;}
-
-                stats.add(new SummaryStat(obje2.getString("playerStatSummaryType"), losses, win,
-                        totalNeutralMinionsKilled, totalMinionKills, totalChampionKills,
-                        totalAssists, totalTurretsKilled));
-            }
-            return stats;
-        }catch (Exception e){Log.e("Hata", e.toString());}
-
-        return null;
-    }
-    //get summary stat for last season
-    //GOING AWAY AND NOW BEING REPLACED
-    public List<SummaryStat> getSummaryStat(int summonerID, String region){
-        List<SummaryStat> stats = new ArrayList<SummaryStat>();
-
-        JSONObject obje1, obje2;
-        JSONArray array1;
-
-        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() + "/v1.3/" +
-                "stats/by-summoner/" + summonerID + "/summary?api_key=" + apiKey);
-
-        try{
-            obje1 = new JSONObject(JSONString);
-            array1 = obje1.getJSONArray("playerStatSummaries");
-
-            for (int i = 0; i < array1.length(); i++){
-                int losses, win, totalNeutralMinionsKilled, totalMinionKills, totalChampionKills,
-                        totalAssists, totalTurretsKilled;
-
-                obje2 = array1.getJSONObject(i);
-                if(obje2.getString("playerStatSummaryType").equalsIgnoreCase("RankedSolo5x5")){
-                    try {losses = obje2.getInt("losses");}catch (Exception e){losses = 0;}
-                    try {win = obje2.getInt("wins");}catch (Exception e){win = 0;}
-                    try {totalNeutralMinionsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalNeutralMinionsKilled");}
-                    catch (Exception e){totalNeutralMinionsKilled = 0;}
-                    try {totalMinionKills = obje2.getJSONObject("aggregatedStats").getInt("totalMinionKills");}
-                    catch (Exception e){totalMinionKills = 0;}
-                    try {totalChampionKills = obje2.getJSONObject("aggregatedStats").getInt("totalChampionKills");}
-                    catch (Exception e){totalChampionKills = 0;}
-                    try {totalAssists = obje2.getJSONObject("aggregatedStats").getInt("totalAssists");}
-                    catch (Exception e){totalAssists = 0;}
-                    try {totalTurretsKilled = obje2.getJSONObject("aggregatedStats").getInt("totalTurretsKilled");}
-                    catch (Exception e){totalTurretsKilled = 0;}
-
-                    stats.add(new SummaryStat(obje2.getString("playerStatSummaryType"), losses, win,
-                            totalNeutralMinionsKilled, totalMinionKills, totalChampionKills,
-                            totalAssists, totalTurretsKilled));
-                }
-
-
-            }
-            return stats;
-        }catch (Exception e){Log.e("Hata", e.toString());}
-
-        return null;
-    }
     //get current match data
     //V-3 YAPILDI
+    public List<ChampionMasterObject> getMasteries(int summonerID, String region,int championID){
+        List<ChampionMasterObject> masterObjects = new ArrayList<ChampionMasterObject>();
+
+        try{
+            masterObjects.clear();
+            String data=readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/"+summonerID+"/by-champion/"+championID+"?api_key="+apiKey);
+            JSONObject master = new JSONObject(data);
+            masterObjects.add(new ChampionMasterObject(master.getInt("championPoints"), master.getInt("championPointsUntilNextLevel"), master.getInt("championLevel"),
+                    master.getInt("tokensEarned"), master.getInt("championId"), master.getInt("championPointsSinceLastLevel"),
+                    master.getInt("lastPlayTime"), master.getBoolean("chestGranted")));
+        }
+        catch (Exception e){
+            masterObjects.add(new ChampionMasterObject(0, 0, 0,
+                    0, 0, 0,
+                    0, false));
+        }
+
+        return masterObjects;
+    }
     public CurrentGameObject getCurrentMatch(int summonerID, String region){
         CurrentGameObject cgo;
         List<ParticipantObject> participants = new ArrayList<ParticipantObject>();
-        List<MasterObject> masteries = new ArrayList<MasterObject>();
+        List<ChampionMasterObject> masteries = new ArrayList<ChampionMasterObject>();
         List<RuneObject> runes = new ArrayList<RuneObject>();
 
         JSONObject obje1, obje2;
-        JSONArray array1, array2;
+        JSONArray array1;
 
         String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/spectator/v3/active-games/by-summoner/"+summonerID+"?api_key=" + apiKey);
-
         try{
             obje1 = new JSONObject(JSONString);
             array1 = obje1.getJSONArray("participants");
             for (int i = 0; i < array1.length(); i++){
                 obje2 = array1.getJSONObject(i);
 
-                array2 = obje2.getJSONArray("masteries");
-                masteries.clear();
-                for (int j = 0; j < array2.length(); j++){
-                    masteries.add(new MasterObject(array2.getJSONObject(j).getInt("masteryId"),
-                            array2.getJSONObject(j).getInt("rank")));
-                }
 
-                array2 = obje2.getJSONArray("runes");
-                runes.clear();
-                for (int j = 0; j < array2.length(); j++){
-                    runes.add(new RuneObject(array2.getJSONObject(j).getInt("runeId"),
-                            array2.getJSONObject(j).getInt("count")));
-                }
 
-                participants.add(new ParticipantObject(masteries, runes,
+
+
+
+
+
+                participants.add(new ParticipantObject(
                         obje2.getInt("spell1Id"),
                         obje2.getInt("spell2Id"),
                         obje2.getInt("profileIconId"),
@@ -437,6 +191,7 @@ public class RiotApiHelper {
             cgo = new CurrentGameObject(obje1.getInt("gameLength"),
                     obje1.getInt("mapId"),
                     obje1.getInt("gameId"),
+                    obje1.getInt("gameQueueConfigId"),
                     obje1.getString("gameMode"),
                     obje1.getString("gameType"),
                     participants);

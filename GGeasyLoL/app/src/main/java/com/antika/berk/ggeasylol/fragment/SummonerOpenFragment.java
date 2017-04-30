@@ -79,10 +79,6 @@ public class SummonerOpenFragment extends Fragment {
         tv_summonerName.setText(so.getName());
         tv_summonerLvl.setText(so.getLvl() + " LV");
 
-
-        Random r=new Random();
-        int x=r.nextInt(5);
-        if(x==3){
             AdColonyAppOptions app_options = new AdColonyAppOptions()
                     .setUserID( "unique_user_id" );
             AdColony.configure( getActivity(), app_options, APP_ID, ZONE_ID );
@@ -121,7 +117,6 @@ public class SummonerOpenFragment extends Fragment {
                 }
             };
             AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
-        }
 
 
 

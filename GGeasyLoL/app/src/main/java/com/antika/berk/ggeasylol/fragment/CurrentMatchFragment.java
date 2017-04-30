@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
+import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
@@ -45,6 +46,7 @@ import com.google.android.gms.ads.InterstitialAd;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,28 +135,20 @@ public class CurrentMatchFragment extends Fragment {
             for (int i = 0; i < cgo.getParticipants().size(); i++){
                 ParticipantObject part = cgo.getParticipants().get(i);
                 List<LeagueObject> leagues = raHelper.getSummonerLeague(part.getSummonerId(), strings[1]);
-
                 LeagueObject lo;
                 try {lo = leagues.get(0);}catch (Exception e){lo = new LeagueObject("","","","",0,0,0,false,false,false,false,"",0,0,0);}
-
-
-                List<RankedStatObject> stats = raHelper.getRankedStat(part.getSummonerId(), strings[1]);
-                if(stats == null)
-                    stats = new ArrayList<RankedStatObject>();
-                stats.add(new RankedStatObject(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0));
-                RankedStatObject rso = new RankedStatObject(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-                for (int j = 0; j < stats.size(); j++){
-                    if(stats.get(j).getChampionID() == part.getChampionId())
-                        rso = stats.get(j);
-                }
-
+                List<ChampionMasterObject>cmo=raHelper.getMasteries(part.getSummonerId(),strings[1],part.getChampionId());
+                ChampionMasterObject masterObject;
+                try {masterObject=cmo.get(0);}catch (Exception e){masterObject=new ChampionMasterObject(0,0,0,0,0,0,0,false);}
                 participantsItems.add(new ParticipantListObject(part.getSummonerName(),
                         part.getTeamId(), part.getChampionId(), part.getSpell1Id(),
-                        part.getSpell2Id(), rso.getTotalChampionKills(),  rso.getTotalDeathsPerSession(),
-                        rso.getTotalAssists(), rso.getTotalSessionsWon(), rso.getTotalSessionsLost(),
-                        rso.getTotalSessionsPlayed(), lo.getTier(), lo.getDivision(), lo.getLeaguePoints(),
-                        lo.getMiniSeriesprogress()
-                        ));
+                        part.getSpell2Id(), lo.getTier(), lo.getDivision(), lo.getLeaguePoints(),
+                        lo.getMiniSeriesprogress(),masterObject.getChampionPoints(),masterObject.getChampionLevel()
+                ));
+
+
+
+
 
                 if (dbHelper.getChampion(Integer.toString(part.getChampionId())) == null)
                     dbHelper.insertChampion(raHelper.getStaticChampion(part.getChampionId(), strings[1],getContext()));

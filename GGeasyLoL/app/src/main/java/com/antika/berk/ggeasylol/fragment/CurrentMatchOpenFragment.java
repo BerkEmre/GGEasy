@@ -1,13 +1,11 @@
 package com.antika.berk.ggeasylol.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,12 +21,9 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ParticipantsAdapter;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.List;
-import java.util.Random;
+import java.util.Locale;
 
 public class CurrentMatchOpenFragment extends Fragment {
     List<ParticipantListObject> participantsItems;
@@ -44,7 +39,7 @@ public class CurrentMatchOpenFragment extends Fragment {
     private AdColonyAdOptions ad_options;
     //*****************************************************************************************
 
-    TextView tv_name, tv_gameMode, tv_gameType, tv_Time;
+    TextView tv_name, tv_gameMode;
     ListView lv_participants;
 
     @Override
@@ -52,19 +47,35 @@ public class CurrentMatchOpenFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_current_match_open, container, false);
         tv_name         = (TextView) view.findViewById(R.id.textView16     );
         tv_gameMode     = (TextView) view.findViewById(R.id.textView22     );
-        tv_gameType     = (TextView) view.findViewById(R.id.textView24     );
-        tv_Time         = (TextView) view.findViewById(R.id.textView25     );
         lv_participants = (ListView) view.findViewById(R.id.participants_lv);
 
         tv_name.setText(summonerName);
-        tv_gameMode.setText(cgo.getGameMode());
-        tv_gameType.setText(cgo.getGameType());
+        if(Locale.getDefault().getLanguage().equals("tr"))
+            switch (cgo.getGameQueueConfigId())
+                {
+                    case 0 :tv_gameMode.setText("ÖZEL OYUN");; break;
+                    case 8 :tv_gameMode.setText("NORMAL"); break;
+                    case 2 :tv_gameMode.setText("NORMAL (KAPALI SEÇİM)") ; break;
+                    case 14:tv_gameMode.setText("NORMAL (SIRALI SEÇİM)") ; break;
+                    case 4 :tv_gameMode.setText("DERECELİ")  ; break;
+                    case 6 :tv_gameMode.setText("DERECELİ")  ; break;
+                    case 9 :tv_gameMode.setText("DERECELİ") ; break;
+                    case 41:tv_gameMode.setText("DERECELİ") ; break;
+                    case 42:tv_gameMode.setText("DERECELİ") ; break;
+                    case 410:tv_gameMode.setText("DERECELİ (SIRALI SEÇİM)") ; break;
+                    case 420:tv_gameMode.setText("DERECELİ (SIRALI SEÇİM)") ; break;
+                    case 440:tv_gameMode.setText("DERECELİ (ESENEK)") ; break;
+                    case 400:tv_gameMode.setText("NORMAL (SIRALI SEÇİM)") ; break;
+                    case 65:tv_gameMode.setText("SONSUZ UÇURUM") ; break;
+                    case 70:tv_gameMode.setText("HEPİMİZ BİRİMİZ İÇİN") ; break;
+                    case 76:tv_gameMode.setText("URF") ; break;
+                    case 300:tv_gameMode.setText("PORO KRALI") ; break;
+                    case 318:tv_gameMode.setText("RASTGELE URF") ; break;
+                    default:; break;
+                }
 
 
 
-        Random r=new Random();
-        int x=r.nextInt(10);
-        if(x==3){
             //ADCOLONY
             AdColonyAppOptions app_options = new AdColonyAppOptions()
                     .setUserID( "unique_user_id" );
@@ -104,19 +115,14 @@ public class CurrentMatchOpenFragment extends Fragment {
                 }
             };
             AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
-        }
 
 
 
 
-        int sec, min;
 
-        sec = cgo.getGameLength() % 60;
-        min = cgo.getGameLength() / 60;
 
-        tv_Time.setText(min + ":" + sec);
 
-        ParticipantsAdapter participantsAdapter = new ParticipantsAdapter(getActivity(), participantsItems);
+        ParticipantsAdapter participantsAdapter = new ParticipantsAdapter(getActivity(), participantsItems,summonerName);
         lv_participants.setAdapter(participantsAdapter);
 
         return view;

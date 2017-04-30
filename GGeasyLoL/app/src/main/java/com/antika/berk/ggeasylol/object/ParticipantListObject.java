@@ -5,34 +5,25 @@ public class ParticipantListObject {
             league = "",
             league_division = "",
             league_progress = "";
+    private  int master,
+            master_icon;
     private int team, championID,spell1,
-            spell2,
-            kill,
-            death,
-            asist,
-            win,
-            lost,league_point,
-    played;
+            spell2, lost,league_point;
 
     public ParticipantListObject(String isim, int team, int championID, int spell1, int spell2,
-                                 int kill, int death, int asist, int win, int lost, int played,
-                                 String league, String league_division, int league_point, String league_progress) {
+                                 String league, String league_division, int league_point, String league_progress,int master,int master_icon) {
         super();
         this.isim = isim;
         this.team = team;
         this.championID = championID;
         this.spell1 = spell1;
         this.spell2 = spell2;
-        this.kill = kill;
-        this.death = death;
-        this.asist = asist;
-        this.win = win;
-        this.lost = lost;
-        this.played = played;
         this.league = league;
         this.league_division = league_division;
         this.league_point = league_point;
         this.league_progress = league_progress;
+        this.master=master;
+        this.master_icon=master_icon;
     }
 
     @Override
@@ -42,6 +33,14 @@ public class ParticipantListObject {
 
     public String getIsim() {
         return isim;
+    }
+
+    public int getMaster() {
+        return master;
+    }
+
+    public int getMaster_icon() {
+        return master_icon;
     }
 
     public void setIsim(String isim) {
@@ -80,52 +79,12 @@ public class ParticipantListObject {
         this.spell2 = spell2;
     }
 
-    public int getKill() {
-        return kill;
-    }
-
-    public void setKill(int kill) {
-        this.kill = kill;
-    }
-
-    public int getDeath() {
-        return death;
-    }
-
-    public void setDeath(int death) {
-        this.death = death;
-    }
-
-    public int getAsist() {
-        return asist;
-    }
-
-    public void setAsist(int asist) {
-        this.asist = asist;
-    }
-
-    public int getWin() {
-        return win;
-    }
-
-    public void setWin(int win) {
-        this.win = win;
-    }
-
     public int getLost() {
         return lost;
     }
 
     public void setLost(int lost) {
         this.lost = lost;
-    }
-
-    public int getPlayed() {
-        return played;
-    }
-
-    public void setPlayed(int played) {
-        this.played = played;
     }
 
     public String getLeague() {

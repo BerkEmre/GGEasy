@@ -20,54 +20,28 @@
         android:textColor="@color/colorAccent"
         android:layout_margin="10dp" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/secondary_text" />
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="Oyun Modu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView22"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:text="-"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView23"
-            android:layout_weight="1"
-            android:textStyle="normal|bold"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp" />
-
-        <TextView
-            android:text="GameType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView24"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:textSize="18sp"
-            android:textStyle="normal|bold" />
-    </LinearLayout>
-
-    <TextView
-        android:text="00:00"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView25"
-        android:textAlignment="textEnd"
-        android:textStyle="normal|bold" />
+        android:orientation="horizontal">
 
-    <View
-        android:layout_height="2dp"
-        android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+    </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"

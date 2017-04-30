@@ -2,24 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RelativeLayout android:layout_height="match_parent"
+            <RelativeLayout
+                android:id="@+id/colorlayout1"
                 android:layout_width="10dp"
-                android:background="@color/colorAccent"
-                android:id="@+id/colorlayout1">
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent">
 
             </RelativeLayout>
 
@@ -30,153 +32,62 @@
                 app:srcCompat="@drawable/add_sumonner" />
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/imageView2"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:id="@+id/imageView2"
                     app:srcCompat="@drawable/bronze" />
 
                 <ImageView
+                    android:id="@+id/imageView"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:id="@+id/imageView"
                     app:srcCompat="@drawable/bronze" />
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp">
+                android:layout_height="50dp">
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:id="@+id/linearLayout2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_margin="5dp">
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/isimsoyisim"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SumoonnerName"
-                        android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:text="("
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView12"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp" />
-
-                    <TextView
-                        android:text="0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_played"
-                        android:layout_weight="1"
-                        android:textStyle="normal|bold"
-                        android:textColor="@color/cast_expanded_controller_background_color" />
-
-                    <TextView
-                        android:text=")"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView14"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_margin="5dp">
-
-                    <TextView
-                        android:text="K"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_kill"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/holo_green_dark" />
-
-                    <TextView
-                        android:text="/"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView7"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:text="D"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_death"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                    <TextView
-                        android:text="/"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView5"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:text="A"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true"
-                        android:id="@+id/tv_asist"
                         android:layout_weight="1"
-                        android:textColor="@android:color/holo_orange_dark" />
+                        android:text="SumoonnerName" />
+
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
-                    android:layout_margin="5dp">
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:text="W"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_win"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/holo_green_dark" />
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
-                    <TextView
-                        android:text="/"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView10"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:text="L"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_lost"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/holo_red_dark" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -188,72 +99,84 @@
             android:layout_height="wrap_content">
 
             <RelativeLayout
+                android:id="@+id/colorlayout2"
                 android:layout_width="10dp"
-                android:background="@color/colorAccent"
                 android:layout_height="36dp"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:id="@+id/colorlayout2" />
+                android:layout_alignParentTop="true"
+                android:background="@color/colorAccent" />
 
             <TextView
-                android:text="Bronze"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/textView26"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/imageView14"
-                android:layout_toEndOf="@+id/imageView14"
-                android:layout_marginLeft="10dp" />
-
-            <TextView
-                android:text="V"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView27"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/textView26"
-                android:layout_toEndOf="@+id/textView26"
-                android:layout_marginLeft="5dp" />
-
-            <TextView
-                android:text="00"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView30"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/textView27"
-                android:layout_toEndOf="@+id/textView27"
                 android:layout_marginLeft="10dp"
-                android:textStyle="normal|bold"
-                android:textSize="20sp" />
+                android:layout_toEndOf="@+id/imageView14"
+                android:layout_toRightOf="@+id/imageView14"
+                android:text="Bronze" />
 
             <TextView
-                android:text="LWLNN"
+                android:id="@+id/textView27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView29"
-                android:textStyle="normal|bold"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/textView30"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textView26"
+                android:layout_toRightOf="@+id/textView26"
+                android:text="V" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/textView27"
+                android:layout_toRightOf="@+id/textView27"
+                android:text="00"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@+id/textView30"
-                android:layout_marginLeft="10dp" />
+                android:layout_toRightOf="@+id/textView30"
+                android:text="LWLNN"
+                android:textStyle="normal|bold" />
 
             <ImageView
+                android:id="@+id/imageView14"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                app:srcCompat="@drawable/provisional"
-                android:id="@+id/imageView14"
                 android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/colorlayout2"
                 android:layout_toRightOf="@+id/colorlayout2"
-                android:layout_toEndOf="@+id/colorlayout2" />
+                app:srcCompat="@drawable/provisional" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textAlignment="center"
+                android:textColor="@color/cast_expanded_controller_background_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
         <View
             android:layout_width="fill_parent"
-            android:background="#000000"
-            android:layout_height="1dp" />
+            android:layout_height="1dp"
+            android:background="#000000" />
 
     </LinearLayout>
 

@@ -1,9 +1,9 @@
 package com.antika.berk.ggeasylol.object;
 
 public class ChampionMasterObject {
-    private int championPoints, championPointsUntilNextLevel, championLevel, tokensEarned,
-            championId, championPointsSinceLastLevel, lastPlayTime;
-    private boolean chestGranted;
+    private int championPoints=0, championPointsUntilNextLevel=0, championLevel=0, tokensEarned=0,
+            championId=0, championPointsSinceLastLevel=0, lastPlayTime=0;
+    private boolean chestGranted=false;
 
     public ChampionMasterObject(int championPoints, int championPointsUntilNextLevel, int championLevel,
                                 int tokensEarned, int championId, int championPointsSinceLastLevel,
