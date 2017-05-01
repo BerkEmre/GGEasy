@@ -480,7 +480,7 @@ public class RiotApiHelper {
             return null;
         }
     }
-    private String regionToPlatform(String region) {
+    public String regionToPlatform(String region) {
         switch (region)
         {
             case "BR"  : return "BR1" ;

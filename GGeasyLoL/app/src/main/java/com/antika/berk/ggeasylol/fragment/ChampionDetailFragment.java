@@ -63,7 +63,7 @@ public class ChampionDetailFragment extends Fragment {
             try {
                 RiotApiHelper apiHelper=new RiotApiHelper();
                 //URL den gelen veri String olarak aldım
-                String gelenData=apiHelper.readURL("https://global.api.pvp.net/api/lol/static-data/" + getString(R.string.language) + "/v1.2/champion/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore,passive,skins,spells,stats&api_key="+apiHelper.apiKey);
+                String gelenData=apiHelper.readURL("https://"+apiHelper.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore&api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1;
                 obj1=new JSONObject(gelenData);
