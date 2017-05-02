@@ -10,6 +10,7 @@ android {
         targetSdkVersion 24
         multiDexEnabled true
         versionCode 25
+        versionName "4.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
