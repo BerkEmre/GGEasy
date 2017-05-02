@@ -89,7 +89,7 @@ public class RiotApiHelper {
         JSONObject master, masters;
         JSONArray masterArray;
 
-        String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/summoner/v3/summoners/"+summonerID+"?api_key=" + apiKey);
+        String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/platform/v3/masteries/by-summoner/"+summonerID+"?api_key=" + apiKey);
 
         try {
             master = new JSONObject(JSONString);
