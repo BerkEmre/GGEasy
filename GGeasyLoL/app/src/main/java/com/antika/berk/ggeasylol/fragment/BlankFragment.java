@@ -4,14 +4,12 @@ package com.antika.berk.ggeasylol.fragment;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 
 public class BlankFragment extends DialogFragment {
 

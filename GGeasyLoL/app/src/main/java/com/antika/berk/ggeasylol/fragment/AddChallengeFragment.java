@@ -1,11 +1,9 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,14 +13,12 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChallengeMissionAdapter;
 import com.antika.berk.ggeasylol.adapter.ChallengeSumonnerAdapter;
-import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.MissionHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;

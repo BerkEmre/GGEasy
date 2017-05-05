@@ -29,24 +29,15 @@ import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
-import com.antika.berk.ggeasylol.object.SummaryStat;
-import com.antika.berk.ggeasylol.object.Sumonner;
-import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
-import com.antika.berk.ggeasylol.object.RankedStatObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 

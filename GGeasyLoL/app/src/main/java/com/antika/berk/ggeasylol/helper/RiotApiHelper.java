@@ -14,12 +14,9 @@ import com.antika.berk.ggeasylol.object.MatchIdObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
 import com.antika.berk.ggeasylol.object.MissionTeamObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
-import com.antika.berk.ggeasylol.object.RankedStatObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
 import com.antika.berk.ggeasylol.object.RuneObject;
-import com.antika.berk.ggeasylol.object.RunePageObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
-import com.antika.berk.ggeasylol.object.SummaryStat;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 
 import org.json.JSONArray;
@@ -35,8 +32,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RiotApiHelper {
-    public String apiKey   = "RGAPI-a088eafc-3507-43ea-b419-cb0f0acac8f7";
-    public String version  = "7.9.1";
+    public String apiKey   = "RGAPI-2df266e9-b08a-46d5-8367-b20243ffbf58";
+    public String version  = "7.9.2";
     public int iconSize    =  22;
     //Get summoner object with summoner name
     //V-3 YAPILDI
@@ -104,35 +101,6 @@ public class RiotApiHelper {
             Log.e("Hata", e.toString());
         }
 
-        return null;
-    }
-    //Get rune pages with sumonnerid
-    // V-3 YAPILDI
-    public List<RunePageObject> getSummonerRunes(int summonerID, String region){
-        List<RunePageObject> runePages = new ArrayList<RunePageObject>();
-        List<RuneObject> runes = new ArrayList<RuneObject>();
-
-        JSONObject obje1, obje2;
-        JSONArray array1, array2;
-
-        String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/platform/v3/runes/by-summoner/"+summonerID+"?api_key=" + apiKey);
-
-        try{
-            obje1 = new JSONObject(JSONString);
-            array1 = obje1.getJSONArray("pages");
-
-            for (int i = 0; i < array1.length(); i++){
-                obje2 = array1.getJSONObject(i);
-                runes.clear();
-                array2 = obje2.getJSONArray("slots");
-                for (int j = 0; j < array2.length(); j++){
-                    runes.add(new RuneObject(array2.getJSONObject(j).getInt("runeId"), array2.getJSONObject(j).getInt("runeSlotId")));
-                }
-
-                runePages.add(new RunePageObject(runes, obje2.getInt("id"), obje2.getString("name")));
-            }
-            return runePages;
-        }catch (Exception e){Log.e("Hata", e.toString());}
         return null;
     }
     //get current match data
@@ -207,37 +175,34 @@ public class RiotApiHelper {
         JSONObject obje1;
         JSONArray array1;
 
-        String JSONString = readURL("https://" + region.toLowerCase() + ".api.pvp.net/api/lol/" + region.toLowerCase() +
-                "/v2.5/league/by-summoner/" + summonerID + "/entry?api_key=" + apiKey);
+        String JSONString = readURL("https://tr1.api.riotgames.com/lol/league/v3/positions/by-summoner/"+summonerID+"?api_key=" + apiKey);
 
         try {
-            obje1 = new JSONObject(JSONString);
-            array1 = obje1.getJSONArray(Integer.toString(summonerID));
-
+            array1 = new JSONArray(JSONString);
             int miniSeriestarget, miniSerieslosses, miniSerieswins;
             String miniSeriesprogress;
 
             for (int i = 0; i < array1.length(); i++){
-                try{miniSeriesprogress = array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getJSONObject("miniSeries").getString("progress");}
+                try{miniSeriesprogress = array1.getJSONObject(i).getJSONObject("miniSeries").getString("progress");}
                 catch (Exception e){miniSeriesprogress = "";}
-                try{miniSeriestarget = array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getJSONObject("miniSeries").getInt("target");}
+                try{miniSeriestarget = array1.getJSONObject(i).getJSONObject("miniSeries").getInt("target");}
                 catch (Exception e){miniSeriestarget = 0;}
-                try{miniSerieslosses = array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getJSONObject("miniSeries").getInt("losses");}
+                try{miniSerieslosses = array1.getJSONObject(i).getJSONObject("miniSeries").getInt("losses");}
                 catch (Exception e){miniSerieslosses = 0;}
-                try{miniSerieswins = array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getJSONObject("miniSeries").getInt("wins");}
+                try{miniSerieswins = array1.getJSONObject(i).getJSONObject("miniSeries").getInt("wins");}
                 catch (Exception e){miniSerieswins = 0;}
 
-                leagues.add(new LeagueObject(array1.getJSONObject(i).getString("queue"),
-                        array1.getJSONObject(i).getString("name"),
+                leagues.add(new LeagueObject(array1.getJSONObject(i).getString("queueType"),
+                        array1.getJSONObject(i).getString("leagueName"),
                         array1.getJSONObject(i).getString("tier"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getString("division"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getInt("leaguePoints"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getInt("losses"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getInt("wins"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getBoolean("isFreshBlood"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getBoolean("isHotStreak"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getBoolean("isInactive"),
-                        array1.getJSONObject(i).getJSONArray("entries").getJSONObject(0).getBoolean("isVeteran"),
+                        array1.getJSONObject(i).getString("rank"),
+                        array1.getJSONObject(i).getInt("leaguePoints"),
+                        array1.getJSONObject(i).getInt("losses"),
+                        array1.getJSONObject(i).getInt("wins"),
+                        array1.getJSONObject(i).getBoolean("freshBlood"),
+                        array1.getJSONObject(i).getBoolean("hotStreak"),
+                        array1.getJSONObject(i).getBoolean("inactive"),
+                        array1.getJSONObject(i).getBoolean("veteran"),
                         miniSeriesprogress,
                         miniSeriestarget,
                         miniSerieslosses,
