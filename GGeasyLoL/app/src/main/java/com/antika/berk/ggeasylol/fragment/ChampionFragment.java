@@ -1,9 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,18 +16,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionsAdapter;
-import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 
 import java.util.List;
-import java.util.Locale;
 
 public class ChampionFragment extends Fragment {
     GridView gv_champions;

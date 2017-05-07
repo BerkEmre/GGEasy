@@ -1,0 +1,169 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.ItemOpenFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/imageView37"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/cast_expanded_controller_background_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView39"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/gold1" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/cast_intro_overlay_background_color" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/explanation_item"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <View
+    android:layout_height="2dp"
+    android:layout_width="fill_parent"
+    android:background="@color/secondary_text"
+    android:layout_margin="10dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/necessary"
+            android:textColor="@color/cast_expanded_controller_background_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_margin="10dp"
+            android:background="@color/secondary_text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <GridView
+                android:id="@+id/gerekli"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:numColumns="3" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/needed_for"
+            android:textColor="@color/cast_expanded_controller_background_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_margin="10dp"
+            android:background="@color/secondary_text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <GridView
+                android:id="@+id/gelis"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="3" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

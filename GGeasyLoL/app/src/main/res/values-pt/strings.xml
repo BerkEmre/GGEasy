@@ -202,6 +202,11 @@
     <string name="all_in_one">TURDO EM UM</string>
     <string name="poro_king">PORO REİ</string>
     <string name="random_urf">ALEATÓRIA URF</string>
+    <string name="items">Unid</string>
+    <string name="explanation_item">Explicação</string>
+    <string name="gold">Ouro</string>
+    <string name="necessary">Itens necessários</string>
+    <string name="needed_for">Necessário para</string>
 
 
 </resources>

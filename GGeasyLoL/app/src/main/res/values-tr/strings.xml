@@ -205,4 +205,9 @@
     <string name="all_in_one">HEPİMİZ BİRİMİZ İÇİN</string>
     <string name="poro_king">PORO KRALI</string>
     <string name="random_urf">RASTGELE URF</string>
+    <string name="items">Eşyalar</string>
+    <string name="explanation_item">Açıklama</string>
+    <string name="gold">Altın</string>
+    <string name="necessary">Gerekli Eşyalar</string>
+    <string name="needed_for">Yapılabilecek Eşyalar</string>
 </resources>

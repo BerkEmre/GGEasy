@@ -7,6 +7,9 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
+import com.antika.berk.ggeasylol.object.Item2Object;
+import com.antika.berk.ggeasylol.object.ItemDetailObject;
+import com.antika.berk.ggeasylol.object.ItemObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.MasterObject;
 import com.antika.berk.ggeasylol.object.MasteriesPageObject;
@@ -124,6 +127,7 @@ public class RiotApiHelper {
 
         return masterObjects;
     }
+    //get current match data
     public CurrentGameObject getCurrentMatch(int summonerID, String region){
         CurrentGameObject cgo;
         List<ParticipantObject> participants = new ArrayList<ParticipantObject>();
@@ -169,13 +173,13 @@ public class RiotApiHelper {
         return null;
     }
     //get sumonner leagues stats
-    //V-3 BULAMADIM
+    //V-3 YAPILDI
     public List<LeagueObject> getSummonerLeague(int summonerID, String region){
         List<LeagueObject> leagues = new ArrayList<LeagueObject>();
         JSONObject obje1;
         JSONArray array1;
 
-        String JSONString = readURL("https://tr1.api.riotgames.com/lol/league/v3/positions/by-summoner/"+summonerID+"?api_key=" + apiKey);
+        String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/league/v3/positions/by-summoner/"+summonerID+"?api_key=" + apiKey);
 
         try {
             array1 = new JSONArray(JSONString);
@@ -213,6 +217,33 @@ public class RiotApiHelper {
 
         return null;
     }
+    //get items
+    //V-3 YAPILDI
+    public List<ItemObject> getItem(Context context){
+        List<ItemObject> item = new ArrayList<ItemObject>();
+        String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items?&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
+
+        JSONObject obje1, obje2, obje3;
+       try{
+            obje1 = new JSONObject(JSONString);
+            obje2 = obje1.getJSONObject("data");
+            Iterator<?> key = obje2.keys();
+            while (key.hasNext()){
+                obje3 = obje2.getJSONObject((String) key.next());
+                try {
+                    item.add(new ItemObject(obje3.getInt("id"), obje3.getString("name")));
+                }
+                catch (Exception e){
+
+                }
+
+            }
+
+
+            return item;
+        }catch (Exception e){Log.e("Hata", e.toString());}
+        return null;
+    }
     //get champion object from id
     //V-3 YAPILDI
     public ChampionObject getStaticChampion(int championID, String region,Context context){
@@ -244,7 +275,6 @@ public class RiotApiHelper {
         }catch (Exception e){Log.e("Hata", e.toString());}
         return null;
     }
-
     //getChampion masteries
     //V-3 YAPILDI
     public List<ChampionMasterObject> getChampionMasteries(int summonerID, String region){
@@ -285,9 +315,9 @@ public class RiotApiHelper {
             obje1 = new JSONObject(JSONString);
             obje2 = obje1.getJSONObject("data");
 
-            Iterator<?> keys = obje2.keys();
-            while (keys.hasNext()){
-                obje3 = obje2.getJSONObject((String) keys.next());
+            Iterator<?> key = obje2.keys();
+            while (key.hasNext()){
+                obje3 = obje2.getJSONObject((String) key.next());
 
                 champions.add(new ChampionObject(obje3.getString("key"),
                         obje3.getString("name"),
@@ -295,6 +325,40 @@ public class RiotApiHelper {
                         Integer.toString(obje3.getInt("id"))));
             }
             return champions;
+        }catch (Exception e){Log.e("Hata", e.toString());}
+        return null;
+    }
+
+
+    public List<ItemDetailObject> getItemDetail(Context context,String id){
+        List<Item2Object> from = new ArrayList<Item2Object>();
+        List<Item2Object> to = new ArrayList<Item2Object>();
+        List<ItemDetailObject>item=new ArrayList<ItemDetailObject>();
+        String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items/"+id+"?itemData=from%2Cgold%2Cinto%2CsanitizedDescription&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
+
+        JSONObject obje1,obje2;
+        JSONArray array1;
+        String aciklama="",gold="0",name="";
+
+        try{
+            obje1 = new JSONObject(JSONString);
+            try {name=obje1.getString("name");} catch (Exception e){}
+            try {aciklama=obje1.getString("sanitizedDescription");} catch (Exception e){}
+            try {obje2=obje1.getJSONObject("gold");gold=obje2.optString("total");} catch (Exception e){}
+            try {array1=obje1.getJSONArray("into");
+                for(int i=0;i<array1.length();i++){
+                    to.add(new Item2Object(array1.getString(i)));
+                }
+            }catch (Exception e){
+            }
+            try {array1=obje1.getJSONArray("from");
+                for(int i=0;i<array1.length();i++){
+                    from.add(new Item2Object(array1.getString(i)));
+                }
+            }
+            catch (Exception e){}
+            item.add(new ItemDetailObject(id,name,gold,aciklama,from,to));
+            return item;
         }catch (Exception e){Log.e("Hata", e.toString());}
         return null;
     }
@@ -394,7 +458,7 @@ public class RiotApiHelper {
             return null;
         }
     }
-
+    //get PUAN
     public String getPuan(String emmail,String sifre) {
         String data=readURL("http://ggeasylol.com/api/check_user.php?Mail="+emmail+"&Sifre="+sifre);
         try {
@@ -411,6 +475,7 @@ public class RiotApiHelper {
 
 
     }
+    //get ROZET
     public List<RozetObject> getRozet(String mail){
         List<RozetObject> rozets = new ArrayList<RozetObject>();
         String data=readURL("http://ggeasylol.com/api/get_gorev.php?Mail="+mail);
@@ -445,6 +510,7 @@ public class RiotApiHelper {
             return null;
         }
     }
+    //set Region Platform
     public String regionToPlatform(String region) {
         switch (region)
         {
@@ -463,7 +529,7 @@ public class RiotApiHelper {
         }
         return null;
     }
-
+    //set İcon
     public int iconTable(int y) {
 
         int[]x={R.drawable.icon0,R.drawable.icon1,R.drawable.icon2,R.drawable.icon3,R.drawable.icon4,R.drawable.icon5,

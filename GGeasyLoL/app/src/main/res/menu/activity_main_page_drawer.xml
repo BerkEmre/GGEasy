@@ -27,6 +27,10 @@
             android:id="@+id/nav_siralama"
             android:icon="@drawable/rank"
             android:title="@string/rank" />
+        <item
+            android:id="@+id/nav_item"
+            android:icon="@drawable/item"
+            android:title="@string/items" />
 
         <item
             android:id="@+id/nav_slideshow"

@@ -6,17 +6,19 @@
     android:gravity="center_horizontal">
 
     <ImageView
-        app:srcCompat="@drawable/add_sumonner"
         android:id="@+id/imageView7"
-        android:layout_width="75dp"
-        android:layout_height="75dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/add_sumonner" />
 
     <TextView
-        android:text="ChampionName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/textView28"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="ChampionName"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:layout_marginBottom="10dp" />
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 </LinearLayout>

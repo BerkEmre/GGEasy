@@ -26,6 +26,7 @@ import com.antika.berk.ggeasylol.fragment.ChallengeFragment;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
+import com.antika.berk.ggeasylol.fragment.ItemFragment;
 import com.antika.berk.ggeasylol.fragment.LoginFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
 import com.antika.berk.ggeasylol.fragment.MissionTabsFragment;
@@ -35,6 +36,7 @@ import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
 import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+import com.antika.berk.ggeasylol.object.ItemObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -170,10 +172,14 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
-        }
-
-        else if (id == R.id.nav_siralama) {
+        } else if (id == R.id.nav_siralama) {
             RankFragment cmf = new RankFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+        } else if (id == R.id.nav_item) {
+            ItemFragment cmf = new ItemFragment();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,

@@ -203,6 +203,11 @@
     <string name="all_in_one">"ALLES IN EINEM "</string>
     <string name="poro_king">PORO KONIG</string>
     <string name="random_urf">ZUFÄLLIG URF</string>
+    <string name="items">Artikel</string>
+    <string name="explanation_item">Erläuterung</string>
+    <string name="gold">Gold</string>
+    <string name="necessary">Notwendige Gegenstände</string>
+    <string name="needed_for">"Gebraucht für "</string>
 
 
 </resources>
