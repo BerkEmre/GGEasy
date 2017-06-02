@@ -2,14 +2,18 @@ package com.antika.berk.ggeasylol.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.fragment.ItemOpenFragment;
+import com.antika.berk.ggeasylol.fragment.VideoFragment;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ChampionSkillObject;
@@ -55,7 +59,7 @@ public class ChampionSkillAdapter extends BaseAdapter {
         ImageView skillLogo=(ImageView)satirView.findViewById(R.id.skill_logo);
         TextView skillDescription=(TextView)satirView.findViewById(R.id.skill_description);
         TextView skillName=(TextView)satirView.findViewById(R.id.skillName);
-        ChampionSkillObject skill = skillList.get(position);
+        final ChampionSkillObject skill = skillList.get(position);
         skillDescription.setText("\t"+skill.getDescription());
         if(position==0)
             skillName.setText(skill.getSkillName()+" [P]");

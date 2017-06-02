@@ -1,0 +1,215 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.BuildFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/close1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_close_light" />
+
+            <ImageView
+                android:id="@+id/imageView54"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toEndOf="@+id/close1"
+                android:layout_toRightOf="@+id/close1"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/no_item" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/close2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_close_light" />
+
+            <ImageView
+                android:id="@+id/imageView53"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toEndOf="@+id/close2"
+                android:layout_toRightOf="@+id/close2"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/no_item" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/close3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_close_light" />
+
+            <ImageView
+                android:id="@+id/imageView49"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toEndOf="@+id/close3"
+                android:layout_toRightOf="@+id/close3"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/no_item" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/close4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_close_light" />
+
+            <ImageView
+                android:id="@+id/imageView57"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toEndOf="@+id/close4"
+                android:layout_toRightOf="@+id/close4"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/no_item" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/close5"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_close_light" />
+
+            <ImageView
+                android:id="@+id/imageView56"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toEndOf="@+id/close5"
+                android:layout_toRightOf="@+id/close5"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/no_item" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/close6"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_close_light" />
+
+            <ImageView
+                android:id="@+id/imageView55"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toEndOf="@+id/close6"
+                android:layout_toRightOf="@+id/close6"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/no_item" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/search"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridView
+            android:id="@+id/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_above="@+id/linearLayout9"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="5dp"
+            android:numColumns="4"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/item_list"
+            android:orientation="horizontal"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/linearLayout9">
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

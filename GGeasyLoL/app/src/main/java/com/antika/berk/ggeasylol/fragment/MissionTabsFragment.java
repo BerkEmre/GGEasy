@@ -1,6 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
@@ -12,6 +13,7 @@ import com.antika.berk.ggeasylol.R;
 
 public class MissionTabsFragment extends Fragment {
     private FragmentTabHost mTabHost;
+    Intent intent;
     public MissionTabsFragment() {
     }
 
@@ -23,9 +25,9 @@ public class MissionTabsFragment extends Fragment {
         mTabHost = (FragmentTabHost)rootView.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
 
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator(getContext().getString(R.string.personal)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator("",getResources().getDrawable(R.drawable.personal)).setContent(intent),
                 MissionFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator(getContext().getString(R.string.team)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("",getResources().getDrawable(R.drawable.team)).setContent(intent),
                 MissionTeamFragment.class, null);
 
         return rootView;

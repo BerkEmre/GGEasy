@@ -23,7 +23,6 @@ import com.antika.berk.ggeasylol.object.CurrentGameObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
 
 import java.util.List;
-import java.util.Locale;
 
 public class CurrentMatchOpenFragment extends Fragment {
     List<ParticipantListObject> participantsItems;
@@ -40,7 +39,7 @@ public class CurrentMatchOpenFragment extends Fragment {
     //*****************************************************************************************
 
     TextView tv_name, tv_gameMode;
-    ListView lv_participants;
+    ListView lv_participants,lv_participants1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -124,6 +123,7 @@ public class CurrentMatchOpenFragment extends Fragment {
 
         ParticipantsAdapter participantsAdapter = new ParticipantsAdapter(getActivity(), participantsItems,summonerName);
         lv_participants.setAdapter(participantsAdapter);
+
 
         return view;
     }

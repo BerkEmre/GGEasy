@@ -1,6 +1,6 @@
 package com.antika.berk.ggeasylol.fragment;
 
-import android.app.ProgressDialog;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,15 +16,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.LotteryAdapter;
-import com.antika.berk.ggeasylol.helper.DBHelper;
-import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.LotteryObject;
-import com.antika.berk.ggeasylol.object.Sumonner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

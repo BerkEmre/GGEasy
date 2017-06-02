@@ -1,10 +1,9 @@
 package com.antika.berk.ggeasylol.fragment;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.hardware.camera2.params.BlackLevelPattern;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -14,36 +13,30 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.MasteriesPageObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-//http://berkemrealtan.com/GGEasy/add_user.php?SihirdarAdi=SOLOTURK SF 260&SihirdarID=1494249&Mail=hatvekolu@gmail.com&Region=TR&Sifre=parola61
 public class SignupFragment extends Fragment {
     Spinner region;
-    TextView keyText;
     EditText summoner,pass,repass,email;
     Button register;
 
     Context context;
-    String gelen_rune;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view= inflater.inflate(R.layout.fragment_signup, container, false);
-        keyText=(TextView)view.findViewById(R.id.key_text);
+        view= inflater.inflate(R.layout.fragment_signup, container, false);
         summoner=(EditText)view.findViewById(R.id.summonerName);
         pass=(EditText)view.findViewById(R.id.pass);
         repass=(EditText)view.findViewById(R.id.repass);
@@ -71,8 +64,6 @@ public class SignupFragment extends Fragment {
             int k = (r.nextInt(key.length));
             a=a+key[k];
         }
-        keyText.setText(a);
-        gelen_rune=keyText.getText().toString().toLowerCase();
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,10 +100,8 @@ public class SignupFragment extends Fragment {
                 return getContext().getString(R.string.check_summoner_name_or_region);
             }
             summonerID = so.getId() + "";
-            List<MasteriesPageObject> mpos = riotApiHelper.getSummonerMasteries(so.getId(),params[1]);
 
-            for(int i = 0; i < mpos.size(); i++){
-                if(mpos.get(i).getName().toLowerCase().equals(gelen_rune.toLowerCase())) {
+
                     try {
                         JSONArray array1 = new JSONArray(riotApiHelper.readURL("http://ggeasylol.com/api/get_user.php?ID=" + so.getId() + "&Region=" + params[1]));
                         if(array1.length()>0)
@@ -130,14 +119,13 @@ public class SignupFragment extends Fragment {
                         e.printStackTrace();
                     }
                     return getContext().getString(R.string.check_summoner_name_or_region);
-                }
-            }
-            return getContext().getString(R.string.create_page_mistake) + " '" + gelen_rune + "'";
+
         }
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+            if(!s.equals(getContext().getString(R.string.registred)))
+                Toast.makeText(context, s, Toast.LENGTH_LONG).show();
             if(s.equals(getContext().getString(R.string.registration))){
                 DBHelper dbHelper = new DBHelper(context);
                 dbHelper.insertUser(email.getText().toString(), pass.getText().toString(), region.getSelectedItem().toString(), summonerID);
@@ -147,6 +135,21 @@ public class SignupFragment extends Fragment {
                 fm.beginTransaction().replace(
                         R.id.content_main_page,
                         cmf,"0").commit();
+            }
+            if (s.equals(getContext().getString(R.string.registred))){
+                Snackbar snackbar = Snackbar
+                        .make(view, getContext().getString(R.string.summoner_name_register), 20000).setActionTextColor(0xFF17EA0C)
+                        .setAction(getContext().getString(R.string.yes), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                FragmentManager fm = getFragmentManager();
+                                ChangeInformationFragment asf = new ChangeInformationFragment();
+                                asf.show(fm, "");
+
+                            }
+                        });
+
+                snackbar.show();
             }
             progress.dismiss();
         }

@@ -174,6 +174,14 @@ public class ProfilFragment extends Fragment {
                     Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
                 RozetAdapter adapter=new RozetAdapter(getActivity(),ro);
                 rozets.setAdapter(adapter);
+                dbHelper.insertMatch("", "Gorev28");
+                dbHelper.insertMatch("", "Gorev29");
+                for (int i=0;i<ro.size();i++){
+                    if(ro.get(i).getGorevAdi().equals("Gorev28"))
+                        dbHelper.insertMatch("YAPILDI", "Gorev28");
+                    else if(ro.get(i).getGorevAdi().equals("Gorev29"))
+                        dbHelper.insertMatch("YAPILDI", "Gorev29");
+                }
 
 
 

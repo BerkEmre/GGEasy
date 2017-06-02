@@ -2,9 +2,6 @@ package com.antika.berk.ggeasylol.object;
 
 import java.util.List;
 
-/**
- * Created by berke on 1.12.2016.
- */
 
 public class CurrentGameObject {
     List<ParticipantObject> participants;

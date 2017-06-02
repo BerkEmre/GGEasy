@@ -325,7 +325,7 @@ public  class Mission {
     public  boolean Gorev18(String matchId,int x){
         DBHelper dbHelper=new DBHelper(c);
         if(!matchId.equals(dbHelper.getMatch("Gorev18"))){
-            if (x>0) {
+            if (x>1) {
                 Toast.makeText(c, c.getString(R.string.congratulations)+1600+c.getString(R.string.earned), Toast.LENGTH_LONG).show();
                 dbHelper.insertMatch("", "Gorev18");//gorevi siler
                 PuanGonder("Gorev18", 1600);

@@ -23,7 +23,7 @@ import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 public class ChangePasswordFragment extends DialogFragment {
 
     Button gonder;
-    EditText oldpass, pass, repass;
+    EditText  pass, repass;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class ChangePasswordFragment extends DialogFragment {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
         gonder  = (Button  ) view.findViewById(R.id.button9);
-        oldpass = (EditText) view.findViewById(R.id.oldpass);
         pass    = (EditText) view.findViewById(R.id.pass   );
         repass  = (EditText) view.findViewById(R.id.repass );
 
@@ -40,17 +39,13 @@ public class ChangePasswordFragment extends DialogFragment {
         gonder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(oldpass.getText().length() > 0 && pass.getText().length() > 0 && repass.getText().length() > 0){
-                    if(dbHelper.getUser().getSifre().equals(oldpass.getText().toString())){
+                if(pass.getText().length() > 0 && repass.getText().length() > 0){
                         if(pass.getText().toString().equals(repass.getText().toString())){
-                            new getData().execute(dbHelper.getUser().getEmail(), oldpass.getText().toString(), pass.getText().toString());
+                            new getData().execute(dbHelper.getUser().getEmail(), pass.getText().toString());
                         }else{
                             Toast.makeText(view.getContext(), "Yeni Şifre ve Tekrar Aynı Değil.", Toast.LENGTH_LONG).show();
                         }
-                    }else{
-                        Toast.makeText(view.getContext(), "Şifre Hatalı.", Toast.LENGTH_LONG).show();
-                    }
-                }else{
+                                    }else{
                     Toast.makeText(view.getContext(), "Tüm Alanları Doldurunuz.", Toast.LENGTH_LONG).show();
                 }
             }
@@ -75,7 +70,7 @@ public class ChangePasswordFragment extends DialogFragment {
         protected String doInBackground(String... values)
         {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
-            riotApiHelper.readURL("http://ggeasylol.com/api/change_password.php?mail="+values[0]+"&cur="+values[1]+"&new="+values[2]);
+            riotApiHelper.readURL("http://ggeasylol.com/api/change_password.php?mail="+values[0]+"&new="+values[1]);
             return null;
         }
 

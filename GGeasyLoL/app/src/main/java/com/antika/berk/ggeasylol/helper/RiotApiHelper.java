@@ -18,7 +18,6 @@ import com.antika.berk.ggeasylol.object.MissionObject;
 import com.antika.berk.ggeasylol.object.MissionTeamObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
-import com.antika.berk.ggeasylol.object.RuneObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 
@@ -36,8 +35,8 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey   = "RGAPI-2df266e9-b08a-46d5-8367-b20243ffbf58";
-    public String version  = "7.9.2";
-    public int iconSize    =  22;
+    public String version  = "7.10.1";
+    public int iconSize    =  34;
     //Get summoner object with summoner name
     //V-3 YAPILDI
     public SummonerObject getSumonner(String summonerName, String region) {
@@ -131,8 +130,6 @@ public class RiotApiHelper {
     public CurrentGameObject getCurrentMatch(int summonerID, String region){
         CurrentGameObject cgo;
         List<ParticipantObject> participants = new ArrayList<ParticipantObject>();
-        List<ChampionMasterObject> masteries = new ArrayList<ChampionMasterObject>();
-        List<RuneObject> runes = new ArrayList<RuneObject>();
 
         JSONObject obje1, obje2;
         JSONArray array1;
@@ -334,7 +331,7 @@ public class RiotApiHelper {
         List<Item2Object> from = new ArrayList<Item2Object>();
         List<Item2Object> to = new ArrayList<Item2Object>();
         List<ItemDetailObject>item=new ArrayList<ItemDetailObject>();
-        String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items/"+id+"?itemData=from%2Cgold%2Cinto%2CsanitizedDescription&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
+        String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items/"+id+"?itemData=all&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
 
         JSONObject obje1,obje2;
         JSONArray array1;
@@ -535,7 +532,8 @@ public class RiotApiHelper {
         int[]x={R.drawable.icon0,R.drawable.icon1,R.drawable.icon2,R.drawable.icon3,R.drawable.icon4,R.drawable.icon5,
                 R.drawable.icon6,R.drawable.icon7,R.drawable.icon8,R.drawable.icon9,R.drawable.icon10,R.drawable.icon11,R.drawable.icon12,
                 R.drawable.icon13,R.drawable.icon14,R.drawable.icon15,R.drawable.icon16,R.drawable.icon17,R.drawable.icon18,R.drawable.icon19,R.drawable.icon20,
-                R.drawable.icon21
+                R.drawable.icon21,R.drawable.icon22,R.drawable.icon23,R.drawable.icon24,R.drawable.icon25,R.drawable.icon26,R.drawable.icon27,
+                R.drawable.icon28,R.drawable.icon29,R.drawable.icon30,R.drawable.icon31,R.drawable.icon32,R.drawable.icon33,
 
         };
 

@@ -9,13 +9,11 @@
         android:id="@+id/textView46"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_margin="5dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/missions"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="normal|bold" />
 
     <View

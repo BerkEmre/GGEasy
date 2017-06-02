@@ -15,9 +15,9 @@
     <string name="save_summoner">Sihirdarı Kaydet</string>
     <string name="champions">Şampiyonlar</string>
     <string name="search">Arama...</string>
-    <string name="stats">Statlar</string>
-    <string name="skils">Skiller</string>
-    <string name="skins">Skinler</string>
+    <string name="stats">Stat</string>
+    <string name="skils">Skill</string>
+    <string name="skins">Skin</string>
     <string name="current_match">Canlı Maç</string>
     <string name="get_data">Verileri Al</string>
     <string name="join_lottery">Çekilişe Katıl</string>
@@ -134,7 +134,7 @@
     <string name="error_mission">"LOL'de 30. seviye değilsin "</string>
     <string name="feed_back">Geri Bildirim İçin Teşekkür Ederiz.</string>
     <string name="message">Lütfen 20 karakterden fazla giriniz.</string>
-    <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>
+    <string name="change_email_exp">*Lütfen aşağıda belirtilen isimde League of Legends\'da bir kabiliyet sayfası oluşturun ve DEĞİŞTİR BUTONU\'na tıklayın!</string>
     <string name="ok">Tamam</string>
     <string name="joined_lottery">Çekilişe Katıldınız!</string>
     <string name="rank_info">*Rank her hafta sıfırlanır ve sıralamada birinci olan kullanıcı 400 Riot Points kazanır!</string>
@@ -210,4 +210,15 @@
     <string name="gold">Altın</string>
     <string name="necessary">Gerekli Eşyalar</string>
     <string name="needed_for">Yapılabilecek Eşyalar</string>
+    <string name="weak">Karşısında Güçlü Olanlar</string>
+    <string name="strong">Karşısında Zayıf Olanlar</string>
+    <string name="summoner_name_register">Sihirdar adının size ait olduğunu mu düşünüyorsunuz.</string>
+    <string name="change">Değiştir</string>
+    <string name="rate_exp">Google Play\'de bizi değerlendir</string>
+    <string name="suggestion">Tavsiyeler</string>
+    <string name="follow_us">Bizi Facebook\'ta takip et</string>
+    <string name="follow">Takip et</string>
+    <string name="save">Kaydet</string>
+    <string name="others">Diğerleri</string>
+    <string name="no_build">Bu şampiyon için build yok. İlk sen olabilirsin.</string>
 </resources>

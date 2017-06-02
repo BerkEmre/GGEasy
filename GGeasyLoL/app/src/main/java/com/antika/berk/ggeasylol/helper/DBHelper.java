@@ -241,7 +241,7 @@ public class DBHelper extends SQLiteOpenHelper {
         },null, null, null, null, null);
         int match = 0;
         while (cursor.moveToNext()) {
-            if(cursor.getString(1).length() > 0)
+            if(cursor.getString(1).length() > 0 && !cursor.getString(1).equals("YAPILDI"))
                 match++;
         }
         if(match < 3)

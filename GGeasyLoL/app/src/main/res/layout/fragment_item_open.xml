@@ -16,21 +16,19 @@
 
         <ImageView
             android:id="@+id/imageView37"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_weight="1" />
+            android:layout_width="90dp"
+            android:layout_height="90dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
-            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView14"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/cast_expanded_controller_background_color"
@@ -92,7 +90,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:textColor="@color/cast_expanded_controller_background_color"
+                android:textSize="12sp" />
         </LinearLayout>
     </ScrollView>
 
@@ -121,15 +121,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:layout_margin="5dp"
             android:orientation="horizontal">
 
             <GridView
                 android:id="@+id/gerekli"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:numColumns="3" />
+                android:layout_height="70dp"
+                android:numColumns="4" />
         </LinearLayout>
 
         <TextView
@@ -152,7 +152,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
@@ -161,8 +161,9 @@
                 android:id="@+id/gelis"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:numColumns="3" />
+                android:numColumns="4" />
         </LinearLayout>
+
     </LinearLayout>
 
 

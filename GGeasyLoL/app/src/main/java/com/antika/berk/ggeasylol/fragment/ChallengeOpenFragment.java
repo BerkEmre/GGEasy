@@ -1,16 +1,13 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
-import android.app.DialogFragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,21 +19,15 @@ import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.Other.Challenge;
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.adapter.ChallengeAdapter;
-import com.antika.berk.ggeasylol.adapter.ChallengeSumonnerAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.MissionHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChallengeObject;
-import com.antika.berk.ggeasylol.object.ChampionObject;
-import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.MatchIdObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import it.sephiroth.android.library.picasso.Picasso;
 import it.sephiroth.android.library.picasso.Transformation;

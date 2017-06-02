@@ -31,7 +31,7 @@
     <string name="mana">Mana:</string>
     <string name="mana_regen">Mana Regen:</string>
     <string name="magic_resistance">Magic Resistance:</string>
-    <string name="defence">Defence:</string>
+    <string name="defence">Defense:</string>
     <string name="magic_power">Magic Power:</string>
     <string name="difficulty">Difficulty:</string>
     <string name="summoner">Summoner</string>
@@ -56,7 +56,7 @@
     <string name="comunicate">Communicate</string>
     <string name="password">Password</string>
     <string name="log_in">Log in</string>
-    <string name="forget_password">Forget Password</string>
+    <string name="forget_password">Forgot Password?</string>
     <string name="sing_up_gg_easy">Sign Up for GGEasy-LOL</string>
     <string name="giris_yapmadan">Skip</string>
     <string name="email_veya_sifre_hatali">Wrong E-Mail or Password</string>
@@ -82,7 +82,7 @@
     <string name="twelve_kill">+20 Kill</string>
     <string name="thirty_kill">+30 Kill</string>
     <string name="ten_asist">+10 Assists</string>
-    <string name="twelve_asist">+20 Assist</string>
+    <string name="twelve_asist">+20 Assists</string>
     <string name="thirty_asist">+30 Assists</string>
     <string name="two_tower">+2 Turrets</string>
     <string name="four_tower">+4 Turrets</string>
@@ -116,7 +116,7 @@
     <string name="cancel">Cancel</string>
     <string name="take_mission">Take Mission</string>
     <string name="congratulations">"Congratulations... "</string>
-    <string name="earned">Points Earned.</string>
+    <string name="earned">Points are Earned.</string>
     <string name="mission_failed">Mission Failed!</string>
     <string name="not_detected">New Match not Detected!</string>
     <string name="change_mail">Change Mail</string>
@@ -164,11 +164,11 @@
     <string name="firstblood_kill">Get First Blood with Team in Ranked Match.</string>
     <string name="first_turrent">Destroy First Turrets with Team in Ranked Match.</string>
     <string name="first_inhi">Destroy First Inhibitor with Team in Ranked Match.</string>
-    <string name="victory_exp">Win The Ranked Match.</string>
+    <string name="victory_exp">Win a Ranked Match.</string>
     <string name="app_update_text">You don\'t have latest version! Do you want update now?</string>
     <string name="pls_register">Please Sign Up or Sign In on Profile Page!</string>
     <string name="changed_pass">Changed Your Password</string>
-    <string name="end_of_match_exp">Kills +10, Deaths -10, Assists +6, Victory +100, Defeat -50, Minions 0.5, Turrents +20, Neutral Minions +1.5, Double Kills +50, Triple Kills +150, Quadra Kills +300, Penta Kills +750, Golds +0.05, Damages +0.001 Points in Ranked Match</string>
+    <string name="end_of_match_exp">Each Kills +10, Deaths -10, Assists +6, Victory +100, Defeat -50, Minions 0.5, Turrents +20, Neutral Minions +1.5, Double Kills +50, Triple Kills +150, Quadra Kills +300, Penta Kills +750, Golds +0.05, Damages +0.001 Points in Ranked Match</string>
     <string name="lore">Myth</string>
     <string name="friends">Friends</string>
     <string name="add_friend">Add  Friend</string>
@@ -196,7 +196,7 @@
     <string name="advertisement_mission">If you want to take more than three missions, You have to watch Advertisement .</string>
     <string name="special_game">SPECIAL GAME</string>
     <string name="normal">NORMAL</string>
-    <string name="blind_pick">NORMAL (BLAND PICK)</string>
+    <string name="blind_pick">NORMAL (BLIND PICK)</string>
     <string name="draft">NORMAL (DRAFT)</string>
     <string name="ranked">RANKED</string>
     <string name="ranked_flex">RANKED (FLEX)</string>
@@ -210,4 +210,15 @@
     <string name="gold">Gold</string>
     <string name="necessary">Necessary Items</string>
     <string name="needed_for">Needed for</string>
+    <string name="weak">is Weak Against</string>
+    <string name="strong">is Strong Against</string>
+    <string name="summoner_name_register">Do you think that the summoner name is yours</string>
+    <string name="change">Change</string>
+    <string name="rate_exp">Rate us on Google Play</string>
+    <string name="suggestion">Suggestions</string>
+    <string name="follow_us">Follow us on Facebook</string>
+    <string name="follow">Follow</string>
+    <string name="save">Save</string>
+    <string name="others">Others</string>
+    <string name="no_build">There is no build for this champion. You can be first.</string>
 </resources>

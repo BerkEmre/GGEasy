@@ -1,6 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
@@ -16,6 +17,7 @@ public class ChampionTabHost extends Fragment {
     private FragmentTabHost mTabHost;
     private TextView c_name;
     private ChampionObject co;
+    Intent intent;
 
     public void setChampionObject(ChampionObject co) {
         this.co = co;
@@ -33,22 +35,19 @@ public class ChampionTabHost extends Fragment {
         c_name.setText(co.getChampionName());
         Bundle bundle = new Bundle();
         bundle.putStringArray("cID", champion);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator(getContext().getString(R.string.skils)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmenta").setIndicator("",getResources().getDrawable(R.drawable.ct)).setContent(intent),
+                CounterFragment.class,bundle);
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator("",getResources().getDrawable(R.drawable.build)).setContent(intent),
+                OtherItemFragment.class, bundle);
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("",getResources().getDrawable(R.drawable.skill1)).setContent(intent),
                 SkillFragment.class,bundle);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator(getContext().getString(R.string.skins)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentd").setIndicator("",getResources().getDrawable(R.drawable.skin)).setContent(intent),
                 SkinFragment.class, bundle);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentd").setIndicator(getContext().getString(R.string.stats)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmente").setIndicator("",getResources().getDrawable(R.drawable.stat)).setContent(intent),
                 StatFragment.class, bundle);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmente").setIndicator(getContext().getString(R.string.lore)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentf").setIndicator("",getResources().getDrawable(R.drawable.myth)).setContent(intent),
                 ChampionDetailFragment.class, bundle);
-        TextView x = (TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
-        x.setTextSize(12);
-        TextView y = (TextView) mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
-        y.setTextSize(12);
-        TextView z = (TextView) mTabHost.getTabWidget().getChildAt(2).findViewById(android.R.id.title);
-        z.setTextSize(12);
-        TextView t = (TextView) mTabHost.getTabWidget().getChildAt(3).findViewById(android.R.id.title);
-        t.setTextSize(12);
+
 
         return view;
     }

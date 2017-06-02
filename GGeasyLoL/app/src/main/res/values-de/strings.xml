@@ -20,7 +20,7 @@
     <string name="congratulations">\"Glückwünsche... \"</string>
     <string name="continues">Geht weiter...</string>
     <string name="create_page">* Bitte erstellen Sie eine Mastery-Seite, die so in Ihrem Konto benannt hat und klicken Sie auf Registrieren!</string>
-    <string name="create_page_mistake">"Erstellen Sie eine Mastery-Seite wie "</string>
+    <string name="create_page_mistake">Erstellen Sie eine Mastery-Seite wie</string>
     <string name="current_match">Aktuelles Spiel</string>
     <string name="current_password">Aktuelles Passwort</string>
     <string name="defence">Verteidigung:</string>
@@ -31,11 +31,11 @@
     <string name="doublekill">Doppeltötung</string>
     <string name="dragon">Töte Drache</string>
     <string name="drawing">Ziehungen gemacht...</string>
-    <string name="earned">Punkte erhalten.</string>
+    <string name="earned">Punkte werden verdient.</string>
     <string name="email_veya_sifre_hatali">Falsche Email oder Passwort</string>
     <string name="end_date">\"Enddatum : \"</string>
     <string name="end_of_match">Spielbericht</string>
-    <string name="end_of_match_exp">Töten +10, Tod -10, Unterstützung +6, Sieg +100, Niederlage -50, Schergen 0.5, Turm +20, Neutraler Minion +1.5, Doppelkill +50, Dreifach-Kill +150, Quad-Kill +300, Penta-Kill + 750, gold +0.05, Schaden +0.001 Punkte in Ranglisten-Spiel.</string>
+    <string name="end_of_match_exp">"Jede Kills +10, Deaths -10, Assists +6, Victory +100, Defeat -50, Minions 0.5, Turrents +20, Neutrale Minions +1.5, Double Kills +50, Triple Kills +150, Quadra Kills +300, Penta Kills +750, Golds +0.05, Schaden +0.001 Punkte in Rangliste "</string>
     <string name="error">Fehler!Bitte versuche es erneut...</string>
     <string name="error_match">Kein Ranglisten-Spiel entdeckt auf Geschichte</string>
     <string name="error_mission">"Du bist nicht 30 Level in LOL "</string>
@@ -51,7 +51,7 @@
     <string name="first_tower">Erster Turret</string>
     <string name="first_turrent">Zerstört Erste Turrets mit dem Team in Ranglisten-Spiel.</string>
     <string name="firstblood_kill">Holen Sie sich erstes Blut mit Team in Ranglistenspiel.</string>
-    <string name="forget_password">Passwort vergessen</string>
+    <string name="forget_password">Passwort vergessen?</string>
     <string name="four_tower">+4 Turrets</string>
     <string name="four_tower_exp">Zerstören Sie 4 Turrets oder mehr als in Ranglisten-Spiel.</string>
     <string name="get_data">Daten Bekommen</string>
@@ -96,7 +96,7 @@
     <string name="new_password_re">Re-Neues Passwort</string>
     <string name="no">Nein</string>
     <string name="not_detected">Neues Spiel nicht erkannt!</string>
-    <string name="ok">In Ordnung</string>
+    <string name="ok">OK</string>
     <string name="ops_make_mistake">Ups! Irgendwas lief schief</string>
     <string name="password">Passwort</string>
     <string name="passwords_not_same">Passwörter sind nicht gleich</string>
@@ -104,7 +104,7 @@
     <string name="personal">Persönlich</string>
     <string name="please_wait">Warten Sie mal...</string>
     <string name="pls_register">Bitte melden Sie sich an oder melden Sie sich an der Profilseite an!</string>
-    <string name="point">Punkte</string>
+    <string name="point">Partitur</string>
     <string name="profile">Profil</string>
     <string name="quadra">Vierfach Tötung</string>
     <string name="quadra_exp">Erhalten Vierfach Tötung in Ranglisten-Spiel.</string>
@@ -200,7 +200,7 @@
     <string name="ranked_flex">RANGEN (BIEGEN)</string>
     <string name="aram">ARAM</string>
     <string name="normal_draft">NORMAL (ENTWURF)</string>
-    <string name="all_in_one">"ALLES IN EINEM "</string>
+    <string name="all_in_one">ALLES IN EINEM</string>
     <string name="poro_king">PORO KONIG</string>
     <string name="random_urf">ZUFÄLLIG URF</string>
     <string name="items">Artikel</string>
@@ -208,6 +208,17 @@
     <string name="gold">Gold</string>
     <string name="necessary">Notwendige Gegenstände</string>
     <string name="needed_for">"Gebraucht für "</string>
+    <string name="weak">ist schwach gegen</string>
+    <string name="strong">ist stark gegen</string>
+    <string name="summoner_name_register">Glauben Sie, dass die Beschwörernamen dein ist</string>
+    <string name="change">Veränderung</string>
+    <string name="rate_exp">Bewerten Sie uns bei Google Play</string>
+    <string name="suggestion">Vorschläge</string>
+    <string name="follow_us">Folge uns auf Facebook</string>
+    <string name="follow">Folgen</string>
+    <string name="save">Sparen</string>
+    <string name="others">Andere</string>
+    <string name="no_build">Es gibt keinen Build für diesen Champion. Sie können zuerst sein.</string>
 
 
 </resources>

@@ -1,7 +1,6 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,19 +8,14 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionSkillAdapter;
-import com.antika.berk.ggeasylol.adapter.ChampionSkinAdapter;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ChampionSkillObject;
-import com.antika.berk.ggeasylol.object.ChampionSkinObject;
-import com.antika.berk.ggeasylol.object.ChampionStatObject;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,6 +33,7 @@ public class SkillFragment extends Fragment {
     ListView skilllist;
     TextView skill_tv;
     String championID[];
+    List<ChampionSkillObject> skill=new ArrayList<ChampionSkillObject>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,14 +44,13 @@ public class SkillFragment extends Fragment {
         Bundle bundle = this.getArguments();
         championID = bundle.getStringArray("cID");
         new getData().execute(championID[0]);
-
         return view;
     }
 
 
 
     private class getData extends AsyncTask<String,String,String> {
-        List<ChampionSkillObject> skill=new ArrayList<ChampionSkillObject>();
+
         BlankFragment progress;
 
         @Override
@@ -69,21 +63,25 @@ public class SkillFragment extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
             RiotApiHelper apiKey=new RiotApiHelper();
+            skill.clear();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData = getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=passive,spells&api_key="+apiKey.apiKey);
+                String gelenData = getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=spells&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
+                String gelenData1 = getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=passive&api_key="+apiKey.apiKey);
+
                 JSONObject obj1 = new JSONObject(gelenData);
+                JSONObject obj11 = new JSONObject(gelenData1);
                 //passive içine girdim
                 JSONArray array1=obj1.getJSONArray("spells");
-                JSONObject passive=obj1.getJSONObject("passive");
+                JSONObject passive=obj11.getJSONObject("passive");
                 JSONObject obj4=passive.getJSONObject("image");
-                skill.add(new ChampionSkillObject(passive.getString("name"), passive.getString("sanitizedDescription"), obj4.getString("full")));
+                skill.add(new ChampionSkillObject(passive.getString("name"), passive.getString("sanitizedDescription"), obj4.getString("full").replaceAll(" ","%20")));
 
                 for (int i = 0; i < array1.length(); i++) {
                     JSONObject obj2 = array1.getJSONObject(i);
                     JSONObject obj3 = obj2.getJSONObject("image");
-                    skill.add(new ChampionSkillObject(obj2.getString("name"), obj2.getString("sanitizedDescription"), obj3.getString("full")));
+                    skill.add(new ChampionSkillObject(obj2.getString("name"), obj2.getString("sanitizedDescription"), obj3.getString("full").replaceAll(" ","%20")));
                 }
 
                 return "tamam";

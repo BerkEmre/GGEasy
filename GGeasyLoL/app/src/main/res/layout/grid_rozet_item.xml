@@ -7,11 +7,38 @@
 
     <com.mobstac.circularimageprogress.CircularImageProgressView
         android:id="@+id/rozet_icon"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
         android:layout_centerInParent="true"
         android:padding="5dp"
-        app:max="100" />
+        app:max="100"
+        app:progress_background_color="@color/common_google_signin_btn_text_dark_disabled"
+        app:progress_color="@color/common_google_signin_btn_text_light_default"
+        app:progress_width="50" />
+
+    <com.mobstac.circularimageprogress.CircularImageProgressView
+        android:id="@+id/rozet_icon1"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:visibility="gone"
+        app:max="100"
+        app:progress_background_color="@color/common_google_signin_btn_text_dark_disabled"
+        app:progress_color="@color/accent"
+        app:progress_width="50" />
+
+    <com.mobstac.circularimageprogress.CircularImageProgressView
+        android:id="@+id/rozet_icon2"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:visibility="gone"
+        app:max="100"
+        app:progress_background_color="@color/common_google_signin_btn_text_dark_disabled"
+        app:progress_color="@color/cast_intro_overlay_button_background_color"
+        app:progress_width="50" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -19,8 +46,6 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="1dp"
-        android:paddingTop="1dp"
         app:srcCompat="@drawable/asist" />
 
 </RelativeLayout>

@@ -70,6 +70,8 @@ public class RozetAdapter extends BaseAdapter {
         RozetObject rozet=rozets.get(position);
 
         CircularImageProgressView icon=(CircularImageProgressView )satirView.findViewById(R.id.rozet_icon);
+        CircularImageProgressView icon1=(CircularImageProgressView )satirView.findViewById(R.id.rozet_icon1);
+        CircularImageProgressView icon2=(CircularImageProgressView )satirView.findViewById(R.id.rozet_icon2);
 
         ImageView iv=(ImageView)satirView.findViewById(R.id.imageView11);
 
@@ -208,10 +210,37 @@ public class RozetAdapter extends BaseAdapter {
 
 
         }
+        else if(rozet.getGorevAdi().equals("Gorev28")){
+            Picasso.with(context).load(R.drawable.rate).transform(new CircleTransform()).into(iv);
 
-        icon.setProgress((Integer.parseInt(rozet.getGorevAdedi()) * 5) > 100?100:Integer.parseInt(rozet.getGorevAdedi()) * 5);
+        }
+        else if(rozet.getGorevAdi().equals("Gorev29")){
+            Picasso.with(context).load(R.drawable.face).transform(new CircleTransform()).into(iv);
 
+        }
+        if (Integer.parseInt(rozet.getGorevAdedi())<21)
+            icon.setProgress(Integer.parseInt(rozet.getGorevAdedi())*5);
+        else if(Integer.parseInt(rozet.getGorevAdedi())>20&& Integer.parseInt(rozet.getGorevAdedi())<=40) {
+            icon.setVisibility(View.GONE);
+            icon1.setVisibility(View.VISIBLE);
+            icon1.setProgress((Integer.parseInt(rozet.getGorevAdedi())-20)*5);
 
+        }
+        else{
+            icon.setVisibility(View.GONE);
+            icon2.setVisibility(View.VISIBLE);
+            icon2.setProgress(100);
+        }
+        if (rozet.getGorevAdi().equals("Gorev28")){
+            icon.setVisibility(View.GONE);
+            icon2.setVisibility(View.VISIBLE);
+            icon2.setProgress(100);
+        }
+        if (rozet.getGorevAdi().equals("Gorev29")){
+            icon.setVisibility(View.GONE);
+            icon2.setVisibility(View.VISIBLE);
+            icon2.setProgress(100);
+        }
 
 
 

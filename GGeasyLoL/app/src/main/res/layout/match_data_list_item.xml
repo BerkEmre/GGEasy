@@ -71,7 +71,9 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_weight="1"
-                        android:text="SumoonnerName" />
+                        android:text="SumoonnerName"
+                        android:textColor="@color/cast_expanded_controller_background_color"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -85,7 +87,7 @@
 
                     <ImageView
                         android:id="@+id/imageView18"
-                        android:layout_width="match_parent"
+                        android:layout_width="100dp"
                         android:layout_height="match_parent" />
 
                 </LinearLayout>
@@ -115,7 +117,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@+id/imageView14"
                 android:layout_toRightOf="@+id/imageView14"
-                android:text="Bronze" />
+                android:text="Bronze"
+                android:textColor="@color/cast_expanded_controller_background_color"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView27"
@@ -125,7 +129,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_toEndOf="@+id/textView26"
                 android:layout_toRightOf="@+id/textView26"
-                android:text="V" />
+                android:text="V"
+                android:textColor="@color/cast_expanded_controller_background_color"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView30"
@@ -136,8 +142,9 @@
                 android:layout_toEndOf="@+id/textView27"
                 android:layout_toRightOf="@+id/textView27"
                 android:text="00"
-                android:textSize="20sp"
-                android:textStyle="normal|bold" />
+                android:textColor="@android:color/holo_purple"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView29"

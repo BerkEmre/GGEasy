@@ -1,6 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,6 +36,7 @@ public class ProfileTabHost extends Fragment {
     TextView summonerName;
     DBHelper dbHelper;
     UserObject uo;
+    Intent intent;
     private FragmentTabHost mTabHost;
     private boolean isFriends = false;
     public void isFriends(boolean isFriends){
@@ -54,9 +56,9 @@ public class ProfileTabHost extends Fragment {
         mTabHost = (FragmentTabHost)rootView.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
 
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator(getContext().getString(R.string.profile)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator("",getResources().getDrawable(R.drawable.profile)).setContent(intent),
                 ProfilFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator(getContext().getString(R.string.friends)),
+        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("",getResources().getDrawable(R.drawable.friends)).setContent(intent),
                 FriendsFragment.class, null);
         uo = dbHelper.getUser();
         if(uo == null || uo.getEmail().equals("") || uo.getSifre().equals("")){

@@ -34,11 +34,11 @@
     <string name="doublekill">Matar Dupla</string>
     <string name="dragon">Matar o dragão</string>
     <string name="drawing">Desenhos feitos ...</string>
-    <string name="earned">Pontos ganhos.</string>
+    <string name="earned">"Pontos são ganhos. "</string>
     <string name="email_veya_sifre_hatali">E-mail ou senha incorretos</string>
     <string name="end_date">\"Data final : \"</string>
     <string name="end_of_match">Relatório de Jogo</string>
-    <string name="end_of_match_exp">Mata +10, Mortes -10, Ataques +6, Vitória +100, Derrota -50, Minions 0.5, Turrantes +20, Minions neutros +1.5, Kills duplos +50, Kills triplos +150, Quadra Kills +300, 750, Dólares +0,05, Danos +0,001 Pontos no Torneio Classificado</string>
+    <string name="end_of_match_exp">Cada Kills +10, Mortes -10, Assists +6, Victory +100, Derrota -50, Minions 0.5, Turrents +20, Neutral Minions +1.5, Double Kills +50, Triplo Kills +150, Quadra Kills +300, Penta Kills +750, Dólares +0,05, Danos +0,001 Pontos no Torneio Classificado</string>
     <string name="error">Erro! Por favor, tente novamente...</string>
     <string name="error_match">Nenhuma partida classificada detectada no histórico</string>
     <string name="error_mission">"Você não tem 30 níveis em LOL "</string>
@@ -55,7 +55,7 @@
     <string name="first_tower">Primeira torreta</string>
     <string name="first_turrent">Destruir Primeiros Torres com a equipe no jogo Classificado.</string>
     <string name="firstblood_kill">Obter First Blood com a equipe no jogo Classificado.</string>
-    <string name="forget_password">Esqueceu a senha</string>
+    <string name="forget_password">Esqueceu a senha?</string>
     <string name="four_tower">+4 Torretas</string>
     <string name="four_tower_exp">Destroy 4 Torres ou mais do que em jogo Classificado.</string>
     <string name="get_data">Obter dados</string>
@@ -106,7 +106,7 @@
     <string name="personal">Pessoal</string>
     <string name="please_wait">Por favor, espere...</string>
     <string name="pls_register">Inscreva-se ou Inicie Sessão na Página de Perfil!</string>
-    <string name="point">Pontos</string>
+    <string name="point">Contagem</string>
     <string name="profile">Perfil</string>
     <string name="quadra">Quadra Matar</string>
     <string name="quadra_exp">Obter Quadra Matar em jogo classificado.</string>
@@ -207,6 +207,17 @@
     <string name="gold">Ouro</string>
     <string name="necessary">Itens necessários</string>
     <string name="needed_for">Necessário para</string>
+    <string name="weak">é fraco contra</string>
+    <string name="strong">é forte contra</string>
+    <string name="summoner_name_register">Você acha que o nome Summoner é seu</string>
+    <string name="change">Mudança</string>
+    <string name="rate_exp">Avalie-nos no Google Play</string>
+    <string name="suggestion">Sugestões</string>
+    <string name="follow_us">Nos siga no Facebook</string>
+    <string name="follow">Segue</string>
+    <string name="save">Salve</string>
+    <string name="others">Outras</string>
+    <string name="no_build">Não há nenhuma compilação para este campeão. Você pode ser o primeiro.</string>
 
 
 </resources>

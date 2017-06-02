@@ -1,8 +1,5 @@
 package com.antika.berk.ggeasylol.fragment;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,7 +13,6 @@ import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ChampionStatObject;
 
 import org.json.JSONObject;
@@ -81,12 +77,15 @@ public class StatFragment extends Fragment {
             RiotApiHelper apiKey=new RiotApiHelper();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=info,stats&api_key="+apiKey.apiKey);
+                String gelenData=getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=stats&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
+                String gelenData1=getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=info&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
+
                 JSONObject obj1=new JSONObject(gelenData);
+                JSONObject obj11=new JSONObject(gelenData1);
                 //stats içine girdim
                 JSONObject obj2=obj1.getJSONObject("stats");
-                JSONObject obj3=obj1.getJSONObject("info");
+                JSONObject obj3=obj11.getJSONObject("info");
                 stat.add(new ChampionStatObject(obj2.getDouble("armor"),obj2.getDouble("armorperlevel"),obj2.getDouble("attackdamage"),
                         obj2.getDouble("attackdamageperlevel"),obj2.getDouble("attackrange"),obj2.getDouble("attackspeedoffset"),
                         obj2.getDouble("attackspeedperlevel"),obj2.getDouble("crit"),obj2.getDouble("critperlevel"),

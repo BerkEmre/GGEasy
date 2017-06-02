@@ -3,7 +3,9 @@ package com.antika.berk.ggeasylol.fragment;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.icu.math.BigDecimal;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +55,8 @@ public class MissionFragment extends Fragment {
     UserObject uo;
     SummonerObject so;
     BlankFragment progress_fragment;
+    LinearLayout rate1,rate2,face1,face2;
+    View view1,view2;
 
     Button grvAl1,grvAl2,grvAl3,grvAl4,grvAl5,grvAl6,grvAl7,grvAl8,grvAl9,grvAl10,grvAl11,grvAl12,grvAl13,grvAl14,grvAl15,grvAl16,
             grvAl17;
@@ -63,6 +68,8 @@ public class MissionFragment extends Fragment {
             grvSorgu13,grvSorgu14,grvSorgu15,grvSorgu16,grvSorgu17;
 
     boolean srg1,srg2,srg3,srg4,srg5,srg6,srg7,srg8,srg9,srg10,srg11,srg12,srg13,srg14,srg15,srg16,srg17;
+
+    Button rate,face;
 
     String puan;
 
@@ -93,6 +100,18 @@ public class MissionFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_mission, container, false);
         m=new Mission(view.getContext());
         info=(ImageView)view.findViewById(R.id.info);
+
+        rate=(Button)view.findViewById(R.id.rate);
+        rate1=(LinearLayout)view.findViewById(R.id.rate1);
+        rate2=(LinearLayout)view.findViewById(R.id.rate2);
+
+        face=(Button)view.findViewById(R.id.face_btn);
+        face1=(LinearLayout)view.findViewById(R.id.face1);
+        face2=(LinearLayout)view.findViewById(R.id.face2);
+
+        view1=(View)view.findViewById(R.id.view1);
+        view2=(View)view.findViewById(R.id.view2);
+
 
         info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -279,6 +298,22 @@ public class MissionFragment extends Fragment {
                 grvSorgu17.setVisibility(View.VISIBLE);
                 grvIptal17.setVisibility(View.VISIBLE);
                 grvAl17.setVisibility(View.GONE);
+                }
+            if (dbHelper.getMatch("Gorev28").equals("")) {
+
+            } else {
+                rate1.setVisibility(View.GONE);
+                rate2.setVisibility(View.GONE);
+                view1.setVisibility(View.GONE);
+
+            }
+            if (dbHelper.getMatch("Gorev29").equals("")) {
+
+            } else {
+                face1.setVisibility(View.GONE);
+                face2.setVisibility(View.GONE);
+                view2.setVisibility(View.GONE);
+
             }
 
         if(dbHelper.getUser().getEmail().length()>0)
@@ -331,6 +366,34 @@ public class MissionFragment extends Fragment {
                 Log.d( TAG, "onExpiring" );
             }
         };
+        rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(dbHelper.getUser().getEmail().length()>0){
+
+
+                    new getData().execute("-28");
+
+                }
+                else
+                    Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
+            }
+        });
+        face.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(dbHelper.getUser().getEmail().length()>0){
+
+
+                    new getData().execute("-29");
+
+                }
+                else
+                    Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
+
+            }
+        });
 
             grvAl1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1597,6 +1660,16 @@ public class MissionFragment extends Fragment {
                         if(strings[0].equals("-15"))m.GorevAl(mi.getMatchID(), "Gorev15");
                         if(strings[0].equals("-16"))m.GorevAl(mi.getMatchID(), "Gorev16");
                         if(strings[0].equals("-17"))m.GorevAl(mi.getMatchID(), "Gorev17");
+                        if(strings[0].equals("-28")){
+                            m.GorevAl("YAPILDI", "28");
+                            apiHelper.readURL("http://ggeasylol.com/api/add_puan.php?Mail=" + uo.getEmail() + "&Gorev=Gorev28&Puan=1000");
+                        return "28";
+                        }
+                        if(strings[0].equals("-29")){
+                            m.GorevAl("YAPILDI", "29");
+                            apiHelper.readURL("http://ggeasylol.com/api/add_puan.php?Mail=" + uo.getEmail() + "&Gorev=Gorev29&Puan=1000");
+                            return "29";
+                        }
                         return "";
                     }
                     catch (Exception e){
@@ -1623,6 +1696,7 @@ public class MissionFragment extends Fragment {
                 Toast.makeText(getContext(),getContext().getString(R.string.pls_register),Toast.LENGTH_LONG).show();
             else
                 textpuan.setText("x "+puan);
+
             if (s.equals("HATA"))
                 Toast.makeText(getContext(),getContext().getString(R.string.error_mission),Toast.LENGTH_LONG).show();
             else if(s.equals("HATA1"))
@@ -1771,10 +1845,39 @@ public class MissionFragment extends Fragment {
 
                 }
             }
-
-
-
             progress.dismiss();
+            if(s.equals("28")){
+                rate1.setVisibility(View.GONE);
+                rate2.setVisibility(View.GONE);
+                view1.setVisibility(View.GONE);
+                dbHelper.insertMatch("YAPILDI","Gorev28");
+                final String appPackageName = getContext().getPackageName();
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
+            }
+            if(s.equals("29")){
+                face1.setVisibility(View.GONE);
+                face2.setVisibility(View.GONE);
+                view2.setVisibility(View.GONE);
+                dbHelper.insertMatch("YAPILDI","Gorev29");
+                Intent intent1;
+                try {
+                    getContext().getPackageManager()
+                            .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
+                    intent1 = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("fb://page/225183367912890")); //Trys to make intent with FB's URI
+                } catch (Exception e) {
+                    intent1 = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.facebook.com/GGEasyTR/")); //catches and opens a url to the desired page
+                }
+                startActivity(intent1);
+            }
+
+
+
 
         }
     }//urlden Json çektim
