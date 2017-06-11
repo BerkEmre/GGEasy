@@ -424,7 +424,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                         }else if(challengeObject.getGorev().equals("14")){
 
-                            sonuc=challenge.Gorev14(challengeObject.getId(),missionObject.getMinionsKilled()+missionObject.getNeutralMinionsKilled());
+                            sonuc=challenge.Gorev14(challengeObject.getId(),(missionObject.getMinionsKilled()+missionObject.getNeutralMinionsKilled()));
                             if (sonuc){
                                 cf.yenile();
                                 getDialog().dismiss();
@@ -432,7 +432,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                         }else if(challengeObject.getGorev().equals("15")){
 
-                            sonuc=challenge.Gorev15(challengeObject.getId(),missionObject.getMinionsKilled()+missionObject.getNeutralMinionsKilled());
+                            sonuc=challenge.Gorev15(challengeObject.getId(),(missionObject.getMinionsKilled()+missionObject.getNeutralMinionsKilled()));
                             if (sonuc){
                                 cf.yenile();
                                 getDialog().dismiss();
@@ -463,14 +463,14 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
                         }
                     }else if(challengeObject.getGorev().equals("2")){
 
-                        sonuc=challenge.Gorev2(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev2(challengeObject.getId(),missionObject.getQuadraKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
                         }
                     }else if(challengeObject.getGorev().equals("3")){
 
-                        sonuc=challenge.Gorev3(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev3(challengeObject.getId(),missionObject.getTripleKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -478,7 +478,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("4")){
 
-                        sonuc=challenge.Gorev4(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev4(challengeObject.getId(),missionObject.getDoubleKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -486,7 +486,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("5")){
 
-                        sonuc=challenge.Gorev5(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev5(challengeObject.getId(),missionObject.getKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -494,14 +494,14 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("6")){
 
-                        sonuc=challenge.Gorev6(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev6(challengeObject.getId(),missionObject.getKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
                         }
                     }else if(challengeObject.getGorev().equals("7")){
 
-                        sonuc=challenge.Gorev7(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev7(challengeObject.getId(),missionObject.getKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -509,7 +509,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("8")){
 
-                        sonuc=challenge.Gorev8(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev8(challengeObject.getId(),missionObject.getAssists());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -517,7 +517,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("9")){
 
-                        sonuc=challenge.Gorev9(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev9(challengeObject.getId(),missionObject.getAssists());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -525,7 +525,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("10")){
 
-                        sonuc=challenge.Gorev10(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev10(challengeObject.getId(),missionObject.getAssists());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -533,7 +533,7 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("11")){
 
-                        sonuc=challenge.Gorev11(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev11(challengeObject.getId(),missionObject.getTowerKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -541,14 +541,14 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("12")){
 
-                        sonuc=challenge.Gorev12(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev12(challengeObject.getId(),missionObject.getTowerKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
                         }
                     }else if(challengeObject.getGorev().equals("13")){
 
-                        sonuc=challenge.Gorev13(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev13(challengeObject.getId(),missionObject.getTowerKills());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
@@ -556,22 +556,21 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
 
                     }else if(challengeObject.getGorev().equals("14")){
 
-                        sonuc=challenge.Gorev14(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev14(challengeObject.getId(),missionObject.getMinionsKilled()+missionObject.getNeutralMinionsKilled());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
                         }
 
                     }else if(challengeObject.getGorev().equals("15")){
-
-                        sonuc=challenge.Gorev15(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev15(challengeObject.getId(),missionObject.getMinionsKilled()+missionObject.getNeutralMinionsKilled());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();
                         }
                     }else if(challengeObject.getGorev().equals("16")){
 
-                        sonuc=challenge.Gorev16(challengeObject.getId(),missionObject.getPentaKills());
+                        sonuc=challenge.Gorev16(challengeObject.getId(),missionObject.getMinionsKilled()+missionObject.getNeutralMinionsKilled());
                         if (sonuc){
                             cf.yenile();
                             getDialog().dismiss();

@@ -187,7 +187,7 @@ public class Challenge {
         RiotApiHelper apiHelper=new RiotApiHelper();
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
-        if(x>=100){
+        if(x>99){
             PuanGonder(id,uo.getSummonerID(),200);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
@@ -199,7 +199,7 @@ public class Challenge {
         RiotApiHelper apiHelper=new RiotApiHelper();
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
-        if(x>=150){
+        if(x>149){
             PuanGonder(id,uo.getSummonerID(),350);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;
@@ -211,7 +211,7 @@ public class Challenge {
         RiotApiHelper apiHelper=new RiotApiHelper();
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
-        if(x>=200){
+        if(x>199){
             PuanGonder(id,uo.getSummonerID(),600);
             Toast.makeText(c,c.getString(R.string.congratulations),Toast.LENGTH_LONG).show();
             return true;

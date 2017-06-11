@@ -47,7 +47,6 @@ import java.net.URLConnection;
 
 public class MissionFragment extends Fragment {
     Mission m;
-    int match_id=0;
     String x="0";
     DBHelper dbHelper;
     TextView textpuan;
