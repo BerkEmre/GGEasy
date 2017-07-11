@@ -35,7 +35,7 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey   = "RGAPI-2df266e9-b08a-46d5-8367-b20243ffbf58";
-    public String version  = "7.10.1";
+    public String version  = "7.12.1";
     public int iconSize    =  34;
     //Get summoner object with summoner name
     //V-3 YAPILDI
@@ -140,22 +140,8 @@ public class RiotApiHelper {
             array1 = obje1.getJSONArray("participants");
             for (int i = 0; i < array1.length(); i++){
                 obje2 = array1.getJSONObject(i);
-
-
-
-
-
-
-
-
-                participants.add(new ParticipantObject(
-                        obje2.getInt("spell1Id"),
-                        obje2.getInt("spell2Id"),
-                        obje2.getInt("profileIconId"),
-                        obje2.getInt("championId"),
-                        obje2.getInt("teamId"),
-                        obje2.getInt("summonerId"),
-                        obje2.getString("summonerName")));
+                participants.add(new ParticipantObject(obje2.getInt("spell1Id"), obje2.getInt("spell2Id"), obje2.getInt("profileIconId"),
+                        obje2.getInt("championId"), obje2.getInt("teamId"), obje2.getInt("summonerId"), obje2.getString("summonerName")));
             }
             cgo = new CurrentGameObject(obje1.getInt("gameLength"),
                     obje1.getInt("mapId"),
@@ -211,34 +197,55 @@ public class RiotApiHelper {
             }
             return leagues;
         }catch (Exception e){Log.e("Hata", e.toString());}
-
         return null;
     }
     //get items
     //V-3 YAPILDI
     public List<ItemObject> getItem(Context context){
         List<ItemObject> item = new ArrayList<ItemObject>();
-        String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items?&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
 
-        JSONObject obje1, obje2, obje3;
+        JSONObject obje1, obje2, obje3,obje4;
        try{
-            obje1 = new JSONObject(JSONString);
+           String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items?&locale="+context.getString(R.string.language2)+"&tags=maps&api_key="+ apiKey);
+           obje1 = new JSONObject(JSONString);
             obje2 = obje1.getJSONObject("data");
             Iterator<?> key = obje2.keys();
             while (key.hasNext()){
                 obje3 = obje2.getJSONObject((String) key.next());
+                obje4=obje3.getJSONObject("maps");
                 try {
-                    item.add(new ItemObject(obje3.getInt("id"), obje3.getString("name")));
+                    if (obje4.getBoolean("11"))
+                        item.add(new ItemObject(obje3.getInt("id"), obje3.getString("name")));
+
                 }
                 catch (Exception e){
-
                 }
-
             }
-
-
             return item;
-        }catch (Exception e){Log.e("Hata", e.toString());}
+       }catch (Exception e){
+           try {
+               String JSONString = readURL("https://br1.api.riotgames.com/lol/static-data/v3/items?&locale="+context.getString(R.string.language2)+"&tags=maps&api_key="+ apiKey);
+               obje1 = new JSONObject(JSONString);
+               obje2 = obje1.getJSONObject("data");
+               Iterator<?> key = obje2.keys();
+               while (key.hasNext()){
+                   obje3 = obje2.getJSONObject((String) key.next());
+                   obje4=obje3.getJSONObject("maps");
+                   try {
+                       if (obje4.getBoolean("11"))
+                           item.add(new ItemObject(obje3.getInt("id"), obje3.getString("name")));
+
+
+                   }
+                   catch (Exception e1){
+                   }
+               }
+               return item;
+
+           }catch (Exception e1){
+
+           }
+       }
         return null;
     }
     //get champion object from id
@@ -247,14 +254,28 @@ public class RiotApiHelper {
         ChampionObject co;
         JSONObject obje1;
 
-        String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+championID+"?locale="+context.getString(R.string.language2)+"&api_key=" + apiKey);
         try{
+            String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+championID+"?locale="+context.getString(R.string.language2)+"&api_key=" + apiKey);
+
             obje1 = new JSONObject(JSONString);
             co = new ChampionObject(obje1.getString("key"), obje1.getString("name"),
                     obje1.getString("title"), Integer.toString(obje1.getInt("id")));
 
             return co;
-        }catch (Exception e){Log.e("Hata", e.toString());}
+        }
+        catch (Exception e){
+            try {
+                String JSONString = readURL("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+championID+"?locale="+context.getString(R.string.language2)+"&api_key=" + apiKey);
+                obje1=new JSONObject(JSONString);
+                co = new ChampionObject(obje1.getString("key"), obje1.getString("name"),
+                        obje1.getString("title"), Integer.toString(obje1.getInt("id")));
+
+                return co;
+            }
+            catch (Exception e1){
+
+            }
+        }
         return null;
     }
     //get spell object from id
@@ -263,14 +284,24 @@ public class RiotApiHelper {
         SpellObject so;
         JSONObject obje1;
 
-        String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/static-data/v3/summoner-spells/"+spellID+"?api_key=" + apiKey);
         try{
+            String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/static-data/v3/summoner-spells/"+spellID+"?api_key=" + apiKey);
             obje1 = new JSONObject(JSONString);
             so = new SpellObject(Integer.toString(obje1.getInt("id")), obje1.getString("key"), obje1.getString("name"));
 
             return so;
-        }catch (Exception e){Log.e("Hata", e.toString());}
+        }catch (Exception e){
+            try {
+                String JSONString = readURL("https://br1.api.riotgames.com/lol/static-data/v3/summoner-spells/"+spellID+"?api_key=" + apiKey);
+                obje1 = new JSONObject(JSONString);
+                so = new SpellObject(Integer.toString(obje1.getInt("id")), obje1.getString("key"), obje1.getString("name"));
+                return so;
+            }catch (Exception e1){
+
+            }
+        }
         return null;
+
     }
     //getChampion masteries
     //V-3 YAPILDI
@@ -297,18 +328,18 @@ public class RiotApiHelper {
                         obje1.getBoolean("chestGranted")));
             }
             return masteries;
-        }catch (Exception e){Log.e("Hata", e.toString());}
+        }catch (Exception e){ }
         return null;
     }
     //get static champion data
     //V-3 YAPILDI
     public List<ChampionObject> getChampionStaticData(Context context){
         List<ChampionObject> champions = new ArrayList<ChampionObject>();
-        String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions?locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
 
         JSONObject obje1, obje2, obje3;
 
         try{
+            String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions?locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
             obje1 = new JSONObject(JSONString);
             obje2 = obje1.getJSONObject("data");
 
@@ -322,7 +353,28 @@ public class RiotApiHelper {
                         Integer.toString(obje3.getInt("id"))));
             }
             return champions;
-        }catch (Exception e){Log.e("Hata", e.toString());}
+        }catch (Exception e){
+            try {
+                String JSONString = readURL("https://br1.api.riotgames.com/lol/static-data/v3/champions?locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
+                obje1 = new JSONObject(JSONString);
+                obje2 = obje1.getJSONObject("data");
+
+                Iterator<?> key = obje2.keys();
+                while (key.hasNext()){
+                    obje3 = obje2.getJSONObject((String) key.next());
+
+                    champions.add(new ChampionObject(obje3.getString("key"),
+                            obje3.getString("name"),
+                            obje3.getString("title"),
+                            Integer.toString(obje3.getInt("id"))));
+                }
+                return champions;
+
+            }
+            catch (Exception e1){
+
+            }
+        }
         return null;
     }
 
@@ -331,13 +383,13 @@ public class RiotApiHelper {
         List<Item2Object> from = new ArrayList<Item2Object>();
         List<Item2Object> to = new ArrayList<Item2Object>();
         List<ItemDetailObject>item=new ArrayList<ItemDetailObject>();
-        String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items/"+id+"?itemData=all&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
 
         JSONObject obje1,obje2;
         JSONArray array1;
         String aciklama="",gold="0",name="";
 
         try{
+            String JSONString = readURL("https://"+regionToPlatform(context.getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/items/"+id+"?itemData=all&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
             obje1 = new JSONObject(JSONString);
             try {name=obje1.getString("name");} catch (Exception e){}
             try {aciklama=obje1.getString("sanitizedDescription");} catch (Exception e){}
@@ -347,39 +399,82 @@ public class RiotApiHelper {
                     to.add(new Item2Object(array1.getString(i)));
                 }
             }catch (Exception e){
+                to.add(new Item2Object(""));
             }
             try {array1=obje1.getJSONArray("from");
                 for(int i=0;i<array1.length();i++){
                     from.add(new Item2Object(array1.getString(i)));
                 }
             }
-            catch (Exception e){}
+            catch (Exception e){
+                from.add(new Item2Object(""));
+            }
             item.add(new ItemDetailObject(id,name,gold,aciklama,from,to));
             return item;
-        }catch (Exception e){Log.e("Hata", e.toString());}
+        }catch (Exception e){
+            try {
+                String JSONString = readURL("https://br1.api.riotgames.com/lol/static-data/v3/items/"+id+"?itemData=all&locale="+context.getString(R.string.language2)+"&api_key="+ apiKey);
+                obje1 = new JSONObject(JSONString);
+                try {name=obje1.getString("name");} catch (Exception e1){}
+                try {aciklama=obje1.getString("sanitizedDescription");} catch (Exception e1){}
+                try {obje2=obje1.getJSONObject("gold");gold=obje2.optString("total");} catch (Exception e1){}
+                try {array1=obje1.getJSONArray("into");
+                    for(int i=0;i<array1.length();i++){
+                        to.add(new Item2Object(array1.getString(i)));
+                    }
+                }catch (Exception e1){
+                    to.add(new Item2Object(""));
+                }
+                try {array1=obje1.getJSONArray("from");
+                    for(int i=0;i<array1.length();i++){
+                        from.add(new Item2Object(array1.getString(i)));
+                    }
+                }
+                catch (Exception e1){
+                    from.add(new Item2Object(""));
+                }
+                item.add(new ItemDetailObject(id,name,gold,aciklama,from,to));
+                return item;
+            }catch (Exception e1){
+
+            }
+        }
         return null;
     }
     //get champion freeToPlay
     //V-3 YAPILDI
     public List<Integer> getChampionFreeToPlay(String region){
         List<Integer> chapions=new ArrayList<Integer>();
-        String JSONString= readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/platform/v3/champions?api_key="+apiKey);
         JSONObject obj1,obj2;
         JSONArray array1;
         try {
+            String JSONString= readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/platform/v3/champions?freeToPlay=true&api_key="+apiKey);
             obj1=new JSONObject(JSONString);
             array1= obj1.getJSONArray("champions");
             for(int i=0;i<array1.length();i++){
                 obj2=array1.getJSONObject(i);
-                if(obj2.getBoolean("freeToPlay")==true)
-                    chapions.add(obj2.getInt("id"));
+                chapions.add(obj2.getInt("id"));
 
             }
             return chapions;
 
         }
         catch (Exception e){
-            Log.e("HATA",e.toString());
+            try {
+                String JSONString= readURL("https://br1.api.riotgames.com/lol/platform/v3/champions?freeToPlay=true&api_key="+apiKey);
+                obj1=new JSONObject(JSONString);
+                array1= obj1.getJSONArray("champions");
+                for(int i=0;i<array1.length();i++){
+                    obj2=array1.getJSONObject(i);
+                    chapions.add(obj2.getInt("id"));
+
+                }
+                return chapions;
+
+            }
+            catch (Exception e1){
+
+            }
         }
         return null;
     }
@@ -402,7 +497,7 @@ public class RiotApiHelper {
                     break;
                 }
             }
-            if(y<5){
+            if(y<array.length()/2){
                 JSONArray array1=obj1.getJSONArray("teams");
                 JSONObject obj2=array1.getJSONObject(0);
                 teamObjects=new MissionTeamObject(obj2.getString("win"),obj2.getBoolean("firstBlood"),obj2.getBoolean("firstTower"),obj2.getBoolean("firstInhibitor"),obj2.getBoolean("firstBaron"),obj2.getBoolean("firstDragon"),obj2.getInt("towerKills"),obj2.getInt("inhibitorKills"),obj2.getInt("baronKills"),obj2.getInt("dragonKills"));
@@ -417,9 +512,10 @@ public class RiotApiHelper {
             return teamObjects;
         }
         catch (JSONException e) {
-            Log.e("Hata", e.toString());
+            teamObjects=new MissionTeamObject("",false,false,false,false,false,0,0,0,0);
 
-            return null;
+
+            return teamObjects;
         }
     }
     //get Summoner Stats
@@ -443,16 +539,28 @@ public class RiotApiHelper {
             JSONArray array1=obj1.getJSONArray("participants");
             JSONObject obj2=array1.getJSONObject(y);
             JSONObject obj3=obj2.getJSONObject("stats");
-            missionObject=new MissionObject(obj3.getBoolean("win"),obj3.getInt("champLevel"),obj3.getInt("kills"),obj3.getInt("doubleKills"),obj3.getInt("tripleKills"),
-                    obj3.getInt("quadraKills"),obj3.getInt("pentaKills"),obj3.getInt("deaths"),obj3.getInt("assists"),obj3.getInt("totalMinionsKilled"),obj3.getInt("neutralMinionsKilled"),
-                    obj3.getInt("goldEarned"),obj3.getInt("turretKills"),obj3.getInt("wardsPlaced"),obj3.getInt("wardsKilled"),obj3.getInt("largestMultiKill"),obj3.getInt("totalDamageDealtToChampions"));
+            try {
+                missionObject=new MissionObject(obj3.getBoolean("win"),obj3.getInt("champLevel"),obj3.getInt("kills"),obj3.getInt("doubleKills"),obj3.getInt("tripleKills"),
+                        obj3.getInt("quadraKills"),obj3.getInt("pentaKills"),obj3.getInt("deaths"),obj3.getInt("assists"),obj3.getInt("totalMinionsKilled"),obj3.getInt("neutralMinionsKilled"),
+                        obj3.getInt("goldEarned"),obj3.getInt("turretKills"),obj3.getInt("wardsPlaced"),obj3.getInt("wardsKilled"),obj3.getInt("largestMultiKill"),obj3.getInt("totalDamageDealtToChampions"));
+
+            }
+            catch (Exception e){
+                missionObject=new MissionObject(obj3.getBoolean("win"),obj3.getInt("champLevel"),obj3.getInt("kills"),obj3.getInt("doubleKills"),obj3.getInt("tripleKills"),
+                        obj3.getInt("quadraKills"),obj3.getInt("pentaKills"),obj3.getInt("deaths"),obj3.getInt("assists"),obj3.getInt("totalMinionsKilled"),obj3.getInt("neutralMinionsKilled"),
+                        obj3.getInt("goldEarned"),obj3.getInt("turretKills"),0,0,obj3.getInt("largestMultiKill"),obj3.getInt("totalDamageDealtToChampions"));
+
+            }
 
             return missionObject;
         }
         catch (JSONException e) {
-            Log.e("Hata", e.toString());
+            missionObject=new MissionObject(false,0,0,0,0,
+                    0,0,0,0,0,0,
+                    0,0,0,0,0,0);
 
-            return null;
+
+            return missionObject;
         }
     }
     //get PUAN

@@ -221,4 +221,9 @@
     <string name="save">Kaydet</string>
     <string name="others">Diğerleri</string>
     <string name="no_build">Bu şampiyon için build yok. İlk sen olabilirsin.</string>
+    <string name="find">Bul</string>
+    <string name="four_skill">4 Yetenek 1 Pasif</string>
+    <string name="reset">Sıfırla</string>
+    <string name="enemy">Rakipte iken</string>
+    <string name="ally">Müttefikler için öneriler</string>
 </resources>

@@ -23,9 +23,13 @@ import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.fragment.ChallengeFragment;
+import com.antika.berk.ggeasylol.fragment.ChallengeTabHost;
 import com.antika.berk.ggeasylol.fragment.ChampionFragment;
 
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
+import com.antika.berk.ggeasylol.fragment.FourSkillFragment;
+import com.antika.berk.ggeasylol.fragment.FourSkillTabHost;
+import com.antika.berk.ggeasylol.fragment.FourSkillsFragment;
 import com.antika.berk.ggeasylol.fragment.ItemFragment;
 import com.antika.berk.ggeasylol.fragment.LoginFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
@@ -122,6 +126,13 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         }catch(Exception e){
             DBHelper dbHelper = new DBHelper(getApplicationContext());
             UserObject userObject = dbHelper.getUser();
+            if (dbHelper.getMatch("Gorev30").equals("")) {
+                dbHelper.insertMatch("0", "Gorev30");
+            }
+
+            if (dbHelper.getMatch("Gorev31").equals("")) {
+                dbHelper.insertMatch("0", "Gorev31");
+            }
             if(userObject == null || userObject.getEmail().equals("")){
                 LoginFragment cmf = new LoginFragment();
                 FragmentManager fm = getSupportFragmentManager();
@@ -191,8 +202,14 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
+        }else if (id == R.id.nav_skill) {
+            FourSkillTabHost cmf = new FourSkillTabHost();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
         }else if (id == R.id.nav_meydan) {
-            ChallengeFragment cmf = new ChallengeFragment();
+            ChallengeTabHost cmf = new ChallengeTabHost();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,

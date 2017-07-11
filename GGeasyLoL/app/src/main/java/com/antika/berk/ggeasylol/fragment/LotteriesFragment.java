@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.LotteryAdapter;
@@ -44,16 +45,7 @@ public class LotteriesFragment extends Fragment {
         lv_lotteries = (ListView) view.findViewById(R.id.list_view);
         et_arama     = (EditText) view.findViewById(R.id.editText3);
 
-        et_arama.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                adapter.getFilter().filter(s.toString());
-            }
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-            @Override
-            public void afterTextChanged(Editable s) { }
-        });
+
 
         lv_lotteries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -91,9 +83,10 @@ public class LotteriesFragment extends Fragment {
         @Override
         protected String doInBackground(String... values)
         {
-            String data = readURL("http://ggeasylol.com/api/get_lotteries.php");
-            Log.e("DATA", data);
+
             try{
+                String data = readURL("http://ggeasylol.com/api/get_lotteries.php");
+                Log.e("DATA", data);
                 JSONArray array1 = new JSONArray(data);
                 JSONObject obje1;
                 Log.e("lenght", array1.length() +"");
@@ -111,15 +104,32 @@ public class LotteriesFragment extends Fragment {
                             obje1.getString("odul"), obje1.getString("img"), obje1.getString("end_date"),
                             obje1.getString("winnerID"), obje1.getString("status")));
                 }
-            }catch (Exception e){}
+                return "0";
+            }catch (Exception e){
+                return "HATA";
+            }
 
-            return null;
+
         }
         @Override
         protected void onPostExecute(String results)
-        {
+        {   if (results.equals("0")){
             adapter = new LotteryAdapter(getActivity(), lotteries);
             lv_lotteries.setAdapter(adapter);
+            et_arama.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    adapter.getFilter().filter(s.toString());
+                }
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+                @Override
+                public void afterTextChanged(Editable s) { }
+            });
+            }
+            else
+            Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
+
             progress.dismiss();
         }
     }

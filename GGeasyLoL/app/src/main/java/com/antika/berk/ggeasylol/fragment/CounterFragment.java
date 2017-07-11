@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,7 +60,9 @@ public class CounterFragment extends Fragment {
         counter=(TextView) view.findViewById(R.id.textView64);
         tavsiyeler=(ListView)view.findViewById(R.id.tav_lv);
 
+
         logo=(ImageView)view.findViewById(R.id.imageView41);
+
 
         c1=(ImageView)view.findViewById(R.id.imageView46);
         c2=(ImageView)view.findViewById(R.id.imageView45);
@@ -110,7 +114,6 @@ public class CounterFragment extends Fragment {
             try {
                 String gelenData = getJsonFromServer("http://ggeasylol.com/api/get_counter.php?ID="+strings[0]);
                 String tavsiyeString=getJsonFromServer("https://"+apiHelper.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=enemytips&api_key="+apiHelper.apiKey);
-
                 JSONObject tavsiye1=new JSONObject(tavsiyeString);
                 JSONArray tavsiye2=tavsiye1.getJSONArray("enemytips");
                 for (int i=0;i<tavsiye2.length();i++){
@@ -128,9 +131,29 @@ public class CounterFragment extends Fragment {
             }
 
             catch (Exception e) {
-                e.printStackTrace();
-                return "HATA";
-            }
+                try {
+                    String gelenData = getJsonFromServer("http://ggeasylol.com/api/get_counter.php?ID="+strings[0]);
+                    String tavsiyeString=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=enemytips&api_key="+apiHelper.apiKey);
+
+                    JSONObject tavsiye1=new JSONObject(tavsiyeString);
+                    JSONArray tavsiye2=tavsiye1.getJSONArray("enemytips");
+                    for (int i=0;i<tavsiye2.length();i++){
+                        tavsiye.add(new TavsiyeObject(tavsiye2.getString(i)));
+                    }
+
+                    JSONArray array=new JSONArray(gelenData);
+                    JSONObject obje=array.getJSONObject(0);
+                    againsts.add(new CounterObject(obje.getString("against1"),obje.getString("against2"),obje.getString("against3"),
+                            obje.getString("against4"),obje.getString("against5")));
+                    counters.add(new CounterObject(obje.getString("counter1"),obje.getString("counter2"),obje.getString("counter3"),
+                            obje.getString("counter4"),obje.getString("counter5")));
+
+                    return "tamam";
+                }
+                catch (Exception e1){
+
+                }
+            }return "HATA";
         }
 
         @Override
@@ -141,7 +164,6 @@ public class CounterFragment extends Fragment {
                 tavsiyeler.setAdapter(adapter);
                 against.setText(championID[1]+" "+getContext().getString(R.string.strong));
                 counter.setText(championID[1]+" "+getContext().getString(R.string.weak));
-
                 ct1.setText(counters.get(0).getCounter1());
                 ct2.setText(counters.get(0).getCounter2());
                 ct3.setText(counters.get(0).getCounter3());
@@ -167,6 +189,8 @@ public class CounterFragment extends Fragment {
                 Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" + againsts.get(0).getCounter5() + ".png").into(a5);
 
             }
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
 
             progress.dismiss();
 
@@ -190,5 +214,6 @@ public class CounterFragment extends Fragment {
         String jsonResult = inputStream.readLine();
         return jsonResult;
     }
+
 
 }

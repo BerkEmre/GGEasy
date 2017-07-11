@@ -2,16 +2,24 @@ package com.antika.berk.ggeasylol.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.antika.berk.ggeasylol.fragment.BuildOpenFragment;
+import com.antika.berk.ggeasylol.fragment.ChampionChallengeOpenFragment;
+import com.antika.berk.ggeasylol.fragment.TavsiyeFragment;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
@@ -72,8 +80,9 @@ public class ParticipantsAdapter extends BaseAdapter {
         TextView tv_divison = (TextView) satirView.findViewById(R.id.textView27);
         TextView tv_point = (TextView) satirView.findViewById(R.id.textView30);
         TextView tv_progress = (TextView) satirView.findViewById(R.id.textView29);
-
-        ParticipantListObject kisi = mKisiListesi.get(position);
+        Button btn=(Button)satirView.findViewById(R.id.button13);
+        Button buil=(Button)satirView.findViewById(R.id.button15);
+        final ParticipantListObject kisi = mKisiListesi.get(position);
         String new_progress = "";
         tv_k.setText(""+kisi.getMaster());
         if(kisi.getMaster_icon()==0)
@@ -158,7 +167,32 @@ public class ParticipantsAdapter extends BaseAdapter {
             rl_teamcolor1.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
             rl_teamcolor2.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
         }
-
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentActivity activity = (FragmentActivity)(context);
+                FragmentManager fm = activity.getSupportFragmentManager();
+                Bundle args1 = new Bundle();
+                String data=""+kisi.getChampionID();
+                args1.putString("data", data);
+                TavsiyeFragment alertDialog = new TavsiyeFragment();
+                alertDialog.setArguments(args1);
+                alertDialog.show(fm,"fragment_alert");
+            }
+        });
+        buil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentActivity activity = (FragmentActivity)(context);
+                FragmentManager fm = activity.getSupportFragmentManager();
+                Bundle args1 = new Bundle();
+                String data=""+kisi.getChampionID();
+                args1.putString("data", data);
+                BuildOpenFragment alertDialog = new BuildOpenFragment();
+                alertDialog.setArguments(args1);
+                alertDialog.show(fm,"fragment_alert");
+            }
+        });
         return satirView;
     }
 }

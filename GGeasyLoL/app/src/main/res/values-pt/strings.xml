@@ -218,6 +218,11 @@
     <string name="save">Salve</string>
     <string name="others">Outras</string>
     <string name="no_build">Não há nenhuma compilação para este campeão. Você pode ser o primeiro.</string>
+    <string name="find">Encontrar</string>
+    <string name="four_skill">4 Habilidades 1 Passiva</string>
+    <string name="reset">Restabelecer</string>
+    <string name="enemy">No oponente</string>
+    <string name="ally">Sugestões para ally</string>
 
 
 </resources>

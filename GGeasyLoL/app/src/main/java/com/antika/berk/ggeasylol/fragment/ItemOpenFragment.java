@@ -44,7 +44,7 @@ public class ItemOpenFragment extends DialogFragment {
         from=(GridView)view.findViewById(R.id.gerekli);
         to=(GridView)view.findViewById(R.id.gelis);
         Bundle mArgs = getArguments();
-        String []array = mArgs.getStringArray("array");
+        String veri = mArgs.getString("array");
         riotApiHelper=new RiotApiHelper();
 
 
@@ -67,7 +67,7 @@ public class ItemOpenFragment extends DialogFragment {
 
             }
         });
-        new getData().execute(array[0]);
+        new getData().execute(veri);
 
         return view;
     }

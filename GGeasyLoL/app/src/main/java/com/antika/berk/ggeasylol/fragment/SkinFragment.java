@@ -59,6 +59,7 @@ public class SkinFragment extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
             RiotApiHelper apiKey=new RiotApiHelper();
+            skins.clear();
             try {
                 //URL den gelen veri String olarak aldım
                 String gelenData=getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=skins&api_key="+apiKey.apiKey);
@@ -72,9 +73,22 @@ public class SkinFragment extends Fragment {
                 return "tamam";
 
             } catch (Exception e) {
-                e.printStackTrace();
-                return "HATA";
-            }
+               try {
+                   //URL den gelen veri String olarak aldım
+                   String gelenData=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=skins&api_key="+apiKey.apiKey);
+                   //String veriyi jsonObjeye çevirdim
+                   JSONObject obj1=new JSONObject(gelenData);
+                   JSONArray array1=obj1.getJSONArray("skins");
+                   for(int i=0;i<array1.length();i++){
+                       JSONObject obj2=array1.getJSONObject(i);
+                       skins.add(new ChampionSkinObject(obj2.getString("name"),obj2.getInt("num"),obj1.getString("key")));
+                   }
+                   return "tamam";
+               }catch (Exception e1){
+
+               }
+
+            }return "HATA";
         }
 
         @Override

@@ -66,9 +66,9 @@ public class SkillFragment extends Fragment {
             skill.clear();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData = getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=spells&api_key="+apiKey.apiKey);
+                String gelenData = apiKey.readURL("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=spells&api_key="+apiKey.apiKey);
                 //String veriyi jsonObjeye çevirdim
-                String gelenData1 = getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=passive&api_key="+apiKey.apiKey);
+                String gelenData1 = apiKey.readURL("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=passive&api_key="+apiKey.apiKey);
 
                 JSONObject obj1 = new JSONObject(gelenData);
                 JSONObject obj11 = new JSONObject(gelenData1);
@@ -83,14 +83,37 @@ public class SkillFragment extends Fragment {
                     JSONObject obj3 = obj2.getJSONObject("image");
                     skill.add(new ChampionSkillObject(obj2.getString("name"), obj2.getString("sanitizedDescription"), obj3.getString("full").replaceAll(" ","%20")));
                 }
-
                 return "tamam";
             }
 
             catch (Exception e) {
-                e.printStackTrace();
-                return "HATA";
+                try {
+                    //URL den gelen veri String olarak aldım
+                    String gelenData = apiKey.readURL("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=spells&api_key="+apiKey.apiKey);
+                    //String veriyi jsonObjeye çevirdim
+                    String gelenData1 = apiKey.readURL("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=passive&api_key="+apiKey.apiKey);
+
+                    JSONObject obj1 = new JSONObject(gelenData);
+                    JSONObject obj11 = new JSONObject(gelenData1);
+                    //passive içine girdim
+                    JSONArray array1=obj1.getJSONArray("spells");
+                    JSONObject passive=obj11.getJSONObject("passive");
+                    JSONObject obj4=passive.getJSONObject("image");
+                    skill.add(new ChampionSkillObject(passive.getString("name"), passive.getString("sanitizedDescription"), obj4.getString("full").replaceAll(" ","%20")));
+
+                    for (int i = 0; i < array1.length(); i++) {
+                        JSONObject obj2 = array1.getJSONObject(i);
+                        JSONObject obj3 = obj2.getJSONObject("image");
+                        skill.add(new ChampionSkillObject(obj2.getString("name"), obj2.getString("sanitizedDescription"), obj3.getString("full").replaceAll(" ","%20")));
+                    }
+
+                    return "tamam";
+                }
+                catch (Exception e1){
+
+                }
             }
+            return "HATA";
         }
 
         @Override
@@ -106,22 +129,6 @@ public class SkillFragment extends Fragment {
 
         }
     }//urlden Json çektim
-    public static String getJsonFromServer(String url) throws IOException {
 
-        BufferedReader inputStream = null;
-
-        URL jsonUrl = new URL(url);
-        URLConnection dc = jsonUrl.openConnection();
-
-        dc.setConnectTimeout(5000);
-        dc.setReadTimeout(5000);
-
-        inputStream = new BufferedReader(new InputStreamReader(
-                dc.getInputStream()));
-
-        // read the JSON results into a string
-        String jsonResult = inputStream.readLine();
-        return jsonResult;
-    }
 
 }

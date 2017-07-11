@@ -53,7 +53,9 @@
                 android:layout_weight="1"
                 android:gravity="top"
                 android:text="30 LV"
-                android:textSize="12sp" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -83,7 +85,8 @@
                     android:layout_weight="1"
                     android:text="BRONZE"
                     android:textAlignment="textEnd"
-                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textSize="16sp"
                     android:textStyle="normal|bold" />
 
                 <TextView
@@ -94,7 +97,8 @@
                     android:layout_weight="1"
                     android:text="V"
                     android:textAlignment="viewStart"
-                    android:textSize="18sp"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textSize="16sp"
                     android:textStyle="normal|bold" />
 
             </LinearLayout>
@@ -106,7 +110,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="Lux'un Fedaileri"
                 android:textAlignment="viewStart"
-                android:textSize="8sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -117,7 +121,7 @@
                 android:layout_marginTop="5dp"
                 android:text="XXOO--"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="normal|bold" />
         </LinearLayout>
 
@@ -173,7 +177,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:text="100"
-                    android:textSize="24sp"
+                    android:textColor="@android:color/holo_purple"
+                    android:textSize="20sp"
                     android:textStyle="normal|bold" />
 
                 <TextView
@@ -182,7 +187,8 @@
                     android:layout_height="30dp"
                     android:layout_weight="1"
                     android:gravity="bottom"
-                    android:text="LP" />
+                    android:text="LP"
+                    android:textColor="@android:color/holo_purple" />
             </LinearLayout>
         </LinearLayout>
 

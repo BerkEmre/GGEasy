@@ -219,6 +219,11 @@
     <string name="save">Sparen</string>
     <string name="others">Andere</string>
     <string name="no_build">Es gibt keinen Build für diesen Champion. Sie können zuerst sein.</string>
+    <string name="find">Finden</string>
+    <string name="four_skill">4 Fähigkeiten 1 Passiv</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="enemy">Auf Gegner</string>
+    <string name="ally">Vorschläge für Verbündeten</string>
 
 
 </resources>

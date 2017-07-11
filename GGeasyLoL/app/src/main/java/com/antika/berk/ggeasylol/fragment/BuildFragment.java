@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -60,6 +61,7 @@ public class BuildFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_build, container, false);
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         Bundle mArgs = getArguments();
         championID = mArgs.getStringArray("array");
         item1=(ImageView)view.findViewById(R.id.imageView54);
@@ -216,10 +218,12 @@ public class BuildFragment extends DialogFragment {
                 }
                 try {
                     itemList=raHelper.getItem(getContext());
-
+                    if (itemList.size()>0)
+                        return "0";
+                    else
+                        return "HATA";
                 }
                 catch (Exception e){
-
                     return "HATA";
                 }
 
@@ -227,7 +231,6 @@ public class BuildFragment extends DialogFragment {
             }catch (Exception e){
                 return "HATA";
             }
-            return "0";
 
         }
 
@@ -262,29 +265,30 @@ public class BuildFragment extends DialogFragment {
 
                 adapter=new ItemAdapter(getActivity(),itemList);
                 gridView.setAdapter(adapter);
+                arama.addTextChangedListener(new TextWatcher() {
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        System.out.println("Text ["+s+"]");
+
+                        adapter.getFilter().filter(s.toString());
+                    }
+
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count,
+                                                  int after) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                    }
+                });
             }
             else
                 Toast.makeText(getActivity(), getString(R.string.ops_make_mistake), Toast.LENGTH_LONG).show();
             progress.dismiss();
-            arama.addTextChangedListener(new TextWatcher() {
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    System.out.println("Text ["+s+"]");
-
-                    adapter.getFilter().filter(s.toString());
-                }
-
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count,
-                                              int after) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                }
-            });
         }
     }
     private class save extends AsyncTask<String, String, String> {

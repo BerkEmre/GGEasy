@@ -218,6 +218,11 @@
     <string name="save">Zapisać</string>
     <string name="others">Inni</string>
     <string name="no_build">Nie ma budowania tego mistrza. Możesz być pierwszy.</string>
+    <string name="find">Odnaleźć</string>
+    <string name="four_skill">4 Dovednosti 1 Bierny</string>
+    <string name="reset">Resetovat</string>
+    <string name="enemy">Na przeciwnika</string>
+    <string name="ally">Sugestie dla sojusznika</string>
 
 
 </resources>

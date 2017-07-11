@@ -6,23 +6,21 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView46"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:fontFamily="sans-serif-condensed"
+        android:id="@+id/textView46"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="25sp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorAccent" />
 
     <View
         android:layout_height="2dp"
         android:layout_width="fill_parent"
         android:background="@color/secondary_text"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_margin="10dp" />
 
     <android.support.v4.app.FragmentTabHost
         xmlns:android="http://schemas.android.com/apk/res/android"

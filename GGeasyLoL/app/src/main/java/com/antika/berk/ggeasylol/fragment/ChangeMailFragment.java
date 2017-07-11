@@ -1,12 +1,12 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
-import android.app.ProgressDialog;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
+
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,11 +22,10 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.MasteriesPageObject;
-import com.antika.berk.ggeasylol.object.SummonerObject;
+
 import com.antika.berk.ggeasylol.object.UserObject;
 
-import org.json.JSONArray;
-import org.json.JSONException;
+
 
 import java.util.List;
 import java.util.Random;

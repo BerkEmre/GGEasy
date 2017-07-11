@@ -21,17 +21,14 @@ import org.json.JSONObject;
 public class ChampionDetailFragment extends Fragment {
     Context context;
     TextView hikayeView;
-    TextView name;
     String championID[];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_champion_detail, container, false);
         hikayeView=(TextView)view.findViewById(R.id.hikaye);
-        name=(TextView)view.findViewById(R.id.champion_name);
         Bundle bundle = this.getArguments();
         championID = bundle.getStringArray("cID");
-        name.setText(championID[2]);
         new getData().execute(championID[0]);
 
         return view;
@@ -51,15 +48,23 @@ public class ChampionDetailFragment extends Fragment {
             try {
                 RiotApiHelper apiHelper=new RiotApiHelper();
                 //URL den gelen veri String olarak aldım
-                String gelenData=apiHelper.readURL("https://"+apiHelper.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore&api_key="+apiHelper.apiKey);
+                String gelenData=apiHelper.readURL("https://"+apiHelper.regionToPlatform(getContext().getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore&api_key="+apiHelper.apiKey);
                 //String veriyi jsonObjeye çevirdim
                 JSONObject obj1;
                 obj1=new JSONObject(gelenData);
                 return obj1.getString("lore");
             } catch (Exception e) {
-                e.printStackTrace();
-                return "HATA";
+                try {
+                    String gelenData=apiHelper.readURL("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=lore&api_key="+apiHelper.apiKey);
+                    JSONObject obj1;
+                    obj1=new JSONObject(gelenData);
+                    return obj1.getString("lore");
+                }
+                catch (Exception e1){
+
+                }
             }
+            return "HATA";
         }
 
         @Override
@@ -69,7 +74,7 @@ public class ChampionDetailFragment extends Fragment {
                 hikayeView.setText("\t"+k);
             }
             else
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
 
 
             progress.dismiss();

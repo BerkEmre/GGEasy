@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ItemAdapter;
@@ -43,9 +44,9 @@ public class ItemFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 arama.setText("");
                 ItemObject data= adapter.getItem(position);
-                String []array={""+data.getId(),data.getName()};
+                String veri=""+data.getId();
                 Bundle args1 = new Bundle();
-                args1.putStringArray("array", array);
+                args1.putString("array", veri);
                 ItemOpenFragment newFragment = new ItemOpenFragment();
                 newFragment.setArguments(args1);
                 newFragment.show(getFragmentManager(), "TAG");
@@ -74,8 +75,10 @@ public class ItemFragment extends Fragment {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
             try{
                 itemList=riotApiHelper.getItem(getContext());
-
-                return "0";
+                if (itemList.size()>0)
+                    return "0";
+                else
+                    return "HATA";
             }
             catch (Exception e){
                 return "HATA";
@@ -90,7 +93,7 @@ public class ItemFragment extends Fragment {
             if(!results.equals("HATA")){
                 adapter=new ItemAdapter(getActivity(),itemList);
                 items.setAdapter(adapter);
-            }
+
             arama.addTextChangedListener(new TextWatcher() {
 
                 @Override
@@ -110,6 +113,8 @@ public class ItemFragment extends Fragment {
                 public void afterTextChanged(Editable s) {
                 }
             });
+            }else
+                Toast.makeText(getActivity(), getString(R.string.ops_make_mistake), Toast.LENGTH_LONG).show();
 
         }
     }

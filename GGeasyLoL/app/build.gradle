@@ -9,8 +9,8 @@ android {
         minSdkVersion 15
         targetSdkVersion 24
         multiDexEnabled true
-        versionCode 40
-        versionName "4.2.3"
+        versionCode 48
+        versionName "4.3.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
@@ -20,6 +20,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    repositories {
+        jcenter()
     }
 }
 
@@ -38,6 +41,7 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.adcolony:sdk:3.0.7'
     compile 'com.mobstac.circularimageprogress:CircularImageProgressView:0.1.2'
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
     testCompile 'junit:junit:4.12'
 }
 

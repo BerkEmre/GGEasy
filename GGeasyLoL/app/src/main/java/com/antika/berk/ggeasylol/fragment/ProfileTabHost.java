@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class ProfileTabHost extends Fragment {
     DBHelper dbHelper;
     UserObject uo;
     Intent intent;
+
     private FragmentTabHost mTabHost;
     private boolean isFriends = false;
     public void isFriends(boolean isFriends){
@@ -50,7 +52,6 @@ public class ProfileTabHost extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_profile_tab_host,container, false);
         summonerName=(TextView)rootView.findViewById(R.id.textView46);
         dbHelper= new DBHelper(getContext());
-
 
 
         mTabHost = (FragmentTabHost)rootView.findViewById(android.R.id.tabhost);
@@ -93,18 +94,19 @@ public class ProfileTabHost extends Fragment {
         protected String doInBackground(String... params) {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
            try{
-               String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
-               if (cevap.length()>0){
+               try {
+                   String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + params[0] + "&Sifre=" + params[1]);
                    JSONArray array = new JSONArray(cevap);
                    JSONObject object = array.getJSONObject(0);
                    name=object.getString("SihirdarAdi");
                    return "0";
                }
-               else
+               catch (Exception e1){
                    return "HATA";
-
+               }
            }
-           catch (JSONException e) {
+
+           catch (Exception e) {
                e.printStackTrace();
                return "HATA";
            }

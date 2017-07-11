@@ -97,9 +97,32 @@ public class StatFragment extends Fragment {
                 return "tamam";
             }
             catch (Exception e) {
-                e.printStackTrace();
-                return "HATA";
-            }
+               try {
+                   //URL den gelen veri String olarak aldım
+                   String gelenData=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=stats&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
+                   //String veriyi jsonObjeye çevirdim
+                   String gelenData1=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=info&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
+
+                   JSONObject obj1=new JSONObject(gelenData);
+                   JSONObject obj11=new JSONObject(gelenData1);
+                   //stats içine girdim
+                   JSONObject obj2=obj1.getJSONObject("stats");
+                   JSONObject obj3=obj11.getJSONObject("info");
+                   stat.add(new ChampionStatObject(obj2.getDouble("armor"),obj2.getDouble("armorperlevel"),obj2.getDouble("attackdamage"),
+                           obj2.getDouble("attackdamageperlevel"),obj2.getDouble("attackrange"),obj2.getDouble("attackspeedoffset"),
+                           obj2.getDouble("attackspeedperlevel"),obj2.getDouble("crit"),obj2.getDouble("critperlevel"),
+                           obj2.getDouble("hp"),obj2.getDouble("hpperlevel"),obj2.getDouble("hpregen"),
+                           obj2.getDouble("hpregenperlevel"),obj2.getDouble("movespeed"),obj2.getDouble("mp"),
+                           obj2.getDouble("mpperlevel"),obj2.getDouble("mpregen"),obj2.getDouble("mpregenperlevel"),
+                           obj2.getDouble("spellblock"),obj2.getDouble("spellblockperlevel"),obj3.getInt("attack"),
+                           obj3.getInt("defense"),obj3.getInt("magic"),obj3.getInt("difficulty")));
+                   return "tamam";
+               }
+               catch (Exception e1){
+
+               }
+
+            } return "HATA";
         }
 
         @Override

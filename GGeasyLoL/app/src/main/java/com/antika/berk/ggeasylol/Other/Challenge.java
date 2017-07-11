@@ -1,6 +1,6 @@
 package com.antika.berk.ggeasylol.Other;
 
-import android.app.ProgressDialog;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -20,7 +20,7 @@ public class Challenge {
 
     public  boolean Gorev1(String id,int x){
 
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
@@ -33,7 +33,7 @@ public class Challenge {
     }
     public  boolean Gorev2(String id,int x){
 
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
@@ -47,7 +47,7 @@ public class Challenge {
     }
     public  boolean Gorev3(String id,int x){
 
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
@@ -61,7 +61,7 @@ public class Challenge {
     }
     public  boolean Gorev4(String id,int x){
 
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>0){
@@ -74,7 +74,7 @@ public class Challenge {
 
     }
     public  boolean Gorev5(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=10){
@@ -87,7 +87,7 @@ public class Challenge {
 
     }
     public  boolean Gorev6(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=20){
@@ -100,7 +100,7 @@ public class Challenge {
 
     }
     public  boolean Gorev7(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=30){
@@ -112,7 +112,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev8(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=10){
@@ -124,7 +124,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev9(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=20){
@@ -136,7 +136,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev10(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=30){
@@ -148,7 +148,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev11(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=2){
@@ -160,7 +160,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev12(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=4){
@@ -172,7 +172,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev13(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>=6){
@@ -184,7 +184,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev14(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>99){
@@ -196,7 +196,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev15(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>149){
@@ -208,7 +208,7 @@ public class Challenge {
         return false;
     }
     public  boolean Gorev16(String id,int x){
-        RiotApiHelper apiHelper=new RiotApiHelper();
+
         DBHelper dbHelper=new DBHelper(c);
         UserObject uo=dbHelper.getUser();
         if(x>199){
@@ -224,12 +224,10 @@ public class Challenge {
     }
 
     private class getData extends AsyncTask<String,String,String> {
-        ProgressDialog progress;
+
 
         @Override
         protected void onPreExecute() {
-            progress = ProgressDialog.show(c, c.getString(R.string.please_wait),
-                    c.getString(R.string.loading), true);
         }
 
         @Override
@@ -242,7 +240,7 @@ public class Challenge {
 
         @Override
         protected void onPostExecute(String s) {
-            progress.dismiss();
+
         }
     }
 

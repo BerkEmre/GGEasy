@@ -114,9 +114,13 @@ public class OtherItemFragment extends Fragment {
 
                 adapter=new BuildAdapter(getActivity(),bo,OtherItemFragment.this);
                 builds.setAdapter(adapter);
+
                 }
-                else
-                    Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
+            else{
+                ekle.setVisibility(View.GONE);
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
+            }
+
 
                 progress.dismiss();
 

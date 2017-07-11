@@ -109,7 +109,7 @@ public class AddFriendFragment extends DialogFragment {
             else if(s.equals(getContext().getString(R.string.check_summoner_name_or_region)))
                 Toast.makeText(getContext(),getContext().getString(R.string.check_summoner_name_or_region),Toast.LENGTH_LONG).show();
             else
-                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
 

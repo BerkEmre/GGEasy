@@ -11,12 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.adapter.ChampionServerAdapter;
 import com.antika.berk.ggeasylol.adapter.ChampionsAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
+import com.antika.berk.ggeasylol.object.ChampionServerObject;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +30,8 @@ import java.util.List;
 public class WeeklyRotationFragment extends Fragment {
     GridView gridView;
     List<ChampionObject> championObjects=new ArrayList<ChampionObject>();
-    ChampionsAdapter adapter;
+    ChampionServerAdapter adapter;
+    List<ChampionServerObject> championServerObject;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,10 +56,9 @@ public class WeeklyRotationFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ChampionObject data= adapter.getItem(position);
-
+                ChampionServerObject data= adapter.getItem(position);
                 ChampionTabHost cmof = new ChampionTabHost();
-                cmof.setChampionObject(data);
+                cmof.setChampionServerObject(data);
                 WeeklyRotationFragment.this.getFragmentManager().beginTransaction()
                         .replace(R.id.content_main_page, cmof)
                         .addToBackStack(null)
@@ -77,23 +82,42 @@ public class WeeklyRotationFragment extends Fragment {
             RiotApiHelper riotApiHelper=new RiotApiHelper();
             DBHelper dbHelper=new DBHelper(getContext());
             championObjects.clear();
-            List<Integer>freeToPlay=riotApiHelper.getChampionFreeToPlay(getString(R.string.language));
-            for(int i=0;i<freeToPlay.size();i++){
-                if (dbHelper.getChampion(freeToPlay.get(i).toString()) == null)
-                    dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString()), getString(R.string.language),getContext()));
+            championServerObject=new ArrayList<ChampionServerObject>();
+            try {
+                List<Integer>freeToPlay=riotApiHelper.getChampionFreeToPlay(getString(R.string.language));
+                for(int i=0;i<freeToPlay.size();i++){
+                    if (dbHelper.getChampion(freeToPlay.get(i).toString()) == null)
+                        dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString()), getString(R.string.language),getContext()));
 
-                championObjects.add(dbHelper.getChampion(freeToPlay.get(i).toString()));
+                    championObjects.add(dbHelper.getChampion(freeToPlay.get(i).toString()));
+                }
+                for (int i=0;i<championObjects.size();i++){
+                    String data=riotApiHelper.readURL("http://ggeasylol.com/api/get_price.php?ID="+championObjects.get(i).getChampionID());
+                    JSONObject object=new JSONObject(data);
+                    JSONObject price=object.getJSONObject("price");
+                    championServerObject.add(new ChampionServerObject(championObjects.get(i).getChampionID(),championObjects.get(i).getChampionKey(),
+                            championObjects.get(i).getChampionName(),price.getString("ip"),price.getString("rp")));
+                }
 
+
+            return "0";
+
+            }catch (Exception e){
+                return "HATA";
             }
 
-            return null;
+
         }
 
 
         @Override
         protected void onPostExecute(String s) {
-            adapter = new ChampionsAdapter(getActivity(), championObjects);
-            gridView.setAdapter(adapter);
+            if (s.equals("0")){
+
+                adapter = new ChampionServerAdapter(getActivity(), championServerObject);
+                gridView.setAdapter(adapter);
+            }
+            else Toast.makeText(getContext(),getContext().getString(R.string.ops_make_mistake),Toast.LENGTH_LONG).show();
             progress.dismiss();
 
         }

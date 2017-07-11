@@ -20,6 +20,10 @@
             android:icon="@drawable/challenge_icon"
             android:title="@string/challenge" />
         <item
+            android:id="@+id/nav_skill"
+            android:icon="@drawable/fourskill"
+            android:title="@string/four_skill" />
+        <item
             android:id="@+id/nav_mission"
             android:icon="@drawable/mission"
             android:title="@string/missions" />

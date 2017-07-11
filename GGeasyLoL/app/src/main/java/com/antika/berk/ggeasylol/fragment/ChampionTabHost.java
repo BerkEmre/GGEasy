@@ -11,15 +11,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.object.ChampionObject;
+import com.antika.berk.ggeasylol.object.ChampionServerObject;
 
 
 public class ChampionTabHost extends Fragment {
     private FragmentTabHost mTabHost;
     private TextView c_name;
-    private ChampionObject co;
+    private ChampionServerObject co;
     Intent intent;
 
-    public void setChampionObject(ChampionObject co) {
+    public void setChampionServerObject(ChampionServerObject co) {
         this.co = co;
     }
 
@@ -31,7 +32,7 @@ public class ChampionTabHost extends Fragment {
 
         mTabHost = (FragmentTabHost)view.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
-        String [] champion={""+co.getChampionID(),co.getChampionKey(),co.getChampionTitle()};
+        String [] champion={""+co.getChampionID(),co.getChampionKey()};
         c_name.setText(co.getChampionName());
         Bundle bundle = new Bundle();
         bundle.putStringArray("cID", champion);

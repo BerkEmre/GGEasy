@@ -221,4 +221,9 @@
     <string name="save">Save</string>
     <string name="others">Others</string>
     <string name="no_build">There is no build for this champion. You can be first.</string>
+    <string name="find">Find</string>
+    <string name="four_skill">4 Skills 1 Passive</string>
+    <string name="reset">Reset</string>
+    <string name="enemy">On opponent</string>
+    <string name="ally">Suggestions for Ally</string>
 </resources>

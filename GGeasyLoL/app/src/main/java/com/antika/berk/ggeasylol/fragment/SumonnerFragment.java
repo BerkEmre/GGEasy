@@ -1,15 +1,12 @@
 package com.antika.berk.ggeasylol.fragment;
 
-import android.app.ProgressDialog;
+
 import android.content.Context;
-import android.content.DialogInterface;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,22 +15,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.FriendsAdapter;
-import com.antika.berk.ggeasylol.adapter.SumonnersAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
-import com.antika.berk.ggeasylol.object.ParticipantListObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
-import com.antika.berk.ggeasylol.object.Sumonner;
 import com.antika.berk.ggeasylol.object.UserObject;
 
 import org.json.JSONArray;
@@ -147,7 +139,7 @@ public class SumonnerFragment extends Fragment  {
                     imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);}
             }
             else
-                Toast.makeText(getContext(), results, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getContext().getString(R.string.try_again), Toast.LENGTH_LONG).show();
             progress.dismiss();
         }
     }

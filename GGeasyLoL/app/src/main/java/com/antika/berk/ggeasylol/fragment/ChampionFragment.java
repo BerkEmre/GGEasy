@@ -19,22 +19,27 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.adapter.ChampionsAdapter;
-import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionObject;
+import com.antika.berk.ggeasylol.adapter.ChampionServerAdapter;
 
+
+import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+
+import com.antika.berk.ggeasylol.object.ChampionServerObject;
+
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChampionFragment extends Fragment {
     GridView gv_champions;
     EditText et_arama;
-    ChampionsAdapter adapter;
+    ChampionServerAdapter adapter;
 
-    List<ChampionObject> champions;
+    List<ChampionServerObject> champions=new ArrayList<ChampionServerObject>();
 
-    public void setChampions(List<ChampionObject> champions){
-        this.champions = champions;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,15 +48,15 @@ public class ChampionFragment extends Fragment {
         gv_champions = (GridView) view.findViewById(R.id.grid_view);
         et_arama     = (EditText) view.findViewById(R.id.editText3);
 
-        new getData().execute(getContext().getString(R.string.language));
+        new getData().execute();
 
         gv_champions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 et_arama.setText("");
-                ChampionObject data= adapter.getItem(position);
+                ChampionServerObject data= adapter.getItem(position);
                 ChampionTabHost cmof = new ChampionTabHost();
-                cmof.setChampionObject(data);
+                cmof.setChampionServerObject(data);
                 ChampionFragment.this.getFragmentManager().beginTransaction()
                         .replace(R.id.content_main_page, cmof)
                         .addToBackStack(null)
@@ -95,13 +100,23 @@ public class ChampionFragment extends Fragment {
         protected String doInBackground(String... values)
         {
             RiotApiHelper raHelper = new RiotApiHelper();
-
+            champions.clear();
             try{
-                champions = raHelper.getChampionStaticData(getContext());
+                String gelendata=raHelper.readURL("http://ggeasylol.com/api/get_champions.php");
+                JSONArray array=new JSONArray(gelendata);
+                for (int i=0;i<array.length();i++){
+                    JSONObject  object=array.getJSONObject(i);
+                    champions.add(new ChampionServerObject(object.getString("championID"),object.getString("championKey"),object.getString("championName"),
+                            object.getString("ip"),object.getString("rp")));
+                }
+
+
                 return "0";
+
             }catch (Exception e){
                 return "HATA";
             }
+
 
         }
 
@@ -109,7 +124,7 @@ public class ChampionFragment extends Fragment {
         protected void onPostExecute(String results)
         {
             if(results.equals("0")){
-                adapter = new ChampionsAdapter(getActivity(), champions);
+                adapter = new ChampionServerAdapter(getActivity(), champions);
                 gv_champions.setAdapter(adapter);
                 et_arama.addTextChangedListener(new TextWatcher() {
 

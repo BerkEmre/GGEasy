@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionMasterObject;
+
 import com.antika.berk.ggeasylol.object.ChampionObject;
 
 import java.util.ArrayList;

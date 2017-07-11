@@ -14,18 +14,6 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
 
-        <TextView
-            android:id="@+id/champion_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:fontFamily="sans-serif-condensed"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@android:color/holo_red_dark"
-            android:textSize="20sp"
-            android:textStyle="normal|bold" />
-
 
         <ScrollView
             android:layout_width="match_parent"
