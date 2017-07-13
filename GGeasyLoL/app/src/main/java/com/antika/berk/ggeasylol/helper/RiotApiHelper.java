@@ -18,6 +18,7 @@ import com.antika.berk.ggeasylol.object.MissionObject;
 import com.antika.berk.ggeasylol.object.MissionTeamObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
+import com.antika.berk.ggeasylol.object.RuneObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 
@@ -35,7 +36,7 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey   = "RGAPI-2df266e9-b08a-46d5-8367-b20243ffbf58";
-    public String version  = "7.12.1";
+    public String version  = "7.14.1";
     public int iconSize    =  34;
     //Get summoner object with summoner name
     //V-3 YAPILDI
@@ -131,6 +132,7 @@ public class RiotApiHelper {
         CurrentGameObject cgo;
         List<ParticipantObject> participants = new ArrayList<ParticipantObject>();
 
+
         JSONObject obje1, obje2;
         JSONArray array1;
 
@@ -139,9 +141,17 @@ public class RiotApiHelper {
             obje1 = new JSONObject(JSONString);
             array1 = obje1.getJSONArray("participants");
             for (int i = 0; i < array1.length(); i++){
+                List<RuneObject> runeObjects = new ArrayList<RuneObject>();
+                runeObjects.clear();
                 obje2 = array1.getJSONObject(i);
+                JSONArray array=obje2.getJSONArray("runes");
+                for(int j=0;j<array.length();j++){
+                    JSONObject object=array.getJSONObject(j);
+                    runeObjects.add(new RuneObject(object.getInt("count"),object.getInt("runeId")));
+                }
+
                 participants.add(new ParticipantObject(obje2.getInt("spell1Id"), obje2.getInt("spell2Id"), obje2.getInt("profileIconId"),
-                        obje2.getInt("championId"), obje2.getInt("teamId"), obje2.getInt("summonerId"), obje2.getString("summonerName")));
+                        obje2.getInt("championId"), obje2.getInt("teamId"), obje2.getInt("summonerId"), obje2.getString("summonerName"),runeObjects));
             }
             cgo = new CurrentGameObject(obje1.getInt("gameLength"),
                     obje1.getInt("mapId"),

@@ -2,22 +2,25 @@ package com.antika.berk.ggeasylol.object;
 
 import java.util.List;
 
-/**
- * Created by berke on 30.11.2016.
- */
+
 
 public class RunePageObject {
-    private List<RuneObject> runes;
-    private int id;
+    private String aciklama;
     private String name;
+    private int adet;
+    private String  image;
 
-    public RunePageObject(List<RuneObject> runes, int id, String name){
-        this.runes = runes;
-        this.id    = id;
+    public RunePageObject(String aciklama, String name,int adet,String image){
+        this.aciklama = aciklama;
         this.name  = name;
+        this.adet  = adet;
+        this.image  = image;
     }
 
-    public List<RuneObject> getRunes(){return runes;}
-    public int getId()                {return id;}
+    public String getAciklama(){return aciklama;}
     public String getName()           {return name;}
+    public int getAdet()           {return adet;}
+    public String getImage()           {return image;}
+
+
 }

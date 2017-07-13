@@ -226,4 +226,5 @@
     <string name="reset">Reset</string>
     <string name="enemy">On opponent</string>
     <string name="ally">Suggestions for Ally</string>
+    <string name="runes">Runes</string>
 </resources>

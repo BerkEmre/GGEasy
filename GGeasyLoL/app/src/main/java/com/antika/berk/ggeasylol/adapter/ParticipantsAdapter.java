@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.fragment.BuildOpenFragment;
 import com.antika.berk.ggeasylol.fragment.ChampionChallengeOpenFragment;
+import com.antika.berk.ggeasylol.fragment.RuneFragment;
 import com.antika.berk.ggeasylol.fragment.TavsiyeFragment;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
@@ -61,7 +62,7 @@ public class ParticipantsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View satirView;
         DBHelper dbHelper = new DBHelper(context);
 
@@ -81,7 +82,8 @@ public class ParticipantsAdapter extends BaseAdapter {
         TextView tv_point = (TextView) satirView.findViewById(R.id.textView30);
         TextView tv_progress = (TextView) satirView.findViewById(R.id.textView29);
         Button btn=(Button)satirView.findViewById(R.id.button13);
-        Button buil=(Button)satirView.findViewById(R.id.button15);
+        Button build=(Button)satirView.findViewById(R.id.button15);
+        Button rune=(Button)satirView.findViewById(R.id.button16);
         final ParticipantListObject kisi = mKisiListesi.get(position);
         String new_progress = "";
         tv_k.setText(""+kisi.getMaster());
@@ -110,6 +112,8 @@ public class ParticipantsAdapter extends BaseAdapter {
                 tv_k.setText("" + kisi.getMaster());
             }
         }
+        if(kisi.getLeague_progress().length()>0)
+            tv_progress.setVisibility(View.VISIBLE);
         for (char ch: kisi.getLeague_progress().toCharArray()) {
             if(ch == 'L')
             {
@@ -180,7 +184,7 @@ public class ParticipantsAdapter extends BaseAdapter {
                 alertDialog.show(fm,"fragment_alert");
             }
         });
-        buil.setOnClickListener(new View.OnClickListener() {
+        build.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentActivity activity = (FragmentActivity)(context);
@@ -190,6 +194,16 @@ public class ParticipantsAdapter extends BaseAdapter {
                 args1.putString("data", data);
                 BuildOpenFragment alertDialog = new BuildOpenFragment();
                 alertDialog.setArguments(args1);
+                alertDialog.show(fm,"fragment_alert");
+            }
+        });
+        rune.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentActivity activity = (FragmentActivity)(context);
+                FragmentManager fm = activity.getSupportFragmentManager();
+                RuneFragment alertDialog = new RuneFragment();
+                alertDialog.setRuneObject(mKisiListesi.get(position));
                 alertDialog.show(fm,"fragment_alert");
             }
         });

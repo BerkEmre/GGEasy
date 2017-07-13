@@ -29,6 +29,7 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
+import com.antika.berk.ggeasylol.object.RuneObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
@@ -113,6 +114,7 @@ public class CurrentMatchFragment extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
             SummonerObject so;
+            List<RuneObject> runeObjects=new ArrayList<RuneObject>();
             so = raHelper.getSumonner(strings[0], strings[1]);
             if (so == null){return getString(R.string.check_summoner_name_or_region);}
             summonerName = so.getName();
@@ -123,6 +125,7 @@ public class CurrentMatchFragment extends Fragment {
                 ParticipantObject part = cgo.getParticipants().get(i);
                 List<LeagueObject> leagues = raHelper.getSummonerLeague(part.getSummonerId(), strings[1]);
                 LeagueObject lo;
+                runeObjects=part.getRuneObjects();
                 try {lo = leagues.get(0);}catch (Exception e){lo = new LeagueObject("","","","",0,0,0,false,false,false,false,"",0,0,0);}
                 List<ChampionMasterObject>cmo=raHelper.getMasteries(part.getSummonerId(),strings[1],part.getChampionId());
                 ChampionMasterObject masterObject;
@@ -130,7 +133,7 @@ public class CurrentMatchFragment extends Fragment {
                 participantsItems.add(new ParticipantListObject(part.getSummonerName(),
                         part.getTeamId(), part.getChampionId(), part.getSpell1Id(),
                         part.getSpell2Id(), lo.getTier(), lo.getDivision(), lo.getLeaguePoints(),
-                        lo.getMiniSeriesprogress(),masterObject.getChampionPoints(),masterObject.getChampionLevel()
+                        lo.getMiniSeriesprogress(),masterObject.getChampionPoints(),masterObject.getChampionLevel(),runeObjects
                 ));
 
 

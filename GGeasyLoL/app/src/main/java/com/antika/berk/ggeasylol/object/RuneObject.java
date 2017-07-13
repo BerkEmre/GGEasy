@@ -1,17 +1,15 @@
 package com.antika.berk.ggeasylol.object;
 
-/**
- * Created by berke on 30.11.2016.
- */
+
 
 public class RuneObject {
-    private int id, slot;
+    private int adet, runeId;
 
-    public RuneObject(int id, int slot){
-        this.id   = id;
-        this.slot = slot;
+    public RuneObject(int adet, int runeId){
+        this.adet   = adet;
+        this.runeId = runeId;
     }
 
-    public int getId()  {return id;}
-    public int getSlot(){return slot;}
+    public int getAdet()  {return adet;}
+    public int getRuneId(){return runeId;}
 }
