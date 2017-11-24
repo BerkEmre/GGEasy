@@ -227,4 +227,12 @@
     <string name="enemy">On opponent</string>
     <string name="ally">Suggestions for Ally</string>
     <string name="runes">Runes</string>
+    <string name="masteries">Masteries</string>
+    <string name="insufficient">Insufficient Score</string>
+    <string name="buy">Buy</string>
+    <string name="donate">Donation</string>
+    <string name="donate_exp">You can donate to remove ads and support us. Also you can use our icon.</string>
+    <string name="match_history">Match History</string>
+    <string name="star_normal">INVASION</string>
+    <string name="against_bot">AGAINST BOTS</string>
 </resources>

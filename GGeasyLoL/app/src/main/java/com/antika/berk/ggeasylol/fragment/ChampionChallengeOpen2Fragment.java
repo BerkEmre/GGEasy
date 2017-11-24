@@ -86,9 +86,9 @@ public class ChampionChallengeOpen2Fragment extends DialogFragment {
             user2Name.setText(challengeChampionObject.getSihirdarAdi2());
         else
             user2Name.setText(R.string.waiting);
-        Picasso.with(getContext()).load(riotApiHelper.iconTable(Integer.parseInt(challengeChampionObject.getIcon1()))).transform(new CircleTransform()).into(user1);
+        Picasso.with(getContext()).load("http://ggeasylol.com/api/icons/"+challengeChampionObject.getIcon1()+".png").transform(new CircleTransform()).into(user1);
         if(challengeChampionObject.getIcon2().length()>0)
-            Picasso.with(getContext()).load(riotApiHelper.iconTable(Integer.parseInt(challengeChampionObject.getIcon2()))).transform(new CircleTransform()).into(user2);
+            Picasso.with(getContext()).load("http://ggeasylol.com/api/icons/"+challengeChampionObject.getIcon2()+".png").transform(new CircleTransform()).into(user2);
         else
             Picasso.with(getContext()).load(R.drawable.unknown).transform(new CircleTransform()).into(user2);
 
@@ -129,8 +129,8 @@ public class ChampionChallengeOpen2Fragment extends DialogFragment {
             dbHelper=new DBHelper(getContext());
 
             try {
-                String data1=riotApiHelper.readURL("https://"+riotApiHelper.regionToPlatform(challengeChampionObject.getRegion1()).toLowerCase()+".api.riotgames.com/championmastery/location/"+riotApiHelper.regionToPlatform(challengeChampionObject.getRegion1())+"/player/"+challengeChampionObject.getSihirdarID1()+"/champion/"+challengeChampionObject.getChampID()+"?api_key="+riotApiHelper.apiKey);
-                String data2=riotApiHelper.readURL("https://"+riotApiHelper.regionToPlatform(challengeChampionObject.getRegion2()).toLowerCase()+".api.riotgames.com/championmastery/location/"+riotApiHelper.regionToPlatform(challengeChampionObject.getRegion2())+"/player/"+challengeChampionObject.getSihirdarID2()+"/champion/"+challengeChampionObject.getChampID()+"?api_key="+riotApiHelper.apiKey);
+                String data1=riotApiHelper.readURL("https://"+riotApiHelper.regionToPlatform(challengeChampionObject.getRegion1()).toLowerCase()+".api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/"+challengeChampionObject.getSihirdarID1()+"/by-champion/"+challengeChampionObject.getChampID()+"?api_key="+riotApiHelper.apiKey);
+                String data2=riotApiHelper.readURL("https://"+riotApiHelper.regionToPlatform(challengeChampionObject.getRegion2()).toLowerCase()+".api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/"+challengeChampionObject.getSihirdarID2()+"/by-champion/"+challengeChampionObject.getChampID()+"?api_key="+riotApiHelper.apiKey);
 
 
                 try {
@@ -149,9 +149,8 @@ public class ChampionChallengeOpen2Fragment extends DialogFragment {
 
                 if (veri1>veri2)
                     riotApiHelper.readURL("http://ggeasylol.com/api/sonuc_champion_challenge.php?ID="+challengeChampionObject.getId()+"&winnerID="+challengeChampionObject.getSihirdarID1()+"&puan=500");
-                else
+                else if (veri2>veri1)
                     riotApiHelper.readURL("http://ggeasylol.com/api/sonuc_champion_challenge.php?ID="+challengeChampionObject.getId()+"&winnerID="+challengeChampionObject.getSihirdarID2()+"&puan=500");
-
                 return "1";
             }
             catch (Exception e){

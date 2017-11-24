@@ -32,7 +32,7 @@
                 android:id="@+id/simge"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:srcCompat="@drawable/add_sumonner" />
+                 />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -195,75 +195,72 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/linearLayout11"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="0.00">
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_margin="2dp"
+            android:orientation="horizontal">
 
-            <RelativeLayout
-                android:id="@+id/colorlayout2"
-                android:layout_width="10dp"
-                android:layout_height="50dp"
-                android:layout_alignBottom="@+id/linearLayout11"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:background="@color/colorAccent">
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_toLeftOf="@+id/linearLayout11"
+                android:layout_toStartOf="@+id/linearLayout11"
+                android:layout_weight="1"
+                android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"
+                android:text="@string/masteries"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
 
-            </RelativeLayout>
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="@android:color/holo_purple"
+                android:text="@string/runes"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:visibility="gone" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:layout_margin="2dp"
-                android:orientation="horizontal">
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="?attr/colorPrimaryDark"
+                android:text="Build"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
 
-                <Button
-                    android:id="@+id/button16"
-                    android:layout_width="75dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_purple"
-                    android:text="@string/runes"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:text="@string/suggestion"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
 
-                <Button
-                    android:id="@+id/button15"
-                    android:layout_width="75dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="?attr/colorPrimaryDark"
-                    android:text="Build"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-
-                <Button
-                    android:id="@+id/button13"
-                    android:layout_width="75dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorAccent"
-                    android:text="@string/suggestion"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"

@@ -1,6 +1,7 @@
 package com.antika.berk.ggeasylol.fragment;
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +29,6 @@ import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
 import com.antika.berk.ggeasylol.object.UserObject;
-import com.mobstac.circularimageprogress.CircularImageProgressView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,15 +39,24 @@ import java.util.List;
 
 import it.sephiroth.android.library.picasso.Picasso;
 import it.sephiroth.android.library.picasso.Transformation;
+import jp.co.cyberagent.android.gpuimage.GPUImage;
+import jp.co.cyberagent.android.gpuimage.GPUImageFilter;
+import jp.co.cyberagent.android.gpuimage.GPUImageSketchFilter;
 
 public class UserDeatailFragment extends DialogFragment {
 
-    TextView tv_summonerName, tv_puan,tv_level;
-    ImageView iv_profil,iv_back;
-    DBHelper dbHelper;
+    TextView tv_summonerName;
+    List<LeagueObject> leagues=new ArrayList<LeagueObject>();
+    List<ChampionMasterObject> cm=new ArrayList<ChampionMasterObject>();
+    TextView  tv_puan, tv_level;
+    ImageView iv_profil, iv_lig;
+    ImageView icon1,icon2,icon3;
+    UserObject uo;
     GridView rozets;
-    CircularImageProgressView lvl;
-
+    ProgressBar lvl;
+    ImageView back;
+    ImageView iv_frame;
+    DBHelper dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,15 +64,21 @@ public class UserDeatailFragment extends DialogFragment {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         Bundle mArgs = getArguments();
         String []array = mArgs.getStringArray("array");
-
+        dbHelper= new DBHelper(getContext());
 
         tv_summonerName = (TextView) view.findViewById(R.id.summoner_name);
+        lvl             = (ProgressBar)view.findViewById(R.id.ProgressBar);
         tv_puan         = (TextView) view.findViewById(R.id.textView51);
-        iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
         tv_level        = (TextView) view.findViewById(R.id.tv_lvl);
-        iv_back         = (ImageView) view.findViewById(R.id.champion_logo);
+        iv_profil       = (ImageView) view.findViewById(R.id.imageView19);
+        iv_frame           = (ImageView) view.findViewById(R.id.imageView82);
+        iv_lig          = (ImageView)view.findViewById(R.id.imageView10);
         rozets          = (GridView)view.findViewById(R.id.rozet_view);
-        lvl             = (CircularImageProgressView)view.findViewById(R.id.lv_progress);
+
+        icon1=(ImageView)view.findViewById(R.id.imageView88);
+        icon2=(ImageView)view.findViewById(R.id.imageView83);
+        icon3=(ImageView)view.findViewById(R.id.imageView85);
+        back=(ImageView)view.findViewById(R.id.arka);
 
         new getData().execute(array[0],array[1]);
 
@@ -75,9 +91,10 @@ public class UserDeatailFragment extends DialogFragment {
         BlankFragment progress;
 
         String _summonerName ="", _puan ="",_champion ="";
-        int _profilIcon=0;
+        String _profilIcon="icon0";
         String _email="";
         int _level=0;
+        String _frame="click";
         List<RozetObject> ro=new ArrayList<RozetObject>();
 
         @Override
@@ -85,6 +102,7 @@ public class UserDeatailFragment extends DialogFragment {
             FragmentManager fm = getFragmentManager();
             progress = new BlankFragment();
             progress.show(fm, "");
+
         }
 
         @Override
@@ -104,15 +122,18 @@ public class UserDeatailFragment extends DialogFragment {
                     _summonerName=object.getString("SihirdarAdi");
                     _puan=object.getString("Puan");
                     _email=object.getString("EMail");
-                    _profilIcon=object.getInt("icon");
+                    _profilIcon=object.getString("logo");
                     _level=object.getInt("exp");
+                    _frame=object.getString("frame");
                     try{
-
-                        List<ChampionMasterObject> cm=riotApiHelper.getChampionMasteries(Integer.parseInt(params[0]),params[1]);
+                        cm=riotApiHelper.getChampionMasteries(Integer.parseInt(params[0]),params[1]);
                         ro=riotApiHelper.getRozet(_email);
-                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId(),params[1],getContext());
+                        ChampionObject co=riotApiHelper.getStaticChampion(cm.get(0).getChampionId());
                         _champion=co.getChampionKey();
-
+                        for (int i = 0; i < 3; i++) {
+                            if (dbHelper.getChampion(Integer.toString(cm.get(i).getChampionId())) == null)
+                                dbHelper.insertChampion(riotApiHelper.getStaticChampion(cm.get(i).getChampionId()));
+                        }
                     }catch(Exception e) {return getContext().getString(R.string.hosgeldiniz);}
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -127,24 +148,33 @@ public class UserDeatailFragment extends DialogFragment {
         @Override
         protected void onPostExecute(String s) {
             if(s.equals(getContext().getString(R.string.hosgeldiniz))){
-                RiotApiHelper riotApiHelper=new RiotApiHelper();
+                tv_puan.setText(String.format("%.2f",Double.parseDouble(_puan))+" ");
+                if (cm.size()>0){
+                    if (cm.size()>0)
+                        Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" + dbHelper.getChampion(Integer.toString(cm.get(0).getChampionId())).getChampionKey() + ".png").transform(new CircleTransform()).into(icon1);
+                    if (cm.size()>1)
+                        Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" + dbHelper.getChampion(Integer.toString(cm.get(1).getChampionId())).getChampionKey() + ".png").transform(new CircleTransform()).into(icon2);
+                    if (cm.size()>2)
+                        Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/champion/" + dbHelper.getChampion(Integer.toString(cm.get(2).getChampionId())).getChampionKey() + ".png").transform(new CircleTransform()).into(icon3);
+
+
+
+
+
+                }
+                Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(back);
+                Picasso.with(getContext()).load("http://ggeasylol.com/api/icons/"+_profilIcon+".png").transform(new CircleTransform()).into(iv_profil);
+                if(!_frame.equals("click"))
+                    Picasso.with(getContext()).load("http://ggeasylol.com/api/frames/"+_frame+".png").into(iv_frame);
                 tv_summonerName.setText(_summonerName);
-                tv_puan.setText(" x "+String.format("%.2f",Double.parseDouble(_puan)));
                 if(_level<=0)
                     _level=1;
                 double level=Math.sqrt(_level)/5;
                 double exp=level%1;
                 tv_level.setText(""+(int)(level-exp+1));
                 lvl.setProgress((int)(exp*100));
-                Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+_champion+"_0.jpg").into(iv_back);
-                if((riotApiHelper.iconSize-1)<_profilIcon)
-                    Picasso.with(getContext()).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_profil);
-                else
-                    Picasso.with(getContext()).load(riotApiHelper.iconTable(_profilIcon)).transform(new CircleTransform()).into(iv_profil);
-
                 RozetAdapter adapter=new RozetAdapter(getActivity(),ro);
                 rozets.setAdapter(adapter);
-
 
 
             }else
@@ -186,5 +216,44 @@ public class UserDeatailFragment extends DialogFragment {
             return "circle";
         }
     }
+    public class SketchFilterTransformation extends GPUFilterTransformation {
+
+        public SketchFilterTransformation(Context context) {
+            super(context, new GPUImageSketchFilter());
+        }
+
+        @Override public String key() {
+            return "SketchFilterTransformation()";
+        }
+    }public class GPUFilterTransformation implements Transformation {
+
+        private Context mContext;
+        private GPUImageFilter mFilter;
+
+        public GPUFilterTransformation(Context context, GPUImageFilter filter) {
+            mContext = context.getApplicationContext();
+            mFilter = filter;
+        }
+
+        @Override public Bitmap transform(Bitmap source) {
+            GPUImage gpuImage = new GPUImage(mContext);
+            gpuImage.setImage(source);
+            gpuImage.setFilter(mFilter);
+
+            Bitmap bitmap = gpuImage.getBitmapWithFilterApplied();
+            source.recycle();
+
+            return bitmap;
+        }
+
+        @Override public String key() {
+            return getClass().getSimpleName();
+        }
+
+        @SuppressWarnings("unchecked") public <T> T getFilter() {
+            return (T) mFilter;
+        }
+    }
+
 
 }

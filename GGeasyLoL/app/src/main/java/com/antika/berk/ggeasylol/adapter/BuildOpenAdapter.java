@@ -81,9 +81,11 @@ public class BuildOpenAdapter extends BaseAdapter{
         TextView dislike_tv=(TextView)satirView.findViewById(R.id.textView86);
         Button like_btn=(Button)satirView.findViewById(R.id.button11);
         Button dislike_btn=(Button)satirView.findViewById(R.id.button8);
+        ImageView frame=(ImageView)satirView.findViewById(R.id.imageView86);
 
-
-        Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(buildObject.getIcon()))).transform(new CircleTransform()).into(icon);
+        Picasso.with(context).load("http://ggeasylol.com/api/icons/"+buildObject.getIcon()+".png").transform(new CircleTransform()).into(icon);
+        if(!buildObject.getFrame().equals("click"))
+            Picasso.with(context).load("http://ggeasylol.com/api/frames/"+buildObject.getFrame()+".png").into(frame);
 
         name.setText(buildObject.getName());
         like_tv.setText("+"+buildObject.getPuan());

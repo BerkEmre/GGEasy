@@ -116,7 +116,7 @@ public class FriendsFragment extends Fragment {
                     JSONObject obj1=array.getJSONObject(i);
                     JSONObject obj2=obj1.getJSONObject("other");
                     if(obj1.getString("status").equals("1"))
-                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
+                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("logo"),obj1.getString("ID"),obj2.getString("frame")));
                     JSONObject obj3=obj1.getJSONObject("user2");
                     if(obj3.getString("SihirdarID").equals(uo.getSummonerID()) && obj1.getString("status").equals("0"))
                         istek++;

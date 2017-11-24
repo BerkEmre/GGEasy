@@ -11,10 +11,10 @@ public class ParticipantListObject {
             master_icon;
     private int team, championID,spell1,
             spell2, lost,league_point;
-    private List<RuneObject> runeObjects;
+    private List<MasterObject>masterObjects;
     public ParticipantListObject(String isim, int team, int championID, int spell1, int spell2,
                                  String league, String league_division, int league_point, String league_progress,
-                                 int master,int master_icon,List<RuneObject>runeObjects) {
+                                 int master,int master_icon,List<MasterObject>masterObjects) {
         super();
         this.isim = isim;
         this.team = team;
@@ -27,7 +27,7 @@ public class ParticipantListObject {
         this.league_progress = league_progress;
         this.master=master;
         this.master_icon=master_icon;
-        this.runeObjects=runeObjects;
+        this.masterObjects = masterObjects;
     }
 
     @Override
@@ -122,8 +122,6 @@ public class ParticipantListObject {
     public void setLeague_progress(String league_progress) {
         this.league_progress = league_progress;
     }
-    public List<RuneObject> getRuneObjects() {
-        return runeObjects;
-    }
+    public List<MasterObject> getMasterObjects(){return masterObjects;}
 
 }

@@ -27,6 +27,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SkinFragment extends Fragment {
     TextView champion;
@@ -62,33 +63,18 @@ public class SkinFragment extends Fragment {
             skins.clear();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=skins&api_key="+apiKey.apiKey);
+                String gelenData = apiKey.readURL("http://ggeasylol.com/api/get_championskins.php?championID="+strings[0]+"&language="+ Locale.getDefault().getLanguage());
                 //String veriyi jsonObjeye çevirdim
-                JSONObject obj1=new JSONObject(gelenData);
-                JSONArray array1=obj1.getJSONArray("skins");
-                for(int i=0;i<array1.length();i++){
-                    JSONObject obj2=array1.getJSONObject(i);
-                    skins.add(new ChampionSkinObject(obj2.getString("name"),obj2.getInt("num"),obj1.getString("key")));
+                JSONArray array=new JSONArray(gelenData);
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject object=array.getJSONObject(i);
+                    skins.add(new ChampionSkinObject(object.getString("skinName"),Integer.parseInt(object.getString("skinPng")),object.getString("championKey")));
                 }
                 return "tamam";
-
             } catch (Exception e) {
-               try {
-                   //URL den gelen veri String olarak aldım
-                   String gelenData=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=skins&api_key="+apiKey.apiKey);
-                   //String veriyi jsonObjeye çevirdim
-                   JSONObject obj1=new JSONObject(gelenData);
-                   JSONArray array1=obj1.getJSONArray("skins");
-                   for(int i=0;i<array1.length();i++){
-                       JSONObject obj2=array1.getJSONObject(i);
-                       skins.add(new ChampionSkinObject(obj2.getString("name"),obj2.getInt("num"),obj1.getString("key")));
-                   }
-                   return "tamam";
-               }catch (Exception e1){
 
-               }
-
-            }return "HATA";
+                return  "HATA";
+            }
         }
 
         @Override

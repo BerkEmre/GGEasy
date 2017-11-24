@@ -1,11 +1,9 @@
 package com.antika.berk.ggeasylol.adapter;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -17,16 +15,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.fragment.BuildOpenFragment;
-import com.antika.berk.ggeasylol.fragment.ChampionChallengeOpenFragment;
-import com.antika.berk.ggeasylol.fragment.RuneFragment;
+import com.antika.berk.ggeasylol.fragment.MasterFragment;
 import com.antika.berk.ggeasylol.fragment.TavsiyeFragment;
+import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
-import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.helper.DBHelper;
 
 import java.util.List;
 
@@ -74,7 +71,6 @@ public class ParticipantsAdapter extends BaseAdapter {
         ImageView spell2 = (ImageView) satirView.findViewById(R.id.imageView);
         ImageView league = (ImageView) satirView.findViewById(R.id.imageView14);
         RelativeLayout rl_teamcolor1 = (RelativeLayout) satirView.findViewById(R.id.colorlayout1);
-        RelativeLayout rl_teamcolor2 = (RelativeLayout) satirView.findViewById(R.id.colorlayout2);
         TextView tv_k = (TextView) satirView.findViewById(R.id.textView19);
         ImageView image_mastery = (ImageView) satirView.findViewById(R.id.imageView18);
         TextView tv_league = (TextView) satirView.findViewById(R.id.textView26);
@@ -83,7 +79,7 @@ public class ParticipantsAdapter extends BaseAdapter {
         TextView tv_progress = (TextView) satirView.findViewById(R.id.textView29);
         Button btn=(Button)satirView.findViewById(R.id.button13);
         Button build=(Button)satirView.findViewById(R.id.button15);
-        Button rune=(Button)satirView.findViewById(R.id.button16);
+        Button master=(Button)satirView.findViewById(R.id.button17);
         final ParticipantListObject kisi = mKisiListesi.get(position);
         String new_progress = "";
         tv_k.setText(""+kisi.getMaster());
@@ -165,11 +161,10 @@ public class ParticipantsAdapter extends BaseAdapter {
 
         if(kisi.getTeam() == 100){
             rl_teamcolor1.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
-            rl_teamcolor2.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
         }
         else{
             rl_teamcolor1.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
-            rl_teamcolor2.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
+
         }
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,13 +192,13 @@ public class ParticipantsAdapter extends BaseAdapter {
                 alertDialog.show(fm,"fragment_alert");
             }
         });
-        rune.setOnClickListener(new View.OnClickListener() {
+        master.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentActivity activity = (FragmentActivity)(context);
                 FragmentManager fm = activity.getSupportFragmentManager();
-                RuneFragment alertDialog = new RuneFragment();
-                alertDialog.setRuneObject(mKisiListesi.get(position));
+                MasterFragment alertDialog = new MasterFragment();
+                alertDialog.setMasterObject(mKisiListesi.get(position));
                 alertDialog.show(fm,"fragment_alert");
             }
         });

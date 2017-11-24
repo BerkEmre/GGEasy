@@ -8,34 +8,23 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.adapter.ChallengeAdapter;
 import com.antika.berk.ggeasylol.adapter.TavsiyeAdapter;
-import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.CounterObject;
 import com.antika.berk.ggeasylol.object.TavsiyeObject;
-import com.antika.berk.ggeasylol.object.UserObject;
-
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import it.sephiroth.android.library.picasso.Picasso;
 
@@ -112,13 +101,22 @@ public class CounterFragment extends Fragment {
             RiotApiHelper apiHelper=new RiotApiHelper();
 
             try {
-                String gelenData = getJsonFromServer("http://ggeasylol.com/api/get_counter.php?ID="+strings[0]);
-                String tavsiyeString=getJsonFromServer("https://"+apiHelper.regionToPlatform(getContext().getString(R.string.language))+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=enemytips&api_key="+apiHelper.apiKey);
-                JSONObject tavsiye1=new JSONObject(tavsiyeString);
-                JSONArray tavsiye2=tavsiye1.getJSONArray("enemytips");
-                for (int i=0;i<tavsiye2.length();i++){
-                    tavsiye.add(new TavsiyeObject(tavsiye2.getString(i)));
+                tavsiye.clear();
+                againsts.clear();
+                counters.clear();
+                String gelenData = apiHelper.readURL("http://ggeasylol.com/api/get_counter.php?ID="+strings[0]);
+                try {
+                    String data=apiHelper.readURL("http://ggeasylol.com/api/get_championtips.php?championID="+strings[0]+"&language="+ Locale.getDefault().getLanguage());
+                    JSONArray array=new JSONArray(data);
+                    for (int i=0;i<array.length();i++){
+                        JSONObject object=array.getJSONObject(i);
+                        tavsiye.add(new TavsiyeObject(object.getString("tip")));
+                    }
                 }
+                catch (Exception e){
+
+                }
+
 
                 JSONArray array=new JSONArray(gelenData);
                 JSONObject obje=array.getJSONObject(0);
@@ -131,29 +129,10 @@ public class CounterFragment extends Fragment {
             }
 
             catch (Exception e) {
-                try {
-                    String gelenData = getJsonFromServer("http://ggeasylol.com/api/get_counter.php?ID="+strings[0]);
-                    String tavsiyeString=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?locale="+getContext().getString(R.string.language2)+"&champData=enemytips&api_key="+apiHelper.apiKey);
+                return "HATA";
 
-                    JSONObject tavsiye1=new JSONObject(tavsiyeString);
-                    JSONArray tavsiye2=tavsiye1.getJSONArray("enemytips");
-                    for (int i=0;i<tavsiye2.length();i++){
-                        tavsiye.add(new TavsiyeObject(tavsiye2.getString(i)));
-                    }
 
-                    JSONArray array=new JSONArray(gelenData);
-                    JSONObject obje=array.getJSONObject(0);
-                    againsts.add(new CounterObject(obje.getString("against1"),obje.getString("against2"),obje.getString("against3"),
-                            obje.getString("against4"),obje.getString("against5")));
-                    counters.add(new CounterObject(obje.getString("counter1"),obje.getString("counter2"),obje.getString("counter3"),
-                            obje.getString("counter4"),obje.getString("counter5")));
-
-                    return "tamam";
-                }
-                catch (Exception e1){
-
-                }
-            }return "HATA";
+            }
         }
 
         @Override
@@ -196,23 +175,6 @@ public class CounterFragment extends Fragment {
 
 
         }
-    }//urlden Json çektim
-    public static String getJsonFromServer(String url) throws IOException {
-
-        BufferedReader inputStream = null;
-
-        URL jsonUrl = new URL(url);
-        URLConnection dc = jsonUrl.openConnection();
-
-        dc.setConnectTimeout(5000);
-        dc.setReadTimeout(5000);
-
-        inputStream = new BufferedReader(new InputStreamReader(
-                dc.getInputStream()));
-
-        // read the JSON results into a string
-        String jsonResult = inputStream.readLine();
-        return jsonResult;
     }
 
 

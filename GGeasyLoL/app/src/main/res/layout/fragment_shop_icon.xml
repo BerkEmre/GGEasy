@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.ShopIconFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <ImageView
+            android:id="@+id/imageView93"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/gold_icon" />
+
+        <TextView
+            android:id="@+id/textView98"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/icon" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/textView101"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/donate"
+                    android:textColor="@color/cast_expanded_controller_background_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView100"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/donate_exp"
+                    android:textColor="@color/cast_expanded_controller_background_color" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_dark"
+                android:text="@string/buy"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/icon_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout13"
+        android:layout_marginTop="3dp"
+        android:numColumns="4" />
+
+</RelativeLayout>

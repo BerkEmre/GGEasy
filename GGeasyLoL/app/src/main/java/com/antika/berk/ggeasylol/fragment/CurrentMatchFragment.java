@@ -24,12 +24,12 @@ import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.object.ChampionMasterObject;
 import com.antika.berk.ggeasylol.object.FriendsObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
+import com.antika.berk.ggeasylol.object.MasterObject;
 import com.antika.berk.ggeasylol.object.ParticipantListObject;
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.CurrentGameObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
-import com.antika.berk.ggeasylol.object.RuneObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 
@@ -46,7 +46,7 @@ public class CurrentMatchFragment extends Fragment {
     UserObject uo;
     List<FriendsObject> friend=new ArrayList<FriendsObject>();
     ListView fri_lv;
-
+    boolean pre=false;
     List<ParticipantListObject> participantsItems = new ArrayList<ParticipantListObject>();
     String summonerName;
 
@@ -114,7 +114,7 @@ public class CurrentMatchFragment extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
             SummonerObject so;
-            List<RuneObject> runeObjects=new ArrayList<RuneObject>();
+            List<MasterObject> masterObjects=new ArrayList<MasterObject>();
             so = raHelper.getSumonner(strings[0], strings[1]);
             if (so == null){return getString(R.string.check_summoner_name_or_region);}
             summonerName = so.getName();
@@ -125,15 +125,15 @@ public class CurrentMatchFragment extends Fragment {
                 ParticipantObject part = cgo.getParticipants().get(i);
                 List<LeagueObject> leagues = raHelper.getSummonerLeague(part.getSummonerId(), strings[1]);
                 LeagueObject lo;
-                runeObjects=part.getRuneObjects();
+                masterObjects=part.getMasterObjects();
                 try {lo = leagues.get(0);}catch (Exception e){lo = new LeagueObject("","","","",0,0,0,false,false,false,false,"",0,0,0);}
                 List<ChampionMasterObject>cmo=raHelper.getMasteries(part.getSummonerId(),strings[1],part.getChampionId());
                 ChampionMasterObject masterObject;
-                try {masterObject=cmo.get(0);}catch (Exception e){masterObject=new ChampionMasterObject(0,0,0,0,0,0,0,false);}
+                try {masterObject=cmo.get(0);}catch (Exception e){masterObject=new ChampionMasterObject(0,0,0,0,0,0,"",false);}
                 participantsItems.add(new ParticipantListObject(part.getSummonerName(),
                         part.getTeamId(), part.getChampionId(), part.getSpell1Id(),
                         part.getSpell2Id(), lo.getTier(), lo.getDivision(), lo.getLeaguePoints(),
-                        lo.getMiniSeriesprogress(),masterObject.getChampionPoints(),masterObject.getChampionLevel(),runeObjects
+                        lo.getMiniSeriesprogress(),masterObject.getChampionPoints(),masterObject.getChampionLevel(),masterObjects
                 ));
 
 
@@ -141,7 +141,7 @@ public class CurrentMatchFragment extends Fragment {
 
 
                 if (dbHelper.getChampion(Integer.toString(part.getChampionId())) == null)
-                    dbHelper.insertChampion(raHelper.getStaticChampion(part.getChampionId(), strings[1],getContext()));
+                    dbHelper.insertChampion(raHelper.getStaticChampion(part.getChampionId()));
 
                 if (dbHelper.getSpell(Integer.toString(part.getSpell1Id())) == null)
                     dbHelper.insertSpell(raHelper.getStaticSpell(part.getSpell1Id(), strings[1]));
@@ -157,10 +157,9 @@ public class CurrentMatchFragment extends Fragment {
             super.onPostExecute(s);
 
             if(s.equals("0"))
-            {
+            {   if (!pre){
                 CurrentMatchOpenFragment cmof = new CurrentMatchOpenFragment();
                 cmof.setParameters(cgo, summonerName, participantsItems);
-
                 CurrentMatchFragment.this.getFragmentManager().beginTransaction()
                         .replace(R.id.content_main_page, cmof, "")
                         .addToBackStack(null)
@@ -170,6 +169,21 @@ public class CurrentMatchFragment extends Fragment {
                 if (view1 != null) {
                     InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);}
+            }
+            else {
+                PreCuurentMacthFragment cmof = new PreCuurentMacthFragment();
+                cmof.setParameters(cgo, summonerName, participantsItems);
+                CurrentMatchFragment.this.getFragmentManager().beginTransaction()
+                        .replace(R.id.content_main_page, cmof, "")
+                        .addToBackStack(null)
+                        .commit();
+
+                View view1 = getActivity().getCurrentFocus();
+                if (view1 != null) {
+                    InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);}
+            }
+
             }
             else
             {
@@ -201,10 +215,11 @@ public class CurrentMatchFragment extends Fragment {
                     String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + uo.getEmail() + "&Sifre=" + uo.getSifre());
                     JSONArray array1 = new JSONArray(cevap);
                     JSONObject object = array1.getJSONObject(0);
-                    friend.add(new FriendsObject(object.getString("SihirdarAdi"),object.getString("SihirdarID"),object.getString("Region"),object.getString("Puan"),object.getString("icon"),object.getString("ID")));
+                    friend.add(new FriendsObject(object.getString("SihirdarAdi"),object.getString("SihirdarID"),object.getString("Region"),object.getString("Puan"),object.getString("logo"),object.getString("ID"),object.getString("frame")));
 
-
-
+                    String data=riotApiHelper.readURL("http://ggeasylol.com/api/check_pre.php?userID="+uo.getSummonerID()+"&region="+uo.getRegion());
+                    if(data.length()>10)
+                        pre=true;
                     String gelenData=riotApiHelper.readURL("http://ggeasylol.com/api/get_friends.php?sihirdarID="+uo.getSummonerID()+"&region="+uo.getRegion());
                     JSONObject obj=new JSONObject(gelenData);
                     JSONArray array=obj.getJSONArray("friends");
@@ -212,7 +227,7 @@ public class CurrentMatchFragment extends Fragment {
                         JSONObject obj1=array.getJSONObject(i);
                         JSONObject obj2=obj1.getJSONObject("other");
                         if(obj1.getString("status").equals("1"))
-                            friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
+                            friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("logo"),obj1.getString("ID"),obj2.getString("frame")));
 
                     }
 

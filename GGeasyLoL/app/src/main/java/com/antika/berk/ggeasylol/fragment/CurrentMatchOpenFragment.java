@@ -39,7 +39,7 @@ public class CurrentMatchOpenFragment extends Fragment {
     //*****************************************************************************************
 
     TextView tv_name, tv_gameMode;
-    ListView lv_participants,lv_participants1;
+    ListView lv_participants;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

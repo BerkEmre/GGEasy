@@ -8,8 +8,7 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="48dp"
-        android:layout_height="48dp"
-        app:srcCompat="@drawable/add_sumonner" />
+        android:layout_height="48dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -76,6 +76,7 @@ public class NotificationAdapter extends BaseAdapter {
         satirView = mInflater.inflate(R.layout.notification_list_item, null);
         FriendsObject friend = friendsObjects.get(position);
         ImageView summonerLogo = (ImageView) satirView.findViewById(R.id.imageView20);
+        ImageView frame = (ImageView) satirView.findViewById(R.id.imageView96);
         TextView summonerName = (TextView) satirView.findViewById(R.id.textView52);
         TextView puan = (TextView) satirView.findViewById(R.id.textView54);
         TextView region = (TextView) satirView.findViewById(R.id.textView53);
@@ -99,10 +100,10 @@ public class NotificationAdapter extends BaseAdapter {
         });
 
         RiotApiHelper riotApiHelper = new RiotApiHelper();
-        if ((riotApiHelper.iconSize - 1) < Integer.parseInt(friend.getIcon()))
-            Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(summonerLogo);
-        else
-            Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(friend.getIcon()))).transform(new CircleTransform()).into(summonerLogo);
+
+        Picasso.with(context).load("http://ggeasylol.com/api/icons/"+friend.getIcon()+".png").transform(new CircleTransform()).into(summonerLogo);
+        if (!friend.getFrame().equals("click"))
+            Picasso.with(context).load("http://ggeasylol.com/api/frames/"+friend.getFrame()+".png").into(frame);
 
 
         return satirView;

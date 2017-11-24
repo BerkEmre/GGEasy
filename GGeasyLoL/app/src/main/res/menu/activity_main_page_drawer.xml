@@ -16,6 +16,10 @@
             android:icon="@drawable/sumonners_icon"
             android:title="@string/summoner" />
         <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/history"
+            android:title="@string/match_history" />
+        <item
             android:id="@+id/nav_meydan"
             android:icon="@drawable/challenge_icon"
             android:title="@string/challenge" />
@@ -40,9 +44,10 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/champions_icon"
             android:title="@string/champions" />
-        <item android:title="@string/weekly_rotation"
-            android:id="@+id/nav_rotation"
-            android:icon="@drawable/rotation_icon" />
+        <item
+            android:id="@+id/magaza"
+            android:icon="@drawable/cart"
+            android:title="GGStore" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/lottery_icon"

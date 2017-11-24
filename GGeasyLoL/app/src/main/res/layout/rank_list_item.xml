@@ -11,19 +11,36 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:text="10001"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/icon" />
+    <RelativeLayout
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageView84"
+            android:layout_width="35dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -43,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="2dp"
-                android:text="SOLOTURK SF 260"
                 android:textColor="@color/cast_expanded_controller_background_color"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -54,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="2dp"
-                android:text="TR"
                 android:textAlignment="viewEnd"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="16sp"
@@ -83,7 +98,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="x 999999999"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/holo_purple"
                 android:textSize="16sp"

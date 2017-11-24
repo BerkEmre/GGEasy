@@ -90,24 +90,13 @@ public class ChallengeAdapter extends BaseAdapter {
 
 
         RiotApiHelper riotApiHelper=new RiotApiHelper();
-        if(challengeObject.getIcon2().length()>0) {
-            if ((riotApiHelper.iconSize - 1) < Integer.parseInt(challengeObject.getIcon1()))
-                Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user1);
-            else
-                Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_user1);
-            if ((riotApiHelper.iconSize - 1) < Integer.parseInt(challengeObject.getIcon2()))
-                Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user2);
-            else
-                Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon2()))).transform(new CircleTransform()).into(iv_user2);
-       }
-        else  {
-            if ((riotApiHelper.iconSize - 1) < Integer.parseInt(challengeObject.getIcon1()))
-                Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_user1);
-            else
-                Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_user1);
 
-                Picasso.with(context).load(R.drawable.unknown).transform(new CircleTransform()).into(iv_user2);
-        }
+
+        Picasso.with(context).load("http://ggeasylol.com/api/icons/"+challengeObject.getIcon1()+".png").transform(new CircleTransform()).into(iv_user1);
+        if (challengeObject.getSihirdarAdi2().length()>0)
+            Picasso.with(context).load("http://ggeasylol.com/api/icons/"+challengeObject.getIcon2()+".png").transform(new CircleTransform()).into(iv_user2);
+        else
+            Picasso.with(context).load(R.drawable.unknown).transform(new CircleTransform()).into(iv_user2);
 
         return satirView;
     }

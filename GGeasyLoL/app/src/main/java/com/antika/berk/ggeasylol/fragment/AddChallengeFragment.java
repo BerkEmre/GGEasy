@@ -134,7 +134,7 @@ public class AddChallengeFragment extends DialogFragment {
                     JSONObject obj1=array.getJSONObject(i);
                     JSONObject obj2=obj1.getJSONObject("other");
                     if(obj1.getString("status").equals("1"))
-                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
+                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("logo"),obj1.getString("ID"),obj2.getString("frame")));
                 }
 
 

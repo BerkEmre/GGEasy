@@ -41,7 +41,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/armor"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -52,7 +52,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/attack"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -63,7 +63,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/atack_range"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -74,7 +74,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/health"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -85,7 +85,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/health_regen"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -96,7 +96,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/movement_speed"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -107,7 +107,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/mana"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -118,7 +118,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/mana_regen"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -129,7 +129,7 @@
                         android:paddingTop="3dp"
                         android:text="@string/magic_resistance"
                         android:textColor="@android:color/background_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -148,7 +148,7 @@
                         android:layout_weight="1"
                         android:paddingTop="3dp"
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -159,7 +159,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -170,7 +170,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -181,7 +181,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -192,7 +192,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -203,7 +203,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -214,7 +214,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -225,7 +225,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -236,7 +236,7 @@
                         android:paddingTop="3dp"
                         android:text=""
                         android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

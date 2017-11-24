@@ -200,7 +200,7 @@
     <string name="draft">NORMAL (SIRALI SEÇİM)</string>
     <string name="ranked">DERECELİ</string>
     <string name="ranked_flex">DERECELİ (ESNEK)</string>
-    <string name="aram">SONSUZ UÇURUM</string>
+    <string name="aram">ARAM</string>
     <string name="normal_draft">NORMAL (SIRALI SEÇİM)</string>
     <string name="all_in_one">HEPİMİZ BİRİMİZ İÇİN</string>
     <string name="poro_king">PORO KRALI</string>
@@ -227,4 +227,12 @@
     <string name="enemy">Rakipte iken</string>
     <string name="ally">Müttefikler için öneriler</string>
     <string name="runes">Rünler</string>
+    <string name="masteries">Kabiliyetler</string>
+    <string name="insufficient">Yetersiz Puan</string>
+    <string name="buy">Satın Al</string>
+    <string name="donate">Bağış</string>
+    <string name="donate_exp">Reklamları kaldırmak ve bize destek vermek için bağışta bulunabilirsiniz. Ayrıca simgemizi de kullanabilirsiniz.</string>
+    <string name="match_history">Maç Geçmişi</string>
+    <string name="star_normal">İŞGAL</string>
+    <string name="against_bot">BOTLARA KARŞI</string>
 </resources>

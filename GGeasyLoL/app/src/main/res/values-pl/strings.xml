@@ -224,6 +224,14 @@
     <string name="enemy">Na przeciwnika</string>
     <string name="ally">Sugestie dla sojusznika</string>
     <string name="runes">Runy</string>
+    <string name="masteries">Specjalizacje</string>
+    <string name="insufficient">Niewystarczający wynik</string>
+    <string name="buy">Kupować</string>
+    <string name="donate">Darowizna</string>
+    <string name="donate_exp">Możesz ofiarować, aby usunąć reklamy i wspierać nas. Możesz też użyć naszej ikony.</string>
+    <string name="match_history">Historia meczów</string>
+    <string name="star_normal">Inwazja</string>
+    <string name="against_bot">Przeciw Bots</string>
 
 
 </resources>

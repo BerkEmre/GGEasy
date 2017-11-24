@@ -84,7 +84,7 @@ public class NotificationFragment extends DialogFragment {
                     JSONObject obj2=obj1.getJSONObject("user2");
                     JSONObject obj3=obj1.getJSONObject("user1");
                     if(obj1.getString("status").equals("0")  &&  obj2.getString("SihirdarID").equals(uo.getSummonerID()))
-                        friend.add(new FriendsObject(obj3.getString("SihirdarAdi"),obj3.getString("SihirdarID"),obj3.getString("Region"),obj3.getString("Puan"),obj3.getString("icon"),obj1.getString("ID")));
+                        friend.add(new FriendsObject(obj3.getString("SihirdarAdi"),obj3.getString("SihirdarID"),obj3.getString("Region"),obj3.getString("Puan"),obj3.getString("logo"),obj1.getString("ID"),obj1.getString("frame")));
 
 
 

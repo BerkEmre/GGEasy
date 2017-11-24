@@ -6,10 +6,10 @@ import java.util.List;
 public class ParticipantObject {
     private int spell1Id, spell2Id, profileIconId, championId, teamId, summonerId;
     private String summonerName;
-    private List<RuneObject>runeObjects;
+    private List<MasterObject>masterObjects;
     public ParticipantObject( int spell1Id,
                              int  spell2Id,int  profileIconId,int  championId,int  teamId,
-                             int  summonerId, String summonerName,List<RuneObject>runeObjects){
+                             int  summonerId, String summonerName,List<MasterObject>masterObjects){
         this.spell1Id = spell1Id;
         this.spell2Id = spell2Id;
         this.profileIconId = profileIconId;
@@ -17,7 +17,7 @@ public class ParticipantObject {
         this.teamId = teamId;
         this.summonerId = summonerId;
         this.summonerName = summonerName;
-        this.runeObjects = runeObjects;
+        this.masterObjects = masterObjects;
     }
 
     public int getSpell1Id(){return spell1Id;}
@@ -27,6 +27,7 @@ public class ParticipantObject {
     public int getTeamId(){return teamId;}
     public int getSummonerId(){return summonerId;}
     public String getSummonerName(){return summonerName;}
-    public List<RuneObject> getRuneObjects(){return runeObjects;}
+    public List<MasterObject> getMasterObjects(){return masterObjects;}
+
 
 }

@@ -11,7 +11,7 @@
         android:id="@+id/imageView7"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:srcCompat="@drawable/add_sumonner" />
+         />
 
     <TextView
         android:id="@+id/textView28"

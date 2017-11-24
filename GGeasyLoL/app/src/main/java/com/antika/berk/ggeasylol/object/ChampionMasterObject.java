@@ -2,12 +2,12 @@ package com.antika.berk.ggeasylol.object;
 
 public class ChampionMasterObject {
     private int championPoints=0, championPointsUntilNextLevel=0, championLevel=0, tokensEarned=0,
-            championId=0, championPointsSinceLastLevel=0, lastPlayTime=0;
+            championId=0, championPointsSinceLastLevel=0;
     private boolean chestGranted=false;
-
+    String lastPlayTime;
     public ChampionMasterObject(int championPoints, int championPointsUntilNextLevel, int championLevel,
                                 int tokensEarned, int championId, int championPointsSinceLastLevel,
-                                int lastPlayTime,boolean chestGranted){
+                                String lastPlayTime,boolean chestGranted){
         this.championPoints               = championPoints;
         this.championPointsUntilNextLevel = championPointsUntilNextLevel;
         this.championLevel                = championLevel;
@@ -24,7 +24,7 @@ public class ChampionMasterObject {
     public int       getTokensEarned()                {return tokensEarned;}
     public int      getChampionId()                   {return championId;}
     public int      getChampionPointsSinceLastLevel() {return championPointsSinceLastLevel;}
-    public int      getLastPlayTime()                 {return lastPlayTime;}
+    public String      getLastPlayTime()                 {return lastPlayTime;}
     public boolean  isChestGranted()                  {return chestGranted;}
 
 }

@@ -1,0 +1,1455 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp"
+    tools:context="com.antika.berk.ggeasylol.fragment.MasterFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs1" />
+
+                <TextView
+                    android:id="@+id/tv_hirs1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs2" />
+
+                <TextView
+                    android:id="@+id/tv_hirs2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs3" />
+
+                <ImageView
+                    android:id="@+id/frame3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs4"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs4" />
+
+                <ImageView
+                    android:id="@+id/frame4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs5"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs5" />
+
+                <ImageView
+                    android:id="@+id/frame5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs6"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs6" />
+
+                <TextView
+                    android:id="@+id/tv_hirs6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs7"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs7" />
+
+                <TextView
+                    android:id="@+id/tv_hirs7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs8"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs8" />
+
+                <ImageView
+                    android:id="@+id/frame8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs9"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs9" />
+
+                <ImageView
+                    android:id="@+id/frame9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs10"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs10" />
+
+                <ImageView
+                    android:id="@+id/frame10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs11"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs11" />
+
+                <TextView
+                    android:id="@+id/tv_hirs11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs12"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs12" />
+
+                <TextView
+                    android:id="@+id/tv_hirs12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs13"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs13" />
+
+                <ImageView
+                    android:id="@+id/frame13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs14"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs14" />
+
+                <ImageView
+                    android:id="@+id/frame14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/hirs15"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/hirs15" />
+
+                <ImageView
+                    android:id="@+id/frame15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framered" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/cast_expanded_controller_ad_label_background_color" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet1" />
+
+                <TextView
+                    android:id="@+id/tv_maharet1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet2" />
+
+                <TextView
+                    android:id="@+id/tv_maharet2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet3" />
+
+                <ImageView
+                    android:id="@+id/frm3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet4"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet4" />
+
+                <ImageView
+                    android:id="@+id/frm4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet5"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/maharet5" />
+
+                <ImageView
+                    android:id="@+id/frm5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet6"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet6" />
+
+                <TextView
+                    android:id="@+id/tv_maharet6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet7"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet7" />
+
+                <TextView
+                    android:id="@+id/tv_maharet7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet8"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet8" />
+
+                <ImageView
+                    android:id="@+id/frm8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet9"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet9" />
+
+                <ImageView
+                    android:id="@+id/frm9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet10"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet10" />
+
+                <ImageView
+                    android:id="@+id/frm10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet11"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet11" />
+
+                <TextView
+                    android:id="@+id/tv_maharet11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet12"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet12" />
+
+                <TextView
+                    android:id="@+id/tv_maharet12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet13"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet13" />
+
+                <ImageView
+                    android:id="@+id/frm13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet14"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet14" />
+
+                <ImageView
+                    android:id="@+id/frm14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/maharet15"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/maharet15" />
+
+                <ImageView
+                    android:id="@+id/frm15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/framemor" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/cast_expanded_controller_ad_label_background_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim1" />
+
+                <TextView
+                    android:id="@+id/tv_azim1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim2" />
+
+                <TextView
+                    android:id="@+id/tv_azim2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim3" />
+
+                <ImageView
+                    android:id="@+id/fra3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim4"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim4" />
+
+                <ImageView
+                    android:id="@+id/fra4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim5"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim5" />
+
+                <ImageView
+                    android:id="@+id/fra5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim6"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim6" />
+
+                <TextView
+                    android:id="@+id/tv_azim6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim7"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim7" />
+
+                <TextView
+                    android:id="@+id/tv_azim7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim8"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim8" />
+
+                <ImageView
+                    android:id="@+id/fra8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim9"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim9" />
+
+                <ImageView
+                    android:id="@+id/fra9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim10"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim10" />
+
+                <ImageView
+                    android:id="@+id/fra10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim11"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim11" />
+
+                <TextView
+                    android:id="@+id/tv_azim11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim12"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim12" />
+
+                <TextView
+                    android:id="@+id/tv_azim12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/cast_intro_overlay_background_color"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim13"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim13" />
+
+                <ImageView
+                    android:id="@+id/fra13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim14"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim14" />
+
+                <ImageView
+                    android:id="@+id/fra14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/azim15"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/azim15" />
+
+                <ImageView
+                    android:id="@+id/fra15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/frameblue" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

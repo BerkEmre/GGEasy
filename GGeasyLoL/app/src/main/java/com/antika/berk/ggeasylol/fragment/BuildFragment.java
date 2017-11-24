@@ -209,11 +209,11 @@ public class BuildFragment extends DialogFragment {
                     JSONArray array=new JSONArray(gelendata);
                     JSONObject object=array.getJSONObject(0);
                     bo.add(new BuildObject(object.getString("item1"),object.getString("item2"),object.getString("item3"),object.getString("item4"),object.getString("item5"),object.getString("item6"),
-                            object.getString("name"),object.getString("icon"),object.getString("puan"),object.getString("ID"),object.getString("championID"),object.getString("eksi")));
+                            object.getString("name"),object.getString("logo"),object.getString("puan"),object.getString("ID"),object.getString("championID"),object.getString("eksi"),object.getString("frame")));
 
                 }
                 catch (Exception e){
-                    bo.add(new BuildObject("","","","","","","","","","","",""));
+                    bo.add(new BuildObject("","","","","","","","","","","","",""));
 
                 }
                 try {
@@ -293,8 +293,6 @@ public class BuildFragment extends DialogFragment {
     }
     private class save extends AsyncTask<String, String, String> {
         BlankFragment progress;
-        String adi="";
-        String icon="";
 
         @Override
         protected void onPreExecute() {
@@ -310,15 +308,16 @@ public class BuildFragment extends DialogFragment {
             DBHelper dbHelper=new DBHelper(getContext());
             UserObject uo=dbHelper.getUser();
             RiotApiHelper riotApiHelper = new RiotApiHelper();
-            String veri=riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail="+uo.getEmail()+"&Sifre="+uo.getSifre());
             try{
-                JSONArray array1=new JSONArray(veri);
-                JSONObject object1=array1.getJSONObject(0);
-                adi=object1.getString("SihirdarAdi");
-                icon=object1.getString("icon");
-
-                String data=riotApiHelper.readURL("http://ggeasylol.com/api/add_build.php?userID="+uo.getSummonerID()+"&name="+adi+"&icon="+icon+"&region="+uo.getRegion()+"&championID="+championID[0]+"&item1="+items[0]+"&item2="+items[1]+"&item3="+items[2]+"&item4="+items[3]+"&item5="+items[4]+"&item6="+items[5]);
-
+                if(!items[0].equals(items[1])&&!items[0].equals(items[2])&&!items[0].equals(items[3])&&!items[0].equals(items[4])&&
+                        !items[0].equals(items[5])&&!items[1].equals(items[2])&&!items[1].equals(items[3])&&!items[1].equals(items[4])&&
+                        !items[1].equals(items[5])&& !items[2].equals(items[3])&&!items[2].equals(items[4])&&!items[2].equals(items[5])&&
+                        !items[3].equals(items[4])&&!items[3].equals(items[5])&&!items[4].equals(items[5])){
+                    riotApiHelper.readURL("http://ggeasylol.com/api/add_build.php?userID="+uo.getSummonerID()+"&region="+uo.getRegion()+"&championID="+championID[0]+"&item1="+items[0]+"&item2="+items[1]+"&item3="+items[2]+"&item4="+items[3]+"&item5="+items[4]+"&item6="+items[5]);
+                    return "0";
+                }
+                else
+                    return "1";
             }
             catch (Exception e){
 
@@ -332,7 +331,10 @@ public class BuildFragment extends DialogFragment {
         protected void onPostExecute(String results)
         {
             progress.dismiss();
-            ff.yenile();
+            if (results.equals("0"))
+                ff.yenile();
+            else
+                Toast.makeText(getContext(),getContext().getString(R.string.try_again),Toast.LENGTH_LONG).show();
 
         }
     }

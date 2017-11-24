@@ -15,7 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
+import com.antika.berk.ggeasylol.fragment.ProfilFragment;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+import com.antika.berk.ggeasylol.object.FourSkillObject;
+import com.antika.berk.ggeasylol.object.IconObject;
+import com.antika.berk.ggeasylol.object.ItemObject;
 import com.antika.berk.ggeasylol.object.RankObject;
 
 import java.util.List;
@@ -30,23 +34,27 @@ import it.sephiroth.android.library.picasso.Transformation;
 public class IconAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     Context context;
-    RiotApiHelper riotApiHelper=new RiotApiHelper();
+    private List<IconObject> iconObject;
+    int y;
 
-    public IconAdapter(Activity activity) {
+    public IconAdapter(Activity activity, List<IconObject> iconlar) {
         //XML'i alıp View'a çevirecek inflater'ı örnekleyelim
         mInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         //gösterilecek listeyi de alalım
-        context=activity.getApplicationContext();
+        iconObject = iconlar;
+        context = activity.getApplicationContext();
+
     }
+
     @Override
     public int getCount() {
-        return riotApiHelper.iconSize;
+        return iconObject.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return riotApiHelper.iconTable(position);
+        return iconObject.get(position);
     }
 
     @Override
@@ -54,18 +62,19 @@ public class IconAdapter extends BaseAdapter {
         return position;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View satirView;
         satirView = mInflater.inflate(R.layout.grid_icon_item, null);
-        ImageView icon=(ImageView)satirView.findViewById(R.id.iconn);
-        icon.setImageResource(riotApiHelper.iconTable(position));
+        IconObject icons = iconObject.get(position);
+
+        ImageView icon_iv=(ImageView)satirView.findViewById(R.id.iconn);
+
+        Picasso.with(context).load("http://ggeasylol.com/api/icons/"+icons.getName()+".png").into(icon_iv);
 
 
         return satirView;
     }
-
 
 
 }

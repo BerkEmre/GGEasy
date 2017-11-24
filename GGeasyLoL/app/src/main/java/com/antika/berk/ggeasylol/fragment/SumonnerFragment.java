@@ -46,6 +46,7 @@ public class SumonnerFragment extends Fragment  {
     UserObject uo;
     List<FriendsObject> friend=new ArrayList<FriendsObject>();
     ListView fri_lv;
+    boolean pre=false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sumonner, container, false);
@@ -115,7 +116,7 @@ public class SumonnerFragment extends Fragment  {
 
             for (int i = 0; i < masteries.size(); i++) {
                 if (dbHelper.getChampion(Integer.toString(masteries.get(i).getChampionId())) == null)
-                    dbHelper.insertChampion(raHelper.getStaticChampion(masteries.get(i).getChampionId(), values[1],getContext()));
+                    dbHelper.insertChampion(raHelper.getStaticChampion(masteries.get(i).getChampionId()));
             }
             return null;
         }
@@ -125,6 +126,7 @@ public class SumonnerFragment extends Fragment  {
         {
             if(results == null)
             {
+                if (!pre){
                 SummonerOpenFragment cmof = new SummonerOpenFragment();
                 cmof.setData(so, leagues, masteries);
 
@@ -137,6 +139,22 @@ public class SumonnerFragment extends Fragment  {
                 if (view1 != null) {
                     InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);}
+            }
+                else{
+                    PreSummonerFragment cmof = new PreSummonerFragment();
+                    cmof.setData(so, leagues, masteries);
+
+                    SumonnerFragment.this.getFragmentManager().beginTransaction()
+                            .replace(R.id.content_main_page, cmof, "")
+                            .addToBackStack(null)
+                            .commit();
+
+                    View view1 = getActivity().getCurrentFocus();
+                    if (view1 != null) {
+                        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);}
+                }
+
             }
             else
                 Toast.makeText(getContext(), getContext().getString(R.string.try_again), Toast.LENGTH_LONG).show();
@@ -166,7 +184,11 @@ public class SumonnerFragment extends Fragment  {
                 String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail=" + uo.getEmail() + "&Sifre=" + uo.getSifre());
                 JSONArray array1 = new JSONArray(cevap);
                 JSONObject object = array1.getJSONObject(0);
-                friend.add(new FriendsObject(object.getString("SihirdarAdi"),object.getString("SihirdarID"),object.getString("Region"),object.getString("Puan"),object.getString("icon"),object.getString("ID")));
+                friend.add(new FriendsObject(object.getString("SihirdarAdi"),object.getString("SihirdarID"),object.getString("Region"),object.getString("Puan"),object.getString("logo"),object.getString("ID"),object.getString("frame")));
+
+                String data=riotApiHelper.readURL("http://ggeasylol.com/api/check_pre.php?userID="+uo.getSummonerID()+"&region="+uo.getRegion());
+                if(data.length()>10)
+                    pre=true;
 
                 String gelenData=riotApiHelper.readURL("http://ggeasylol.com/api/get_friends.php?sihirdarID="+uo.getSummonerID()+"&region="+uo.getRegion());
                 JSONObject obj=new JSONObject(gelenData);
@@ -175,7 +197,7 @@ public class SumonnerFragment extends Fragment  {
                     JSONObject obj1=array.getJSONObject(i);
                     JSONObject obj2=obj1.getJSONObject("other");
                     if(obj1.getString("status").equals("1"))
-                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID")));
+                        friend.add(new FriendsObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("logo"),obj1.getString("ID"),obj2.getString("frame")));
 
 
 

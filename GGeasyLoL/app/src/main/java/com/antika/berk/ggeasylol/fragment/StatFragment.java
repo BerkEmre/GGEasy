@@ -15,6 +15,7 @@ import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionStatObject;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -75,54 +76,22 @@ public class StatFragment extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
             RiotApiHelper apiKey=new RiotApiHelper();
+            stat.clear();
             try {
                 //URL den gelen veri String olarak aldım
-                String gelenData=getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=stats&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
-                //String veriyi jsonObjeye çevirdim
-                String gelenData1=getJsonFromServer("https://"+apiKey.regionToPlatform(getContext().getString(R.string.language)).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=info&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
-
-                JSONObject obj1=new JSONObject(gelenData);
-                JSONObject obj11=new JSONObject(gelenData1);
-                //stats içine girdim
-                JSONObject obj2=obj1.getJSONObject("stats");
-                JSONObject obj3=obj11.getJSONObject("info");
-                stat.add(new ChampionStatObject(obj2.getDouble("armor"),obj2.getDouble("armorperlevel"),obj2.getDouble("attackdamage"),
-                        obj2.getDouble("attackdamageperlevel"),obj2.getDouble("attackrange"),obj2.getDouble("attackspeedoffset"),
-                        obj2.getDouble("attackspeedperlevel"),obj2.getDouble("crit"),obj2.getDouble("critperlevel"),
-                        obj2.getDouble("hp"),obj2.getDouble("hpperlevel"),obj2.getDouble("hpregen"),
-                        obj2.getDouble("hpregenperlevel"),obj2.getDouble("movespeed"),obj2.getDouble("mp"),
-                        obj2.getDouble("mpperlevel"),obj2.getDouble("mpregen"),obj2.getDouble("mpregenperlevel"),
-                        obj2.getDouble("spellblock"),obj2.getDouble("spellblockperlevel"),obj3.getInt("attack"),
-                        obj3.getInt("defense"),obj3.getInt("magic"),obj3.getInt("difficulty")));
+                String data=apiKey.readURL("http://ggeasylol.com/api/get_championstats.php?championID="+strings[0]);
+                JSONArray array=new JSONArray(data);
+                JSONObject object=array.getJSONObject(0);
+                stat.add(new ChampionStatObject(object.getString("armor"),object.getString("armorperlv"),object.getString("attackdamage"),object.getString("attackdamageperlv"),
+                        object.getString("attackrange"),object.getString("hp"),object.getString("hpperlv"),object.getString("hpregen"),object.getString("hpregenperlv"),
+                        object.getString("movespeed"),object.getString("mp"),object.getString("mpperlv"),object.getString("mpregen"),object.getString("mpregenperlv"),
+                        object.getString("spellblock"),object.getString("spellblockperlv"),Integer.parseInt(object.getString("attack")),Integer.parseInt(object.getString("defense")),
+                        Integer.parseInt(object.getString("magic")),Integer.parseInt(object.getString("difficulty"))));
                 return "tamam";
             }
             catch (Exception e) {
-               try {
-                   //URL den gelen veri String olarak aldım
-                   String gelenData=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=stats&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
-                   //String veriyi jsonObjeye çevirdim
-                   String gelenData1=getJsonFromServer("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+strings[0]+"?champData=info&locale="+getContext().getString(R.string.language2)+"&api_key="+apiKey.apiKey);
-
-                   JSONObject obj1=new JSONObject(gelenData);
-                   JSONObject obj11=new JSONObject(gelenData1);
-                   //stats içine girdim
-                   JSONObject obj2=obj1.getJSONObject("stats");
-                   JSONObject obj3=obj11.getJSONObject("info");
-                   stat.add(new ChampionStatObject(obj2.getDouble("armor"),obj2.getDouble("armorperlevel"),obj2.getDouble("attackdamage"),
-                           obj2.getDouble("attackdamageperlevel"),obj2.getDouble("attackrange"),obj2.getDouble("attackspeedoffset"),
-                           obj2.getDouble("attackspeedperlevel"),obj2.getDouble("crit"),obj2.getDouble("critperlevel"),
-                           obj2.getDouble("hp"),obj2.getDouble("hpperlevel"),obj2.getDouble("hpregen"),
-                           obj2.getDouble("hpregenperlevel"),obj2.getDouble("movespeed"),obj2.getDouble("mp"),
-                           obj2.getDouble("mpperlevel"),obj2.getDouble("mpregen"),obj2.getDouble("mpregenperlevel"),
-                           obj2.getDouble("spellblock"),obj2.getDouble("spellblockperlevel"),obj3.getInt("attack"),
-                           obj3.getInt("defense"),obj3.getInt("magic"),obj3.getInt("difficulty")));
-                   return "tamam";
-               }
-               catch (Exception e1){
-
-               }
-
-            } return "HATA";
+                return "HATA";
+            }
         }
 
         @Override
@@ -136,7 +105,7 @@ public class StatFragment extends Fragment {
                 hp.setText(""+stat.get(0).getHp()+"(+"+stat.get(0).getHpperlevel()+"/Lv)");
                 hpregen.setText(""+stat.get(0).getHpregen()+"(+"+stat.get(0).getHpregenperlevel()+"/Lv)");
                 movespeed.setText(""+stat.get(0).getMovespeed());
-                mp.setText(""+stat.get(0).getMp()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
+                mp.setText(""+stat.get(0).getMp()+"(+"+stat.get(0).getMpperlevel()+"/Lv)");
                 mpregen.setText(""+stat.get(0).getMpregen()+"(+"+stat.get(0).getMpregenperlevel()+"/Lv)");
                 spellblock.setText(""+stat.get(0).getSpellblock()+"(+"+stat.get(0).getSpellblockperlevel()+"/Lv)");
                 attack_p.setProgress(stat.get(0).getAttack());

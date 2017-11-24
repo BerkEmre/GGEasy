@@ -97,7 +97,7 @@ public class ChallengeChampionFragment extends Fragment {
                     JSONObject obj1=array.getJSONObject(i);
                     JSONObject obj2=obj1.getJSONObject("user1");
                     JSONObject obj3=obj1.getJSONObject("user2");
-                    challengeChampionObjects.add(new ChallengeChampionObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),obj1.getString("ID"),obj3.getString("SihirdarAdi"),obj3.getString("SihirdarID"),obj3.getString("Region"),obj3.getString("Puan"),obj3.getString("icon"),obj1.getString("status"),obj1.getString("championKey"),obj1.getString("winnerUser"),obj1.getString("championID")));
+                    challengeChampionObjects.add(new ChallengeChampionObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("logo"),obj1.getString("ID"),obj3.getString("SihirdarAdi"),obj3.getString("SihirdarID"),obj3.getString("Region"),obj3.getString("Puan"),obj3.getString("logo"),obj1.getString("status"),obj1.getString("championKey"),obj1.getString("winnerUser"),obj1.getString("championID")));
 
 
                 }

@@ -16,12 +16,13 @@ public class BuildObject {
     private String id;
     private String championID;
     private String eksi;
+    private String frame;
 
 
 
 
     public BuildObject(String item1,String item2,String item3,String item4,String item5,String item6,String name,String icon,String puan
-            ,String id,String championID,String eksi){
+            ,String id,String championID,String eksi,String frame){
         this.item1 =item1;
         this.item2 =item2;
         this.item3 =item3;
@@ -34,6 +35,7 @@ public class BuildObject {
         this.id =id;
         this.championID =championID;
         this.eksi =eksi;
+        this.frame =frame;
 
     }
     public String getItem1(){
@@ -72,6 +74,10 @@ public class BuildObject {
     public String getEksi(){
         return eksi;
     }
+    public String getFrame(){
+        return frame;
+    }
+
 
 
 

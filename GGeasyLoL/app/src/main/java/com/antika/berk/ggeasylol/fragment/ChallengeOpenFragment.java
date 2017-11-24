@@ -95,9 +95,9 @@ public class ChallengeOpenFragment extends android.support.v4.app.DialogFragment
         mission_ad.setText(missionHelper.gorev_txt.get(Integer.parseInt(challengeObject.getGorev())-1));
         mission_aciklama.setText(missionHelper.GorevAciklama.get(Integer.parseInt(challengeObject.getGorev())-1));
         mission_logo.setImageResource(missionHelper.gorev_img.get(Integer.parseInt(challengeObject.getGorev())-1));
-        Picasso.with(getContext()).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon1()))).transform(new CircleTransform()).into(iv_s1);
+        Picasso.with(getContext()).load("http://ggeasylol.com/api/icons/"+challengeObject.getIcon1()+".png").transform(new CircleTransform()).into(iv_s1);
         if(challengeObject.getIcon2().length()>0)
-            Picasso.with(getContext()).load(riotApiHelper.iconTable(Integer.parseInt(challengeObject.getIcon2()))).transform(new CircleTransform()).into(iv_s2);
+            Picasso.with(getContext()).load("http://ggeasylol.com/api/icons/"+challengeObject.getIcon2()+".png").transform(new CircleTransform()).into(iv_s2);
         else
             Picasso.with(getContext()).load(R.drawable.unknown).transform(new CircleTransform()).into(iv_s2);
 

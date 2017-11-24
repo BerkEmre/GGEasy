@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.PreCuurentMacthFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="4ntica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView16"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorAccent"
+        android:layout_margin="10dp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/secondary_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/cast_expanded_controller_background_color"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/participants_lv" />
+
+</LinearLayout>

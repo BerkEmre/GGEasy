@@ -96,7 +96,7 @@ public class RankFragment extends Fragment {
                     for(int i=0;i<array1.length();i++){
 
                         JSONObject obj2=array1.getJSONObject(i);
-                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),object.getString("Rank")));
+                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("logo"),object.getString("Rank"),obj2.getString("frame")));
                     }
 
                     if(Integer.parseInt(object.getString("Rank")) > 49){
@@ -104,7 +104,7 @@ public class RankFragment extends Fragment {
                         String data=riotApiHelper.readURL("http://ggeasylol.com/api/check_user.php?Mail="+uo.getEmail()+"&Sifre="+uo.getSifre());
                         JSONArray array=new JSONArray(data);
                         JSONObject ob=array.getJSONObject(0);
-                        rank.add(new RankObject(ob.getString("SihirdarAdi"),ob.getString("SihirdarID"),ob.getString("Region"),ob.getString("Puan"),ob.getString("icon"),object.getString("Rank")));
+                        rank.add(new RankObject(ob.getString("SihirdarAdi"),ob.getString("SihirdarID"),ob.getString("Region"),ob.getString("Puan"),ob.getString("logo"),object.getString("Rank"),ob.getString("frame")));
 
                     }
 
@@ -122,7 +122,7 @@ public class RankFragment extends Fragment {
                     for(int i=0;i<array1.length();i++){
 
                         JSONObject obj2=array1.getJSONObject(i);
-                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),""));
+                        rank.add(new RankObject(obj2.getString("SihirdarAdi"),obj2.getString("SihirdarID"),obj2.getString("Region"),obj2.getString("Puan"),obj2.getString("icon"),"",obj2.getString("frame")));
                     }
                 return "0";}
             }

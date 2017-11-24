@@ -56,14 +56,6 @@ public class SignupFragment extends Fragment {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         region.setAdapter(dataAdapter);
 
-        String []key ={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","r","s","q","t","u","v","y","z","0"
-        ,"1","2","3","4","5","6","7","8","9"};
-        String a="";
-        Random r = new Random();
-        for (int i=0;i<5;i++){
-            int k = (r.nextInt(key.length));
-            a=a+key[k];
-        }
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,9 +100,9 @@ public class SignupFragment extends Fragment {
                             return getContext().getString(R.string.registred);
                         else{
                             String cevap = riotApiHelper.readURL("http://ggeasylol.com/api/add_user.php?SihirdarAdi="+so.getName()+"&SihirdarID="+so.getId()+"&Mail="+params[2]+"&Region="+params[1]+"&Sifre="+params[3]);
-                            if(cevap.equals("Kayıt Başarılı"))
+                            if(cevap.length()<20)
                                 return getContext().getString(R.string.registration);
-                            else if(cevap.equals("Bu Mail Adresi Kullanılmaktadır"))
+                            else if(cevap.length()>20)
                                 return getContext().getString(R.string.used_before);
                             else
                                 return  getContext().getString(R.string.check_summoner_name_or_region);

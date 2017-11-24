@@ -14,7 +14,7 @@
         app:max="100"
         app:progress_background_color="@color/common_google_signin_btn_text_dark_disabled"
         app:progress_color="@color/common_google_signin_btn_text_light_default"
-        app:progress_width="50" />
+        app:progress_width="25" />
 
     <com.mobstac.circularimageprogress.CircularImageProgressView
         android:id="@+id/rozet_icon1"
@@ -26,7 +26,7 @@
         app:max="100"
         app:progress_background_color="@color/common_google_signin_btn_text_dark_disabled"
         app:progress_color="@color/accent"
-        app:progress_width="50" />
+        app:progress_width="25" />
 
     <com.mobstac.circularimageprogress.CircularImageProgressView
         android:id="@+id/rozet_icon2"
@@ -38,7 +38,7 @@
         app:max="100"
         app:progress_background_color="@color/common_google_signin_btn_text_dark_disabled"
         app:progress_color="@color/cast_intro_overlay_button_background_color"
-        app:progress_width="50" />
+        app:progress_width="25" />
 
     <ImageView
         android:id="@+id/imageView11"

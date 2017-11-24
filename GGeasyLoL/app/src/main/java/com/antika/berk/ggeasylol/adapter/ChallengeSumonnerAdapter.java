@@ -62,10 +62,7 @@ public class ChallengeSumonnerAdapter extends BaseAdapter {
         FriendsObject friendsObject = mKisiListesi.get(position);
         tv_text.setText(friendsObject.getSihirdarAdi());
         RiotApiHelper riotApiHelper=new RiotApiHelper();
-        if((riotApiHelper.iconSize-1)<Integer.parseInt(friendsObject.getIcon()))
-            Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(iv_image);
-        else
-            Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(friendsObject.getIcon()))).transform(new CircleTransform()).into(iv_image);
+        Picasso.with(context).load("http://ggeasylol.com/api/icons/"+friendsObject.getIcon()+".png").transform(new CircleTransform()).into(iv_image);
 
         return satirView;
     }

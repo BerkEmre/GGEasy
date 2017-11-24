@@ -2,24 +2,24 @@ package com.antika.berk.ggeasylol.object;
 
 
  public class ChampionStatObject {
- private double armor,armorperlevel,attackdamage,attackdamageperlevel,attackrange,attackspeedoffset,attackspeedperlevel,
- crit,critperlevel,hp,hpperlevel,hpregen,hpregenperlevel,movespeed,mp,mpperlevel,mpregen,mpregenperlevel,
- spellblock,spellblockperlevel;
+ private String armor,armorperlevel,attackdamage,attackdamageperlevel,attackrange,hp,hpperlevel,hpregen,hpregenperlevel,
+         movespeed,mp,mpperlevel,mpregen,mpregenperlevel,
+         spellblock,spellblockperlevel;
  private int attack,defense,magic,difficulty;
 
- public ChampionStatObject(double armor,double armorperlevel,double attackdamage,double attackdamageperlevel,double attackrange
- ,double attackspeedoffset,double attackspeedperlevel,double crit,double critperlevel,double hp,double hpperlevel,double hpregen
- ,double hpregenperlevel,double movespeed,double mp,double mpperlevel,double mpregen,double mpregenperlevel,double spellblock
- ,double spellblockperlevel,int attack,int defense,int magic,int difficulty){
+ public ChampionStatObject(String armor,String armorperlevel,String attackdamage,String attackdamageperlevel,String attackrange
+ ,String hp,String hpperlevel,String hpregen
+ ,String hpregenperlevel,String movespeed,String mp,String mpperlevel,String mpregen,String mpregenperlevel,String spellblock
+ ,String spellblockperlevel,int attack,int defense,int magic,int difficulty){
  this.armor=armor;
  this.armorperlevel=armorperlevel;
  this.attackdamage=attackdamage;
  this.attackdamageperlevel=attackdamageperlevel;
  this.attackrange=attackrange;
- this.attackspeedoffset=attackspeedoffset;
- this.attackspeedperlevel=attackspeedperlevel;
- this.crit=crit;
- this.critperlevel=critperlevel;
+
+
+
+
  this.hp=hp;
  this.hpperlevel=hpperlevel;
  this.hpregen=hpregen;
@@ -37,62 +37,52 @@ package com.antika.berk.ggeasylol.object;
  this.difficulty=difficulty;
 
  }
- public double getArmor(){
+ public String getArmor(){
  return armor;
  }
- public double getArmorperlevel(){
+ public String getArmorperlevel(){
  return armorperlevel;
  }
- public double getAttackdamage(){
+ public String getAttackdamage(){
  return attackdamage;
  }
- public double getAttackdamageperlevel(){
+ public String getAttackdamageperlevel(){
  return attackdamageperlevel;
  }
- public double getAttackrange(){
+ public String getAttackrange(){
  return attackrange;
  }
- public double getAttackspeedoffset(){return attackspeedoffset;}
- public double getAttackspeedperlevel(){
- return attackspeedperlevel;
- }
- public double getCrit(){
- return crit;
- }
- public double getCritperlevel(){
- return critperlevel;
- }
- public double getHp(){
+ public String getHp(){
  return hp;
  }
- public double getHpperlevel(){
+ public String getHpperlevel(){
  return hpperlevel;
  }
- public double getHpregen(){
+ public String getHpregen(){
  return hpregen;
  }
- public double getHpregenperlevel(){
+ public String getHpregenperlevel(){
  return hpregenperlevel;
  }
- public double getMovespeed(){
+ public String getMovespeed(){
  return movespeed;
  }
- public double getMp(){
+ public String getMp(){
  return mp;
  }
- public double getMpperlevel(){
+ public String getMpperlevel(){
  return mpperlevel;
  }
- public double getMpregen(){
+ public String getMpregen(){
  return mpregen;
  }
- public double getMpregenperlevel(){
+ public String getMpregenperlevel(){
  return mpregenperlevel;
  }
- public double getSpellblock(){
+ public String getSpellblock(){
  return spellblock;
  }
- public double getSpellblockperlevel(){
+ public String getSpellblockperlevel(){
  return spellblockperlevel;
  }
  public int getAttack(){

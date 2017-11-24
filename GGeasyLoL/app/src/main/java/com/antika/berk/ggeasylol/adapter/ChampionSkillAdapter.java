@@ -2,22 +2,16 @@ package com.antika.berk.ggeasylol.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.antika.berk.ggeasylol.R;
-import com.antika.berk.ggeasylol.fragment.ItemOpenFragment;
-import com.antika.berk.ggeasylol.fragment.VideoFragment;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ChampionObject;
 import com.antika.berk.ggeasylol.object.ChampionSkillObject;
-
 
 import java.util.List;
 
@@ -62,17 +56,17 @@ public class ChampionSkillAdapter extends BaseAdapter {
         final ChampionSkillObject skill = skillList.get(position);
         skillDescription.setText("\t"+skill.getDescription());
         if(position==0)
-            skillName.setText(skill.getSkillName()+" [P]");
-        else if(position==1)
             skillName.setText(skill.getSkillName()+" [Q]");
-        else if(position==2)
+        else if(position==1)
             skillName.setText(skill.getSkillName()+" [W]");
-        else if(position==3)
+        else if(position==2)
             skillName.setText(skill.getSkillName()+" [E]");
-        else
+        else if(position==3)
             skillName.setText(skill.getSkillName()+" [R]");
+        else
+            skillName.setText(skill.getSkillName()+" [P]");
 
-        if(position==0)
+        if(position==4)
             Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/passive/"+skill.getImage()).into(skillLogo);
         else
             Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/" + new RiotApiHelper().version + "/img/spell/"+skill.getImage()).into(skillLogo);

@@ -62,15 +62,15 @@ public class RankAdapter extends BaseAdapter {
         RankObject rank = rankObjects.get(position);
         LinearLayout background=(LinearLayout)satirView.findViewById(R.id.back);
         ImageView summonerLogo=(ImageView)satirView.findViewById(R.id.logo);
+        ImageView frame=(ImageView)satirView.findViewById(R.id.imageView84);
         TextView siralama=(TextView)satirView.findViewById(R.id.siralama);
         TextView sihirdarAdi=(TextView)satirView.findViewById(R.id.sihirdarAdi);
         TextView region=(TextView)satirView.findViewById(R.id.regi);
         TextView puan=(TextView)satirView.findViewById(R.id.puan);
-        RiotApiHelper riotApiHelper=new RiotApiHelper();
-        if((riotApiHelper.iconSize-1)<Integer.parseInt(rank.getIcon()))
-            Picasso.with(context).load(riotApiHelper.iconTable(0)).transform(new CircleTransform()).into(summonerLogo);
-        else
-            Picasso.with(context).load(riotApiHelper.iconTable(Integer.parseInt(rank.getIcon()))).transform(new CircleTransform()).into(summonerLogo);
+        Picasso.with(context).load("http://ggeasylol.com/api/icons/"+rank.getIcon()+".png").transform(new CircleTransform()).into(summonerLogo);
+        if (!rank.getFrame().equals("click"))
+            Picasso.with(context).load("http://ggeasylol.com/api/frames/"+rank.getFrame()+".png").into(frame);
+
         siralama.setText(""+(position+1));
         sihirdarAdi.setText(rank.getSihirdarAdi());
         region.setText(rank.getRegion());

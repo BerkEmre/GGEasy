@@ -9,10 +9,9 @@ android {
         minSdkVersion 15
         targetSdkVersion 24
         multiDexEnabled true
-        versionCode 49
-        versionName "4.3.8"
+        versionCode 60
+        versionName "4.5.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
         multiDexEnabled true
     }
     buildTypes {
@@ -42,6 +41,7 @@ dependencies {
     compile 'com.adcolony:sdk:3.0.7'
     compile 'com.mobstac.circularimageprogress:CircularImageProgressView:0.1.2'
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    compile 'com.anjlab.android.iab.v3:library:1.0.+'
     testCompile 'junit:junit:4.12'
 }
 

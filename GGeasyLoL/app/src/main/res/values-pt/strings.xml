@@ -224,6 +224,14 @@
     <string name="enemy">No oponente</string>
     <string name="ally">Sugestões para ally</string>
     <string name="runes">Runas</string>
+    <string name="masteries">Talentos</string>
+    <string name="insufficient">Pontuação insuficiente</string>
+    <string name="buy">Comprar</string>
+    <string name="donate">Doação</string>
+    <string name="donate_exp">Você pode doar para remover anúncios e nos apoiar. Além disso, você pode usar nosso ícone.</string>
+    <string name="match_history">Histórico de Jogos</string>
+    <string name="star_normal">Invasão</string>
+    <string name="against_bot">Contra bots</string>
 
 
 </resources>

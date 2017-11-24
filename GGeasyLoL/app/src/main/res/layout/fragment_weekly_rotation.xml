@@ -5,24 +5,6 @@
     tools:context="com.antika.berk.ggeasylol.fragment.ChampionFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:text="@string/weekly_rotation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView21"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorAccent" />
-
-    <View
-        android:layout_height="2dp"
-        android:layout_width="fill_parent"
-        android:background="@color/secondary_text"
-        android:layout_margin="10dp" />
-
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

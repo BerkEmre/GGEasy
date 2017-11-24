@@ -55,12 +55,12 @@ public class ChampionFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 et_arama.setText("");
                 ChampionServerObject data= adapter.getItem(position);
-                ChampionTabHost cmof = new ChampionTabHost();
-                cmof.setChampionServerObject(data);
-                ChampionFragment.this.getFragmentManager().beginTransaction()
-                        .replace(R.id.content_main_page, cmof)
-                        .addToBackStack(null)
-                        .commit();
+                String veri[]={""+data.getChampionID(),data.getChampionKey(),data.getChampionName()};
+                Bundle args1 = new Bundle();
+                args1.putStringArray("array", veri);
+                ChampionTabHost newFragment = new ChampionTabHost();
+                newFragment.setArguments(args1);
+                newFragment.show(getFragmentManager(), "TAG");
 
                 View view1 = getActivity().getCurrentFocus();
                 if (view1 != null) {

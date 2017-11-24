@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antika.berk.ggeasylol.fragment.MatchHistoryFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/match_history"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:textStyle="normal|bold" />
+
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="@color/secondary_text"
+        android:layout_margin="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_marginLeft="20dp"
+            android:textStyle="normal|bold"
+            android:textSize="18sp"
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_weight="1"
+            android:text="@string/summoner_name" />
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:paddingLeft="15dp"
+        android:hint="@string/summoner_name" />
+
+    <TextView
+        android:text="@string/region"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_marginLeft="20dp"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@color/primary_text"
+        android:fontFamily="sans-serif-condensed" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:text="@string/get_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:background="@color/colorAccent"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="18sp"
+        android:textColor="@color/cast_expanded_controller_progress_text_color"
+        android:textAllCaps="false"
+        android:layout_margin="10dp" />
+
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="@color/secondary_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview" />
+</LinearLayout>

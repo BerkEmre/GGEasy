@@ -74,7 +74,7 @@ public class BuildOpenFragment extends DialogFragment {
                     if (!object.getString("item1").equals("0") && !object.getString("item2").equals("0") && !object.getString("item3").equals("0")
                             && !object.getString("item4").equals("0") && !object.getString("item5").equals("0") && !object.getString("item6").equals("0"))
                         bo.add(new BuildObject(object.getString("item1"), object.getString("item2"), object.getString("item3"), object.getString("item4"), object.getString("item5"), object.getString("item6"),
-                                object.getString("name"), object.getString("icon"), object.getString("puan"), object.getString("ID"), object.getString("championID"), object.getString("eksi")));
+                                object.getString("name"), object.getString("logo"), object.getString("puan"), object.getString("ID"), object.getString("championID"), object.getString("eksi"), object.getString("frame")));
 
                 }
 

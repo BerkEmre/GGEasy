@@ -7,10 +7,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.multidex.MultiDex;
 import android.support.v4.app.FragmentManager;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,28 +19,24 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.fragment.ChallengeFragment;
 import com.antika.berk.ggeasylol.fragment.ChallengeTabHost;
-import com.antika.berk.ggeasylol.fragment.ChampionFragment;
-
+import com.antika.berk.ggeasylol.fragment.ChampionTabFragment;
 import com.antika.berk.ggeasylol.fragment.CurrentMatchFragment;
-import com.antika.berk.ggeasylol.fragment.FourSkillFragment;
 import com.antika.berk.ggeasylol.fragment.FourSkillTabHost;
-import com.antika.berk.ggeasylol.fragment.FourSkillsFragment;
 import com.antika.berk.ggeasylol.fragment.ItemFragment;
 import com.antika.berk.ggeasylol.fragment.LoginFragment;
 import com.antika.berk.ggeasylol.fragment.LotteriesFragment;
+import com.antika.berk.ggeasylol.fragment.MatchHistoryFragment;
 import com.antika.berk.ggeasylol.fragment.MissionTabsFragment;
 import com.antika.berk.ggeasylol.fragment.ProfileTabHost;
 import com.antika.berk.ggeasylol.fragment.RankFragment;
+import com.antika.berk.ggeasylol.fragment.ShopTabHost;
 import com.antika.berk.ggeasylol.fragment.SumonnerFragment;
-import com.antika.berk.ggeasylol.fragment.WeeklyRotationFragment;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
-import com.antika.berk.ggeasylol.object.ItemObject;
 import com.antika.berk.ggeasylol.object.UserObject;
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -195,6 +191,12 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             fm.beginTransaction().replace(
                     R.id.content_main_page,
                     cmf,"0").commit();
+        }else if (id == R.id.nav_history) {
+            MatchHistoryFragment cmf = new MatchHistoryFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
         }
         else if (id == R.id.nav_profile) {
             ProfileTabHost cmf = new ProfileTabHost();
@@ -221,7 +223,13 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     R.id.content_main_page,
                     cmf,"0").commit();
         } else if (id == R.id.nav_slideshow) {
-            ChampionFragment cmf = new ChampionFragment();
+            ChampionTabFragment cmf = new ChampionTabFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(
+                    R.id.content_main_page,
+                    cmf,"0").commit();
+        }else if (id == R.id.magaza) {
+            ShopTabHost cmf = new ShopTabHost();
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(
                     R.id.content_main_page,
@@ -247,12 +255,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             } catch (android.content.ActivityNotFoundException anfe) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
             }
-        } else if (id==R.id.nav_rotation) {
-            WeeklyRotationFragment cmf = new WeeklyRotationFragment();
-            FragmentManager fm = getSupportFragmentManager();
-            fm.beginTransaction().replace(
-                    R.id.content_main_page,
-                    cmf,"0").commit();
         } else if (id==R.id.facebook) {
             Intent intent;
             try {

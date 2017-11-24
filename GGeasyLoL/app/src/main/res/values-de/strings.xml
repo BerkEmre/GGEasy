@@ -225,6 +225,14 @@
     <string name="enemy">Auf Gegner</string>
     <string name="ally">Vorschläge für Verbündeten</string>
     <string name="runes">Runen</string>
+    <string name="masteries">Meisterschaft</string>
+    <string name="insufficient">Unzureichende Punktzahl</string>
+    <string name="buy">Kaufen</string>
+    <string name="donate">Spende</string>
+    <string name="donate_exp">Sie können spenden, um Anzeigen zu entfernen und uns zu unterstützen. Auch können Sie unser Symbol benutzen.</string>
+    <string name="match_history">Spielverlauf</string>
+    <string name="star_normal">INVASION</string>
+    <string name="against_bot">Gegen Bots</string>
 
 
 </resources>

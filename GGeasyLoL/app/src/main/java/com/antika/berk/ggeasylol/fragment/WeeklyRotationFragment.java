@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.ChampionServerAdapter;
-import com.antika.berk.ggeasylol.adapter.ChampionsAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
 import com.antika.berk.ggeasylol.object.ChampionObject;
@@ -37,6 +36,9 @@ public class WeeklyRotationFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_weekly_rotation, container, false);
         gridView=(GridView) view.findViewById(R.id.grid_view);
+
+        Toast.makeText(getContext(),getContext().getString(R.string.weekly_rotation),Toast.LENGTH_LONG).show();
+
         new getData().execute();
 
         view.setFocusableInTouchMode(true);
@@ -57,12 +59,12 @@ public class WeeklyRotationFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ChampionServerObject data= adapter.getItem(position);
-                ChampionTabHost cmof = new ChampionTabHost();
-                cmof.setChampionServerObject(data);
-                WeeklyRotationFragment.this.getFragmentManager().beginTransaction()
-                        .replace(R.id.content_main_page, cmof)
-                        .addToBackStack(null)
-                        .commit();
+                String veri[]={""+data.getChampionID(),data.getChampionKey(),data.getChampionName()};
+                Bundle args1 = new Bundle();
+                args1.putStringArray("array", veri);
+                ChampionTabHost newFragment = new ChampionTabHost();
+                newFragment.setArguments(args1);
+                newFragment.show(getFragmentManager(), "TAG");
             }
         });
         return view;
@@ -87,7 +89,7 @@ public class WeeklyRotationFragment extends Fragment {
                 List<Integer>freeToPlay=riotApiHelper.getChampionFreeToPlay(getString(R.string.language));
                 for(int i=0;i<freeToPlay.size();i++){
                     if (dbHelper.getChampion(freeToPlay.get(i).toString()) == null)
-                        dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString()), getString(R.string.language),getContext()));
+                        dbHelper.insertChampion(riotApiHelper.getStaticChampion(Integer.parseInt(freeToPlay.get(i).toString())));
 
                     championObjects.add(dbHelper.getChampion(freeToPlay.get(i).toString()));
                 }

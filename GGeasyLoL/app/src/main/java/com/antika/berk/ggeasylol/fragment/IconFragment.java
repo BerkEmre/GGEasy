@@ -11,12 +11,21 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.antika.berk.ggeasylol.R;
 import com.antika.berk.ggeasylol.adapter.IconAdapter;
 import com.antika.berk.ggeasylol.helper.DBHelper;
 import com.antika.berk.ggeasylol.helper.RiotApiHelper;
+import com.antika.berk.ggeasylol.object.IconObject;
 import com.antika.berk.ggeasylol.object.UserObject;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class IconFragment extends DialogFragment {
@@ -28,7 +37,7 @@ public class IconFragment extends DialogFragment {
         this.pf=pf;
     }
 
-
+    List<IconObject> iconObjectList=new ArrayList<IconObject>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,14 +49,13 @@ public class IconFragment extends DialogFragment {
 
 
 
-        adapter=new IconAdapter(getActivity());
-        icons.setAdapter(adapter);
+        new getData1().execute();
 
 
         icons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                new getData().execute(""+position);
+                new getData().execute(iconObjectList.get(position).getName());
 
             }
         });
@@ -71,15 +79,56 @@ public class IconFragment extends DialogFragment {
             RiotApiHelper riotApiHelper = new RiotApiHelper();
             DBHelper dbHelper=new DBHelper(getContext());
             uo=dbHelper.getUser();
-            riotApiHelper.readURL("http://ggeasylol.com/api/set_icon.php?mail="+uo.getEmail()+"&icon="+params[0]);
+            riotApiHelper.readURL("http://ggeasylol.com/api/set_logo.php?mail="+uo.getEmail()+"&icon="+params[0]);
+            return params[0];
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            pf.profile(s);
+            progress.dismiss();
+            getDialog().dismiss();
+        }
+    }
+    private class getData1 extends AsyncTask<String,String,String> {
+        BlankFragment progress;
+
+        @Override
+        protected void onPreExecute() {
+            FragmentManager fm = getFragmentManager();
+            progress = new BlankFragment();
+            progress.show(fm, "");
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            RiotApiHelper riotApiHelper = new RiotApiHelper();
+            DBHelper dbHelper=new DBHelper(getContext());
+
+            uo=dbHelper.getUser();
+
+            try {
+                String data=riotApiHelper.readURL("http://ggeasylol.com/api/get_icons.php?ID="+uo.getSummonerID()+"&region="+uo.getRegion());
+                JSONObject object=new JSONObject(data);
+                JSONArray array=object.getJSONArray("userIcons");
+                for (int i=0;i<array.length();i++){
+                    JSONObject object1=array.getJSONObject(i);
+                    iconObjectList.add(new IconObject(object1.getString("iconID"),object1.getString("iconName"),""));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
             return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
-            pf.yenile();
             progress.dismiss();
-            getDialog().dismiss();
+            adapter=new IconAdapter(getActivity(),iconObjectList);
+            icons.setAdapter(adapter);
+
         }
     }
 

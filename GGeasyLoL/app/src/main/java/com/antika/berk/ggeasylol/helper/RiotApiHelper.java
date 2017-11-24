@@ -13,18 +13,19 @@ import com.antika.berk.ggeasylol.object.ItemObject;
 import com.antika.berk.ggeasylol.object.LeagueObject;
 import com.antika.berk.ggeasylol.object.MasterObject;
 import com.antika.berk.ggeasylol.object.MasteriesPageObject;
+import com.antika.berk.ggeasylol.object.MatchHistoryObject;
 import com.antika.berk.ggeasylol.object.MatchIdObject;
 import com.antika.berk.ggeasylol.object.MissionObject;
 import com.antika.berk.ggeasylol.object.MissionTeamObject;
 import com.antika.berk.ggeasylol.object.ParticipantObject;
 import com.antika.berk.ggeasylol.object.RozetObject;
-import com.antika.berk.ggeasylol.object.RuneObject;
 import com.antika.berk.ggeasylol.object.SpellObject;
 import com.antika.berk.ggeasylol.object.SummonerObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -36,8 +37,7 @@ import java.util.List;
 
 public class RiotApiHelper {
     public String apiKey   = "RGAPI-2df266e9-b08a-46d5-8367-b20243ffbf58";
-    public String version  = "7.14.1";
-    public int iconSize    =  34;
+    public String version  = "7.18.1";
     //Get summoner object with summoner name
     //V-3 YAPILDI
     public SummonerObject getSumonner(String summonerName, String region) {
@@ -117,12 +117,12 @@ public class RiotApiHelper {
             JSONObject master = new JSONObject(data);
             masterObjects.add(new ChampionMasterObject(master.getInt("championPoints"), master.getInt("championPointsUntilNextLevel"), master.getInt("championLevel"),
                     master.getInt("tokensEarned"), master.getInt("championId"), master.getInt("championPointsSinceLastLevel"),
-                    master.getInt("lastPlayTime"), master.getBoolean("chestGranted")));
+                    master.getString("lastPlayTime"), master.getBoolean("chestGranted")));
         }
         catch (Exception e){
             masterObjects.add(new ChampionMasterObject(0, 0, 0,
                     0, 0, 0,
-                    0, false));
+                    "", false));
         }
 
         return masterObjects;
@@ -141,17 +141,17 @@ public class RiotApiHelper {
             obje1 = new JSONObject(JSONString);
             array1 = obje1.getJSONArray("participants");
             for (int i = 0; i < array1.length(); i++){
-                List<RuneObject> runeObjects = new ArrayList<RuneObject>();
-                runeObjects.clear();
+                List<MasterObject> masterObjects = new ArrayList<MasterObject>();
+                masterObjects.clear();
                 obje2 = array1.getJSONObject(i);
                 JSONArray array=obje2.getJSONArray("runes");
-                for(int j=0;j<array.length();j++){
-                    JSONObject object=array.getJSONObject(j);
-                    runeObjects.add(new RuneObject(object.getInt("count"),object.getInt("runeId")));
+                JSONArray array2=obje2.getJSONArray("masteries");
+                for(int j=0;j<array2.length();j++){
+                    JSONObject object=array2.getJSONObject(j);
+                    masterObjects.add(new MasterObject(object.getInt("masteryId"),object.getInt("rank")));
                 }
-
                 participants.add(new ParticipantObject(obje2.getInt("spell1Id"), obje2.getInt("spell2Id"), obje2.getInt("profileIconId"),
-                        obje2.getInt("championId"), obje2.getInt("teamId"), obje2.getInt("summonerId"), obje2.getString("summonerName"),runeObjects));
+                        obje2.getInt("championId"), obje2.getInt("teamId"), obje2.getInt("summonerId"), obje2.getString("summonerName"),masterObjects));
             }
             cgo = new CurrentGameObject(obje1.getInt("gameLength"),
                     obje1.getInt("mapId"),
@@ -188,8 +188,8 @@ public class RiotApiHelper {
                 catch (Exception e){miniSerieslosses = 0;}
                 try{miniSerieswins = array1.getJSONObject(i).getJSONObject("miniSeries").getInt("wins");}
                 catch (Exception e){miniSerieswins = 0;}
-
-                leagues.add(new LeagueObject(array1.getJSONObject(i).getString("queueType"),
+                if (array1.getJSONObject(i).getString("queueType").equals("RANKED_SOLO_5x5"))
+                    leagues.add(new LeagueObject(array1.getJSONObject(i).getString("queueType"),
                         array1.getJSONObject(i).getString("leagueName"),
                         array1.getJSONObject(i).getString("tier"),
                         array1.getJSONObject(i).getString("rank"),
@@ -206,7 +206,9 @@ public class RiotApiHelper {
                         miniSerieswins));
             }
             return leagues;
-        }catch (Exception e){Log.e("Hata", e.toString());}
+        }catch (Exception e){
+            leagues.add(new LeagueObject("", "", "UNRANKED", "", 0, 0, 0, false, false, false, false, "", 0, 0, 0));
+        }
         return null;
     }
     //get items
@@ -260,31 +262,25 @@ public class RiotApiHelper {
     }
     //get champion object from id
     //V-3 YAPILDI
-    public ChampionObject getStaticChampion(int championID, String region,Context context){
+    public ChampionObject getStaticChampion(int championID){
         ChampionObject co;
-        JSONObject obje1;
+        JSONArray obje1;
 
         try{
-            String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/static-data/v3/champions/"+championID+"?locale="+context.getString(R.string.language2)+"&api_key=" + apiKey);
+            String JSONString = readURL("http://ggeasylol.com/api/get_champion.php?ID="+championID);
 
-            obje1 = new JSONObject(JSONString);
-            co = new ChampionObject(obje1.getString("key"), obje1.getString("name"),
-                    obje1.getString("title"), Integer.toString(obje1.getInt("id")));
+            obje1 = new JSONArray(JSONString);
+
+                JSONObject object=obje1.getJSONObject(0);
+                co = new ChampionObject(object.getString("championKey"), object.getString("championName"),
+                        "", object.getString("championID"));
+
+
 
             return co;
         }
         catch (Exception e){
-            try {
-                String JSONString = readURL("https://br1.api.riotgames.com/lol/static-data/v3/champions/"+championID+"?locale="+context.getString(R.string.language2)+"&api_key=" + apiKey);
-                obje1=new JSONObject(JSONString);
-                co = new ChampionObject(obje1.getString("key"), obje1.getString("name"),
-                        obje1.getString("title"), Integer.toString(obje1.getInt("id")));
 
-                return co;
-            }
-            catch (Exception e1){
-
-            }
         }
         return null;
     }
@@ -292,23 +288,17 @@ public class RiotApiHelper {
     //V-3 YAPILDI
     public SpellObject getStaticSpell(int spellID, String region){
         SpellObject so;
-        JSONObject obje1;
+
 
         try{
-            String JSONString = readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/static-data/v3/summoner-spells/"+spellID+"?api_key=" + apiKey);
-            obje1 = new JSONObject(JSONString);
-            so = new SpellObject(Integer.toString(obje1.getInt("id")), obje1.getString("key"), obje1.getString("name"));
+            String JSONString = readURL("http://ggeasylol.com/api/get_spell.php?spellID="+spellID);
+            JSONArray array=new JSONArray(JSONString);
+            JSONObject object=array.getJSONObject(0);
+            so = new SpellObject(Integer.toString(object.getInt("spellID")), object.getString("spellKey"), object.getString("spellName"));
 
             return so;
         }catch (Exception e){
-            try {
-                String JSONString = readURL("https://br1.api.riotgames.com/lol/static-data/v3/summoner-spells/"+spellID+"?api_key=" + apiKey);
-                obje1 = new JSONObject(JSONString);
-                so = new SpellObject(Integer.toString(obje1.getInt("id")), obje1.getString("key"), obje1.getString("name"));
-                return so;
-            }catch (Exception e1){
 
-            }
         }
         return null;
 
@@ -334,7 +324,7 @@ public class RiotApiHelper {
                         obje1.getInt("tokensEarned"),
                         obje1.getInt("championId"),
                         obje1.getInt("championPointsSinceLastLevel"),
-                        obje1.getInt("lastPlayTime"),
+                        obje1.getString("lastPlayTime"),
                         obje1.getBoolean("chestGranted")));
             }
             return masteries;
@@ -530,7 +520,7 @@ public class RiotApiHelper {
     }
     //get Summoner Stats
     //V-3 YAPILDI
-    public MissionObject getMatch(String matchID, String region, int sihirdarID){
+    public MissionObject getMatch(String  matchID, String region, int sihirdarID){
         String data=readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/match/v3/matches/"+matchID+"?api_key="+apiKey);
         MissionObject missionObject;
         try {
@@ -572,6 +562,45 @@ public class RiotApiHelper {
 
             return missionObject;
         }
+    }
+    public List<MatchHistoryObject> getHistory(List<MatchIdObject> matchID, String region, int sihirdarID){
+        List<MatchHistoryObject> historyObject=new ArrayList<MatchHistoryObject>();
+        for (int j=0;j<matchID.size();j++){
+            String data=readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/match/v3/matches/"+matchID.get(j).getMatchID()+"?api_key="+apiKey);
+
+            try {
+                JSONObject obj1=new JSONObject(data);
+                JSONArray array=obj1.getJSONArray("participantIdentities");
+                int y=0;
+                for (int i=0;i<array.length();i++){
+                    JSONObject object=array.getJSONObject(i);
+                    JSONObject object1=object.getJSONObject("player");
+                    int id=object1.getInt("summonerId");
+                    if(id==sihirdarID){
+                        y=i;
+                        break;
+                    }
+                }
+                JSONArray array1=obj1.getJSONArray("participants");
+                JSONObject obj2=array1.getJSONObject(y);
+                JSONObject obj3=obj2.getJSONObject("stats");
+
+                try {
+
+                    historyObject.add(new MatchHistoryObject(obj3.getBoolean("win"),obj3.getInt("champLevel"),obj3.getInt("kills"),obj3.getInt("deaths"),obj3.getInt("assists"),
+                            obj2.getInt("championId"),obj1.getInt("queueId"),obj2.getInt("spell1Id"),obj2.getInt("spell2Id"),obj3.getInt("totalMinionsKilled"),obj3.getInt("neutralMinionsKilled"),obj3.getInt("goldEarned"),
+                            obj3.getInt("item0"),obj3.getInt("item1"),obj3.getInt("item2"),obj3.getInt("item3"),obj3.getInt("item4"),obj3.getInt("item5"),obj3.getInt("item6")));
+                }
+                catch (Exception e){
+                }
+
+            }
+            catch (JSONException e) {
+
+            }
+        }
+
+        return historyObject;
     }
     //get PUAN
     public String getPuan(String emmail,String sifre) {
@@ -625,6 +654,26 @@ public class RiotApiHelper {
             return null;
         }
     }
+    public List<MatchIdObject> getMatchIDs(int accountID, String region){
+        String data=readURL("https://"+regionToPlatform(region).toLowerCase()+".api.riotgames.com/lol/match/v3/matchlists/by-account/"+accountID+"/recent?api_key="+apiKey);
+        List<MatchIdObject> matchIdObject=new ArrayList<MatchIdObject>();
+
+        try {
+            JSONObject object=new JSONObject(data);
+            JSONArray array=object.getJSONArray("matches");
+            for (int i=0;i<array.length();i++){
+                JSONObject object1=array.getJSONObject(i);
+                matchIdObject.add(new MatchIdObject(object1.getString("gameId")));
+            }
+
+
+
+            return matchIdObject;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     //set Region Platform
     public String regionToPlatform(String region) {
         switch (region)
@@ -644,19 +693,7 @@ public class RiotApiHelper {
         }
         return null;
     }
-    //set İcon
-    public int iconTable(int y) {
 
-        int[]x={R.drawable.icon0,R.drawable.icon1,R.drawable.icon2,R.drawable.icon3,R.drawable.icon4,R.drawable.icon5,
-                R.drawable.icon6,R.drawable.icon7,R.drawable.icon8,R.drawable.icon9,R.drawable.icon10,R.drawable.icon11,R.drawable.icon12,
-                R.drawable.icon13,R.drawable.icon14,R.drawable.icon15,R.drawable.icon16,R.drawable.icon17,R.drawable.icon18,R.drawable.icon19,R.drawable.icon20,
-                R.drawable.icon21,R.drawable.icon22,R.drawable.icon23,R.drawable.icon24,R.drawable.icon25,R.drawable.icon26,R.drawable.icon27,
-                R.drawable.icon28,R.drawable.icon29,R.drawable.icon30,R.drawable.icon31,R.drawable.icon32,R.drawable.icon33,
-
-        };
-
-        return x[y];
-    }
 
 
 
